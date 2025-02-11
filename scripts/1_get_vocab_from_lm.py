@@ -5,8 +5,65 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import urllib.request
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options as FFOptions
+from selenium.webdriver.firefox.service import Service
 
-from sams_python_utils.modules.scrapers.selenium_utils import get_standard_selenium_driver
+
+def get_standard_selenium_driver():
+    options = FFOptions()
+    service = Service(executable_path='/snap/bin/geckodriver')
+    driver = webdriver.Firefox(service=service, options=options)
+    return driver
+
+
+# Function to parse Netscape cookies.txt format
+def load_cookies_from_file(filepath):
+    cookies = []
+    with open(filepath, "r") as file:
+        for line in file:
+            if not line.startswith("#") and line.strip():  # Skip comments and blank lines
+                parts = line.strip().split("\t")
+                cookie = {
+                    "domain": parts[0],
+                    "path": parts[2],
+                    "secure": parts[3] == "TRUE",  # Convert 'TRUE'/'FALSE' to boolean
+                    "expires": int(parts[4]),  # Expiry as an integer timestamp
+                    "name": parts[5],
+                    "value": parts[6]
+                }
+                cookies.append(cookie)
+    return cookies
+
+
+def add_cookies_from_file_to_driver(driver, filepath):
+    """
+    Load cookies from a Netscape-style cookies.txt file and add them to a Selenium browser session.
+
+    Args:
+        driver (selenium.webdriver): The Selenium WebDriver instance.
+        filepath (str): Path to the cookies.txt file.
+    """
+    with open(filepath, "r") as file:
+        for line in file:
+            if not line.startswith("#") and line.strip():  # Skip comments and blank lines
+                parts = line.strip().split("\t")
+                cookie = {
+                    "domain": parts[0],
+                    "path": parts[2],
+                    "secure": parts[3] == "TRUE",  # Convert 'TRUE'/'FALSE' to boolean
+                    "name": parts[5],
+                    "value": parts[6]
+                }
+                # Selenium expects 'expires' as an integer if it exists
+                if parts[4].isdigit():
+                    cookie["expires"] = int(parts[4])
+
+                try:
+                    driver.add_cookie(cookie)
+                except Exception as e:
+                    print(f"Could not add cookie {cookie}: {e}")
+
 
 IN_FILE="/home/b/GITHUB/vary-video-vocab/scripts/data/jNQXAC9IVRw.txt"
 OUT_PATH="/home/b/GITHUB/vary-video-vocab/scripts/data/vocab/jNQXAC9IVRw/"
@@ -68,5 +125,5 @@ if __name__ == "__main__":
     # get wordlist, run
     with open(IN_FILE, "r") as file:
         word_list = file.read().splitlines()
-    download_vocab_pages_from_lisaanmasry(word_list, OUT_PATH, kill_after_first=True)
+    download_vocab_pages_from_lisaanmasry(word_list, OUT_PATH, kill_after_first=False)
 

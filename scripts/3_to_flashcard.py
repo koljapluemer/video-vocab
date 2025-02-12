@@ -57,7 +57,7 @@ q:
                 for line in markdown_content.splitlines():
                     flashcard_content += f'\n> {line}' 
 
-            flashcard_content += '\n [[lingq-3]]'
+            flashcard_content += '\n>\n> [[moana song test]]'
             # Path to save the generated flashcard
             flashcard_file_path = os.path.join(flashcard_out_directory, true_name + '.md')
 

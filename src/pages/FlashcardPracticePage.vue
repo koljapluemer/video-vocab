@@ -3,38 +3,45 @@
         <h1 class="text-3xl font-bold mb-4">
             Practice Vocabulary for Segment {{ segmentIndex + 1 }}
         </h1>
-        <div v-if="flashcard" class="card shadow-lg p-4 mb-4">
-            <p class="text-4xl font-bold mb-2">{{ flashcard.word }}</p>
-            <div v-if="showAnswer">
-                <p class="text-xl">{{ flashcard.transliteration }}</p>
-                <p class="text-lg text-gray-500">{{ flashcard.translation }}</p>
+        <div class="">
+            <div class="mb-10">
+                <button class="btn btn-sm" @click="skipVocabulary">Hide this word</button>
             </div>
-            <div class="mt-4">
-                <button v-if="!showAnswer" @click="revealAnswer" class="btn btn-primary mr-2">
-                    Reveal
-                </button>
-                <div v-else class="btn-group flex flex-row gap-2">
-                    <!-- Mapping quality: 0 = Again, 1 = Hard, 2 = Good, 3 = Easy -->
-                    <button @click="handleRating(0)" class="btn btn-warning">
-                        Again
-                    </button>
-                    <button @click="handleRating(1)" class="btn btn-secondary">
-                        Hard
-                    </button>
-                    <button @click="handleRating(2)" class="btn btn-success">
-                        Good
-                    </button>
-                    <button @click="handleRating(3)" class="btn btn-accent">
-                        Easy
-                    </button>
+            <div v-if="flashcard" class="card shadow-lg p-4 mb-4">
+
+                <p class="text-4xl font-bold mb-2">{{ flashcard.word }}</p>
+                <div v-if="showAnswer">
+                    <p class="text-xl">{{ flashcard.transliteration }}</p>
+                    <p class="text-lg text-gray-500">{{ flashcard.translation }}</p>
                 </div>
+                <div class="mt-4">
+                    <button v-if="!showAnswer" @click="revealAnswer" class="btn btn-primary mr-2">
+                        Reveal
+                    </button>
+                    <div v-else class="btn-group flex flex-row gap-2">
+                        <!-- Mapping quality: 0 = Again, 1 = Hard, 2 = Good, 3 = Easy -->
+                        <button @click="handleRating(0)" class="btn btn-warning">
+                            Again
+                        </button>
+                        <button @click="handleRating(1)" class="btn btn-secondary">
+                            Hard
+                        </button>
+                        <button @click="handleRating(2)" class="btn btn-success">
+                            Good
+                        </button>
+                        <button @click="handleRating(3)" class="btn btn-accent">
+                            Easy
+                        </button>
+                    </div>
+                </div>
+
             </div>
-        </div>
-        <div v-else>
-            <p class="text-xl mb-4">All flashcards for this segment are learned!</p>
-            <button @click="goToVideoSegment" class="btn btn-primary">
-                Proceed to Video Segment
-            </button>
+            <div v-else>
+                <p class="text-xl mb-4">All flashcards for this segment are learned!</p>
+                <button @click="goToVideoSegment" class="btn btn-primary">
+                    Proceed to Video Segment
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -54,12 +61,10 @@ const router = useRouter();
 const videoId = route.params.videoId as string;
 const segmentIndex = Number(route.params.segmentIndex);
 
-// Load videos and words data.
 const { getVideos, getWords } = useData();
 const videos = getVideos();
 const words = getWords();
 
-// Find the current video and segment.
 const video = videos.find(v => v.videoId === videoId);
 if (!video) {
     router.push('/');
@@ -71,12 +76,18 @@ const currentIndex = ref(0);
 const showAnswer = ref(false);
 const lastPracticedWord = ref<string | null>(null);
 
-// Vocabulary progress is stored under "items" (a word is a word).
 const VOCAB_ITEMS_KEY = 'items';
+const VOCAB_BLACKLIST_KEY = 'vocabBlacklist';
 
-/**
- * Fisher–Yates shuffle function.
- */
+function loadBlacklist(): string[] {
+    const list = localStorage.getItem(VOCAB_BLACKLIST_KEY);
+    return list ? JSON.parse(list) : [];
+}
+
+function saveBlacklist(list: string[]) {
+    localStorage.setItem(VOCAB_BLACKLIST_KEY, JSON.stringify(list));
+}
+
 function shuffleArray<T>(array: T[]): T[] {
     const arr = array.slice();
     for (let i = arr.length - 1; i > 0; i--) {
@@ -86,32 +97,24 @@ function shuffleArray<T>(array: T[]): T[] {
     return arr;
 }
 
-/**
- * Checks if a stored FSRS card is due.
- */
 function isDue(card: any): boolean {
     if (!card) return true;
     const dueDate = new Date(card.due);
     return dueDate <= new Date();
 }
 
-/**
- * Build flashcards for the current segment.
- * • Each unique word in the segment is added twice.
- * • Additionally, 30% (of the segment’s unique count) extra words are randomly picked
- *   from due vocabulary outside the segment.
- */
 function buildFlashcardsForSegment() {
-    const relevantWords: WordEntry[] = words.filter(word =>
-        word.relevantForVideoSegments.some(seg =>
-            seg.videoId === videoId &&
-            seg.start === currentSegment.start &&
-            seg.duration === currentSegment.duration
+    const blacklist = new Set(loadBlacklist());
+    const relevantWords: WordEntry[] = words
+        .filter(word =>
+            word.relevantForVideoSegments.some(seg =>
+                seg.videoId === videoId &&
+                seg.start === currentSegment.start &&
+                seg.duration === currentSegment.duration
+            )
         )
-    );
-    const relevantWordSet = new Set(relevantWords.map(word => word.word));
+        .filter(word => !blacklist.has(word.word));
 
-    // Build flashcards for relevant words.
     const storedItems = loadLocalData(VOCAB_ITEMS_KEY);
     const uniqueFlashcards: FlashcardData[] = relevantWords.map(word => {
         const cardKey = `card_${word.word}`;
@@ -124,12 +127,13 @@ function buildFlashcardsForSegment() {
         };
     });
 
+
     // Duplicate for twice practice.
     // change: duplicate only flashcards that have never been seen before
     let deck = [...uniqueFlashcards, ...uniqueFlashcards.filter(fc => !fc.card.lastSeen).map(fc => ({ ...fc }))];
 
-    // Extra vocab: 30% (of unique count) from words not in the segment, that are due.
     const extraCount = Math.floor(0.3 * uniqueFlashcards.length);
+    const relevantWordSet = new Set(relevantWords.map(word => word.word));
     const extraWords: WordEntry[] = words.filter(word => !relevantWordSet.has(word.word));
     const dueExtraWords = extraWords.filter(word => {
         const cardKey = `card_${word.word}`;
@@ -164,9 +168,6 @@ function revealAnswer() {
     showAnswer.value = true;
 }
 
-/**
- * Ensure that the next flashcard is not the same as the one just learned.
- */
 function ensureNonRepeatingNext() {
     if (flashcards.value.length > 1 && lastPracticedWord.value) {
         if (flashcards.value[currentIndex.value].word === lastPracticedWord.value) {
@@ -203,6 +204,20 @@ function handleRating(quality: number) {
         if (flashcards.value.length === 0) {
             router.push(`/video/${videoId}/${segmentIndex}`);
         }
+    }
+}
+
+function skipVocabulary() {
+    if (flashcard.value) {
+        const blacklist = new Set(loadBlacklist());
+        blacklist.add(flashcard.value.word);
+        saveBlacklist(Array.from(blacklist));
+        flashcards.value.splice(currentIndex.value, 1);
+        if (flashcards.value.length === 0) {
+            router.push(`/video/${videoId}/${segmentIndex}`);
+        }
+        // go to next
+        ensureNonRepeatingNext();
     }
 }
 

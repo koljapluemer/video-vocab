@@ -1,6 +1,8 @@
 <template>
     <div class="container mx-auto p-4">
-        <h1 class="text-3xl font-bold mb-4">Practice Vocabulary for Segment {{ segmentIndex + 1 }}</h1>
+        <h1 class="text-3xl font-bold mb-4">
+            Practice Vocabulary for Segment {{ segmentIndex + 1 }}
+        </h1>
         <div v-if="flashcard" class="card shadow-lg p-4 mb-4">
             <p class="text-4xl font-bold mb-2">{{ flashcard.word }}</p>
             <div v-if="showAnswer">
@@ -8,8 +10,11 @@
                 <p class="text-lg text-gray-500">{{ flashcard.translation }}</p>
             </div>
             <div class="mt-4">
-                <button v-if="!showAnswer" @click="revealAnswer" class="btn btn-primary mr-2">Reveal</button>
-                <div v-else class="btn-group">
+                <button v-if="!showAnswer" @click="revealAnswer" class="btn btn-primary mr-2">
+                    Reveal
+                </button>
+                <div v-else class="flex flex-row gap-1">
+                    <!-- Mapping quality: 0 = Again, 1 = Hard, 2 = Good, 3 = Easy -->
                     <button @click="handleRating(0)" class="btn btn-warning">Again</button>
                     <button @click="handleRating(1)" class="btn btn-secondary">Hard</button>
                     <button @click="handleRating(2)" class="btn btn-success">Good</button>
@@ -19,7 +24,9 @@
         </div>
         <div v-else>
             <p class="text-xl mb-4">All flashcards for this segment are learned!</p>
-            <button @click="goToVideoSegment" class="btn btn-primary">Proceed to Video Segment</button>
+            <button @click="goToVideoSegment" class="btn btn-primary">
+                Proceed to Video Segment
+            </button>
         </div>
     </div>
 </template>
@@ -31,7 +38,7 @@ import { useData } from '@/composables/useData';
 import type { VideoData, FlashcardData, WordEntry } from '@/types';
 import { loadLocalData, saveLocalData } from '@/composables/useLocalStorage';
 import { Rating } from 'ts-fsrs';
-import { getInitialCard, rateCard } from '@/composables/useFSRS';
+import { getInitialCard, rateCard } from '@/fsrs';
 
 const route = useRoute();
 const router = useRouter();
@@ -54,22 +61,41 @@ const currentSegment = video!.segments[segmentIndex];
 const flashcards = ref<FlashcardData[]>([]);
 const currentIndex = ref(0);
 const showAnswer = ref(false);
+const lastPracticedWord = ref<string | null>(null);
 
-const FLASHCARD_PROGRESS_KEY = 'flashcardProgress';
+// Use a localStorage key "items" for vocabulary progress.
+const VOCAB_ITEMS_KEY = 'items';
 
+/**
+ * Fisher-Yates shuffle function.
+ */
+function shuffleArray<T>(array: T[]): T[] {
+    const arr = array.slice();
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+/**
+ * Build flashcards for the current segment.
+ * Each unique word is added twice, then the deck is shuffled.
+ */
 function buildFlashcardsForSegment() {
-    // Filter words that are relevant for the current segment.
-    const relevantWords = words.filter(word =>
+    const relevantWords: WordEntry[] = words.filter(word =>
         word.relevantForVideoSegments.some(seg =>
             seg.videoId === videoId &&
             seg.start === currentSegment.start &&
             seg.duration === currentSegment.duration
         )
     );
-    const storedProgress = loadLocalData(FLASHCARD_PROGRESS_KEY);
-    flashcards.value = relevantWords.map(word => {
-        const cardId = `${videoId}_${currentSegment.start}_${word.word}`;
-        const storedCard = storedProgress[cardId];
+
+    // For each unique word, create a flashcard object using stored vocab from localStorage.
+    const storedItems = loadLocalData(VOCAB_ITEMS_KEY);
+    const uniqueFlashcards: FlashcardData[] = relevantWords.map(word => {
+        const cardKey = `card_${word.word}`;
+        const storedCard = storedItems[cardKey];
         return {
             word: word.word,
             transliteration: word.transliteration,
@@ -77,6 +103,10 @@ function buildFlashcardsForSegment() {
             card: storedCard || getInitialCard(),
         };
     });
+
+    // Duplicate the flashcards so each word appears twice.
+    const deck = [...uniqueFlashcards, ...uniqueFlashcards.map(fc => ({ ...fc }))];
+    flashcards.value = shuffleArray(deck);
 }
 
 onMounted(() => {
@@ -87,6 +117,23 @@ const flashcard = computed(() => flashcards.value[currentIndex.value] || null);
 
 function revealAnswer() {
     showAnswer.value = true;
+}
+
+/**
+ * Ensure that the next flashcard is not the same as the one just learned.
+ */
+function ensureNonRepeatingNext() {
+    if (flashcards.value.length > 1 && lastPracticedWord.value) {
+        if (flashcards.value[currentIndex.value].word === lastPracticedWord.value) {
+            for (let i = currentIndex.value + 1; i < flashcards.value.length; i++) {
+                if (flashcards.value[i].word !== lastPracticedWord.value) {
+                    [flashcards.value[currentIndex.value], flashcards.value[i]] =
+                        [flashcards.value[i], flashcards.value[currentIndex.value]];
+                    break;
+                }
+            }
+        }
+    }
 }
 
 function handleRating(quality: number) {
@@ -100,19 +147,18 @@ function handleRating(quality: number) {
     }
     if (flashcard.value) {
         const updatedCard = rateCard(flashcard.value.card, rating);
-        // Save the updated card state.
         flashcards.value[currentIndex.value].card = updatedCard;
-        const cardId = `${videoId}_${currentSegment.start}_${flashcard.value.word}`;
-        saveLocalData(FLASHCARD_PROGRESS_KEY, { [cardId]: updatedCard });
-        // For this MVP, consider the card “learned” if rated Good or Easy.
-        if (rating === Rating.Good || rating === Rating.Easy) {
-            flashcards.value.splice(currentIndex.value, 1);
-        } else {
-            currentIndex.value++;
-        }
+        // Save the updated card state using a key that depends only on the word.
+        const cardKey = `card_${flashcard.value.word}`;
+        saveLocalData(VOCAB_ITEMS_KEY, { [cardKey]: updatedCard });
+        lastPracticedWord.value = flashcard.value.word;
+        // Remove the current flashcard from the deck.
+        flashcards.value.splice(currentIndex.value, 1);
         showAnswer.value = false;
-        // When no cards remain, move to video segment.
-        if (flashcards.value.length === 0 || currentIndex.value >= flashcards.value.length) {
+        // Reset index and ensure the next card isn’t the same as the one just practiced.
+        currentIndex.value = 0;
+        ensureNonRepeatingNext();
+        if (flashcards.value.length === 0) {
             router.push(`/video/${videoId}/${segmentIndex}`);
         }
     }

@@ -36,7 +36,8 @@ function shuffleArray<T>(array: T[]): T[] {
 function isDue(card: any): boolean {
     if (!card) return true;
     const dueDate = new Date(card.due);
-    return dueDate <= new Date();
+    const isDue = dueDate <= new Date();
+    return isDue;
 }
 
 /**
@@ -81,11 +82,13 @@ export function buildFlashcardDeck(
         };
     });
 
-    // Duplicate flashcards for words that have never been seen before.
-    let deck = [
-        ...uniqueFlashcards,
-        ...uniqueFlashcards.filter(fc => !fc.card.lastSeen).map(fc => ({ ...fc }))
-    ];
+    // every new card is learned twice
+    const neverSeen = uniqueFlashcards.filter(fc => fc.card.reps === 0).flatMap(fc => [{ ...fc }, { ...fc }]);
+    // old cards are only lerned if they are due
+    const seenAndDue = uniqueFlashcards.filter(fc => fc.card.reps !== 0 && isDue(fc.card));
+    // const seenAndDue = uniqueFlashcards.filter(fc => fc.card.reps !== 0);
+    let deck = [...neverSeen, ...seenAndDue];
+
 
     // Add extra vocab: 30% (of the unique count) from outside the segment that is due.
     const extraCount = Math.floor(0.3 * uniqueFlashcards.length);

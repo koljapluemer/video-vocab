@@ -13,12 +13,20 @@
                 <button v-if="!showAnswer" @click="revealAnswer" class="btn btn-primary mr-2">
                     Reveal
                 </button>
-                <div v-else class="flex flex-row gap-1">
+                <div v-else class="btn-group flex flex-row gap-2">
                     <!-- Mapping quality: 0 = Again, 1 = Hard, 2 = Good, 3 = Easy -->
-                    <button @click="handleRating(0)" class="btn btn-warning">Again</button>
-                    <button @click="handleRating(1)" class="btn btn-secondary">Hard</button>
-                    <button @click="handleRating(2)" class="btn btn-success">Good</button>
-                    <button @click="handleRating(3)" class="btn btn-accent">Easy</button>
+                    <button @click="handleRating(0)" class="btn btn-warning">
+                        Again
+                    </button>
+                    <button @click="handleRating(1)" class="btn btn-secondary">
+                        Hard
+                    </button>
+                    <button @click="handleRating(2)" class="btn btn-success">
+                        Good
+                    </button>
+                    <button @click="handleRating(3)" class="btn btn-accent">
+                        Easy
+                    </button>
                 </div>
             </div>
         </div>
@@ -36,9 +44,9 @@ import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useData } from '@/composables/useData';
 import type { VideoData, FlashcardData, WordEntry } from '@/types';
+import { getInitialCard, rateCard } from '@/fsrs';
 import { loadLocalData, saveLocalData } from '@/composables/useLocalStorage';
 import { Rating } from 'ts-fsrs';
-import { getInitialCard, rateCard } from '@/fsrs';
 
 const route = useRoute();
 const router = useRouter();
@@ -63,11 +71,11 @@ const currentIndex = ref(0);
 const showAnswer = ref(false);
 const lastPracticedWord = ref<string | null>(null);
 
-// Use a localStorage key "items" for vocabulary progress.
+// Vocabulary progress is stored under "items" (a word is a word).
 const VOCAB_ITEMS_KEY = 'items';
 
 /**
- * Fisher-Yates shuffle function.
+ * Fisher–Yates shuffle function.
  */
 function shuffleArray<T>(array: T[]): T[] {
     const arr = array.slice();
@@ -79,8 +87,19 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 /**
+ * Checks if a stored FSRS card is due.
+ */
+function isDue(card: any): boolean {
+    if (!card) return true;
+    const dueDate = new Date(card.due);
+    return dueDate <= new Date();
+}
+
+/**
  * Build flashcards for the current segment.
- * Each unique word is added twice, then the deck is shuffled.
+ * • Each unique word in the segment is added twice.
+ * • Additionally, 30% (of the segment’s unique count) extra words are randomly picked
+ *   from due vocabulary outside the segment.
  */
 function buildFlashcardsForSegment() {
     const relevantWords: WordEntry[] = words.filter(word =>
@@ -90,8 +109,9 @@ function buildFlashcardsForSegment() {
             seg.duration === currentSegment.duration
         )
     );
+    const relevantWordSet = new Set(relevantWords.map(word => word.word));
 
-    // For each unique word, create a flashcard object using stored vocab from localStorage.
+    // Build flashcards for relevant words.
     const storedItems = loadLocalData(VOCAB_ITEMS_KEY);
     const uniqueFlashcards: FlashcardData[] = relevantWords.map(word => {
         const cardKey = `card_${word.word}`;
@@ -104,8 +124,33 @@ function buildFlashcardsForSegment() {
         };
     });
 
-    // Duplicate the flashcards so each word appears twice.
-    const deck = [...uniqueFlashcards, ...uniqueFlashcards.map(fc => ({ ...fc }))];
+    // Duplicate for twice practice.
+    // change: duplicate only flashcards that have never been seen before
+    let deck = [...uniqueFlashcards, ...uniqueFlashcards.filter(fc => !fc.card.lastSeen).map(fc => ({ ...fc }))];
+
+    // Extra vocab: 30% (of unique count) from words not in the segment, that are due.
+    const extraCount = Math.floor(0.3 * uniqueFlashcards.length);
+    const extraWords: WordEntry[] = words.filter(word => !relevantWordSet.has(word.word));
+    const dueExtraWords = extraWords.filter(word => {
+        const cardKey = `card_${word.word}`;
+        const storedCard = storedItems[cardKey];
+        return isDue(storedCard);
+    });
+
+    const shuffledDueExtra = shuffleArray(dueExtraWords);
+    const selectedExtra = shuffledDueExtra.slice(0, extraCount);
+    const extraFlashcards: FlashcardData[] = selectedExtra.map(word => {
+        const cardKey = `card_${word.word}`;
+        const storedCard = storedItems[cardKey];
+        return {
+            word: word.word,
+            transliteration: word.transliteration,
+            translation: word.translation,
+            card: storedCard || getInitialCard(),
+        };
+    });
+
+    deck = deck.concat(extraFlashcards);
     flashcards.value = shuffleArray(deck);
 }
 
@@ -148,14 +193,11 @@ function handleRating(quality: number) {
     if (flashcard.value) {
         const updatedCard = rateCard(flashcard.value.card, rating);
         flashcards.value[currentIndex.value].card = updatedCard;
-        // Save the updated card state using a key that depends only on the word.
         const cardKey = `card_${flashcard.value.word}`;
         saveLocalData(VOCAB_ITEMS_KEY, { [cardKey]: updatedCard });
         lastPracticedWord.value = flashcard.value.word;
-        // Remove the current flashcard from the deck.
         flashcards.value.splice(currentIndex.value, 1);
         showAnswer.value = false;
-        // Reset index and ensure the next card isn’t the same as the one just practiced.
         currentIndex.value = 0;
         ensureNonRepeatingNext();
         if (flashcards.value.length === 0) {

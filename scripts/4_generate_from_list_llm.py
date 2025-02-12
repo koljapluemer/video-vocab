@@ -1,21 +1,23 @@
 import os
 import json
 import re
-import openai
+from openai import OpenAI
+
 from youtube_transcript_api import YouTubeTranscriptApi
 from dotenv import load_dotenv
- 
+
 # Load environment variables from the .env file
 
 # ====== CONFIGURATION CONSTANTS ======
 load_dotenv()
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")   # ensure this is set in your environment
+client = OpenAI(api_key=OPENAI_API_KEY)
+
 
 VIDEO_IDS_FILE = "data/ids.txt"           # file with one YouTube video id per line
 TRANSCRIPTS_DIR = "data/transcripts"              # folder where transcripts will be saved
 WORDS_JSON_FILE = "data/words.json"               # file where the words array is stored
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")   # ensure this is set in your environment
 
-openai.api_key = OPENAI_API_KEY
 
 # ====== FUNCTIONS ======
 
@@ -59,17 +61,16 @@ def get_transliteration_translation(word):
         f"Word: {word}\n\nOutput JSON:"
     )
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.0,
-        )
-        content = response['choices'][0]['message']['content']
+        response = client.chat.completions.create(model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0.0)
+        content = response.choices[0].message.content
         # Parse the JSON from the assistant's reply
         result = json.loads(content)
+        print("got result", result)
         return result["transliteration"], result["translation"]
     except Exception as e:
         print(f"Error processing word '{word}': {e}")
@@ -92,7 +93,7 @@ def process_video(video_id, words_dict):
     transcript_path = os.path.join(TRANSCRIPTS_DIR, f"{video_id}.json")
     with open(transcript_path, "w", encoding="utf-8") as f:
         json.dump(transcript, f, ensure_ascii=False, indent=2)
-    
+
     # Process each transcript segment
     for segment in transcript:
         text = segment.get("text", "")

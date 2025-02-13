@@ -4,7 +4,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 # ====== CONFIGURATION CONSTANTS ======
 VIDEO_IDS_FILE = "data/ids.txt"         # file containing one YouTube video id per line
-OUTPUT_JSON_FILE = "data/video_transcripts.json"  # output JSON file
+OUTPUT_JSON_FILE = "data/videos.json"  # output JSON file
 
 def main():
     # Read video ids from the file

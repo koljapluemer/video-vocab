@@ -10,7 +10,7 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")   # ensure this is set in your environment
 client = OpenAI(api_key=OPENAI_API_KEY)
 
-VIDEO_IDS_FILE = "data/ids.txt"           # file with one YouTube video id per line
+VIDEO_IDS_FILE = "data/new_ids.txt"           # file with one YouTube video id per line
 TRANSCRIPTS_DIR = "data/transcripts"      # folder where transcripts will be saved
 WORDS_JSON_FILE = "data/words.json"       # file where the words array is stored
 
@@ -63,6 +63,8 @@ def get_transliteration_translation(word, context):
         "• Yeh (ي): Y or I or EE (depending on the word)\n"
         "• Taamrabota (ة): A\n\n"
         "Also, provide its English translation without relying on context, so that it makes sense on its own. "
+        "Use the provided context to translate the word in the correct sense, but ONLY translate the word, not the surrounding text."
+        "The transliteration should ONLY be of the word, NOT of the surrounding context.\n\n"
         "Return your answer as a JSON object with exactly one key: 'meanings'. "
         "Each element in 'meanings' should be an object with keys 'transliteration' and 'translation'.\n\n"
         f"Word: {word}\n"

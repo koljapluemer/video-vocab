@@ -91,7 +91,8 @@ export function buildFlashcardDeck(
     const dueExtraWords = extraWords.filter(word => {
         const cardKey = `card_${word.word}`;
         const storedCard = storedItems[cardKey];
-        return isDue(storedCard);
+        // only cards actually seen before can be due
+        return isDue(storedCard) && storedCard && storedCard.reps > 0;
     });
 
     const shuffledDueExtra = shuffleArray(dueExtraWords);

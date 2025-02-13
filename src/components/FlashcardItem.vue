@@ -1,44 +1,41 @@
 <template>
     <div class="card shadow-lg p-4 mb-4">
-        <p class="text-4xl font-bold mb-2">{{ flashcard.word }}</p>
-        <div v-if="showAnswer">
-            <p class="text-xl">{{ flashcard.transliteration }}</p>
-            <p class="text-lg text-gray-500">{{ flashcard.translation }}</p>
+        <div>
+            <p class="text-4xl font-bold mb-2">{{ flashcard.word }}</p>
+            <p class="text-xl mb-2">{{ flashcard.transliteration }}</p>
         </div>
-        <div class="mt-4">
-            <button v-if="!showAnswer" @click="onReveal" class="btn btn-primary mr-2">
-                Reveal
-            </button>
-            <div v-else class="btn-group flex flex-row gap-2">
-                <!-- Mapping quality: 0 = Again, 1 = Hard, 2 = Good, 3 = Easy -->
-                <button @click="onRating(0)" class="btn btn-warning">Again</button>
-                <button @click="onRating(1)" class="btn btn-secondary">Hard</button>
-                <button @click="onRating(2)" class="btn btn-success">Good</button>
-                <button @click="onRating(3)" class="btn btn-accent">Easy</button>
+        <!-- Display aggregated meanings -->
+        <div v-if="revealed" class="mt-4">
+            <ul>
+                <li v-for="(meaning, index) in aggregatedMeanings" :key="index"
+                    class="odd:bg-gray-500 even:bg-gray-600 p-2" :class="{ 'font-bold': meaning.isPrimary }">
+                    <p class="text-lg">{{ meaning.translation }}</p>
+                </li>
+            </ul>
+        </div>
+        <div v-else class="mt-4">
+            <button class="btn btn-primary" @click="$emit('reveal')">Reveal</button>
+        </div>
+        <div v-if="revealed" class="mt-4">
+            <div class="btn-group flex flex-row gap-2">
+                <button class="btn btn-warning" @click="$emit('rating', Rating.Again)">Again</button>
+                <button class="btn btn-secondary" @click="$emit('rating', Rating.Hard)">Hard</button>
+                <button class="btn btn-success" @click="$emit('rating', Rating.Good)">Good</button>
+                <button class="btn btn-accent" @click="$emit('rating', Rating.Easy)">Easy</button>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
-import type { FlashcardData } from '@/types';
+import { defineProps } from 'vue';
+import type { FlashcardData, AggregatedMeaning } from '@/types';
+import { Rating } from 'ts-fsrs';
 
 const props = defineProps<{
     flashcard: FlashcardData;
-    showAnswer: boolean;
+    aggregatedMeanings: AggregatedMeaning[];
+    primaryMeaning: AggregatedMeaning | null;
+    revealed: boolean;
 }>();
-
-const emit = defineEmits<{
-    (e: 'reveal'): void;
-    (e: 'rating', quality: number): void;
-}>();
-
-function onReveal() {
-    emit('reveal');
-}
-
-function onRating(quality: number) {
-    emit('rating', quality);
-}
 </script>

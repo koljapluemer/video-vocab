@@ -6,19 +6,11 @@ import type { WordEntry, FlashcardData } from '@/types';
 const VOCAB_ITEMS_KEY = 'items';
 const VOCAB_BLACKLIST_KEY = 'vocabBlacklist';
 
-/**
- * Loads the blacklist (array of words) from localStorage.
- */
 function loadBlacklist(): string[] {
     const list = localStorage.getItem(VOCAB_BLACKLIST_KEY);
     return list ? JSON.parse(list) : [];
 }
 
-/**
- * Shuffles an array using the Fisher–Yates algorithm.
- * @param array Array to shuffle.
- * @returns A new, shuffled array.
- */
 function shuffleArray<T>(array: T[]): T[] {
     const arr = array.slice();
     for (let i = arr.length - 1; i > 0; i--) {
@@ -28,30 +20,26 @@ function shuffleArray<T>(array: T[]): T[] {
     return arr;
 }
 
-/**
- * Checks if a given FSRS card is due for review.
- * @param card FSRS card object.
- * @returns True if the card is due or has no due date.
- */
 function isDue(card: any): boolean {
     if (!card) return true;
     const dueDate = new Date(card.due);
-    const isDue = dueDate <= new Date();
-    return isDue;
+    return dueDate <= new Date();
 }
 
 /**
  * Builds the flashcard deck for the current segment.
- *
- * - Uses only words from the current segment (filtered by videoId, start, duration).
- * - Excludes words that appear on the blacklist.
- * - Duplicates words that have never been seen before.
- * - Adds an extra 30% (by count) of due vocabulary from outside the segment.
- * - Shuffles the resulting deck.
+ * 
+ * - Filters words that appear in the current segment (by matching videoId, start, and duration in relevantForVideoSegments).
+ * - Excludes words that are blacklisted.
+ * - For each matching word, creates a FlashcardData by looking up FSRS data (or creating a new card).
+ * - Duplicates flashcards for words that have never been seen (reps === 0); for words that have been seen (reps > 0),
+ *   include them only if their FSRS card is due.
+ * - Adds extra vocabulary from outside the segment: 30% (by count) of the unique matching words that are due.
+ * - Returns the full deck (shuffled).
  *
  * @param videoId The current video ID.
- * @param currentSegment An object with at least `start` and `duration` properties.
- * @param words The complete list of vocabulary words.
+ * @param currentSegment An object with at least { start, duration }.
+ * @param words The complete list of vocabulary (WordEntry[]).
  * @returns An array of FlashcardData.
  */
 export function buildFlashcardDeck(
@@ -60,6 +48,8 @@ export function buildFlashcardDeck(
     words: WordEntry[]
 ): FlashcardData[] {
     const blacklist = new Set(loadBlacklist());
+
+    // Select words that occur in the current segment.
     const relevantWords: WordEntry[] = words
         .filter(word =>
             word.relevantForVideoSegments.some(seg =>
@@ -71,61 +61,64 @@ export function buildFlashcardDeck(
         .filter(word => !blacklist.has(word.word));
 
     const storedItems = loadLocalData(VOCAB_ITEMS_KEY);
+
+    // Map each relevant word to a FlashcardData.
     const uniqueFlashcards: FlashcardData[] = relevantWords.map(word => {
         const cardKey = `card_${word.word}`;
         const storedCard = storedItems[cardKey];
         return {
             word: word.word,
             transliteration: word.transliteration,
-            translation: word.translation,
+            relevantForVideoSegments: word.relevantForVideoSegments,
             card: storedCard || getInitialCard(),
         };
     });
 
-    // every new card is learned twice
-    const neverSeen = uniqueFlashcards.filter(fc => fc.card.reps === 0).flatMap(fc => [{ ...fc }, { ...fc }]);
-    // old cards are only lerned if they are due
+    // Duplicate words that have never been seen (reps === 0)
+    const neverSeen = uniqueFlashcards.filter(fc => fc.card.reps === 0)
+        .flatMap(fc => [fc, fc]);
+
+    // Include seen words only if they are due
     const seenAndDue = uniqueFlashcards.filter(fc => fc.card.reps !== 0 && isDue(fc.card));
-    // const seenAndDue = uniqueFlashcards.filter(fc => fc.card.reps !== 0);
+
     let deck = [...neverSeen, ...seenAndDue];
 
-
-    // Add extra vocab: 30% (of the unique count) from outside the segment that is due.
+    // Add extra vocabulary from outside the current segment:
     const extraCount = Math.floor(0.3 * uniqueFlashcards.length);
     const relevantWordSet = new Set(relevantWords.map(word => word.word));
     const extraWords: WordEntry[] = words.filter(word => !relevantWordSet.has(word.word));
+
     const dueExtraWords = extraWords.filter(word => {
         const cardKey = `card_${word.word}`;
         const storedCard = storedItems[cardKey];
         return isDue(storedCard);
     });
+
     const shuffledDueExtra = shuffleArray(dueExtraWords);
     const selectedExtra = shuffledDueExtra.slice(0, extraCount);
+
     const extraFlashcards: FlashcardData[] = selectedExtra.map(word => {
         const cardKey = `card_${word.word}`;
         const storedCard = storedItems[cardKey];
         return {
             word: word.word,
             transliteration: word.transliteration,
-            translation: word.translation,
+            relevantForVideoSegments: word.relevantForVideoSegments,
             card: storedCard || getInitialCard(),
         };
     });
-    deck = deck.concat(extraFlashcards);
 
+    deck = deck.concat(extraFlashcards);
     return shuffleArray(deck);
 }
 
 /**
- * Ensures that the next flashcard is not the same as the one just practiced.
+ * Ensures that the next flashcard in the deck is not the same as the last practiced word.
  *
- * If the flashcard at the current index matches the last practiced word,
- * this function swaps it with another flashcard later in the deck.
- *
- * @param deck The deck of flashcards.
- * @param currentIndex The current index in the deck.
- * @param lastPracticedWord The last practiced word.
- * @returns The (potentially modified) deck.
+ * @param deck The current deck of FlashcardData.
+ * @param currentIndex The index of the card about to be practiced.
+ * @param lastPracticedWord The word that was just practiced.
+ * @returns The (possibly modified) deck.
  */
 export function ensureNonRepeatingNext(
     deck: FlashcardData[],

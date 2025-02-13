@@ -93,6 +93,7 @@ export function studyScheduledSegment(video: VideoData, videoId: string, router:
             dueSegments.push({ segmentIndex: idx });
         }
     });
+    console.log('Due segments:', dueSegments);
     if (dueSegments.length > 0) {
         const randomIndex = Math.floor(Math.random() * dueSegments.length);
         const seg = dueSegments[randomIndex];

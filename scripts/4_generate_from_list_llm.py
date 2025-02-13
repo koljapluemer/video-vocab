@@ -17,11 +17,10 @@ WORDS_JSON_FILE = "data/words.json"       # file where the words array is stored
 def get_transliteration_translation(word, context):
     """
     Uses the ChatGPT API (gpt-3.5-turbo) to get the franco transliteration and English translation(s)
-    for the provided Egyptian Arabic word, given the context (the full transcript segment text).
-    
+    for the provided Egyptian Arabic word, given the context (the transcript segment text).
+
     The prompt instructs the LLM to provide a context-independent English translation for learning,
-    and, if the word is a verb (or has multiple forms), to include both the conjugated form (as given)
-    and the base form in an array called "meanings". For non-verbs, the array should have one element.
+    and to return an array of meanings in JSON with each element an object having 'transliteration' and 'translation'.
     
     Expected output JSON structure:
     {
@@ -41,7 +40,7 @@ def get_transliteration_translation(word, context):
         "You are an expert in Egyptian Arabic from Cairo. "
         "For the following Egyptian Arabic word, given the context (the entire transcript segment text), "
         "provide its transliteration in franco using this mapping:\n\n"
-        "• Hamza/Alef (ء/أ): use '2' when appropriate\n"
+        "• Hamza/Alef (ء/أ): use '2' when appropriate for Egytian Arabic\n"
         "• Beh (ب): B\n"
         "• Teh/Tah (ت/ط): T\n"
         "• Seh/Seen/Saad (ث/س/ص): S\n"
@@ -63,12 +62,9 @@ def get_transliteration_translation(word, context):
         "• Wow/damma (و): W or O (depending on the word)\n"
         "• Yeh (ي): Y or I or EE (depending on the word)\n"
         "• Taamrabota (ة): A\n\n"
-        "Also, provide its English translation without relying on context so that it is "
-        "suitable for learning the word on its own. "
-        "If the word is a special form, such as a conjugated verb, return both the conjugated form"
-        "and the base form in an array called 'meanings'. For non-verbs, return an array with a single object. "
-        "Return your answer as a JSON object with exactly one key: 'meanings'. Each element in 'meanings' "
-        "should be an object with keys 'transliteration' and 'translation'.\n\n"
+        "Also, provide its English translation without relying on context, so that it makes sense on its own. "
+        "Return your answer as a JSON object with exactly one key: 'meanings'. "
+        "Each element in 'meanings' should be an object with keys 'transliteration' and 'translation'.\n\n"
         f"Word: {word}\n"
         f"Context: {context}\n\nOutput JSON:"
     )
@@ -82,7 +78,7 @@ def get_transliteration_translation(word, context):
             temperature=0.0,
         )
         content = response.choices[0].message.content
-        result = json.loads(content) # type: ignore
+        result = json.loads(content)
         meanings = result.get("meanings", [])
         return [(m["transliteration"], m["translation"]) for m in meanings]
     except Exception as e:
@@ -94,9 +90,11 @@ def process_video(video_id, words_dict):
     For the given video id, fetch the transcript using youtube_transcript_api.
     Save the transcript JSON to a file in the transcripts directory.
     Then, tokenize the transcript segments into words and update words_dict.
-    
-    Each word is processed with its segment context. The LLM call returns one or more meanings.
-    For each meaning, a separate learning item is created. The learning item structure is:
+
+    For each occurrence of a word, pass the full transcript segment text as context to the LLM.
+    The LLM returns an array of meanings (each a tuple of transliteration and translation).
+    For each meaning, a separate learning item is created using a composite key (e.g., "تعرفي__0").
+    Each learning item has the structure:
     
     {
         "word": <arabic word>,
@@ -108,9 +106,6 @@ def process_video(video_id, words_dict):
             "translation": <translation from the meaning>
         }]
     }
-    
-    Multiple learning items may exist for the same Arabic word if the LLM returns multiple meanings.
-    A composite key (e.g., "تعرفي__0", "تعرفي__1") is used in the dictionary.
     """
     try:
         transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=['ar'])
@@ -126,12 +121,12 @@ def process_video(video_id, words_dict):
         text = segment.get("text", "")
         start = segment.get("start", 0)
         duration = segment.get("duration", 0)
-        context = text  # pass the entire segment text as context
+        context = text  # use the entire segment as context
         words_in_segment = re.findall(r"[\u0600-\u06FF]+", text)
         for w in words_in_segment:
             if not w.strip():
                 continue
-            # Get a list of meanings from the LLM (each as a tuple: (transliteration, translation))
+            # Get meanings for the word with the segment context.
             meanings = get_transliteration_translation(w, context)
             if not meanings:
                 continue
@@ -159,23 +154,13 @@ def main():
     if os.path.exists(WORDS_JSON_FILE):
         with open(WORDS_JSON_FILE, "r", encoding="utf-8") as f:
             existing_words = json.load(f)
-        # Since one Arabic word may yield several learning items, we expect each item to have a unique composite key.
-        # For simplicity, we reconstruct a dict with keys as the composite key.
+        # Reconstruct a dict with composite keys.
         words_dict = {}
         for entry in existing_words:
-            # We assume each entry already has a composite key embedded in its "word" field if needed.
-            # Here, we'll simply use the Arabic word with an index if multiple occurrences exist.
             base_word = entry["word"]
-            if base_word not in words_dict:
-                words_dict[base_word] = [entry]
-            else:
-                words_dict[base_word].append(entry)
-        # Flatten into a single dict with composite keys
-        flat_dict = {}
-        for word, items in words_dict.items():
-            for i, item in enumerate(items):
-                flat_dict[f"{word}__{i}"] = item
-        words_dict = flat_dict
+            # Assume that if there are multiple items for the same base word, they were saved with composite keys.
+            key = entry.get("compositeKey") or base_word
+            words_dict[key] = entry
     else:
         words_dict = {}
 

@@ -65,7 +65,7 @@ const currentSegment: VideoSegment = video!.segments[segmentIndex];
 
 const youtubeEmbedUrl = computed(() => {
     const start = Math.floor(currentSegment.start);
-    const end = Math.floor(currentSegment.start + currentSegment.duration + 0.4);
+    const end = Math.floor(currentSegment.start + currentSegment.duration + 0.6);
     return `https://www.youtube.com/embed/${videoId}?start=${start}&end=${end}&autoplay=1`;
 });
 

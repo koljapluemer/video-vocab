@@ -13,3 +13,6 @@
     - or click on specific segment
 
 - revise video segment storing, maybe just w/ FSRS
+
+
+- if segment not understood, set every card on it to 'due'

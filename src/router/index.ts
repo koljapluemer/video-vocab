@@ -28,6 +28,16 @@ const routes = [
     name: 'Completed',
     component: CompletedPage,
   },
+  {
+    path: '/video-list',
+    name: 'VideoList',
+    component: () => import('@/pages/VideoListPage.vue'),
+  },
+  {
+    path: '/video-detail/:videoId',
+    name: 'VideoDetails',
+    component: () => import('@/pages/VideoDetailPage.vue'),
+  }
 ];
 
 const router = createRouter({

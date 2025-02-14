@@ -1,8 +1,7 @@
 <template>
   <header>
     <nav class="flex flex-row gap-2 m-auto justify-center">
-      <router-link class="btn" to="/">Home</router-link>
-      <router-link class="btn" to="/video-list">Video List</router-link>
+      <router-link class="btn" to="/">Videos</router-link>
     </nav>
   </header>
   <main>

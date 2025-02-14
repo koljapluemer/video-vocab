@@ -7,11 +7,6 @@ import CompletedPage from '@/pages/CompletedPage.vue';
 
 const routes = [
   {
-    path: '/',
-    name: 'VideoSelector',
-    component: VideoSelectorPage,
-  },
-  {
     path: '/flashcards/:videoId/:segmentIndex',
     name: 'FlashcardPractice',
     component: FlashcardPracticePage,
@@ -29,7 +24,7 @@ const routes = [
     component: CompletedPage,
   },
   {
-    path: '/video-list',
+    path: '/',
     name: 'VideoList',
     component: () => import('@/pages/VideoListPage.vue'),
   },

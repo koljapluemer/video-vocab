@@ -16,3 +16,7 @@
 
 
 - if segment not understood, set every card on it to 'due'
+
+
+- allow marking important words in a segment
+- allow per-segment notes (reflection, meta-cognition)

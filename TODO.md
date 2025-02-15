@@ -20,3 +20,13 @@
 
 - allow marking important words in a segment
 - allow per-segment notes (reflection, meta-cognition)
+
+
+---
+
+- query redesign:
+
+```
+Ok, let's start with making the generation scripts somewhat more flexible.
+The app should be more flexible, supporting more languages, for starters: arz (Egyptian Arabic), Italian and German. So let's redesign the python scripts. 
+```

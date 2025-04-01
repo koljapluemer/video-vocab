@@ -59,6 +59,8 @@ Understand the following about data sourcing in this project:
   - to get all the flashcards that a learner currently has to learn, we ask only the dynamic data
   - to get all flashcards that are currently due for a learner within in the context of a specific snippet, we first use the static data, then compare against the dynamic data
 
+  In the future, it may be wise to move all into supabase, but for now this makes it nice and easy to get started :)
+
 
 ### Folders
 
@@ -97,7 +99,10 @@ The project follows a module-based architecture. That means that instead of putt
 
 - Helpful: [youtube short with subtitle search](https://www.youtube.com/results?search_query=+%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9&sp=EgQYASgB)
 
-
+- add video as an object into `public/data/videos.json`
+- make a `venv` at project root and activate it
+- install reqs: `pip install -r requirements.txt`
+- run: `python generate_data.py`
 
 ## Notes
 

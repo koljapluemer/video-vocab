@@ -1,0 +1,1590 @@
+{
+    "snippets": [
+        {
+            "start": 0.568,
+            "duration": 2.018,
+            "words": [
+                {
+                    "native": "أصله",
+                    "translation": "origin"
+                },
+                {
+                    "native": "كأنك",
+                    "translation": "as if"
+                },
+                {
+                    "native": "كده",
+                    "translation": "It's like that"
+                },
+                {
+                    "native": "مش",
+                    "translation": "not"
+                },
+                {
+                    "native": "بتحبيني",
+                    "translation": "Love me"
+                }
+            ]
+        },
+        {
+            "start": 2.59,
+            "duration": 1.676,
+            "words": [
+                {
+                    "native": "وده",
+                    "translation": "and that"
+                },
+                {
+                    "native": "مش",
+                    "translation": "not"
+                },
+                {
+                    "native": "معقول",
+                    "translation": "Makes sense."
+                },
+                {
+                    "native": "طبعا",
+                    "translation": "Of course."
+                }
+            ]
+        },
+        {
+            "start": 4.27,
+            "duration": 2.165,
+            "words": [
+                {
+                    "native": "لأني",
+                    "translation": "Because I"
+                },
+                {
+                    "native": "مزروع",
+                    "translation": "planted"
+                },
+                {
+                    "native": "هنا",
+                    "translation": "here"
+                },
+                {
+                    "native": "من",
+                    "translation": "from"
+                },
+                {
+                    "native": "ألف",
+                    "translation": "A thousand"
+                },
+                {
+                    "native": "سنة",
+                    "translation": "year"
+                }
+            ]
+        },
+        {
+            "start": 6.44,
+            "duration": 2.395,
+            "words": [
+                {
+                    "native": "عشان",
+                    "translation": "so that"
+                },
+                {
+                    "native": "أرجع",
+                    "translation": "return"
+                },
+                {
+                    "native": "القلب",
+                    "translation": "heart"
+                },
+                {
+                    "native": "هدية",
+                    "translation": "gift"
+                },
+                {
+                    "native": "للبشر",
+                    "translation": "For humans"
+                }
+            ]
+        },
+        {
+            "start": 8.84,
+            "duration": 3.4,
+            "words": [
+                {
+                    "native": "عشان",
+                    "translation": "Ashan"
+                },
+                {
+                    "native": "تبدؤوا",
+                    "translation": "start"
+                },
+                {
+                    "native": "حياة",
+                    "translation": "life"
+                },
+                {
+                    "native": "جديدة",
+                    "translation": "new"
+                },
+                {
+                    "native": "خالص",
+                    "translation": "sincerely"
+                },
+                {
+                    "native": "وجميلة",
+                    "translation": "and beautiful"
+                }
+            ]
+        },
+        {
+            "start": 12.444,
+            "duration": 3.333,
+            "words": [
+                {
+                    "native": "أيوة",
+                    "translation": "Ayoua"
+                },
+                {
+                    "native": "فأنتي",
+                    "translation": "you"
+                },
+                {
+                    "native": "في",
+                    "translation": "In"
+                },
+                {
+                    "native": "الواقع",
+                    "translation": "Reality"
+                },
+                {
+                    "native": "عايزة",
+                    "translation": "want"
+                },
+                {
+                    "native": "تقولي",
+                    "translation": "Say"
+                },
+                {
+                    "native": "لي",
+                    "translation": "to me"
+                },
+                {
+                    "native": "طبعا",
+                    "translation": "Of course"
+                }
+            ]
+        },
+        {
+            "start": 15.866,
+            "duration": 1.325,
+            "words": [
+                {
+                    "native": "تقولي",
+                    "translation": "You say"
+                },
+                {
+                    "native": "شكرا",
+                    "translation": "Thank you"
+                }
+            ]
+        },
+        {
+            "start": 17.19,
+            "duration": 0.561,
+            "words": [
+                {
+                    "native": "شكرا",
+                    "translation": "Thank you"
+                }
+            ]
+        },
+        {
+            "start": 17.75,
+            "duration": 0.845,
+            "words": [
+                {
+                    "native": "العفو",
+                    "translation": "You're welcome."
+                }
+            ]
+        },
+        {
+            "start": 18.6,
+            "duration": 2.617,
+            "words": [
+                {
+                    "native": "إيه",
+                    "translation": "Eh"
+                },
+                {
+                    "native": "أرجوك",
+                    "translation": "Please, please."
+                },
+                {
+                    "native": "ماقصدش",
+                    "translation": "I didn't mean to."
+                },
+                {
+                    "native": "أنا",
+                    "translation": "I'm"
+                },
+                {
+                    "native": "مش",
+                    "translation": "I didn't"
+                },
+                {
+                    "native": "ماقلتش",
+                    "translation": "I didn't say"
+                }
+            ]
+        },
+        {
+            "start": 21.324,
+            "duration": 0.871,
+            "words": [
+                {
+                    "native": "هو",
+                    "translation": "It's him."
+                },
+                {
+                    "native": "أنا",
+                    "translation": "I, uh, I, uh."
+                },
+                {
+                    "native": "ليه",
+                    "translation": "Leah."
+                },
+                {
+                    "native": "أقول",
+                    "translation": "I say"
+                },
+                {
+                    "native": "لك",
+                    "translation": "For you."
+                },
+                {
+                    "native": "شكرا",
+                    "translation": "Thank you."
+                }
+            ]
+        },
+        {
+            "start": 22.195,
+            "duration": 1.325,
+            "words": [
+                {
+                    "native": "ماشي",
+                    "translation": "Mashi"
+                },
+                {
+                    "native": "ماشي",
+                    "translation": "Mashi"
+                }
+            ]
+        },
+        {
+            "start": 24.071,
+            "duration": 2.449,
+            "words": [
+                {
+                    "native": "فاهم",
+                    "translation": "Understand"
+                },
+                {
+                    "native": "اللي",
+                    "translation": "Which"
+                },
+                {
+                    "native": "حاسة",
+                    "translation": "Sense"
+                },
+                {
+                    "native": "بيه",
+                    "translation": "Bey"
+                }
+            ]
+        },
+        {
+            "start": 27.475,
+            "duration": 2.738,
+            "words": [
+                {
+                    "native": "قدامك",
+                    "translation": "In front of you"
+                },
+                {
+                    "native": "الأسطورة",
+                    "translation": "The legend"
+                },
+                {
+                    "native": "نعمل",
+                    "translation": "We work"
+                },
+                {
+                    "native": "إيه",
+                    "translation": "Eh"
+                }
+            ]
+        },
+        {
+            "start": 30.21,
+            "duration": 2.43,
+            "words": [
+                {
+                    "native": "ابهار",
+                    "translation": "Dazzle"
+                },
+                {
+                    "native": "أول",
+                    "translation": "The first"
+                },
+                {
+                    "native": "مرة",
+                    "translation": "Once upon a time"
+                },
+                {
+                    "native": "تشوفيه",
+                    "translation": "You see it"
+                }
+            ]
+        },
+        {
+            "start": 32.844,
+            "duration": 1.36,
+            "words": [
+                {
+                    "native": "شيء",
+                    "translation": "something"
+                },
+                {
+                    "native": "حلو",
+                    "translation": "Sweet"
+                },
+                {
+                    "native": "جدا",
+                    "translation": "very"
+                }
+            ]
+        },
+        {
+            "start": 34.204,
+            "duration": 2.996,
+            "words": [
+                {
+                    "native": "والجميل",
+                    "translation": "And beautiful"
+                },
+                {
+                    "native": "ان",
+                    "translation": "that"
+                },
+                {
+                    "native": "الفانزات",
+                    "translation": "Vans"
+                },
+                {
+                    "native": "ماتغيروش",
+                    "translation": "Matgirush"
+                }
+            ]
+        },
+        {
+            "start": 37.537,
+            "duration": 2.988,
+            "words": [
+                {
+                    "native": "اللي",
+                    "translation": "which"
+                },
+                {
+                    "native": "شايفاه",
+                    "translation": "Chivah"
+                },
+                {
+                    "native": "هو",
+                    "translation": "He is"
+                },
+                {
+                    "native": "ده",
+                    "translation": "That's it"
+                }
+            ]
+        },
+        {
+            "start": 40.844,
+            "duration": 2.686,
+            "words": [
+                {
+                    "native": "أيوة",
+                    "translation": "Yes!"
+                },
+                {
+                    "native": "فعلا",
+                    "translation": "really"
+                },
+                {
+                    "native": "أنا",
+                    "translation": "I am"
+                },
+                {
+                    "native": "ماوي",
+                    "translation": "Maui"
+                },
+                {
+                    "native": "صدقي",
+                    "translation": "Believe me"
+                }
+            ]
+        },
+        {
+            "start": 44.364,
+            "duration": 3.478,
+            "words": [
+                {
+                    "native": "تأثيري",
+                    "translation": "My effect"
+                },
+                {
+                    "native": "مهول",
+                    "translation": "Huge"
+                },
+                {
+                    "native": "الشعر",
+                    "translation": "Hair"
+                },
+                {
+                    "native": "الجسم",
+                    "translation": "Body"
+                }
+            ]
+        },
+        {
+            "start": 48.515,
+            "duration": 2.649,
+            "words": [
+                {
+                    "native": "ده",
+                    "translation": "This is"
+                },
+                {
+                    "native": "أسطورة",
+                    "translation": "Myth"
+                },
+                {
+                    "native": "بيحكوها",
+                    "translation": "They say it"
+                },
+                {
+                    "native": "بالشعر",
+                    "translation": "With hair"
+                }
+            ]
+        },
+        {
+            "start": 51.582,
+            "duration": 3.591,
+            "words": [
+                {
+                    "native": "طيب",
+                    "translation": "Okay."
+                },
+                {
+                    "native": "هاقول",
+                    "translation": "I will say"
+                },
+                {
+                    "native": "إيه",
+                    "translation": "What"
+                },
+                {
+                    "native": "أنا",
+                    "translation": "I am"
+                },
+                {
+                    "native": "غير",
+                    "translation": "not"
+                },
+                {
+                    "native": "عفوا",
+                    "translation": "Pardon me"
+                }
+            ]
+        },
+        {
+            "start": 55.28,
+            "duration": 3.511,
+            "words": [
+                {
+                    "native": "علشان",
+                    "translation": "Because"
+                },
+                {
+                    "native": "بحمي",
+                    "translation": "Protect me"
+                },
+                {
+                    "native": "الحياة",
+                    "translation": "Life"
+                }
+            ]
+        },
+        {
+            "start": 58.79,
+            "duration": 3.467,
+            "words": [
+                {
+                    "native": "من",
+                    "translation": "than"
+                },
+                {
+                    "native": "غير",
+                    "translation": "without"
+                },
+                {
+                    "native": "هتاف",
+                    "translation": "Cheers"
+                },
+                {
+                    "native": "كفاية",
+                    "translation": "Enough"
+                },
+                {
+                    "native": "شكرا",
+                    "translation": "Thank you"
+                }
+            ]
+        },
+        {
+            "start": 62.72,
+            "duration": 2.817,
+            "words": [
+                {
+                    "native": "من",
+                    "translation": "From"
+                },
+                {
+                    "native": "غيري",
+                    "translation": "Other than me"
+                },
+                {
+                    "native": "كنتم",
+                    "translation": "You were"
+                },
+                {
+                    "native": "ضعتم",
+                    "translation": "You're lost"
+                },
+                {
+                    "native": "يا",
+                    "translation": "Hey!"
+                },
+                {
+                    "native": "ولداه",
+                    "translation": "His children"
+                }
+            ]
+        },
+        {
+            "start": 65.54,
+            "duration": 3.508,
+            "words": [
+                {
+                    "native": "آه",
+                    "translation": "Aah!"
+                },
+                {
+                    "native": "مين",
+                    "translation": "Min"
+                },
+                {
+                    "native": "اللي",
+                    "translation": "the one"
+                },
+                {
+                    "native": "شايل",
+                    "translation": "Chayil"
+                },
+                {
+                    "native": "عنكم",
+                    "translation": "about you"
+                },
+                {
+                    "native": "الأحمال",
+                    "translation": "Loads"
+                }
+            ]
+        },
+        {
+            "start": 69.351,
+            "duration": 2.699,
+            "words": [
+                {
+                    "native": "لما",
+                    "translation": "Why"
+                },
+                {
+                    "native": "كان",
+                    "translation": "was"
+                },
+                {
+                    "native": "طولك",
+                    "translation": "Your height"
+                },
+                {
+                    "native": "شبرين",
+                    "translation": "Shabrin"
+                },
+                {
+                    "native": "أنا",
+                    "translation": "I am"
+                }
+            ]
+        },
+        {
+            "start": 72.56,
+            "duration": 1.813,
+            "words": [
+                {
+                    "native": "في",
+                    "translation": "In"
+                },
+                {
+                    "native": "ليالي",
+                    "translation": "Nights"
+                },
+                {
+                    "native": "البرد",
+                    "translation": "Cold"
+                }
+            ]
+        },
+        {
+            "start": 74.462,
+            "duration": 2.773,
+            "words": [
+                {
+                    "native": "مين",
+                    "translation": "Min"
+                },
+                {
+                    "native": "جيه",
+                    "translation": "Ji"
+                },
+                {
+                    "native": "خلاكم",
+                    "translation": "Through you"
+                },
+                {
+                    "native": "دفيانين",
+                    "translation": "Devyanin"
+                }
+            ]
+        },
+        {
+            "start": 77.24,
+            "duration": 1.755,
+            "words": [
+                {
+                    "native": "أنا",
+                    "translation": "I'm"
+                },
+                {
+                    "native": "قدامك",
+                    "translation": "In front of you"
+                },
+                {
+                    "native": "أهو",
+                    "translation": "Aah!"
+                }
+            ]
+        },
+        {
+            "start": 79.208,
+            "duration": 4.267,
+            "words": [
+                {
+                    "native": "أوه",
+                    "translation": "Oh"
+                },
+                {
+                    "native": "الشمس",
+                    "translation": "The sun"
+                },
+                {
+                    "native": "ديه",
+                    "translation": "Dee"
+                },
+                {
+                    "native": "ربطتها",
+                    "translation": "I tied it"
+                }
+            ]
+        },
+        {
+            "start": 83.582,
+            "duration": 0.853,
+            "words": [
+                {
+                    "native": "عفوا",
+                    "translation": "Oops"
+                }
+            ]
+        },
+        {
+            "start": 84.44,
+            "duration": 2.457,
+            "words": [
+                {
+                    "native": "عشان",
+                    "translation": "so that"
+                },
+                {
+                    "native": "اليوم",
+                    "translation": "the day"
+                },
+                {
+                    "native": "يطول",
+                    "translation": "lengthen"
+                },
+                {
+                    "native": "بإنبساط",
+                    "translation": "In a hurry"
+                }
+            ]
+        },
+        {
+            "start": 87.182,
+            "duration": 3.369,
+            "words": [
+                {
+                    "native": "حتى",
+                    "translation": "until"
+                },
+                {
+                    "native": "الرياح",
+                    "translation": "the wind"
+                },
+                {
+                    "native": "مسكتها",
+                    "translation": "Caught her"
+                }
+            ]
+        },
+        {
+            "start": 90.648,
+            "duration": 0.667,
+            "words": [
+                {
+                    "native": "عفوا",
+                    "translation": "Oops"
+                }
+            ]
+        },
+        {
+            "start": 91.32,
+            "duration": 2.608,
+            "words": [
+                {
+                    "native": "في",
+                    "translation": "in"
+                },
+                {
+                    "native": "القلوع",
+                    "translation": "Castles"
+                },
+                {
+                    "native": "حطيتها",
+                    "translation": "I put it down"
+                },
+                {
+                    "native": "بالساعات",
+                    "translation": "By the hour"
+                }
+            ]
+        },
+        {
+            "start": 94.151,
+            "duration": 3.662,
+            "words": [
+                {
+                    "native": "طيب",
+                    "translation": "OK"
+                },
+                {
+                    "native": "هاقول",
+                    "translation": "I will say"
+                },
+                {
+                    "native": "إيه",
+                    "translation": "what"
+                },
+                {
+                    "native": "أنا",
+                    "translation": "I am"
+                },
+                {
+                    "native": "غير",
+                    "translation": "I'm not"
+                },
+                {
+                    "native": "عفوا",
+                    "translation": "Pardon me"
+                }
+            ]
+        },
+        {
+            "start": 98.115,
+            "duration": 2.933,
+            "words": [
+                {
+                    "native": "عشان",
+                    "translation": "Because"
+                },
+                {
+                    "native": "كل",
+                    "translation": "All"
+                },
+                {
+                    "native": "اللي",
+                    "translation": "Which"
+                },
+                {
+                    "native": "جبته",
+                    "translation": "I got it"
+                },
+                {
+                    "native": "من",
+                    "translation": "From"
+                },
+                {
+                    "native": "زمان",
+                    "translation": "Back in the day"
+                }
+            ]
+        },
+        {
+            "start": 101.325,
+            "duration": 3.67,
+            "words": [
+                {
+                    "native": "مش",
+                    "translation": "I'm not"
+                },
+                {
+                    "native": "عاوز",
+                    "translation": "I want"
+                },
+                {
+                    "native": "هتاف",
+                    "translation": "Cheers"
+                },
+                {
+                    "native": "كفاية",
+                    "translation": "Enough is enough"
+                },
+                {
+                    "native": "شكرا",
+                    "translation": "Thank you"
+                }
+            ]
+        },
+        {
+            "start": 105.733,
+            "duration": 2.444,
+            "words": [
+                {
+                    "native": "ماهي",
+                    "translation": "What is it"
+                },
+                {
+                    "native": "دي",
+                    "translation": "Dee"
+                },
+                {
+                    "native": "طبيعتي",
+                    "translation": "My nature"
+                },
+                {
+                    "native": "أعمل",
+                    "translation": "I do"
+                },
+                {
+                    "native": "إيه",
+                    "translation": "Eh"
+                }
+            ]
+        },
+        {
+            "start": 108.977,
+            "duration": 3.503,
+            "words": [
+                {
+                    "native": "وعفوا",
+                    "translation": "Excuse me"
+                },
+                {
+                    "native": "آه",
+                    "translation": "ah"
+                },
+                {
+                    "native": "عفوا",
+                    "translation": "Pardon me"
+                }
+            ]
+        },
+        {
+            "start": 112.933,
+            "duration": 1.564,
+            "words": [
+                {
+                    "native": "يعني",
+                    "translation": "I mean"
+                },
+                {
+                    "native": "بصراحة",
+                    "translation": "Honestly"
+                }
+            ]
+        },
+        {
+            "start": 114.737,
+            "duration": 3.929,
+            "words": [
+                {
+                    "native": "يا",
+                    "translation": "Hey"
+                },
+                {
+                    "native": "حلوة",
+                    "translation": "Sweet"
+                },
+                {
+                    "native": "ممكن",
+                    "translation": "It is possible"
+                },
+                {
+                    "native": "أقول",
+                    "translation": "I say"
+                },
+                {
+                    "native": "وأعيد",
+                    "translation": "And again"
+                },
+                {
+                    "native": "عشان",
+                    "translation": "Because"
+                },
+                {
+                    "native": "قدراتي",
+                    "translation": "My abilities"
+                },
+                {
+                    "native": "رهيبة",
+                    "translation": "Awesome"
+                },
+                {
+                    "native": "أكيد",
+                    "translation": "Sure"
+                }
+            ]
+        },
+        {
+            "start": 118.67,
+            "duration": 1.445,
+            "words": [
+                {
+                    "native": "المد",
+                    "translation": "Tide"
+                },
+                {
+                    "native": "الجذر",
+                    "translation": "Root"
+                },
+                {
+                    "native": "الأرض",
+                    "translation": "Earth"
+                }
+            ]
+        },
+        {
+            "start": 120.12,
+            "duration": 1.639,
+            "words": [
+                {
+                    "native": "ومافيش",
+                    "translation": "And there is no"
+                },
+                {
+                    "native": "عندك",
+                    "translation": "You have"
+                },
+                {
+                    "native": "لكل",
+                    "translation": "For each"
+                },
+                {
+                    "native": "ده",
+                    "translation": "This is"
+                },
+                {
+                    "native": "رد",
+                    "translation": "Reply"
+                }
+            ]
+        },
+        {
+            "start": 121.76,
+            "duration": 1.804,
+            "words": [
+                {
+                    "native": "تعبان",
+                    "translation": "Tired"
+                },
+                {
+                    "native": "البحار",
+                    "translation": "The sailor"
+                },
+                {
+                    "native": "حكى",
+                    "translation": "Told"
+                },
+                {
+                    "native": "لي",
+                    "translation": "For me"
+                },
+                {
+                    "native": "أسرار",
+                    "translation": "Secrets"
+                }
+            ]
+        },
+        {
+            "start": 123.56,
+            "duration": 1.782,
+            "words": [
+                {
+                    "native": "بزرع",
+                    "translation": "By planting"
+                },
+                {
+                    "native": "أشجار",
+                    "translation": "Trees"
+                },
+                {
+                    "native": "جوز",
+                    "translation": "Coconuts"
+                },
+                {
+                    "native": "الهند",
+                    "translation": "coconut"
+                },
+                {
+                    "native": "في",
+                    "translation": "In"
+                },
+                {
+                    "native": "النهار",
+                    "translation": "Daytime"
+                }
+            ]
+        },
+        {
+            "start": 125.34,
+            "duration": 1.806,
+            "words": [
+                {
+                    "native": "طب",
+                    "translation": "Of course."
+                },
+                {
+                    "native": "إيه",
+                    "translation": "Eh"
+                },
+                {
+                    "native": "القصد",
+                    "translation": "Intention"
+                },
+                {
+                    "native": "وإيه",
+                    "translation": "And what"
+                },
+                {
+                    "native": "النية",
+                    "translation": "Intention"
+                }
+            ]
+        },
+        {
+            "start": 127.15,
+            "duration": 1.859,
+            "words": [
+                {
+                    "native": "وليه",
+                    "translation": "And why"
+                },
+                {
+                    "native": "الإزعاج",
+                    "translation": "Annoyance"
+                },
+                {
+                    "native": "ده",
+                    "translation": "This is"
+                },
+                {
+                    "native": "في",
+                    "translation": "in"
+                },
+                {
+                    "native": "وقت",
+                    "translation": "time"
+                },
+                {
+                    "native": "العصرية",
+                    "translation": "Trendy"
+                }
+            ]
+        },
+        {
+            "start": 129.01,
+            "duration": 1.816,
+            "words": [
+                {
+                    "native": "أما",
+                    "translation": "As for"
+                },
+                {
+                    "native": "عن",
+                    "translation": "about"
+                },
+                {
+                    "native": "كل",
+                    "translation": "All"
+                },
+                {
+                    "native": "دي",
+                    "translation": "Dee"
+                },
+                {
+                    "native": "الأوشام",
+                    "translation": "Tattoos"
+                }
+            ]
+        },
+        {
+            "start": 130.83,
+            "duration": 1.658,
+            "words": [
+                {
+                    "native": "تبقى",
+                    "translation": "remain"
+                },
+                {
+                    "native": "شهادات",
+                    "translation": "certificates"
+                },
+                {
+                    "native": "نصر",
+                    "translation": "Victory"
+                },
+                {
+                    "native": "وإقدام",
+                    "translation": "And courage"
+                }
+            ]
+        },
+        {
+            "start": 132.49,
+            "duration": 1.838,
+            "words": [
+                {
+                    "native": "ياما",
+                    "translation": "Yama"
+                },
+                {
+                    "native": "سافرت",
+                    "translation": "I traveled"
+                },
+                {
+                    "native": "وحاربت",
+                    "translation": "And fought"
+                },
+                {
+                    "native": "غيلان",
+                    "translation": "Ghilan"
+                }
+            ]
+        },
+        {
+            "start": 134.33,
+            "duration": 2.274,
+            "words": [
+                {
+                    "native": "بصي",
+                    "translation": "Bsi"
+                },
+                {
+                    "native": "وشمي",
+                    "translation": "My tattoo"
+                },
+                {
+                    "native": "الصغنن",
+                    "translation": "Alsognen"
+                },
+                {
+                    "native": "ده",
+                    "translation": "This is"
+                },
+                {
+                    "native": "رقصه",
+                    "translation": "Dance"
+                },
+                {
+                    "native": "يجنن",
+                    "translation": "Crazy"
+                }
+            ]
+        },
+        {
+            "start": 140.551,
+            "duration": 2.986,
+            "words": [
+                {
+                    "native": "في",
+                    "translation": "in"
+                },
+                {
+                    "native": "الاختصار",
+                    "translation": "Shortcut"
+                },
+                {
+                    "native": "عاوز",
+                    "translation": "I want to"
+                },
+                {
+                    "native": "أقولك",
+                    "translation": "I tell you"
+                },
+                {
+                    "native": "عفوا",
+                    "translation": "Pardon me"
+                }
+            ]
+        },
+        {
+            "start": 143.54,
+            "duration": 0.913,
+            "words": [
+                {
+                    "native": "آه",
+                    "translation": "ah"
+                },
+                {
+                    "native": "عفوا",
+                    "translation": "Pardon me"
+                }
+            ]
+        },
+        {
+            "start": 144.45,
+            "duration": 2.821,
+            "words": [
+                {
+                    "native": "على",
+                    "translation": "for"
+                },
+                {
+                    "native": "كل",
+                    "translation": "all"
+                },
+                {
+                    "native": "الحاجات",
+                    "translation": "needs"
+                },
+                {
+                    "native": "ديه",
+                    "translation": "Dee"
+                }
+            ]
+        },
+        {
+            "start": 147.671,
+            "duration": 3.031,
+            "words": [
+                {
+                    "native": "بلاش",
+                    "translation": "Blush"
+                },
+                {
+                    "native": "هتاف",
+                    "translation": "Cheers"
+                },
+                {
+                    "native": "وكفاية",
+                    "translation": "And enough"
+                },
+                {
+                    "native": "شكرا",
+                    "translation": "Thank you"
+                }
+            ]
+        },
+        {
+            "start": 150.7,
+            "duration": 1.292,
+            "words": [
+                {
+                    "native": "آه",
+                    "translation": "Aah!"
+                },
+                {
+                    "native": "شكرا",
+                    "translation": "Thank you"
+                }
+            ]
+        },
+        {
+            "start": 151.99,
+            "duration": 2.756,
+            "words": [
+                {
+                    "native": "خلاص",
+                    "translation": "That's it."
+                },
+                {
+                    "native": "الوقت",
+                    "translation": "Time"
+                },
+                {
+                    "native": "جيه",
+                    "translation": "Jie"
+                },
+                {
+                    "native": "أروح",
+                    "translation": "I'm leaving"
+                },
+                {
+                    "native": "مشوار",
+                    "translation": "Mushawar"
+                }
+            ]
+        },
+        {
+            "start": 154.835,
+            "duration": 2.942,
+            "words": [
+                {
+                    "native": "ممكن",
+                    "translation": "Maybe."
+                },
+                {
+                    "native": "تودعيني",
+                    "translation": "Say goodbye to me"
+                },
+                {
+                    "native": "شكرا",
+                    "translation": "Thank you."
+                }
+            ]
+        },
+        {
+            "start": 157.777,
+            "duration": 1.227,
+            "words": [
+                {
+                    "native": "آه",
+                    "translation": "Aah!"
+                },
+                {
+                    "native": "شكرا",
+                    "translation": "Thank you"
+                }
+            ]
+        },
+        {
+            "start": 159.0,
+            "duration": 2.511,
+            "words": [
+                {
+                    "native": "عشان",
+                    "translation": "For"
+                },
+                {
+                    "native": "القارب",
+                    "translation": "The boat"
+                },
+                {
+                    "native": "يلزمني",
+                    "translation": "obliges me"
+                }
+            ]
+        },
+        {
+            "start": 161.51,
+            "duration": 3.512,
+            "words": [
+                {
+                    "native": "أخذه",
+                    "translation": "Take it"
+                },
+                {
+                    "native": "وأطير",
+                    "translation": "And fly"
+                },
+                {
+                    "native": "أطير",
+                    "translation": "I fly"
+                },
+                {
+                    "native": "وشكرا",
+                    "translation": "And thank you"
+                }
+            ]
+        },
+        {
+            "start": 165.02,
+            "duration": 1.237,
+            "words": [
+                {
+                    "native": "آه",
+                    "translation": "ah"
+                },
+                {
+                    "native": "شكرا",
+                    "translation": "Thank you"
+                }
+            ]
+        },
+        {
+            "start": 166.26,
+            "duration": 2.335,
+            "words": [
+                {
+                    "native": "عشان",
+                    "translation": "for"
+                },
+                {
+                    "native": "مابلش",
+                    "translation": "Maplesh"
+                },
+                {
+                    "native": "شعري",
+                    "translation": "my hair"
+                },
+                {
+                    "native": "الخطير",
+                    "translation": "Dangerous"
+                }
+            ]
+        },
+        {
+            "start": 168.6,
+            "duration": 0.911,
+            "words": [
+                {
+                    "native": "آه",
+                    "translation": "ah"
+                },
+                {
+                    "native": "شكرا",
+                    "translation": "Thank you"
+                }
+            ]
+        },
+        {
+            "start": 169.51,
+            "duration": 0.774,
+            "words": [
+                {
+                    "native": "وعفوا",
+                    "translation": "and pardon"
+                }
+            ]
+        },
+        {
+            "start": 170.28,
+            "duration": 0.964,
+            "words": [
+                {
+                    "native": "آه",
+                    "translation": "ah"
+                },
+                {
+                    "native": "عفوا",
+                    "translation": "Oops"
+                }
+            ]
+        },
+        {
+            "start": 171.24,
+            "duration": 2.76,
+            "words": [
+                {
+                    "native": "وعفوا",
+                    "translation": "and pardon"
+                }
+            ]
+        },
+        {
+            "start": 174.176,
+            "duration": 1.859,
+            "words": [
+                {
+                    "native": "وشكرا",
+                    "translation": "and thank you"
+                }
+            ]
+        },
+        {
+            "start": 176.924,
+            "duration": 1.849,
+            "words": [
+                {
+                    "native": "ماوي",
+                    "translation": "Maui"
+                },
+                {
+                    "native": "طلعني",
+                    "translation": "Ask me"
+                }
+            ]
+        },
+        {
+            "start": 179.031,
+            "duration": 2.346,
+            "words": [
+                {
+                    "native": "يا",
+                    "translation": "Hey"
+                },
+                {
+                    "native": "كداب",
+                    "translation": "Kadab"
+                },
+                {
+                    "native": "يا",
+                    "translation": "Hey"
+                },
+                {
+                    "native": "محتال",
+                    "translation": "scammer"
+                },
+                {
+                    "native": "يا",
+                    "translation": "Hey"
+                },
+                {
+                    "native": "مخادع",
+                    "translation": "deceiver"
+                }
+            ]
+        },
+        {
+            "start": 182.933,
+            "duration": 1.447,
+            "words": [
+                {
+                    "native": "والعفو",
+                    "translation": "And pardon"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,854 @@
+{
+    "snippets": [
+        {
+            "start": 0.0,
+            "duration": 4.279,
+            "words": [
+                {
+                    "native": "سكوتر",
+                    "translation": "scooter"
+                },
+                {
+                    "native": "بالكهربا",
+                    "translation": "with electricity"
+                },
+                {
+                    "native": "بيمشي",
+                    "translation": "Bimchi"
+                },
+                {
+                    "native": "في",
+                    "translation": "in"
+                },
+                {
+                    "native": "الشحنه",
+                    "translation": "charge"
+                },
+                {
+                    "native": "من",
+                    "translation": "from"
+                },
+                {
+                    "native": "70",
+                    "translation": "70"
+                },
+                {
+                    "native": "ل",
+                    "translation": "to"
+                }
+            ]
+        },
+        {
+            "start": 2.28,
+            "duration": 4.479,
+            "words": [
+                {
+                    "native": "75",
+                    "translation": "75"
+                },
+                {
+                    "native": "كيلو",
+                    "translation": "kilo"
+                }
+            ]
+        },
+        {
+            "start": 4.279,
+            "duration": 4.841,
+            "words": [
+                {
+                    "native": "وهتشيل",
+                    "translation": "and Heschel"
+                },
+                {
+                    "native": "تعال",
+                    "translation": "Come on, come on."
+                },
+                {
+                    "native": "كده",
+                    "translation": "That's it"
+                },
+                {
+                    "native": "اقول",
+                    "translation": "I say"
+                },
+                {
+                    "native": "لك",
+                    "translation": "for you"
+                },
+                {
+                    "native": "سريعا",
+                    "translation": "quickly"
+                },
+                {
+                    "native": "انا",
+                    "translation": "I'm"
+                },
+                {
+                    "native": "رايح",
+                    "translation": "I'm going"
+                }
+            ]
+        },
+        {
+            "start": 6.759,
+            "duration": 5.121,
+            "words": [
+                {
+                    "native": "عند",
+                    "translation": "At the"
+                },
+                {
+                    "native": "الحلاق",
+                    "translation": "Barber"
+                },
+                {
+                    "native": "احلى",
+                    "translation": "Sweetest"
+                },
+                {
+                    "native": "اداني",
+                    "translation": "Adani"
+                },
+                {
+                    "native": "وشعري",
+                    "translation": "And my hair"
+                },
+                {
+                    "native": "تعال",
+                    "translation": "Come on."
+                },
+                {
+                    "native": "اوريك",
+                    "translation": "Orek"
+                },
+                {
+                    "native": "ه",
+                    "translation": "H"
+                }
+            ]
+        },
+        {
+            "start": 9.12,
+            "duration": 4.84,
+            "words": [
+                {
+                    "native": "تشحنه",
+                    "translation": "Charge it."
+                },
+                {
+                    "native": "ازاي",
+                    "translation": "How do you charge it?"
+                },
+                {
+                    "native": "وانت",
+                    "translation": "And you?"
+                },
+                {
+                    "native": "قاعد",
+                    "translation": "I'm sitting."
+                },
+                {
+                    "native": "في",
+                    "translation": "in"
+                },
+                {
+                    "native": "اي",
+                    "translation": "E"
+                },
+                {
+                    "native": "مكان",
+                    "translation": "A place"
+                },
+                {
+                    "native": "يلا",
+                    "translation": "Come on."
+                },
+                {
+                    "native": "بينا",
+                    "translation": "Pina"
+                }
+            ]
+        },
+        {
+            "start": 11.88,
+            "duration": 4.68,
+            "words": [
+                {
+                    "native": "السكوتر",
+                    "translation": "scooter"
+                },
+                {
+                    "native": "ده",
+                    "translation": "this"
+                },
+                {
+                    "native": "ان",
+                    "translation": "N"
+                },
+                {
+                    "native": "البطاريه",
+                    "translation": "battery"
+                },
+                {
+                    "native": "بتاعته",
+                    "translation": "his"
+                },
+                {
+                    "native": "ليثيوم",
+                    "translation": "Lithium"
+                }
+            ]
+        },
+        {
+            "start": 13.96,
+            "duration": 5.12,
+            "words": [
+                {
+                    "native": "ايون",
+                    "translation": "ion"
+                },
+                {
+                    "native": "زي",
+                    "translation": "as"
+                },
+                {
+                    "native": "العربيه",
+                    "translation": "the car"
+                },
+                {
+                    "native": "او",
+                    "translation": "or"
+                },
+                {
+                    "native": "زي",
+                    "translation": "as"
+                },
+                {
+                    "native": "البطاريات",
+                    "translation": "Batteries"
+                },
+                {
+                    "native": "بتاعه",
+                    "translation": "battery"
+                }
+            ]
+        },
+        {
+            "start": 16.56,
+            "duration": 5.24,
+            "words": [
+                {
+                    "native": "العربيه",
+                    "translation": "the car"
+                },
+                {
+                    "native": "دلوقتي",
+                    "translation": "Right now"
+                },
+                {
+                    "native": "احنا",
+                    "translation": "We"
+                },
+                {
+                    "native": "هنفك",
+                    "translation": "Hannafik"
+                },
+                {
+                    "native": "البطاريه",
+                    "translation": "the battery"
+                },
+                {
+                    "native": "بتاعته",
+                    "translation": "his battery"
+                }
+            ]
+        },
+        {
+            "start": 19.08,
+            "duration": 4.8,
+            "words": [
+                {
+                    "native": "البطاريه",
+                    "translation": "the battery"
+                },
+                {
+                    "native": "دي",
+                    "translation": "D"
+                },
+                {
+                    "native": "وهنخس",
+                    "translation": "and scratch"
+                },
+                {
+                    "native": "عند",
+                    "translation": "at"
+                },
+                {
+                    "native": "الحلاق",
+                    "translation": "the barber"
+                },
+                {
+                    "native": "واحنا",
+                    "translation": "And we"
+                },
+                {
+                    "native": "بنحلق",
+                    "translation": "Shave"
+                }
+            ]
+        },
+        {
+            "start": 21.8,
+            "duration": 4.0,
+            "words": [
+                {
+                    "native": "الساعه",
+                    "translation": "The watch"
+                },
+                {
+                    "native": "اللي",
+                    "translation": "which"
+                },
+                {
+                    "native": "احنا",
+                    "translation": "we"
+                },
+                {
+                    "native": "هنقعد",
+                    "translation": "We sit down"
+                },
+                {
+                    "native": "فاضيين",
+                    "translation": "Void"
+                },
+                {
+                    "native": "فيها",
+                    "translation": "in it"
+                },
+                {
+                    "native": "هنحط",
+                    "translation": "here"
+                }
+            ]
+        },
+        {
+            "start": 23.88,
+            "duration": 4.68,
+            "words": [
+                {
+                    "native": "البطاريه",
+                    "translation": "Battery"
+                },
+                {
+                    "native": "دي",
+                    "translation": "Dee"
+                },
+                {
+                    "native": "على",
+                    "translation": "on"
+                },
+                {
+                    "native": "الشحن",
+                    "translation": "Charging"
+                },
+                {
+                    "native": "زي",
+                    "translation": "Zee"
+                },
+                {
+                    "native": "ما",
+                    "translation": "What"
+                },
+                {
+                    "native": "انت",
+                    "translation": "Hey, hey, hey."
+                },
+                {
+                    "native": "هتشوف",
+                    "translation": "See?"
+                }
+            ]
+        },
+        {
+            "start": 25.8,
+            "duration": 4.76,
+            "words": [
+                {
+                    "native": "دلوقتي",
+                    "translation": "Right now"
+                },
+                {
+                    "native": "يلا",
+                    "translation": "Yalla"
+                },
+                {
+                    "native": "بينا",
+                    "translation": "Pina"
+                },
+                {
+                    "native": "كل",
+                    "translation": "all"
+                },
+                {
+                    "native": "اللي",
+                    "translation": "which"
+                },
+                {
+                    "native": "عليك",
+                    "translation": "on you"
+                },
+                {
+                    "native": "يا",
+                    "translation": "Hey"
+                },
+                {
+                    "native": "ابو",
+                    "translation": "Abu"
+                }
+            ]
+        },
+        {
+            "start": 28.56,
+            "duration": 4.999,
+            "words": [
+                {
+                    "native": "اصحاب",
+                    "translation": "Friends."
+                },
+                {
+                    "native": "اللي",
+                    "translation": "The one"
+                },
+                {
+                    "native": "انت",
+                    "translation": "Hey, you!"
+                },
+                {
+                    "native": "هتزود",
+                    "translation": "I'll give you a raise."
+                },
+                {
+                    "native": "على",
+                    "translation": "on"
+                },
+                {
+                    "native": "ثمن",
+                    "translation": "price"
+                },
+                {
+                    "native": "لا",
+                    "translation": "Oh, no."
+                },
+                {
+                    "native": "الحلاقه",
+                    "translation": "The barber."
+                }
+            ]
+        },
+        {
+            "start": 30.56,
+            "duration": 5.72,
+            "words": [
+                {
+                    "native": "بتاعك",
+                    "translation": "your"
+                },
+                {
+                    "native": "هتدي",
+                    "translation": "You will"
+                },
+                {
+                    "native": "له",
+                    "translation": "for him"
+                },
+                {
+                    "native": "4",
+                    "translation": "4"
+                },
+                {
+                    "native": "جنيه",
+                    "translation": "pounds"
+                },
+                {
+                    "native": "لو",
+                    "translation": "if"
+                },
+                {
+                    "native": "شحنت",
+                    "translation": "charged"
+                },
+                {
+                    "native": "السكوتر",
+                    "translation": "scooter"
+                },
+                {
+                    "native": "ده",
+                    "translation": "this"
+                }
+            ]
+        },
+        {
+            "start": 33.559,
+            "duration": 5.641,
+            "words": [
+                {
+                    "native": "من",
+                    "translation": "from"
+                },
+                {
+                    "native": "صفر",
+                    "translation": "zero"
+                },
+                {
+                    "native": "ل",
+                    "translation": "to"
+                },
+                {
+                    "native": "100",
+                    "translation": "100"
+                },
+                {
+                    "native": "دلوقتي",
+                    "translation": "Now"
+                },
+                {
+                    "native": "السكوتر",
+                    "translation": "scooter"
+                },
+                {
+                    "native": "ده",
+                    "translation": "this"
+                },
+                {
+                    "native": "بياخد",
+                    "translation": "It takes"
+                }
+            ]
+        },
+        {
+            "start": 36.28,
+            "duration": 5.799,
+            "words": [
+                {
+                    "native": "220",
+                    "translation": "220"
+                },
+                {
+                    "native": "فولت",
+                    "translation": "Volt"
+                },
+                {
+                    "native": "عادي",
+                    "translation": "Normal"
+                },
+                {
+                    "native": "من",
+                    "translation": "from"
+                },
+                {
+                    "native": "اي",
+                    "translation": "Any"
+                },
+                {
+                    "native": "مصدر",
+                    "translation": "source"
+                },
+                {
+                    "native": "كهرباء",
+                    "translation": "electricity"
+                },
+                {
+                    "native": "فاحنا",
+                    "translation": "we"
+                }
+            ]
+        },
+        {
+            "start": 39.2,
+            "duration": 5.12,
+            "words": [
+                {
+                    "native": "دلوقتي",
+                    "translation": "now"
+                },
+                {
+                    "native": "هنحط",
+                    "translation": "will be"
+                },
+                {
+                    "native": "الشاحن",
+                    "translation": "Charger"
+                },
+                {
+                    "native": "وهنسيب",
+                    "translation": "and let's"
+                },
+                {
+                    "native": "السكوتر",
+                    "translation": "scooter"
+                },
+                {
+                    "native": "يشحن",
+                    "translation": "charging"
+                }
+            ]
+        },
+        {
+            "start": 42.079,
+            "duration": 4.281,
+            "words": [
+                {
+                    "native": "وزي",
+                    "translation": "and"
+                },
+                {
+                    "native": "ما",
+                    "translation": "what"
+                },
+                {
+                    "native": "قلت",
+                    "translation": "I said"
+                },
+                {
+                    "native": "لكم",
+                    "translation": "for you"
+                },
+                {
+                    "native": "او",
+                    "translation": "or"
+                },
+                {
+                    "native": "البطاريه",
+                    "translation": "battery"
+                },
+                {
+                    "native": "بتاعه",
+                    "translation": "battery"
+                },
+                {
+                    "native": "السكوتر",
+                    "translation": "scooter"
+                }
+            ]
+        },
+        {
+            "start": 44.32,
+            "duration": 4.8,
+            "words": [
+                {
+                    "native": "يشحن",
+                    "translation": "charging"
+                },
+                {
+                    "native": "و",
+                    "translation": "and"
+                },
+                {
+                    "native": "زي",
+                    "translation": "Zee"
+                },
+                {
+                    "native": "ما",
+                    "translation": "what"
+                },
+                {
+                    "native": "قلت",
+                    "translation": "I said"
+                },
+                {
+                    "native": "لكم",
+                    "translation": "for you"
+                },
+                {
+                    "native": "ان",
+                    "translation": "that"
+                },
+                {
+                    "native": "البطاريه",
+                    "translation": "battery"
+                },
+                {
+                    "native": "بتاعه",
+                    "translation": "technology"
+                }
+            ]
+        },
+        {
+            "start": 46.36,
+            "duration": 4.6,
+            "words": [
+                {
+                    "native": "السكوتر",
+                    "translation": "scooter"
+                },
+                {
+                    "native": "ده",
+                    "translation": "this"
+                },
+                {
+                    "native": "ليثيوم",
+                    "translation": "lithium"
+                },
+                {
+                    "native": "ايون",
+                    "translation": "ion"
+                },
+                {
+                    "native": "زي",
+                    "translation": "Z"
+                },
+                {
+                    "native": "تكنولوجي",
+                    "translation": "technological"
+                }
+            ]
+        },
+        {
+            "start": 49.12,
+            "duration": 4.16,
+            "words": [
+                {
+                    "native": "البطاريات",
+                    "translation": "batteries"
+                },
+                {
+                    "native": "بتاعه",
+                    "translation": "his"
+                },
+                {
+                    "native": "العربيه",
+                    "translation": "vehicle"
+                },
+                {
+                    "native": "بتاعتنا",
+                    "translation": "our"
+                },
+                {
+                    "native": "الكهرباء",
+                    "translation": "electricity"
+                }
+            ]
+        },
+        {
+            "start": 50.96,
+            "duration": 4.759,
+            "words": [
+                {
+                    "native": "فالموضوع",
+                    "translation": "the subject"
+                },
+                {
+                    "native": "بسيط",
+                    "translation": "simple"
+                },
+                {
+                    "native": "جدا",
+                    "translation": "very"
+                },
+                {
+                    "native": "ممكن",
+                    "translation": "can"
+                },
+                {
+                    "native": "تبقى",
+                    "translation": "stay"
+                },
+                {
+                    "native": "قاعده",
+                    "translation": "base"
+                },
+                {
+                    "native": "على",
+                    "translation": "on"
+                }
+            ]
+        },
+        {
+            "start": 53.28,
+            "duration": 5.48,
+            "words": [
+                {
+                    "native": "كافيه",
+                    "translation": "Cafe"
+                },
+                {
+                    "native": "ممكن",
+                    "translation": "it is possible"
+                },
+                {
+                    "native": "تبقى",
+                    "translation": "stay"
+                },
+                {
+                    "native": "قاعد",
+                    "translation": "Standing"
+                },
+                {
+                    "native": "في",
+                    "translation": "in"
+                },
+                {
+                    "native": "اي",
+                    "translation": "any"
+                },
+                {
+                    "native": "مكان",
+                    "translation": "place"
+                },
+                {
+                    "native": "فاضي",
+                    "translation": "Free"
+                }
+            ]
+        },
+        {
+            "start": 55.719,
+            "duration": 6.201,
+            "words": [
+                {
+                    "native": "ساعه",
+                    "translation": "hour"
+                },
+                {
+                    "native": "نص",
+                    "translation": "half"
+                },
+                {
+                    "native": "ساعه",
+                    "translation": "hour"
+                },
+                {
+                    "native": "تستغل",
+                    "translation": "take advantage of"
+                },
+                {
+                    "native": "فيش",
+                    "translation": "Fish"
+                },
+                {
+                    "native": "الكهرباء",
+                    "translation": "electricity"
+                },
+                {
+                    "native": "عاديه",
+                    "translation": "Normal"
+                }
+            ]
+        },
+        {
+            "start": 58.76,
+            "duration": 3.16,
+            "words": [
+                {
+                    "native": "220",
+                    "translation": "220"
+                },
+                {
+                    "native": "فولت",
+                    "translation": "volt"
+                }
+            ]
+        }
+    ]
+}

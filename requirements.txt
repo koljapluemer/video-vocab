@@ -1,0 +1,5 @@
+deepl==1.21.1
+pydantic==2.11.1
+python-dotenv==1.1.0
+youtube-transcript-api==1.0.3
+tqdm==4.67.1

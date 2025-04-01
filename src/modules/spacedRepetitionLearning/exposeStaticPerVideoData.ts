@@ -37,13 +37,30 @@
 
 import { Snippet, Word } from "@/shared/types/domainTypes";
 
+interface SavedVideoData {
+    snippets: Array<{
+        start: number;
+        duration: number;
+        words: Array<{
+            native: string;
+            translation: string;
+        }>;
+    }>;
+}
+
+async function fetchVideoData(videoId: string): Promise<SavedVideoData> {
+    const response = await fetch(`/data/out/${videoId}.json`);
+    return response.json();
+}
+
 export async function extractNumberOfSnippetsOfVideo(videoId: string): Promise<number> {
-    const videoData = await import(`@/data/out/${videoId}.json`);
+    const videoData = await fetchVideoData(videoId);
+    console.log(`extracted numberOfSnippetsOfVideo for ${videoId}: ${videoData.snippets.length}`)
     return videoData.snippets.length;
 }
 
 export async function extractSnippetsOfVideo(videoId: string): Promise<Snippet[]> {
-    const videoData = await import(`@/data/out/${videoId}.json`);
+    const videoData = await fetchVideoData(videoId);
     // we need data conversion here.
     // looking at the data above, the word list is not actually Word[]
     const snippets: Snippet[] = [];
@@ -58,11 +75,17 @@ export async function extractSnippetsOfVideo(videoId: string): Promise<Snippet[]
 }
 
 export async function extractAllWordsOfVideo(videoId: string): Promise<Word[]> {
-    const videoData = await import(`@/data/out/${videoId}.json`);
-    return videoData.snippets.map((snippet: any) => snippet.words).flat();
+    const videoData = await fetchVideoData(videoId);
+    return videoData.snippets
+        .map((snippet) => snippet.words)
+        .flat()
+        .map(word => ({ original: word.native, meanings: [word.translation] }));
 }
 
 export async function extractWordsOfSnippet(videoId: string, snippetIndex: number): Promise<Word[]> {
-    const videoData = await import(`@/data/out/${videoId}.json`);
-    return videoData.snippets[snippetIndex].words;
+    const videoData = await fetchVideoData(videoId);
+    return videoData.snippets[snippetIndex].words.map(word => ({
+        original: word.native,
+        meanings: [word.translation]
+    }));
 }

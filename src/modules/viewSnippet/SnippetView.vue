@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { Snippet, Flashcard } from '@/shared/types/domainTypes'
 import { getSnippet, getFlashcardsForSnippet } from '@/modules/spacedRepetitionLearning/api'
 import FlashCardsWrapper from '@/modules/viewFlashcard/FlashCardsWrapper.vue'
 import WatchSnippet from './WatchSnippet.vue'
 
 const route = useRoute()
-const router = useRouter()
 
 const snippet = ref<Snippet | null>(null)
 const flashcards = ref<Flashcard[]>([])
@@ -19,14 +18,11 @@ onMounted(async () => {
   try {
     snippet.value = await getSnippet(videoId, snippetIndex)
     flashcards.value = await getFlashcardsForSnippet(videoId, snippetIndex)
+    isLearnMode.value = true
   } catch (error) {
     console.error('Failed to load snippet:', error)
   }
 })
-
-const goBackToVideo = () => {
-  router.push(`/video/${videoId}`)
-}
 
 const handleAllFlashcardsCompleted = () => {
   isLearnMode.value = false
@@ -47,11 +43,15 @@ const handleSingleFlashcardRated = (flashcard: Flashcard, rating: number) => {
           <div class="space-y-2">
             <p><span class="font-semibold">Start Time:</span> {{ snippet.start }}s</p>
             <p><span class="font-semibold">Duration:</span> {{ snippet.duration }}s</p>
+            <p><span class="font-semibold">Snippet Index:</span> {{ snippetIndex }}</p>
           </div>
           <div class="card-actions justify-end mt-4">
-            <button class="btn btn-primary" @click="goBackToVideo">
+            <router-link
+              :to="{ name: 'video', params: { videoId } }"
+              class="btn btn-primary"
+            >
               Back to Video
-            </button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -63,7 +63,14 @@ const handleSingleFlashcardRated = (flashcard: Flashcard, rating: number) => {
           @all-flashcards-completed="handleAllFlashcardsCompleted"
         />
       </div>
-      <WatchSnippet v-else />
+      <WatchSnippet
+        v-else
+        :video-id="videoId"
+        :start="snippet.start"
+        :duration="snippet.duration"
+        :current-index="snippetIndex"
+        @study-again="isLearnMode = true"
+      />
     </div>
     <div v-else class="flex justify-center items-center h-64">
       <span class="loading loading-spinner loading-lg"></span>

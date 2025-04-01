@@ -3,14 +3,23 @@ export interface Video {
   languageCode: string;
 }
 
+interface VideoData {
+  subtitle_language: string;
+  videos: Array<{ id: string }>;
+}
+
+interface VideosJson {
+  [languageCode: string]: VideoData;
+}
+
 export async function getAllVideos(): Promise<Video[]> {
-  const response = await fetch('/data/out/videos.json');
-  const data = await response.json();
+  const response = await fetch('/data/videos.json');
+  const data = await response.json() as VideosJson;
 
   const videos: Video[] = [];
-  for (const [languageCode, videoIds] of Object.entries(data)) {
-    for (const youtubeId of videoIds as string[]) {
-      videos.push({ youtubeId, languageCode });
+  for (const [languageCode, languageData] of Object.entries(data)) {
+    for (const video of languageData.videos) {
+      videos.push({ youtubeId: video.id, languageCode });
     }
   }
 

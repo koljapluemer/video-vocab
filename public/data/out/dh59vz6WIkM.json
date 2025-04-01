@@ -1,0 +1,750 @@
+{
+    "snippets": [
+        {
+            "start": 0.16,
+            "duration": 4.679,
+            "words": [
+                {
+                    "native": "من",
+                    "translation": "from"
+                },
+                {
+                    "native": "اسبوعين",
+                    "translation": "two weeks"
+                },
+                {
+                    "native": "سافرت",
+                    "translation": "I traveled"
+                },
+                {
+                    "native": "من",
+                    "translation": "from"
+                },
+                {
+                    "native": "القاهره",
+                    "translation": "Cairo"
+                },
+                {
+                    "native": "لقريتي",
+                    "translation": "to my village"
+                },
+                {
+                    "native": "شيط",
+                    "translation": "Shait"
+                }
+            ]
+        },
+        {
+            "start": 2.399,
+            "duration": 5.0,
+            "words": [
+                {
+                    "native": "الهواء",
+                    "translation": "air"
+                },
+                {
+                    "native": "بمركز",
+                    "translation": "center"
+                },
+                {
+                    "native": "كفر",
+                    "translation": "Kafr"
+                },
+                {
+                    "native": "صقر",
+                    "translation": "Saqr"
+                },
+                {
+                    "native": "شرقيه",
+                    "translation": "Eastern"
+                },
+                {
+                    "native": "لمشاهده",
+                    "translation": "to watch"
+                },
+                {
+                    "native": "واحده",
+                    "translation": "one"
+                }
+            ]
+        },
+        {
+            "start": 4.839,
+            "duration": 4.601,
+            "words": [
+                {
+                    "native": "من",
+                    "translation": "from"
+                },
+                {
+                    "native": "اشرس",
+                    "translation": "the fiercest"
+                },
+                {
+                    "native": "نهايات",
+                    "translation": "ends"
+                },
+                {
+                    "native": "كره",
+                    "translation": "football"
+                },
+                {
+                    "native": "قدم",
+                    "translation": "feet"
+                },
+                {
+                    "native": "الاقلم",
+                    "translation": "pencils"
+                },
+                {
+                    "native": "بطوله",
+                    "translation": "tournament"
+                }
+            ]
+        },
+        {
+            "start": 7.399,
+            "duration": 5.4,
+            "words": [
+                {
+                    "native": "بيتنافسوا",
+                    "translation": "Beetroot"
+                }
+            ]
+        },
+        {
+            "start": 9.44,
+            "duration": 6.04,
+            "words": [
+                {
+                    "native": "مراكز",
+                    "translation": "centers"
+                },
+                {
+                    "native": "الشرقيه",
+                    "translation": "Sharqiya"
+                },
+                {
+                    "native": "والد",
+                    "translation": "Wald"
+                },
+                {
+                    "native": "اهليه",
+                    "translation": "Ahlia"
+                },
+                {
+                    "native": "وصل",
+                    "translation": "arrived"
+                },
+                {
+                    "native": "للنهائي",
+                    "translation": "to the final"
+                },
+                {
+                    "native": "شيط",
+                    "translation": "Shait"
+                }
+            ]
+        },
+        {
+            "start": 12.799,
+            "duration": 4.881,
+            "words": [
+                {
+                    "native": "الهوا",
+                    "translation": "the air"
+                },
+                {
+                    "native": "والمشعل",
+                    "translation": "And the torch"
+                },
+                {
+                    "native": "وبداوا",
+                    "translation": "And they began"
+                },
+                {
+                    "native": "المعركه",
+                    "translation": "The battle"
+                },
+                {
+                    "native": "الناس",
+                    "translation": "people"
+                },
+                {
+                    "native": "مركزه",
+                    "translation": "his center"
+                }
+            ]
+        },
+        {
+            "start": 15.48,
+            "duration": 5.24,
+            "words": [
+                {
+                    "native": "مع",
+                    "translation": "with"
+                },
+                {
+                    "native": "الماتش",
+                    "translation": "Match"
+                },
+                {
+                    "native": "وانا",
+                    "translation": "And I'm"
+                },
+                {
+                    "native": "سرحان",
+                    "translation": "Sarhan"
+                },
+                {
+                    "native": "في",
+                    "translation": "in"
+                },
+                {
+                    "native": "منجم",
+                    "translation": "mine"
+                },
+                {
+                    "native": "الدهب",
+                    "translation": "Gold"
+                },
+                {
+                    "native": "اللي",
+                    "translation": "which"
+                }
+            ]
+        },
+        {
+            "start": 17.68,
+            "duration": 6.04,
+            "words": [
+                {
+                    "native": "قدامي",
+                    "translation": "in front of me"
+                },
+                {
+                    "native": "ده",
+                    "translation": "this"
+                },
+                {
+                    "native": "مواهب",
+                    "translation": "talents"
+                },
+                {
+                    "native": "كرويه",
+                    "translation": "football"
+                },
+                {
+                    "native": "متفجره",
+                    "translation": "Explosive"
+                },
+                {
+                    "native": "نسخ",
+                    "translation": "copy"
+                },
+                {
+                    "native": "ثانيه",
+                    "translation": "second"
+                }
+            ]
+        },
+        {
+            "start": 20.72,
+            "duration": 5.08,
+            "words": [
+                {
+                    "native": "مهمله",
+                    "translation": "wasted"
+                },
+                {
+                    "native": "من",
+                    "translation": "from"
+                },
+                {
+                    "native": "محمد",
+                    "translation": "Mohamed"
+                },
+                {
+                    "native": "صلاح",
+                    "translation": "Salah"
+                },
+                {
+                    "native": "هدر",
+                    "translation": "wasted"
+                },
+                {
+                    "native": "المواهب",
+                    "translation": "talents"
+                },
+                {
+                    "native": "دي",
+                    "translation": "D"
+                },
+                {
+                    "native": "بيضيع",
+                    "translation": "wasted"
+                }
+            ]
+        },
+        {
+            "start": 23.72,
+            "duration": 4.92,
+            "words": [
+                {
+                    "native": "على",
+                    "translation": "on"
+                },
+                {
+                    "native": "الاقتصاد",
+                    "translation": "economy"
+                },
+                {
+                    "native": "المصري",
+                    "translation": "Egyptian"
+                },
+                {
+                    "native": "مليارات",
+                    "translation": "billions"
+                },
+                {
+                    "native": "الدولارات",
+                    "translation": "dollars"
+                }
+            ]
+        },
+        {
+            "start": 25.8,
+            "duration": 5.36,
+            "words": [
+                {
+                    "native": "صادرات",
+                    "translation": "exports"
+                },
+                {
+                    "native": "مصر",
+                    "translation": "Egypt"
+                },
+                {
+                    "native": "من",
+                    "translation": "from"
+                },
+                {
+                    "native": "لاعبين",
+                    "translation": "players"
+                },
+                {
+                    "native": "ضعيفه",
+                    "translation": "weak"
+                },
+                {
+                    "native": "جدا",
+                    "translation": "very"
+                },
+                {
+                    "native": "اول",
+                    "translation": "first"
+                },
+                {
+                    "native": "20",
+                    "translation": "20"
+                }
+            ]
+        },
+        {
+            "start": 28.64,
+            "duration": 5.28,
+            "words": [
+                {
+                    "native": "دوله",
+                    "translation": "country"
+                },
+                {
+                    "native": "على",
+                    "translation": "on"
+                },
+                {
+                    "native": "مستوى",
+                    "translation": "level"
+                },
+                {
+                    "native": "العالم",
+                    "translation": "the world"
+                },
+                {
+                    "native": "بت",
+                    "translation": "Bits"
+                },
+                {
+                    "native": "صدر",
+                    "translation": "exported"
+                },
+                {
+                    "native": "لاعبين",
+                    "translation": "players"
+                },
+                {
+                    "native": "فيهم",
+                    "translation": "in them"
+                }
+            ]
+        },
+        {
+            "start": 31.16,
+            "duration": 6.16,
+            "words": [
+                {
+                    "native": "اربع",
+                    "translation": "four"
+                },
+                {
+                    "native": "دول",
+                    "translation": "countries"
+                },
+                {
+                    "native": "افارقه",
+                    "translation": "African"
+                },
+                {
+                    "native": "نيجيريا",
+                    "translation": "Nigeria"
+                },
+                {
+                    "native": "غانا",
+                    "translation": "Ghana"
+                },
+                {
+                    "native": "كوتيفوار",
+                    "translation": "Côte d'Ivoire"
+                }
+            ]
+        },
+        {
+            "start": 33.92,
+            "duration": 6.04,
+            "words": [
+                {
+                    "native": "سنغال",
+                    "translation": "Senegal"
+                },
+                {
+                    "native": "المغرب",
+                    "translation": "Morocco"
+                },
+                {
+                    "native": "بتصدر",
+                    "translation": "by topping"
+                },
+                {
+                    "native": "لاعيبه",
+                    "translation": "players"
+                },
+                {
+                    "native": "اربع",
+                    "translation": "four"
+                },
+                {
+                    "native": "اضعاف",
+                    "translation": "quadruple"
+                },
+                {
+                    "native": "مصر",
+                    "translation": "Egypt"
+                }
+            ]
+        },
+        {
+            "start": 37.32,
+            "duration": 6.0,
+            "words": [
+                {
+                    "native": "ولما",
+                    "translation": "and for"
+                },
+                {
+                    "native": "وصل",
+                    "translation": "arrived"
+                },
+                {
+                    "native": "لنص",
+                    "translation": "for half"
+                },
+                {
+                    "native": "نهائي",
+                    "translation": "final"
+                },
+                {
+                    "native": "كاس",
+                    "translation": "cup"
+                },
+                {
+                    "native": "العالم",
+                    "translation": "the world"
+                },
+                {
+                    "native": "ارتفعت",
+                    "translation": "rose"
+                }
+            ]
+        },
+        {
+            "start": 39.96,
+            "duration": 5.48,
+            "words": [
+                {
+                    "native": "اعداد",
+                    "translation": "numbers"
+                },
+                {
+                    "native": "السياح",
+                    "translation": "tourists"
+                },
+                {
+                    "native": "بنسبه",
+                    "translation": "by"
+                },
+                {
+                    "native": "12",
+                    "translation": "12"
+                },
+                {
+                    "native": "اتمنى",
+                    "translation": "I wish"
+                },
+                {
+                    "native": "نستغل",
+                    "translation": "exploit"
+                },
+                {
+                    "native": "مناجم",
+                    "translation": "mines"
+                }
+            ]
+        },
+        {
+            "start": 43.32,
+            "duration": 4.6,
+            "words": [
+                {
+                    "native": "الدهب",
+                    "translation": "gold"
+                },
+                {
+                    "native": "اللي",
+                    "translation": "which"
+                },
+                {
+                    "native": "عندنا",
+                    "translation": "we have"
+                },
+                {
+                    "native": "في",
+                    "translation": "in"
+                },
+                {
+                    "native": "مصر",
+                    "translation": "Egypt"
+                },
+                {
+                    "native": "كمان",
+                    "translation": "Kaman"
+                },
+                {
+                    "native": "كان",
+                    "translation": "was"
+                },
+                {
+                    "native": "ماتش",
+                    "translation": "Match"
+                }
+            ]
+        },
+        {
+            "start": 45.44,
+            "duration": 4.639,
+            "words": [
+                {
+                    "native": "حلو",
+                    "translation": "Sweet"
+                },
+                {
+                    "native": "خلص",
+                    "translation": "It's over."
+                },
+                {
+                    "native": "بفوض",
+                    "translation": "Pfouda"
+                },
+                {
+                    "native": "شيط",
+                    "translation": "Shait"
+                },
+                {
+                    "native": "الهواء",
+                    "translation": "Air"
+                },
+                {
+                    "native": "2",
+                    "translation": "2"
+                },
+                {
+                    "native": "واحد",
+                    "translation": "one"
+                },
+                {
+                    "native": "الف",
+                    "translation": "Thousand"
+                },
+                {
+                    "native": "مبروك",
+                    "translation": "Congratulations"
+                }
+            ]
+        },
+        {
+            "start": 47.92,
+            "duration": 4.479,
+            "words": [
+                {
+                    "native": "لشباب",
+                    "translation": "For young people"
+                },
+                {
+                    "native": "قريتي",
+                    "translation": "My village"
+                },
+                {
+                    "native": "وهارد",
+                    "translation": "and hard"
+                },
+                {
+                    "native": "لاك",
+                    "translation": "Lak"
+                },
+                {
+                    "native": "لشباب",
+                    "translation": "For young people"
+                },
+                {
+                    "native": "المشاعله",
+                    "translation": "Commons"
+                }
+            ]
+        },
+        {
+            "start": 50.079,
+            "duration": 4.96,
+            "words": [
+                {
+                    "native": "اكاديميه",
+                    "translation": "Academy"
+                },
+                {
+                    "native": "حاسوب",
+                    "translation": "computer"
+                },
+                {
+                    "native": "بتقدم",
+                    "translation": "In progress"
+                },
+                {
+                    "native": "دورات",
+                    "translation": "courses"
+                },
+                {
+                    "native": "ذكاء",
+                    "translation": "intelligence"
+                },
+                {
+                    "native": "اصطناعي",
+                    "translation": "artificial"
+                }
+            ]
+        },
+        {
+            "start": 52.399,
+            "duration": 5.64,
+            "words": [
+                {
+                    "native": "من",
+                    "translation": "of"
+                },
+                {
+                    "native": "الصفر",
+                    "translation": "zero"
+                },
+                {
+                    "native": "للاحتراف",
+                    "translation": "to professional"
+                },
+                {
+                    "native": "مع",
+                    "translation": "with"
+                },
+                {
+                    "native": "مشاريع",
+                    "translation": "projects"
+                },
+                {
+                    "native": "عمليه",
+                    "translation": "practical"
+                },
+                {
+                    "native": "وشهاده",
+                    "translation": "and certificate"
+                }
+            ]
+        },
+        {
+            "start": 55.039,
+            "duration": 5.921,
+            "words": [
+                {
+                    "native": "معتمده",
+                    "translation": "certified"
+                },
+                {
+                    "native": "استفيد",
+                    "translation": "Benefit"
+                },
+                {
+                    "native": "بكون",
+                    "translation": "being"
+                },
+                {
+                    "native": "خصم",
+                    "translation": "discount"
+                },
+                {
+                    "native": "100",
+                    "translation": "100"
+                },
+                {
+                    "native": "دولار",
+                    "translation": "dollars"
+                },
+                {
+                    "native": "لاول",
+                    "translation": "first"
+                },
+                {
+                    "native": "20",
+                    "translation": "20"
+                }
+            ]
+        },
+        {
+            "start": 58.039,
+            "duration": 2.921,
+            "words": [
+                {
+                    "native": "شخص",
+                    "translation": "person"
+                },
+                {
+                    "native": "هيسجل",
+                    "translation": "Hesjel"
+                }
+            ]
+        }
+    ]
+}

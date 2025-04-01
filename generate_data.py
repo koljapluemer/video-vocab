@@ -8,12 +8,10 @@ from pydantic import BaseModel
 from typing import List
 import deepl
 
-# Input folder with language files (each containing a language code and YouTube IDs)
-INPUT_FOLDER = "public/data/in"
+# Input JSON file containing video IDs per language
+INPUT_JSON = "public/data/videos.json"
 # Output folder where JSON files will be written
 OUTPUT_FOLDER = "public/data/out"
-# Aggregated JSON file for video IDs per language
-AGGREGATED_JSON = os.path.join(OUTPUT_FOLDER, "videos.json")
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -43,9 +41,6 @@ class Command:
             ...
         ]
     }
-
-    Additionally, an aggregated JSON file is generated listing all video IDs
-    grouped by the language code (extracted from the original input filename).
     """
     def extract_words(self, text: str) -> List[str]:
         # Adjust regex if necessary
@@ -158,51 +153,26 @@ class Command:
             json.dump(output_data, f, ensure_ascii=False, indent=4)
         print(f"JSON file generated for video {video_id}: {output_file}")
 
-    def process_language_file(self, file_path: str, video_id_dict: dict) -> None:
-        """
-        Processes a file that contains a language code in the first line and
-        a list of YouTube video IDs on subsequent lines. The language code key
-        (extracted from the original filename) and its video IDs are added to the
-        aggregated dictionary.
-        """
-        with open(file_path, "r", encoding="utf-8") as f:
-            lines = [line.strip() for line in f if line.strip()]
-        if not lines:
-            print(f"No content in file {file_path}")
-            return
-
-        # Use the filename (e.g. "de.txt") to extract the language code.
-        file_lang_code = os.path.splitext(os.path.basename(file_path))[0]
-
-        # The first line can still be used for translation purposes if needed.
-        lang_code_for_translation = lines[0]
-        video_ids = lines[1:]
-
-        # Save the video ids into the aggregated dictionary.
-        video_id_dict[file_lang_code] = video_ids
-
-        for video_id in tqdm(video_ids, desc=f"Processing videos for {lang_code_for_translation}"):
-            self.process_video(video_id, lang_code_for_translation)
-
     def handle(self):
-        if not os.path.exists(INPUT_FOLDER):
-            print(f"Input folder {INPUT_FOLDER} does not exist.")
+        if not os.path.exists(INPUT_JSON):
+            print(f"Input JSON file {INPUT_JSON} does not exist.")
             return
 
-        # Dictionary to hold language_code -> [video_ids]
-        videos_by_language = {}
+        # Read the videos.json file
+        with open(INPUT_JSON, "r", encoding="utf-8") as f:
+            videos_data = json.load(f)
 
-        for filename in os.listdir(INPUT_FOLDER):
-            if filename.endswith(".txt"):
-                file_path = os.path.join(INPUT_FOLDER, filename)
-                print(f"Processing language file: {filename}")
-                self.process_language_file(file_path, videos_by_language)
+        # Process each language and its videos
+        for lang_code, lang_data in videos_data.items():
+            subtitle_lang = lang_data.get("subtitle_language", lang_code)
+            videos = lang_data.get("videos", [])
+            
+            print(f"Processing videos for language: {lang_code}")
+            for video in tqdm(videos, desc=f"Processing videos for {lang_code}"):
+                video_id = video.get("id")
+                if video_id:
+                    self.process_video(video_id, subtitle_lang)
 
-        # Write the aggregated video IDs JSON file.
-        os.makedirs(OUTPUT_FOLDER, exist_ok=True)
-        with open(AGGREGATED_JSON, "w", encoding="utf-8") as f:
-            json.dump(videos_by_language, f, ensure_ascii=False, indent=4)
-        print(f"Aggregated video IDs JSON generated: {AGGREGATED_JSON}")
         print("✅ JSON generation complete!")
 
 # To run the command, instantiate and call handle():

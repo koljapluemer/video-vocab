@@ -23,7 +23,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { useData } from '@/composables/useData';
 import type { VideoData, FlashcardData, VideoSegment, AggregatedMeaning } from '@/types';
 import { rateCard } from '@/fsrs';
 import { loadLocalData, saveLocalData } from '@/composables/useLocalStorage';

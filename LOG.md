@@ -1,1 +1,0 @@
-- [chatgpt prompt exploring](https://chatgpt.com/c/67ab809f-62b0-800a-8514-c58481b13bb5)

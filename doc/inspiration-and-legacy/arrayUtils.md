@@ -1,5 +1,7 @@
-// a fairly general-purpose utility collection; largely imported from other projects like al-k
+a fairly general-purpose utility collection; largely imported from other projects like al-k
 
+
+```ts
 /**
  * Picks a random element from an array.
  * @param array The array to pick from.
@@ -59,3 +61,4 @@ export function filterDictByKeySubstring(dict: Record<string, any>, substring: s
     Object.entries(dict).filter(([key]) => key.includes(substring))
   );
 }
+```

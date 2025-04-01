@@ -1,3 +1,6 @@
+A generic little file allowing saving simple stuff in localstorage.
+
+```ts
 // src/composables/useLocalStorage.ts
 export function loadLocalData(key: string): any {
     const data = localStorage.getItem(key);
@@ -9,3 +12,4 @@ export function saveLocalData(key: string, data: any): void {
     const merged = { ...existing, ...data };
     localStorage.setItem(key, JSON.stringify(merged));
 }
+```

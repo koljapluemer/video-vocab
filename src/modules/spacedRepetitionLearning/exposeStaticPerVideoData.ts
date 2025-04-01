@@ -89,3 +89,13 @@ export async function extractWordsOfSnippet(videoId: string, snippetIndex: numbe
         meanings: [word.translation]
     }));
 }
+
+export async function extractSnippet(videoId: string, snippetIndex: number): Promise<Snippet> {
+    const videoData = await fetchVideoData(videoId);
+    // convert the words to Word[]
+    const words: Word[] = videoData.snippets[snippetIndex].words.map(word => ({
+        original: word.native,
+        meanings: [word.translation]
+    }));
+    return { words, start: videoData.snippets[snippetIndex].start, duration: videoData.snippets[snippetIndex].duration };
+}

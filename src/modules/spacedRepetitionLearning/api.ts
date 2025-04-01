@@ -3,7 +3,7 @@
 // and per-user data which will we be storing in a remote database (supabase)
 
 import { Flashcard, Snippet } from "@/shared/types/domainTypes";
-import { extractNumberOfSnippetsOfVideo, extractSnippetsOfVideo, extractWordsOfSnippet } from "./exposeStaticPerVideoData";
+import { extractNumberOfSnippetsOfVideo, extractSnippet, extractSnippetsOfVideo, extractWordsOfSnippet } from "./exposeStaticPerVideoData";
 import { Card, createEmptyCard } from "ts-fsrs";
 
 export async function getSnippetsOfVideo(videoId: string): Promise<Snippet[]> {
@@ -31,3 +31,7 @@ export async function getFlashcardsForSnippet(videoId: string, snippetIndex: num
     return flashcards;
 }
 
+export async function getSnippet(videoId: string, snippetIndex: number): Promise<Snippet> {
+    const snippet = await extractSnippet(videoId, snippetIndex);
+    return snippet;
+}

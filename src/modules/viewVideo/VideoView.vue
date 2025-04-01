@@ -15,7 +15,7 @@
             <div class="text-lg">
               {{ snippetCount }} snippets available
             </div>
-            <router-link :to="`/flashcards/${videoId}/0`" class="btn btn-primary">
+            <router-link :to="{ name: 'snippet', params: { videoId, index: 0 }}" class="btn btn-primary">
               Start Practice
             </router-link>
           </div>

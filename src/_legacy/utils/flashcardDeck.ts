@@ -1,7 +1,7 @@
 // src/utils/flashcardDeck.ts
-import { getInitialCard } from '@/fsrs';
-import { loadLocalData } from '@/composables/useLocalStorage';
-import type { WordEntry, FlashcardData } from '@/types';
+import { getInitialCard } from '@/_legacy/fsrs';
+import { loadLocalData } from '@/_legacy/composables/useLocalStorage';
+import type { WordEntry, FlashcardData } from '@/_legacy/types';
 
 const VOCAB_ITEMS_KEY = 'items';
 const VOCAB_BLACKLIST_KEY = 'vocabBlacklist';
@@ -28,7 +28,7 @@ function isDue(card: any): boolean {
 
 /**
  * Builds the flashcard deck for the current segment.
- * 
+ *
  * - Filters words that appear in the current segment (by matching videoId, start, and duration in relevantForVideoSegments).
  * - Excludes words that are blacklisted.
  * - For each matching word, creates a FlashcardData by looking up FSRS data (or creating a new card).

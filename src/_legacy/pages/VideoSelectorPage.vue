@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useData } from '@/composables/useData';
-import type { VideoData } from '@/types';
+import type { VideoData } from '@/_legacy/types';
 
 const { getVideos } = useData();
 const videos = ref<VideoData[]>(getVideos());

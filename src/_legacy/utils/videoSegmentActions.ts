@@ -1,7 +1,7 @@
 // src/utils/videoSegmentActions.ts
-import { getInitialCard, rateCard } from '@/fsrs';
-import { loadLocalData, saveLocalData } from '@/composables/useLocalStorage';
-import type { VideoData, VideoSegment } from '@/types';
+import { getInitialCard, rateCard } from '@/_legacy/fsrs';
+import { loadLocalData, saveLocalData } from '@/_legacy/composables/useLocalStorage';
+import type { VideoData, VideoSegment } from '@/_legacy/types';
 import { Rating } from 'ts-fsrs';
 
 /**

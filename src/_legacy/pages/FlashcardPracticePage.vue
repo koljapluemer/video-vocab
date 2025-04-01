@@ -23,9 +23,9 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import type { VideoData, FlashcardData, VideoSegment, AggregatedMeaning } from '@/types';
-import { rateCard } from '@/fsrs';
-import { ensureNonRepeatingNext } from '@/utils/flashcardDeck';
+import type { VideoData, FlashcardData, VideoSegment, AggregatedMeaning } from '@/_legacy/types';
+import { rateCard } from '@/_legacy/fsrs';
+import { ensureNonRepeatingNext } from '@/_legacy/utils/flashcardDeck';
 import FlashcardItem from '@/components/FlashcardItem.vue';
 
 const route = useRoute();

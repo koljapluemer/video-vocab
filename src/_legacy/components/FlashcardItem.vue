@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
-import type { FlashcardData, AggregatedMeaning } from '@/types';
+import type { FlashcardData, AggregatedMeaning } from '@/_legacy/types';
 import { Rating } from 'ts-fsrs';
 
 const props = defineProps<{

@@ -19,7 +19,7 @@
     /* Path resolution */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
     },
 
     /* Type Declarations */

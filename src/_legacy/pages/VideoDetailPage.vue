@@ -37,7 +37,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import type { VideoData } from '@/types';
+import type { VideoData } from '@/_legacy/types';
 import { useData } from '@/composables/useData';
 
 const route = useRoute();

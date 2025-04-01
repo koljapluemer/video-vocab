@@ -46,8 +46,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import type { VideoData, VideoSegment } from '@/types';
-import { initSegmentCard, updateSegmentRating, repeatSegment, studyNextSegment, studyScheduledSegment } from '@/utils/videoSegmentActions';
+import type { VideoData, VideoSegment } from '@/_legacy/types';
+import { initSegmentCard, updateSegmentRating, repeatSegment, studyNextSegment, studyScheduledSegment } from '@/_legacy/utils/videoSegmentActions';
 
 const route = useRoute();
 const router = useRouter();

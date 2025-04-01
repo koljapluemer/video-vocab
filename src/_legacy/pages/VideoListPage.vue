@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import type { VideoData } from '@/types';
+import type { VideoData } from '@/_legacy/types';
 
 interface VideosJson {
     arz: string[];
@@ -31,7 +31,7 @@ onMounted(async () => {
     try {
         const response = await fetch('/data/out/videos.json');
         const videosJson = await response.json() as VideosJson;
-        
+
         // Transform the videos.json data into VideoData format
         videos.value = videosJson.arz.map((videoId: string) => ({
             videoId,

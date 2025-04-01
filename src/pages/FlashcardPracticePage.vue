@@ -25,8 +25,7 @@ import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import type { VideoData, FlashcardData, VideoSegment, AggregatedMeaning } from '@/types';
 import { rateCard } from '@/fsrs';
-import { loadLocalData, saveLocalData } from '@/composables/useLocalStorage';
-import { buildFlashcardDeck, ensureNonRepeatingNext } from '@/utils/flashcardDeck';
+import { ensureNonRepeatingNext } from '@/utils/flashcardDeck';
 import FlashcardItem from '@/components/FlashcardItem.vue';
 
 const route = useRoute();
@@ -35,65 +34,101 @@ const router = useRouter();
 const videoId = route.params.videoId as string;
 const segmentIndex = Number(route.params.segmentIndex);
 
-const { getVideos, getWords } = useData();
-const videos: VideoData[] = getVideos();
-const words = getWords();
+interface VideoWord {
+    native: string;
+    translation: string;
+}
 
-const video: VideoData | undefined = videos.find(v => v.videoId === videoId);
-if (!video) router.push('/');
-const currentSegment: VideoSegment = video!.segments[segmentIndex];
+interface VideoSnippet {
+    start: number;
+    duration: number;
+    words: VideoWord[];
+}
 
+interface VideoJson {
+    snippets: VideoSnippet[];
+}
+
+const videoData = ref<VideoJson | null>(null);
 const flashcards = ref<FlashcardData[]>([]);
 const currentIndex = ref(0);
 const showAnswer = ref(false);
 const lastPracticedWord = ref<string | null>(null);
 
-// Build the deck using our utility (adapted to the new structure).
-onMounted(() => {
-    flashcards.value = buildFlashcardDeck(videoId, currentSegment, words);
+// Load video data and build flashcards
+onMounted(async () => {
+    try {
+        const response = await fetch(`/data/out/${videoId}.json`);
+        videoData.value = await response.json();
+
+        if (!videoData.value || !videoData.value.snippets[segmentIndex]) {
+            console.error('Video or segment not found');
+            router.push('/');
+            return;
+        }
+
+        const currentSnippet = videoData.value.snippets[segmentIndex];
+
+        // Transform words into flashcards
+        flashcards.value = currentSnippet.words.map(word => ({
+            word: word.native,
+            transliteration: '', // We don't have transliteration in the new format
+            relevantForVideoSegments: [{
+                videoId,
+                start: currentSnippet.start,
+                duration: currentSnippet.duration,
+                translation: word.translation
+            }],
+            card: { // Simple card state
+                due: new Date(),
+                stability: 0,
+                difficulty: 0,
+                elapsedDays: 0,
+                scheduledDays: 0,
+                reps: 0,
+                lapses: 0
+            }
+        }));
+    } catch (error) {
+        console.error('Error loading video data:', error);
+        router.push('/');
+    }
 });
 
 const currentFlashcard = computed(() => flashcards.value[currentIndex.value] || null);
 
 /**
  * Aggregates meanings for a given flashcard.
- * Deduplicates by comparing the normalized translation.
- * Marks as primary if any occurrence exactly matches the current segment.
+ * In the new format, we only have one meaning per word per segment.
  */
 function aggregateMeaningsForFlashcard(
     flashcard: FlashcardData,
     currentVideoId: string,
     currentSegment: { start: number; duration: number }
 ): { aggregatedMeanings: AggregatedMeaning[]; primaryMeaning: AggregatedMeaning | null } {
-    const map = new Map<string, AggregatedMeaning>();
-    flashcard.relevantForVideoSegments.forEach(occ => {
-        const key = occ.translation.trim().toLowerCase();
-        if (!map.has(key)) {
-            map.set(key, {
-                transliteration: flashcard.transliteration,
-                translation: occ.translation,
-                isPrimary: false
-            });
-        }
-        if (
-            occ.videoId === currentVideoId &&
-            occ.start === currentSegment.start &&
-            occ.duration === currentSegment.duration
-        ) {
-            const entry = map.get(key);
-            if (entry) entry.isPrimary = true;
-        }
-    });
-    const aggregatedMeanings = Array.from(map.values());
-    aggregatedMeanings.sort((a, b) => (a.isPrimary ? -1 : b.isPrimary ? 1 : 0));
-    const primaryMeaning = aggregatedMeanings.find(m => m.isPrimary) || null;
-    return { aggregatedMeanings, primaryMeaning };
+    const meaning = flashcard.relevantForVideoSegments[0];
+    const aggregatedMeaning: AggregatedMeaning = {
+        transliteration: flashcard.transliteration,
+        translation: meaning.translation,
+        isPrimary: true
+    };
+    return {
+        aggregatedMeanings: [aggregatedMeaning],
+        primaryMeaning: aggregatedMeaning
+    };
 }
 
 // Compute aggregated data for the current flashcard.
 const aggregatedData = computed(() => {
-    if (!currentFlashcard.value) return { aggregatedMeanings: [] as AggregatedMeaning[], primaryMeaning: null };
-    return aggregateMeaningsForFlashcard(currentFlashcard.value, videoId, currentSegment);
+    if (!currentFlashcard.value || !videoData.value) {
+        return { aggregatedMeanings: [] as AggregatedMeaning[], primaryMeaning: null };
+    }
+    const currentSnippet = videoData.value.snippets[segmentIndex];
+    return aggregateMeaningsForFlashcard(
+        currentFlashcard.value,
+        videoId,
+        { start: currentSnippet.start, duration: currentSnippet.duration }
+    );
 });
 
 function revealAnswer() {
@@ -112,8 +147,6 @@ function handleRating(quality: number) {
     if (currentFlashcard.value) {
         const updatedCard = rateCard(currentFlashcard.value.card, rating);
         currentFlashcard.value.card = updatedCard;
-        const cardKey = `card_${currentFlashcard.value.word}`;
-        saveLocalData('items', { [cardKey]: updatedCard });
         lastPracticedWord.value = currentFlashcard.value.word;
         flashcards.value.splice(currentIndex.value, 1);
         showAnswer.value = false;
@@ -131,11 +164,6 @@ function handleRating(quality: number) {
 
 function skipVocabulary() {
     if (currentFlashcard.value) {
-        const blacklistKey = 'vocabBlacklist';
-        const list = localStorage.getItem(blacklistKey);
-        const blacklist = list ? new Set(JSON.parse(list)) : new Set<string>();
-        blacklist.add(currentFlashcard.value.word);
-        localStorage.setItem(blacklistKey, JSON.stringify(Array.from(blacklist)));
         flashcards.value.splice(currentIndex.value, 1);
         flashcards.value = ensureNonRepeatingNext(
             flashcards.value,

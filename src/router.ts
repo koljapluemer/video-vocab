@@ -1,11 +1,17 @@
-// src/router.ts
 import { createRouter, createWebHistory } from 'vue-router';
-import VideoListView from '@/modules/videoListView/VideoListView.vue';
+import VideoView from '@/modules/viewVideo/VideoView.vue';
+import VideoListView from '@/modules/viewVideoList/VideoListView.vue';
+
 const routes = [
   {
     path: '/',
     name: 'video-list',
     component: VideoListView
+  },
+  {
+    path: '/video/:videoId',
+    name: 'video',
+    component: VideoView
   },
 ];
 

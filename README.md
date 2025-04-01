@@ -47,6 +47,17 @@
 
 ### Data
 
+Understand the following about data sourcing in this project:
+
+- this app dances around _two_ data sources:
+  1. `JSON`-based, **static**, read-only data stored in `public/data`
+  2. **dynamic**, per-learner learning data, to be managed in `supabase`
+- here are a few examples and use cases describing the two types of data:
+  - to get all videos we have, we poll the static `videos.json`
+  - to get all snippets in a video, we poll the static file `public/data/out/$youtube_id.json` that exists for every video
+  - to get all words that need to be learned to understand a snippet, we poll the relevant part of `public/data/out/$youtube_id.json`
+  - to get all the flashcards that a learner currently has to learn, we ask only the dynamic data
+  - to get all flashcards that are currently due for a learner within in the context of a specific snippet, we first use the static data, then compare against the dynamic data
 
 
 ### Folders
@@ -62,10 +73,10 @@ The project follows a module-based architecture. That means that instead of putt
 │   │   ├── exposeStaticPerVideoData.ts           # accessing the per-video jsons, out/$youtube_id.json
 │   │   └── exposeVideoList.ts                    # accessing videos.json
 │   ├── viewFlashcard                             # a reusable flashcard(s) viewer
-│   │   ├── FlashCardsWrapper.vue                 #
-│   │   └── FlashCard.vue                         #
+│   │   ├── FlashCardsWrapper.vue                 # get n flashcards, make sure we go through all
+│   │   └── FlashCard.vue                         # show a single flashcard to the learner, let them reveal and rate the content
 │   ├── viewSnippet                               # learner wants to watch and eval a snippet of a video
-│   │   ├── SnippetView.vue                       #
+│   │   ├── SnippetView.vue                       # shows first a flashcard renderer for the snippet, then afterwards lets learner watch and eval by loading WatchSnippet
 │   │   └── WatchSnippet.vue                      #
 │   ├── viewVideo                                 # viewing stuff relating to a video as a whole
 │   │   ├── components                            #

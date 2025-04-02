@@ -2,14 +2,17 @@
   <div class="card bg-base-100 shadow-xl">
     <div class="card-body">
       <h2 class="card-title">Watch the Snippet</h2>
-      <div class="mb-4">
-        <iframe
-          class="w-full h-64"
-          :src="youtubeEmbedUrl"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+      <div class="max-w-full">
+        <div class="mb-4 relative aspect-video">
+          <iframe
+            class="w-full h-full"
+            :src="youtubeEmbedUrl"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <div v-if="coverSubtitles" class="absolute bottom-6 left-0 right-0 h-32 bg-gray-800"></div>
+        </div>
       </div>
       <div class="flex flex-col items-center space-y-4">
         <button @click="replaySnippet" class="btn btn-primary">
@@ -39,6 +42,7 @@ const props = defineProps<{
   start: number
   duration: number
   currentIndex: number
+  coverSubtitles: boolean
 }>()
 
 const replayKey = ref(Date.now())

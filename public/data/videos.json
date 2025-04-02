@@ -4,7 +4,8 @@
         "subtitle_language": "ar",
         "videos": [
             {
-                "id": "auY_TQ8Ypz8"
+                "id": "auY_TQ8Ypz8",
+                "coverSubtitles": true
             },
             {
                 "id": "ypOBrsOJslI"

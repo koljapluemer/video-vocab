@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { Snippet, Flashcard } from '@/shared/types/domainTypes'
 import { getSnippet, getFlashcardsForSnippet } from '@/modules/spacedRepetitionLearning/api'
+import { getVideoById } from '@/modules/spacedRepetitionLearning/exposeVideoList'
 import FlashCardsWrapper from '@/modules/viewFlashcard/FlashCardsWrapper.vue'
 import WatchSnippet from './WatchSnippet.vue'
 
@@ -13,12 +14,20 @@ const flashcards = ref<Flashcard[]>([])
 const isLearnMode = ref(true)
 const videoId = route.params.videoId as string
 const snippetIndex = parseInt(route.params.index as string)
+const coverSubtitles = ref(false)
 
 onMounted(async () => {
   try {
     snippet.value = await getSnippet(videoId, snippetIndex)
     flashcards.value = await getFlashcardsForSnippet(videoId, snippetIndex)
     isLearnMode.value = true
+
+    // Get video details to check coverSubtitles
+    const video = await getVideoById(videoId)
+    if (video) {
+      coverSubtitles.value = video.coverSubtitles
+    }
+
   } catch (error) {
     console.error('Failed to load snippet:', error)
   }
@@ -69,6 +78,7 @@ const handleSingleFlashcardRated = (flashcard: Flashcard, rating: number) => {
         :start="snippet.start"
         :duration="snippet.duration"
         :current-index="snippetIndex"
+        :cover-subtitles="coverSubtitles"
         @study-again="isLearnMode = true"
       />
     </div>

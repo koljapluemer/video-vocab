@@ -12,38 +12,50 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { ref, watch } from 'vue'
 import type { Flashcard } from '@/shared/types/domainTypes'
 import { Rating } from 'ts-fsrs'
 import FlashCard from './FlashCard.vue'
+import { useFlashCardStackHandler } from './flashCardStackHandler'
+import { FlashCardButtonLabel } from '@/shared/types/uiTypes'
 
 const props = defineProps<{
   flashcards: Flashcard[]
 }>()
+
+console.info('FlashcardsWrapper mounted with props:', {
+  flashcardsCount: props.flashcards.length,
+  flashcards: props.flashcards
+})
 
 const emit = defineEmits<{
   (e: 'single-flashcard-rated', flashcard: Flashcard, rating: Rating): void
   (e: 'all-flashcards-completed'): void
 }>()
 
-const currentIndex = ref(0)
+const { rateFlashcardAndGetNext, getNextFlashcard } = useFlashCardStackHandler(props.flashcards)
 
-const currentFlashcard = computed(() => {
-  return props.flashcards[currentIndex.value] || null
-})
+const currentFlashcard = ref<Flashcard | undefined>(undefined)
+
+// Initialize with first flashcard
+currentFlashcard.value = getNextFlashcard()
 
 const handleSingleFlashcardRated = (rating: Rating) => {
   if (!currentFlashcard.value) return
 
-  emit('single-flashcard-rated', currentFlashcard.value, rating)
+  // Convert Rating to FlashCardButtonLabel
+  const buttonLabel: FlashCardButtonLabel = rating === Rating.Again ? 'again' :
+    rating === Rating.Hard ? 'hard' :
+    rating === Rating.Good ? 'good' :
+    'easy'
 
-  // Move to next flashcard
-  currentIndex.value++
+  // Handle the flashcard evaluation
+  currentFlashcard.value  = rateFlashcardAndGetNext(currentFlashcard.value, buttonLabel)
 }
 
 // Watch for when we've gone through all flashcards
-watch(currentIndex, (newIndex) => {
-  if (newIndex >= props.flashcards.length) {
+watch(currentFlashcard, (newFlashcard) => {
+  if (!newFlashcard) {
     emit('all-flashcards-completed')
   }
 })

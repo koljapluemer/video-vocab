@@ -35,3 +35,7 @@ export async function getSnippet(videoId: string, snippetIndex: number): Promise
     const snippet = await extractSnippet(videoId, snippetIndex);
     return snippet;
 }
+
+export function flashCardWasNeverSeenBefore(flashcard: Flashcard) {
+  return flashcard.reps === 0
+}

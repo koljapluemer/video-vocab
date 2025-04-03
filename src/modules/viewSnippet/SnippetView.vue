@@ -12,15 +12,20 @@ const route = useRoute()
 const snippet = ref<Snippet | null>(null)
 const flashcards = ref<Flashcard[]>([])
 const isLearnMode = ref(true)
+const isLoading = ref(true)
 const videoId = route.params.videoId as string
 const snippetIndex = parseInt(route.params.index as string)
 const coverSubtitles = ref(false)
 
 onMounted(async () => {
   try {
+    console.info('Loading snippet and flashcards for:', { videoId, snippetIndex })
     snippet.value = await getSnippet(videoId, snippetIndex)
+    console.info('Snippet loaded:', snippet.value)
     flashcards.value = await getFlashcardsForSnippet(videoId, snippetIndex)
+    console.info('Flashcards loaded:', flashcards.value)
     isLearnMode.value = true
+    isLoading.value = false
 
     // Get video details to check coverSubtitles
     const video = await getVideoById(videoId)
@@ -30,6 +35,7 @@ onMounted(async () => {
 
   } catch (error) {
     console.error('Failed to load snippet:', error)
+    isLoading.value = false
   }
 })
 
@@ -65,7 +71,7 @@ const handleSingleFlashcardRated = (flashcard: Flashcard, rating: number) => {
         </div>
       </div>
 
-      <div v-if="isLearnMode">
+      <div v-if="isLearnMode && !isLoading">
         <FlashCardsWrapper
           :flashcards="flashcards"
           @single-flashcard-rated="handleSingleFlashcardRated"
@@ -73,7 +79,7 @@ const handleSingleFlashcardRated = (flashcard: Flashcard, rating: number) => {
         />
       </div>
       <WatchSnippet
-        v-else
+        v-else-if="!isLoading"
         :video-id="videoId"
         :start="snippet.start"
         :duration="snippet.duration"

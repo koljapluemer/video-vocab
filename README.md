@@ -45,6 +45,10 @@
 
 - basic vue app; run with `npm i`, `npm run dev`
 
+## Features
+
+- [Learning the Flashcards of a Video Snippet](doc/features/practicing_vocab_of_snippet.md)
+
 ### Data
 
 Understand the following about data sourcing in this project:

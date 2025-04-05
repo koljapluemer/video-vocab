@@ -65,6 +65,9 @@ Understand the following about data sourcing in this project:
 
   In the future, it may be wise to move all into supabase, but for now this makes it nice and easy to get started :)
 
+- btw, added some additional scripts to experiment:
+  - `extract_subtitles`, to get raw subtitle files to look at
+  - `find_egypt_videos`, to try and find relevant youtube videos
 
 ### Folders
 

@@ -1,4 +1,5 @@
 <template>
+
   <div class="card shadow-lg p-4 mb-4">
     <div>
       <p class="text-4xl font-bold mb-2">{{ flashcard.original }}</p>

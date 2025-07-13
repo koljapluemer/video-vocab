@@ -3,6 +3,7 @@
 - *learn the vocab to understand a video, watch the video, repeat*
 - my latest attempt, for spoken Arabic :)
 
+*Archived Project. The best ideas from it will live on in [linguanodon](https://github.com/koljapluemer/linguanodon).*
 
 ## User Stories
 

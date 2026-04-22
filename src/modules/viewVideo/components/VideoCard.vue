@@ -8,7 +8,7 @@
         <div class="text-sm text-gray-500">
           {{ snippetCount }} snippets
         </div>
-        <router-link :to="`/flashcards/${videoId}/0`" class="btn btn-primary">
+        <router-link :to="{ name: 'snippet', params: { languageCode, videoId, index: 0 } }" class="btn btn-primary">
           Practice
         </router-link>
       </div>
@@ -21,6 +21,7 @@ import { ref, onMounted } from 'vue';
 import { getNumberOfSnippetsOfVideo } from '@/modules/spacedRepetitionLearning/api';
 
 const props = defineProps<{
+  languageCode: string;
   videoId: string;
 }>();
 
@@ -28,7 +29,7 @@ const snippetCount = ref<number>(0);
 
 onMounted(async () => {
   try {
-    snippetCount.value = await getNumberOfSnippetsOfVideo(props.videoId);
+    snippetCount.value = await getNumberOfSnippetsOfVideo(props.languageCode, props.videoId);
   } catch (error) {
     console.error('Error fetching snippet count:', error);
   }

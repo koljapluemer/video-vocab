@@ -23,7 +23,7 @@
             Study Again
           </button>
           <router-link
-            :to="{ name: 'snippet', params: { videoId, index: currentIndex + 1 }}"
+            :to="{ name: 'snippet', params: { languageCode, videoId, index: currentIndex + 1 } }"
             class="btn btn-success"
           >
             Next Snippet
@@ -38,6 +38,7 @@
 import { computed, ref } from 'vue'
 
 const props = defineProps<{
+  languageCode: string
   videoId: string
   start: number
   duration: number
@@ -50,7 +51,7 @@ const replayKey = ref(Date.now())
 const youtubeEmbedUrl = computed(() => {
   const start = Math.floor(props.start)
   const end = Math.floor(props.start + props.duration + 0.6)
-  return `https://www.youtube.com/embed/${props.videoId}?start=${start}&end=${end}&autoplay=1`
+  return `https://www.youtube.com/embed/${props.videoId}?start=${start}&end=${end}&autoplay=1&replay=${replayKey.value}`
 })
 
 const replaySnippet = () => {
@@ -58,7 +59,6 @@ const replaySnippet = () => {
 }
 
 const onStudyAgain = () => {
-  // Emit event to parent to switch back to learn mode
   emit('study-again')
 }
 

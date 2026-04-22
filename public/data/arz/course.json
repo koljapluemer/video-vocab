@@ -1,0 +1,21 @@
+{
+  "languageCode": "arz",
+  "label": "Egyptian Arabic",
+  "subtitleLanguage": "ar",
+  "direction": "rtl",
+  "videos": [
+    {
+      "id": "auY_TQ8Ypz8",
+      "coverSubtitles": true
+    },
+    {
+      "id": "ypOBrsOJslI"
+    },
+    {
+      "id": "uZVFYhsVyUc"
+    },
+    {
+      "id": "dh59vz6WIkM"
+    }
+  ]
+}

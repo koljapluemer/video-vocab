@@ -10,12 +10,12 @@ const routes = [
     component: VideoListView
   },
   {
-    path: '/video/:videoId',
+    path: '/course/:languageCode/video/:videoId',
     name: 'video',
     component: VideoView
   },
   {
-    path: '/video/:videoId/snippet/:index',
+    path: '/course/:languageCode/video/:videoId/snippet/:index',
     name: 'snippet',
     component: SnippetView
   },

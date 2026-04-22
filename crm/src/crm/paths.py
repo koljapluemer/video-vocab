@@ -5,6 +5,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 CRM_ROOT = REPO_ROOT / "crm"
+CRM_ENV_FILE = CRM_ROOT / ".env"
 PUBLIC_DATA_ROOT = REPO_ROOT / "public" / "data"
 CRM_DATA_ROOT = CRM_ROOT / "data"
 CRM_WORK_ROOT = CRM_DATA_ROOT / "work"

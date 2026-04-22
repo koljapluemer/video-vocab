@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import shutil
 
+from crm.course_index import sync_course_index
 from crm.paths import PUBLIC_DATA_ROOT, course_dir
 
 
@@ -62,10 +63,6 @@ def run() -> None:
     if legacy_out_dir.exists() and not any(legacy_out_dir.iterdir()):
         legacy_out_dir.rmdir()
 
-    index_data = {"courses": sorted(set(migrated_course_codes + ["ita"]))}
-    with (PUBLIC_DATA_ROOT / "index.json").open("w", encoding="utf-8") as handle:
-        json.dump(index_data, handle, ensure_ascii=False, indent=2)
-
     ita_dir = course_dir("ita")
     ita_dir.mkdir(parents=True, exist_ok=True)
     (ita_dir / "videos").mkdir(parents=True, exist_ok=True)
@@ -79,6 +76,8 @@ def run() -> None:
     }
     with (ita_dir / "course.json").open("w", encoding="utf-8") as handle:
         json.dump(ita_course, handle, ensure_ascii=False, indent=2)
+
+    sync_course_index(*migrated_course_codes, "ita")
 
     legacy_videos_path.unlink()
     print("Legacy public/data layout migrated.")

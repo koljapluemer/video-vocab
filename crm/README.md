@@ -9,6 +9,12 @@ Python/uv tooling for course data in `video-vocab`.
 - `uv run crm extract-subtitles --course arz`
 - `uv run crm find-videos --course arz`
 
+## Environment
+
+- keys are read only from `crm/.env`
+- `OPENAI_API_KEY` is required for `generate-data`
+- `GOOGLE_API_KEY` is required for `find-videos`
+
 ## Paths
 
 - app-served course data: `public/data/<iso3>/...`

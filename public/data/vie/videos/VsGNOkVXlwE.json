@@ -1,0 +1,2788 @@
+{
+    "snippets": [
+        {
+            "start": 1.79,
+            "duration": 0.010000000000000009,
+            "words": [
+                {
+                    "native": "này",
+                    "translation": "this"
+                },
+                {
+                    "native": "Tôi",
+                    "translation": "I"
+                },
+                {
+                    "native": "vừa",
+                    "translation": "just"
+                },
+                {
+                    "native": "đi",
+                    "translation": "go"
+                },
+                {
+                    "native": "làm",
+                    "translation": "work"
+                },
+                {
+                    "native": "về",
+                    "translation": "come back"
+                },
+                {
+                    "native": "thì",
+                    "translation": "when"
+                },
+                {
+                    "native": "nóc",
+                    "translation": "roof"
+                },
+                {
+                    "native": "nhà",
+                    "translation": "house"
+                },
+                {
+                    "native": "đã",
+                    "translation": "already"
+                },
+                {
+                    "native": "mặt",
+                    "translation": "face"
+                }
+            ]
+        },
+        {
+            "start": 1.8,
+            "duration": 1.6089999999999998,
+            "words": [
+                {
+                    "native": "này",
+                    "translation": "this"
+                },
+                {
+                    "native": "Tôi",
+                    "translation": "I"
+                },
+                {
+                    "native": "vừa",
+                    "translation": "just"
+                },
+                {
+                    "native": "đi",
+                    "translation": "go"
+                },
+                {
+                    "native": "làm",
+                    "translation": "work"
+                },
+                {
+                    "native": "về",
+                    "translation": "come home"
+                },
+                {
+                    "native": "thì",
+                    "translation": "then"
+                },
+                {
+                    "native": "nóc",
+                    "translation": "roof"
+                },
+                {
+                    "native": "nhà",
+                    "translation": "house"
+                },
+                {
+                    "native": "đã",
+                    "translation": "already"
+                },
+                {
+                    "native": "mặt",
+                    "translation": "face"
+                },
+                {
+                    "native": "mũi",
+                    "translation": "countenance"
+                },
+                {
+                    "native": "hằm",
+                    "translation": "glum"
+                },
+                {
+                    "native": "hằm",
+                    "translation": "glum"
+                },
+                {
+                    "native": "hỏi",
+                    "translation": "ask"
+                },
+                {
+                    "native": "tớ",
+                    "translation": "me"
+                },
+                {
+                    "native": "có",
+                    "translation": "have"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "hôm",
+                    "translation": "day"
+                },
+                {
+                    "native": "nay",
+                    "translation": "this"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 3.409,
+            "duration": 0.010000000000000231,
+            "words": [
+                {
+                    "native": "mũi",
+                    "translation": "nose"
+                },
+                {
+                    "native": "hằm",
+                    "translation": "scowl"
+                },
+                {
+                    "native": "hằm",
+                    "translation": "scowl"
+                },
+                {
+                    "native": "hỏi",
+                    "translation": "ask"
+                },
+                {
+                    "native": "tớ",
+                    "translation": "I"
+                },
+                {
+                    "native": "có",
+                    "translation": "have"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "hôm",
+                    "translation": "day"
+                },
+                {
+                    "native": "nay",
+                    "translation": "today"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 3.419,
+            "duration": 1.6709999999999998,
+            "words": [
+                {
+                    "native": "mũi",
+                    "translation": "nose"
+                },
+                {
+                    "native": "hằm",
+                    "translation": "furious"
+                },
+                {
+                    "native": "hằm",
+                    "translation": "furious"
+                },
+                {
+                    "native": "hỏi",
+                    "translation": "ask"
+                },
+                {
+                    "native": "tớ",
+                    "translation": "I"
+                },
+                {
+                    "native": "có",
+                    "translation": "have"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "hôm",
+                    "translation": "day"
+                },
+                {
+                    "native": "nay",
+                    "translation": "now"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "gì",
+                    "translation": "what"
+                },
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "Thế",
+                    "translation": "so"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "đầu",
+                    "translation": "head"
+                },
+                {
+                    "native": "tớ",
+                    "translation": "I"
+                },
+                {
+                    "native": "bắt",
+                    "translation": "start"
+                },
+                {
+                    "native": "đầu",
+                    "translation": "head"
+                },
+                {
+                    "native": "nhảy",
+                    "translation": "jump"
+                }
+            ]
+        },
+        {
+            "start": 5.09,
+            "duration": 0.009999999999999787,
+            "words": [
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "gì",
+                    "translation": "what"
+                },
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "Thế",
+                    "translation": "then"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "đầu",
+                    "translation": "head"
+                },
+                {
+                    "native": "tớ",
+                    "translation": "I"
+                },
+                {
+                    "native": "bắt",
+                    "translation": "start"
+                },
+                {
+                    "native": "đầu",
+                    "translation": "begin"
+                },
+                {
+                    "native": "nhảy",
+                    "translation": "jump"
+                }
+            ]
+        },
+        {
+            "start": 5.1,
+            "duration": 1.729,
+            "words": [
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "gì",
+                    "translation": "what"
+                },
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "Thế",
+                    "translation": "so"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "đầu",
+                    "translation": "head"
+                },
+                {
+                    "native": "tớ",
+                    "translation": "I"
+                },
+                {
+                    "native": "bắt",
+                    "translation": "start"
+                },
+                {
+                    "native": "đầu",
+                    "translation": "beginning"
+                },
+                {
+                    "native": "nhảy",
+                    "translation": "jump"
+                },
+                {
+                    "native": "số",
+                    "translation": "numbers"
+                },
+                {
+                    "native": "mà",
+                    "translation": "but"
+                },
+                {
+                    "native": "nghĩ",
+                    "translation": "think"
+                },
+                {
+                    "native": "mãi",
+                    "translation": "for a long time"
+                },
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "ra",
+                    "translation": "figure out"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "cái",
+                    "translation": "thing"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "gì",
+                    "translation": "what"
+                }
+            ]
+        },
+        {
+            "start": 6.829,
+            "duration": 0.010000000000000675,
+            "words": [
+                {
+                    "native": "số",
+                    "translation": "number"
+                },
+                {
+                    "native": "mà",
+                    "translation": "and"
+                },
+                {
+                    "native": "nghĩ",
+                    "translation": "think"
+                },
+                {
+                    "native": "mãi",
+                    "translation": "for a long time"
+                },
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "ra",
+                    "translation": "figure out"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "cái",
+                    "translation": "this"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "gì",
+                    "translation": "what"
+                }
+            ]
+        },
+        {
+            "start": 6.839,
+            "duration": 1.4909999999999997,
+            "words": [
+                {
+                    "native": "số",
+                    "translation": "which"
+                },
+                {
+                    "native": "mà",
+                    "translation": "that"
+                },
+                {
+                    "native": "nghĩ",
+                    "translation": "think"
+                },
+                {
+                    "native": "mãi",
+                    "translation": "for a long time"
+                },
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "ra",
+                    "translation": "figure out"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "cái",
+                    "translation": "this"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "gì",
+                    "translation": "what"
+                },
+                {
+                    "native": "đặc",
+                    "translation": "special"
+                },
+                {
+                    "native": "biệt",
+                    "translation": "special"
+                },
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "biết",
+                    "translation": "know"
+                },
+                {
+                    "native": "có",
+                    "translation": "have"
+                },
+                {
+                    "native": "mẹ",
+                    "translation": "mom"
+                },
+                {
+                    "native": "nào",
+                    "translation": "any"
+                },
+                {
+                    "native": "như",
+                    "translation": "like"
+                },
+                {
+                    "native": "vậy",
+                    "translation": "that"
+                },
+                {
+                    "native": "tớ",
+                    "translation": "I"
+                }
+            ]
+        },
+        {
+            "start": 8.33,
+            "duration": 0.009999999999999787,
+            "words": [
+                {
+                    "native": "đặc",
+                    "translation": "special"
+                },
+                {
+                    "native": "biệt",
+                    "translation": "special"
+                },
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "biết",
+                    "translation": "know"
+                },
+                {
+                    "native": "có",
+                    "translation": "have"
+                },
+                {
+                    "native": "mẹ",
+                    "translation": "mom"
+                },
+                {
+                    "native": "nào",
+                    "translation": "any"
+                },
+                {
+                    "native": "như",
+                    "translation": "like"
+                },
+                {
+                    "native": "vậy",
+                    "translation": "so"
+                },
+                {
+                    "native": "tớ",
+                    "translation": "I"
+                }
+            ]
+        },
+        {
+            "start": 8.34,
+            "duration": 1.5500000000000007,
+            "words": [
+                {
+                    "native": "đặc",
+                    "translation": "special"
+                },
+                {
+                    "native": "biệt",
+                    "translation": "special"
+                },
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "biết",
+                    "translation": "know"
+                },
+                {
+                    "native": "có",
+                    "translation": "have"
+                },
+                {
+                    "native": "mẹ",
+                    "translation": "mom"
+                },
+                {
+                    "native": "nào",
+                    "translation": "any"
+                },
+                {
+                    "native": "như",
+                    "translation": "like"
+                },
+                {
+                    "native": "vậy",
+                    "translation": "so"
+                },
+                {
+                    "native": "tớ",
+                    "translation": "I"
+                },
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "bình",
+                    "translation": "normal"
+                },
+                {
+                    "native": "thường",
+                    "translation": "normal"
+                },
+                {
+                    "native": "thì",
+                    "translation": "then"
+                },
+                {
+                    "native": "mất",
+                    "translation": "lose"
+                },
+                {
+                    "native": "não",
+                    "translation": "brain"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                }
+            ]
+        },
+        {
+            "start": 9.89,
+            "duration": 0.009999999999999787,
+            "words": [
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "bình",
+                    "translation": "normal"
+                },
+                {
+                    "native": "thường",
+                    "translation": "usual"
+                },
+                {
+                    "native": "thì",
+                    "translation": "then"
+                },
+                {
+                    "native": "mất",
+                    "translation": "lose"
+                },
+                {
+                    "native": "não",
+                    "translation": "brain"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                }
+            ]
+        },
+        {
+            "start": 9.9,
+            "duration": 1.67,
+            "words": [
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "bình",
+                    "translation": "ordinary"
+                },
+                {
+                    "native": "thường",
+                    "translation": "usual"
+                },
+                {
+                    "native": "thì",
+                    "translation": "then"
+                },
+                {
+                    "native": "mất",
+                    "translation": "lose"
+                },
+                {
+                    "native": "não",
+                    "translation": "brain"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "Quên",
+                    "translation": "forget"
+                },
+                {
+                    "native": "quên",
+                    "translation": "forget"
+                },
+                {
+                    "native": "Nhưng",
+                    "translation": "but"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "kỉ",
+                    "translation": "anniversary"
+                },
+                {
+                    "native": "niệm",
+                    "translation": "memory"
+                },
+                {
+                    "native": "thì",
+                    "translation": "then"
+                }
+            ]
+        },
+        {
+            "start": 11.57,
+            "duration": 0.009999999999999787,
+            "words": [
+                {
+                    "native": "Quên",
+                    "translation": "forget"
+                },
+                {
+                    "native": "quên",
+                    "translation": "forget"
+                },
+                {
+                    "native": "Nhưng",
+                    "translation": "but"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "kỉ",
+                    "translation": "commemoration"
+                },
+                {
+                    "native": "niệm",
+                    "translation": "memory"
+                },
+                {
+                    "native": "thì",
+                    "translation": "then"
+                }
+            ]
+        },
+        {
+            "start": 11.58,
+            "duration": 1.6690000000000005,
+            "words": [
+                {
+                    "native": "Quên",
+                    "translation": "forget"
+                },
+                {
+                    "native": "quên",
+                    "translation": "forget"
+                },
+                {
+                    "native": "Nhưng",
+                    "translation": "but"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "kỉ",
+                    "translation": "anniversary"
+                },
+                {
+                    "native": "niệm",
+                    "translation": "memory"
+                },
+                {
+                    "native": "thì",
+                    "translation": "then"
+                },
+                {
+                    "native": "siêu",
+                    "translation": "super"
+                },
+                {
+                    "native": "lắm",
+                    "translation": "very"
+                },
+                {
+                    "native": "mà",
+                    "translation": "but"
+                },
+                {
+                    "native": "khổ",
+                    "translation": "unfortunate"
+                },
+                {
+                    "native": "ấy",
+                    "translation": "that"
+                },
+                {
+                    "native": "mình",
+                    "translation": "I"
+                },
+                {
+                    "native": "thì",
+                    "translation": "then"
+                },
+                {
+                    "native": "bị",
+                    "translation": "be affected by"
+                },
+                {
+                    "native": "mất",
+                    "translation": "lose"
+                },
+                {
+                    "native": "trí",
+                    "translation": "mind"
+                }
+            ]
+        },
+        {
+            "start": 13.249,
+            "duration": 0.009999999999999787,
+            "words": [
+                {
+                    "native": "siêu",
+                    "translation": "very"
+                },
+                {
+                    "native": "lắm",
+                    "translation": "very"
+                },
+                {
+                    "native": "mà",
+                    "translation": "but"
+                },
+                {
+                    "native": "khổ",
+                    "translation": "miserable"
+                },
+                {
+                    "native": "ấy",
+                    "translation": "that"
+                },
+                {
+                    "native": "mình",
+                    "translation": "I"
+                },
+                {
+                    "native": "thì",
+                    "translation": "then"
+                },
+                {
+                    "native": "bị",
+                    "translation": "be affected by"
+                },
+                {
+                    "native": "mất",
+                    "translation": "lose"
+                },
+                {
+                    "native": "trí",
+                    "translation": "mind"
+                }
+            ]
+        },
+        {
+            "start": 13.259,
+            "duration": 1.6109999999999989,
+            "words": [
+                {
+                    "native": "siêu",
+                    "translation": "super"
+                },
+                {
+                    "native": "lắm",
+                    "translation": "very"
+                },
+                {
+                    "native": "mà",
+                    "translation": "but"
+                },
+                {
+                    "native": "khổ",
+                    "translation": "miserable"
+                },
+                {
+                    "native": "ấy",
+                    "translation": "that"
+                },
+                {
+                    "native": "mình",
+                    "translation": "I"
+                },
+                {
+                    "native": "thì",
+                    "translation": "then"
+                },
+                {
+                    "native": "bị",
+                    "translation": "be affected by"
+                },
+                {
+                    "native": "mất",
+                    "translation": "lose"
+                },
+                {
+                    "native": "trí",
+                    "translation": "mind"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "memory"
+                },
+                {
+                    "native": "dài",
+                    "translation": "long"
+                },
+                {
+                    "native": "hạn",
+                    "translation": "term"
+                },
+                {
+                    "native": "mấy",
+                    "translation": "some"
+                },
+                {
+                    "native": "cái",
+                    "translation": "things"
+                },
+                {
+                    "native": "vụ",
+                    "translation": "matter"
+                },
+                {
+                    "native": "mà",
+                    "translation": "that"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "sinh",
+                    "translation": "birth"
+                }
+            ]
+        },
+        {
+            "start": 14.87,
+            "duration": 0.010000000000001563,
+            "words": [
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "dài",
+                    "translation": "long"
+                },
+                {
+                    "native": "hạn",
+                    "translation": "term"
+                },
+                {
+                    "native": "mấy",
+                    "translation": "some"
+                },
+                {
+                    "native": "cái",
+                    "translation": "thing"
+                },
+                {
+                    "native": "vụ",
+                    "translation": "thing"
+                },
+                {
+                    "native": "mà",
+                    "translation": "that"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "sinh",
+                    "translation": "birth"
+                }
+            ]
+        },
+        {
+            "start": 14.88,
+            "duration": 1.3089999999999993,
+            "words": [
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "dài",
+                    "translation": "long"
+                },
+                {
+                    "native": "hạn",
+                    "translation": "term"
+                },
+                {
+                    "native": "mấy",
+                    "translation": "some"
+                },
+                {
+                    "native": "cái",
+                    "translation": "thing"
+                },
+                {
+                    "native": "vụ",
+                    "translation": "matter"
+                },
+                {
+                    "native": "mà",
+                    "translation": "that"
+                },
+                {
+                    "native": "nhớ",
+                    "translation": "remember"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "sinh",
+                    "translation": "birth"
+                },
+                {
+                    "native": "mấy",
+                    "translation": "some"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "days"
+                },
+                {
+                    "native": "kỷ",
+                    "translation": "commemoration"
+                },
+                {
+                    "native": "niệm",
+                    "translation": "anniversary"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "mình",
+                    "translation": "I"
+                },
+                {
+                    "native": "chịu",
+                    "translation": "give up"
+                },
+                {
+                    "native": "thua",
+                    "translation": "lose"
+                },
+                {
+                    "native": "luôn",
+                    "translation": "completely"
+                }
+            ]
+        },
+        {
+            "start": 16.189,
+            "duration": 0.010000000000001563,
+            "words": [
+                {
+                    "native": "mấy",
+                    "translation": "some"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "kỷ",
+                    "translation": "commemorative"
+                },
+                {
+                    "native": "niệm",
+                    "translation": "anniversary"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "mình",
+                    "translation": "I"
+                },
+                {
+                    "native": "chịu",
+                    "translation": "give in"
+                },
+                {
+                    "native": "thua",
+                    "translation": "lose"
+                },
+                {
+                    "native": "luôn",
+                    "translation": "always"
+                }
+            ]
+        },
+        {
+            "start": 16.199,
+            "duration": 2.030999999999999,
+            "words": [
+                {
+                    "native": "mấy",
+                    "translation": "some"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "days"
+                },
+                {
+                    "native": "kỷ",
+                    "translation": "commemoration"
+                },
+                {
+                    "native": "niệm",
+                    "translation": "remember"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "mình",
+                    "translation": "I"
+                },
+                {
+                    "native": "chịu",
+                    "translation": "accept"
+                },
+                {
+                    "native": "thua",
+                    "translation": "lose"
+                },
+                {
+                    "native": "luôn",
+                    "translation": "completely"
+                },
+                {
+                    "native": "nên",
+                    "translation": "so"
+                },
+                {
+                    "native": "thôi",
+                    "translation": "just"
+                },
+                {
+                    "native": "biết",
+                    "translation": "know"
+                },
+                {
+                    "native": "ý",
+                    "translation": "hint"
+                },
+                {
+                    "native": "vào",
+                    "translation": "into"
+                },
+                {
+                    "native": "bếp",
+                    "translation": "kitchen"
+                },
+                {
+                    "native": "làm",
+                    "translation": "make"
+                },
+                {
+                    "native": "nồi",
+                    "translation": "pot"
+                },
+                {
+                    "native": "chè",
+                    "translation": "sweet soup"
+                },
+                {
+                    "native": "đậu",
+                    "translation": "beans"
+                }
+            ]
+        },
+        {
+            "start": 18.23,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "nên",
+                    "translation": "so"
+                },
+                {
+                    "native": "thôi",
+                    "translation": "just"
+                },
+                {
+                    "native": "biết",
+                    "translation": "know"
+                },
+                {
+                    "native": "ý",
+                    "translation": "mind"
+                },
+                {
+                    "native": "vào",
+                    "translation": "go into"
+                },
+                {
+                    "native": "bếp",
+                    "translation": "kitchen"
+                },
+                {
+                    "native": "làm",
+                    "translation": "make"
+                },
+                {
+                    "native": "nồi",
+                    "translation": "pot"
+                },
+                {
+                    "native": "chè",
+                    "translation": "sweet dessert soup"
+                },
+                {
+                    "native": "đậu",
+                    "translation": "bean"
+                }
+            ]
+        },
+        {
+            "start": 18.24,
+            "duration": 1.9700000000000024,
+            "words": [
+                {
+                    "native": "nên",
+                    "translation": "should"
+                },
+                {
+                    "native": "thôi",
+                    "translation": "just"
+                },
+                {
+                    "native": "biết",
+                    "translation": "know"
+                },
+                {
+                    "native": "ý",
+                    "translation": "hint"
+                },
+                {
+                    "native": "vào",
+                    "translation": "into"
+                },
+                {
+                    "native": "bếp",
+                    "translation": "kitchen"
+                },
+                {
+                    "native": "làm",
+                    "translation": "make"
+                },
+                {
+                    "native": "nồi",
+                    "translation": "pot"
+                },
+                {
+                    "native": "chè",
+                    "translation": "sweet soup"
+                },
+                {
+                    "native": "đậu",
+                    "translation": "bean"
+                },
+                {
+                    "native": "xanh",
+                    "translation": "green"
+                },
+                {
+                    "native": "hạt",
+                    "translation": "seed"
+                },
+                {
+                    "native": "sen",
+                    "translation": "lotus"
+                },
+                {
+                    "native": "cho",
+                    "translation": "add"
+                },
+                {
+                    "native": "kem",
+                    "translation": "cream"
+                },
+                {
+                    "native": "kẹo",
+                    "translation": "candy"
+                },
+                {
+                    "native": "vào",
+                    "translation": "into"
+                },
+                {
+                    "native": "bẫy",
+                    "translation": "trap"
+                },
+                {
+                    "native": "ăn",
+                    "translation": "eat"
+                },
+                {
+                    "native": "cho",
+                    "translation": "to"
+                }
+            ]
+        },
+        {
+            "start": 20.21,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "xanh",
+                    "translation": "green"
+                },
+                {
+                    "native": "hạt",
+                    "translation": "seed"
+                },
+                {
+                    "native": "sen",
+                    "translation": "lotus"
+                },
+                {
+                    "native": "cho",
+                    "translation": "to put"
+                },
+                {
+                    "native": "kem",
+                    "translation": "cream"
+                },
+                {
+                    "native": "kẹo",
+                    "translation": "candy"
+                },
+                {
+                    "native": "vào",
+                    "translation": "in"
+                },
+                {
+                    "native": "bẫy",
+                    "translation": "trap"
+                },
+                {
+                    "native": "ăn",
+                    "translation": "eat"
+                },
+                {
+                    "native": "cho",
+                    "translation": "to put"
+                }
+            ]
+        },
+        {
+            "start": 20.22,
+            "duration": 2.030000000000001,
+            "words": [
+                {
+                    "native": "xanh",
+                    "translation": "green"
+                },
+                {
+                    "native": "hạt",
+                    "translation": "seed"
+                },
+                {
+                    "native": "sen",
+                    "translation": "lotus"
+                },
+                {
+                    "native": "cho",
+                    "translation": "put"
+                },
+                {
+                    "native": "kem",
+                    "translation": "cream"
+                },
+                {
+                    "native": "kẹo",
+                    "translation": "candy"
+                },
+                {
+                    "native": "vào",
+                    "translation": "into"
+                },
+                {
+                    "native": "bẫy",
+                    "translation": "trap"
+                },
+                {
+                    "native": "ăn",
+                    "translation": "eat"
+                },
+                {
+                    "native": "cho",
+                    "translation": "for"
+                },
+                {
+                    "native": "hạ",
+                    "translation": "reduce"
+                },
+                {
+                    "native": "hỏa",
+                    "translation": "heat"
+                },
+                {
+                    "native": "luôn",
+                    "translation": "always"
+                },
+                {
+                    "native": "đun",
+                    "translation": "boil"
+                },
+                {
+                    "native": "nhỏ",
+                    "translation": "low"
+                },
+                {
+                    "native": "lửa",
+                    "translation": "heat"
+                },
+                {
+                    "native": "đậu",
+                    "translation": "bean"
+                },
+                {
+                    "native": "xanh",
+                    "translation": "green"
+                },
+                {
+                    "native": "hạt",
+                    "translation": "seed"
+                },
+                {
+                    "native": "sen",
+                    "translation": "lotus"
+                }
+            ]
+        },
+        {
+            "start": 22.25,
+            "duration": 0.010000000000001563,
+            "words": [
+                {
+                    "native": "hạ",
+                    "translation": "reduce"
+                },
+                {
+                    "native": "hỏa",
+                    "translation": "heat"
+                },
+                {
+                    "native": "luôn",
+                    "translation": "always"
+                },
+                {
+                    "native": "đun",
+                    "translation": "boil"
+                },
+                {
+                    "native": "nhỏ",
+                    "translation": "low"
+                },
+                {
+                    "native": "lửa",
+                    "translation": "heat"
+                },
+                {
+                    "native": "đậu",
+                    "translation": "beans"
+                },
+                {
+                    "native": "xanh",
+                    "translation": "green"
+                },
+                {
+                    "native": "hạt",
+                    "translation": "seed"
+                },
+                {
+                    "native": "sen",
+                    "translation": "lotus"
+                }
+            ]
+        },
+        {
+            "start": 22.26,
+            "duration": 1.9699999999999989,
+            "words": [
+                {
+                    "native": "hạ",
+                    "translation": "lower"
+                },
+                {
+                    "native": "hỏa",
+                    "translation": "heat"
+                },
+                {
+                    "native": "luôn",
+                    "translation": "always"
+                },
+                {
+                    "native": "đun",
+                    "translation": "boil"
+                },
+                {
+                    "native": "nhỏ",
+                    "translation": "low"
+                },
+                {
+                    "native": "lửa",
+                    "translation": "heat"
+                },
+                {
+                    "native": "đậu",
+                    "translation": "bean"
+                },
+                {
+                    "native": "xanh",
+                    "translation": "green"
+                },
+                {
+                    "native": "hạt",
+                    "translation": "seed"
+                },
+                {
+                    "native": "sen",
+                    "translation": "lotus"
+                },
+                {
+                    "native": "và",
+                    "translation": "and"
+                },
+                {
+                    "native": "nước",
+                    "translation": "water"
+                },
+                {
+                    "native": "dừa",
+                    "translation": "coconut"
+                },
+                {
+                    "native": "rồi",
+                    "translation": "then"
+                },
+                {
+                    "native": "thêm",
+                    "translation": "add"
+                },
+                {
+                    "native": "hạt",
+                    "translation": "seed"
+                },
+                {
+                    "native": "chia",
+                    "translation": "chia"
+                },
+                {
+                    "native": "và",
+                    "translation": "and"
+                },
+                {
+                    "native": "lá",
+                    "translation": "leaf"
+                },
+                {
+                    "native": "nếp",
+                    "translation": "glutinous rice"
+                }
+            ]
+        },
+        {
+            "start": 24.23,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "và",
+                    "translation": "and"
+                },
+                {
+                    "native": "nước",
+                    "translation": "water"
+                },
+                {
+                    "native": "dừa",
+                    "translation": "coconut"
+                },
+                {
+                    "native": "rồi",
+                    "translation": "then"
+                },
+                {
+                    "native": "thêm",
+                    "translation": "add"
+                },
+                {
+                    "native": "hạt",
+                    "translation": "seed"
+                },
+                {
+                    "native": "chia",
+                    "translation": "chia"
+                },
+                {
+                    "native": "và",
+                    "translation": "and"
+                },
+                {
+                    "native": "lá",
+                    "translation": "leaf"
+                },
+                {
+                    "native": "nếp",
+                    "translation": "glutinous rice"
+                }
+            ]
+        },
+        {
+            "start": 24.24,
+            "duration": 1.9100000000000001,
+            "words": [
+                {
+                    "native": "và",
+                    "translation": "and"
+                },
+                {
+                    "native": "nước",
+                    "translation": "water"
+                },
+                {
+                    "native": "dừa",
+                    "translation": "coconut"
+                },
+                {
+                    "native": "rồi",
+                    "translation": "then"
+                },
+                {
+                    "native": "thêm",
+                    "translation": "add"
+                },
+                {
+                    "native": "hạt",
+                    "translation": "seed"
+                },
+                {
+                    "native": "chia",
+                    "translation": "chia"
+                },
+                {
+                    "native": "và",
+                    "translation": "and"
+                },
+                {
+                    "native": "lá",
+                    "translation": "leaf"
+                },
+                {
+                    "native": "nếp",
+                    "translation": "glutinous rice"
+                },
+                {
+                    "native": "hạt",
+                    "translation": "seed"
+                },
+                {
+                    "native": "chia",
+                    "translation": "chia"
+                },
+                {
+                    "native": "được",
+                    "translation": "is"
+                },
+                {
+                    "native": "ví",
+                    "translation": "compare"
+                },
+                {
+                    "native": "như",
+                    "translation": "as"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "một",
+                    "translation": "a"
+                },
+                {
+                    "native": "vitamin",
+                    "translation": "vitamin"
+                },
+                {
+                    "native": "tổng",
+                    "translation": "overall"
+                }
+            ]
+        },
+        {
+            "start": 26.15,
+            "duration": 0.010000000000001563,
+            "words": [
+                {
+                    "native": "hạt",
+                    "translation": "seed"
+                },
+                {
+                    "native": "chia",
+                    "translation": "chia"
+                },
+                {
+                    "native": "được",
+                    "translation": "is"
+                },
+                {
+                    "native": "ví",
+                    "translation": "compare"
+                },
+                {
+                    "native": "như",
+                    "translation": "as"
+                },
+                {
+                    "native": "là",
+                    "translation": "to be"
+                },
+                {
+                    "native": "một",
+                    "translation": "a"
+                },
+                {
+                    "native": "vitamin",
+                    "translation": "vitamin"
+                },
+                {
+                    "native": "tổng",
+                    "translation": "overall"
+                }
+            ]
+        },
+        {
+            "start": 26.16,
+            "duration": 1.9100000000000001,
+            "words": [
+                {
+                    "native": "hạt",
+                    "translation": "seed"
+                },
+                {
+                    "native": "chia",
+                    "translation": "chia"
+                },
+                {
+                    "native": "được",
+                    "translation": "is"
+                },
+                {
+                    "native": "ví",
+                    "translation": "compared"
+                },
+                {
+                    "native": "như",
+                    "translation": "as"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "một",
+                    "translation": "a"
+                },
+                {
+                    "native": "vitamin",
+                    "translation": "vitamin"
+                },
+                {
+                    "native": "tổng",
+                    "translation": "total"
+                },
+                {
+                    "native": "hợp",
+                    "translation": "combined"
+                },
+                {
+                    "native": "rất",
+                    "translation": "very"
+                },
+                {
+                    "native": "tốt",
+                    "translation": "good"
+                },
+                {
+                    "native": "đấy",
+                    "translation": "you know"
+                },
+                {
+                    "native": "mẹ",
+                    "translation": "mom"
+                },
+                {
+                    "native": "để",
+                    "translation": "to"
+                },
+                {
+                    "native": "nồi",
+                    "translation": "pot"
+                },
+                {
+                    "native": "chè",
+                    "translation": "sweet soup"
+                },
+                {
+                    "native": "sánh",
+                    "translation": "thick"
+                },
+                {
+                    "native": "đi",
+                    "translation": "go"
+                }
+            ]
+        },
+        {
+            "start": 28.07,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "hợp",
+                    "translation": "fit"
+                },
+                {
+                    "native": "rất",
+                    "translation": "very"
+                },
+                {
+                    "native": "tốt",
+                    "translation": "good"
+                },
+                {
+                    "native": "đấy",
+                    "translation": "there"
+                },
+                {
+                    "native": "mẹ",
+                    "translation": "mom"
+                },
+                {
+                    "native": "để",
+                    "translation": "to let"
+                },
+                {
+                    "native": "nồi",
+                    "translation": "pot"
+                },
+                {
+                    "native": "chè",
+                    "translation": "sweet dessert soup"
+                },
+                {
+                    "native": "sánh",
+                    "translation": "thick"
+                },
+                {
+                    "native": "đi",
+                    "translation": "go"
+                }
+            ]
+        },
+        {
+            "start": 28.08,
+            "duration": 1.490000000000002,
+            "words": [
+                {
+                    "native": "hợp",
+                    "translation": "fit"
+                },
+                {
+                    "native": "rất",
+                    "translation": "very"
+                },
+                {
+                    "native": "tốt",
+                    "translation": "good"
+                },
+                {
+                    "native": "đấy",
+                    "translation": "there"
+                },
+                {
+                    "native": "mẹ",
+                    "translation": "mom"
+                },
+                {
+                    "native": "để",
+                    "translation": "let"
+                },
+                {
+                    "native": "nồi",
+                    "translation": "pot"
+                },
+                {
+                    "native": "chè",
+                    "translation": "sweet dessert soup"
+                },
+                {
+                    "native": "sánh",
+                    "translation": "thick"
+                },
+                {
+                    "native": "đi",
+                    "translation": "go"
+                },
+                {
+                    "native": "thì",
+                    "translation": "then"
+                },
+                {
+                    "native": "mẹ",
+                    "translation": "mom"
+                },
+                {
+                    "native": "pha",
+                    "translation": "mix"
+                },
+                {
+                    "native": "thêm",
+                    "translation": "more"
+                },
+                {
+                    "native": "bột",
+                    "translation": "flour"
+                },
+                {
+                    "native": "năng",
+                    "translation": "tapioca"
+                },
+                {
+                    "native": "chè",
+                    "translation": "sweet dessert soup"
+                },
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "dùng",
+                    "translation": "use"
+                }
+            ]
+        },
+        {
+            "start": 29.57,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "thì",
+                    "translation": "then"
+                },
+                {
+                    "native": "mẹ",
+                    "translation": "mom"
+                },
+                {
+                    "native": "pha",
+                    "translation": "mix"
+                },
+                {
+                    "native": "thêm",
+                    "translation": "more"
+                },
+                {
+                    "native": "bột",
+                    "translation": "flour"
+                },
+                {
+                    "native": "năng",
+                    "translation": "tapioca"
+                },
+                {
+                    "native": "chè",
+                    "translation": "sweet soup"
+                },
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "dùng",
+                    "translation": "use"
+                }
+            ]
+        },
+        {
+            "start": 29.58,
+            "duration": 1.490000000000002,
+            "words": [
+                {
+                    "native": "thì",
+                    "translation": "then"
+                },
+                {
+                    "native": "mẹ",
+                    "translation": "mom"
+                },
+                {
+                    "native": "pha",
+                    "translation": "mix"
+                },
+                {
+                    "native": "thêm",
+                    "translation": "more"
+                },
+                {
+                    "native": "bột",
+                    "translation": "powder"
+                },
+                {
+                    "native": "năng",
+                    "translation": "tapioca"
+                },
+                {
+                    "native": "chè",
+                    "translation": "sweet soup"
+                },
+                {
+                    "native": "không",
+                    "translation": "not"
+                },
+                {
+                    "native": "dùng",
+                    "translation": "use"
+                },
+                {
+                    "native": "đường",
+                    "translation": "sugar"
+                },
+                {
+                    "native": "vì",
+                    "translation": "because"
+                },
+                {
+                    "native": "nước",
+                    "translation": "water"
+                },
+                {
+                    "native": "dừa",
+                    "translation": "coconut"
+                },
+                {
+                    "native": "đã",
+                    "translation": "already"
+                },
+                {
+                    "native": "ngọt",
+                    "translation": "sweet"
+                },
+                {
+                    "native": "tự",
+                    "translation": "self"
+                },
+                {
+                    "native": "nhiên",
+                    "translation": "natural"
+                },
+                {
+                    "native": "rồi",
+                    "translation": "already"
+                }
+            ]
+        },
+        {
+            "start": 31.07,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "đường",
+                    "translation": "sugar"
+                },
+                {
+                    "native": "vì",
+                    "translation": "because"
+                },
+                {
+                    "native": "nước",
+                    "translation": "water"
+                },
+                {
+                    "native": "dừa",
+                    "translation": "coconut"
+                },
+                {
+                    "native": "đã",
+                    "translation": "already"
+                },
+                {
+                    "native": "ngọt",
+                    "translation": "sweet"
+                },
+                {
+                    "native": "tự",
+                    "translation": "self"
+                },
+                {
+                    "native": "nhiên",
+                    "translation": "natural"
+                },
+                {
+                    "native": "rồi",
+                    "translation": "already"
+                }
+            ]
+        },
+        {
+            "start": 31.08,
+            "duration": 2.210000000000001,
+            "words": [
+                {
+                    "native": "đường",
+                    "translation": "sugar"
+                },
+                {
+                    "native": "vì",
+                    "translation": "because"
+                },
+                {
+                    "native": "nước",
+                    "translation": "water"
+                },
+                {
+                    "native": "dừa",
+                    "translation": "coconut"
+                },
+                {
+                    "native": "đã",
+                    "translation": "already"
+                },
+                {
+                    "native": "ngọt",
+                    "translation": "sweet"
+                },
+                {
+                    "native": "tự",
+                    "translation": "self"
+                },
+                {
+                    "native": "nhiên",
+                    "translation": "natural"
+                },
+                {
+                    "native": "rồi",
+                    "translation": "already"
+                },
+                {
+                    "native": "Mang",
+                    "translation": "bring"
+                },
+                {
+                    "native": "nồi",
+                    "translation": "pot"
+                },
+                {
+                    "native": "chè",
+                    "translation": "sweet soup"
+                },
+                {
+                    "native": "ra",
+                    "translation": "out"
+                },
+                {
+                    "native": "cho",
+                    "translation": "for"
+                },
+                {
+                    "native": "vợ",
+                    "translation": "wife"
+                },
+                {
+                    "native": "ăn",
+                    "translation": "eat"
+                },
+                {
+                    "native": "rồi",
+                    "translation": "then"
+                },
+                {
+                    "native": "hỏi",
+                    "translation": "ask"
+                },
+                {
+                    "native": "hôm",
+                    "translation": "day"
+                }
+            ]
+        },
+        {
+            "start": 33.29,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "Mang",
+                    "translation": "bring"
+                },
+                {
+                    "native": "nồi",
+                    "translation": "pot"
+                },
+                {
+                    "native": "chè",
+                    "translation": "sweet dessert soup"
+                },
+                {
+                    "native": "ra",
+                    "translation": "out"
+                },
+                {
+                    "native": "cho",
+                    "translation": "for"
+                },
+                {
+                    "native": "vợ",
+                    "translation": "wife"
+                },
+                {
+                    "native": "ăn",
+                    "translation": "eat"
+                },
+                {
+                    "native": "rồi",
+                    "translation": "then"
+                },
+                {
+                    "native": "hỏi",
+                    "translation": "ask"
+                },
+                {
+                    "native": "hôm",
+                    "translation": "day"
+                }
+            ]
+        },
+        {
+            "start": 33.3,
+            "duration": 1.909000000000006,
+            "words": [
+                {
+                    "native": "Mang",
+                    "translation": "bring"
+                },
+                {
+                    "native": "nồi",
+                    "translation": "pot"
+                },
+                {
+                    "native": "chè",
+                    "translation": "sweet dessert soup"
+                },
+                {
+                    "native": "ra",
+                    "translation": "out"
+                },
+                {
+                    "native": "cho",
+                    "translation": "for"
+                },
+                {
+                    "native": "vợ",
+                    "translation": "wife"
+                },
+                {
+                    "native": "ăn",
+                    "translation": "eat"
+                },
+                {
+                    "native": "rồi",
+                    "translation": "then"
+                },
+                {
+                    "native": "hỏi",
+                    "translation": "ask"
+                },
+                {
+                    "native": "hôm",
+                    "translation": "day"
+                },
+                {
+                    "native": "nay",
+                    "translation": "today"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "gì",
+                    "translation": "what"
+                },
+                {
+                    "native": "đây",
+                    "translation": "here"
+                },
+                {
+                    "native": "Vợ",
+                    "translation": "wife"
+                },
+                {
+                    "native": "à",
+                    "translation": "hey"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "phải",
+                    "translation": "must"
+                },
+                {
+                    "native": "nộp",
+                    "translation": "submit"
+                }
+            ]
+        },
+        {
+            "start": 35.209,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "nay",
+                    "translation": "today"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "gì",
+                    "translation": "what"
+                },
+                {
+                    "native": "đây",
+                    "translation": "here"
+                },
+                {
+                    "native": "Vợ",
+                    "translation": "wife"
+                },
+                {
+                    "native": "à",
+                    "translation": "hey"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "phải",
+                    "translation": "must"
+                },
+                {
+                    "native": "nộp",
+                    "translation": "pay"
+                }
+            ]
+        },
+        {
+            "start": 35.219,
+            "duration": 1.490000000000002,
+            "words": [
+                {
+                    "native": "nay",
+                    "translation": "today"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "gì",
+                    "translation": "what"
+                },
+                {
+                    "native": "đây",
+                    "translation": "here"
+                },
+                {
+                    "native": "Vợ",
+                    "translation": "wife"
+                },
+                {
+                    "native": "à",
+                    "translation": "hey"
+                },
+                {
+                    "native": "ngày",
+                    "translation": "day"
+                },
+                {
+                    "native": "phải",
+                    "translation": "must"
+                },
+                {
+                    "native": "nộp",
+                    "translation": "pay"
+                },
+                {
+                    "native": "lương",
+                    "translation": "salary"
+                },
+                {
+                    "native": "ấy",
+                    "translation": "that"
+                },
+                {
+                    "native": "mà",
+                    "translation": "but"
+                },
+                {
+                    "native": "anh",
+                    "translation": "I"
+                },
+                {
+                    "native": "yêu",
+                    "translation": "love"
+                },
+                {
+                    "native": "được",
+                    "translation": "can"
+                },
+                {
+                    "native": "em",
+                    "translation": "you"
+                },
+                {
+                    "native": "toàn",
+                    "translation": "entirely"
+                },
+                {
+                    "native": "Bằng",
+                    "translation": "with"
+                }
+            ]
+        },
+        {
+            "start": 36.709,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "lương",
+                    "translation": "salary"
+                },
+                {
+                    "native": "ấy",
+                    "translation": "that"
+                },
+                {
+                    "native": "mà",
+                    "translation": "but"
+                },
+                {
+                    "native": "anh",
+                    "translation": "I"
+                },
+                {
+                    "native": "yêu",
+                    "translation": "love"
+                },
+                {
+                    "native": "được",
+                    "translation": "can"
+                },
+                {
+                    "native": "em",
+                    "translation": "you"
+                },
+                {
+                    "native": "toàn",
+                    "translation": "all"
+                },
+                {
+                    "native": "Bằng",
+                    "translation": "by"
+                }
+            ]
+        },
+        {
+            "start": 36.719,
+            "duration": 0.8909999999999982,
+            "words": [
+                {
+                    "native": "lương",
+                    "translation": "salary"
+                },
+                {
+                    "native": "ấy",
+                    "translation": "that"
+                },
+                {
+                    "native": "mà",
+                    "translation": "but"
+                },
+                {
+                    "native": "anh",
+                    "translation": "you"
+                },
+                {
+                    "native": "yêu",
+                    "translation": "love"
+                },
+                {
+                    "native": "được",
+                    "translation": "can"
+                },
+                {
+                    "native": "em",
+                    "translation": "you"
+                },
+                {
+                    "native": "toàn",
+                    "translation": "entirely"
+                },
+                {
+                    "native": "Bằng",
+                    "translation": "equal"
+                },
+                {
+                    "native": "Cường",
+                    "translation": "Strong"
+                },
+                {
+                    "native": "Chuyên",
+                    "translation": "specialized"
+                },
+                {
+                    "native": "Đào",
+                    "translation": "train"
+                },
+                {
+                    "native": "tạo",
+                    "translation": "create"
+                },
+                {
+                    "native": "An",
+                    "translation": "safety"
+                },
+                {
+                    "native": "toàn",
+                    "translation": "safety"
+                },
+                {
+                    "native": "và",
+                    "translation": "and"
+                },
+                {
+                    "native": "chế",
+                    "translation": "process"
+                },
+                {
+                    "native": "biến",
+                    "translation": "process"
+                }
+            ]
+        },
+        {
+            "start": 37.61,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "Cường",
+                    "translation": "strong"
+                },
+                {
+                    "native": "Chuyên",
+                    "translation": "specialized"
+                },
+                {
+                    "native": "Đào",
+                    "translation": "training"
+                },
+                {
+                    "native": "tạo",
+                    "translation": "create"
+                },
+                {
+                    "native": "An",
+                    "translation": "safety"
+                },
+                {
+                    "native": "toàn",
+                    "translation": "whole; complete"
+                },
+                {
+                    "native": "và",
+                    "translation": "and"
+                },
+                {
+                    "native": "chế",
+                    "translation": "process"
+                },
+                {
+                    "native": "biến",
+                    "translation": "process; convert"
+                }
+            ]
+        },
+        {
+            "start": 37.62,
+            "duration": 2.8400000000000034,
+            "words": [
+                {
+                    "native": "Cường",
+                    "translation": "strong"
+                },
+                {
+                    "native": "Chuyên",
+                    "translation": "specialized"
+                },
+                {
+                    "native": "Đào",
+                    "translation": "train"
+                },
+                {
+                    "native": "tạo",
+                    "translation": "create"
+                },
+                {
+                    "native": "An",
+                    "translation": "safe"
+                },
+                {
+                    "native": "toàn",
+                    "translation": "entire"
+                },
+                {
+                    "native": "và",
+                    "translation": "and"
+                },
+                {
+                    "native": "chế",
+                    "translation": "process"
+                },
+                {
+                    "native": "biến",
+                    "translation": "transform"
+                },
+                {
+                    "native": "là",
+                    "translation": "is"
+                },
+                {
+                    "native": "tôi",
+                    "translation": "I"
+                },
+                {
+                    "native": "tự",
+                    "translation": "self"
+                },
+                {
+                    "native": "nhiên",
+                    "translation": "natural"
+                },
+                {
+                    "native": "số",
+                    "translation": "number"
+                },
+                {
+                    "native": "2",
+                    "translation": "2"
+                },
+                {
+                    "native": "Việt",
+                    "translation": "Vietnam"
+                },
+                {
+                    "native": "Nam",
+                    "translation": "South"
+                }
+            ]
+        }
+    ]
+}

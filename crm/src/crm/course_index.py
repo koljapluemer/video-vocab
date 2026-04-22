@@ -4,7 +4,7 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
-from crm.paths import PUBLIC_DATA_ROOT, course_file
+from crm.paths import PUBLIC_DATA_ROOT, course_dir, course_file
 
 
 @dataclass(frozen=True)
@@ -30,6 +30,28 @@ def available_course_codes() -> list[str]:
     index_path = PUBLIC_DATA_ROOT / "index.json"
     data = _read_json(index_path)
     return data.get("courses", [])
+
+
+def sync_course_index(*preferred_course_codes: str) -> list[str]:
+    discovered_course_codes = {
+        path.name
+        for path in PUBLIC_DATA_ROOT.iterdir()
+        if path.is_dir() and (path / "course.json").exists()
+    }
+    discovered_course_codes.update(code for code in preferred_course_codes if code)
+
+    courses = sorted(discovered_course_codes)
+    index_path = PUBLIC_DATA_ROOT / "index.json"
+    with index_path.open("w", encoding="utf-8") as handle:
+        json.dump({"courses": courses}, handle, ensure_ascii=False, indent=2)
+
+    return courses
+
+
+def ensure_course_registered(language_code: str) -> None:
+    if not course_file(language_code).exists():
+        raise FileNotFoundError(f"Course file not found: {course_file(language_code)}")
+    sync_course_index(language_code)
 
 
 def load_course(language_code: str) -> CourseDefinition:

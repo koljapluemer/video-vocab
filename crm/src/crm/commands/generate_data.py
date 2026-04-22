@@ -1,23 +1,18 @@
 from __future__ import annotations
 
 import json
-import os
 import re
 from pathlib import Path
 
-import deepl
-from dotenv import load_dotenv
+from openai import OpenAI
 from pydantic import BaseModel
 from tqdm import tqdm
-from youtube_transcript_api import YouTubeTranscriptApi
 
-from crm.course_index import load_course
+from crm.env import get_required_env_var
+from crm.course_index import ensure_course_registered, load_course
 from crm.paths import course_video_dir, ensure_directories
-
-
-load_dotenv()
-DEEPL_API_KEY = os.getenv("DEEPL_API_KEY")
-translator = deepl.Translator(DEEPL_API_KEY) if DEEPL_API_KEY else None
+from crm.subtitle_utils import fetch_subtitle_segments
+TRANSLATION_MODEL = "gpt-5.4-mini"
 
 
 class WordEntry(BaseModel):
@@ -25,48 +20,58 @@ class WordEntry(BaseModel):
     meaning: str
 
 
+class TranslatedWord(BaseModel):
+    word: str
+    meaning: str
+
+
+class TranslationBatch(BaseModel):
+    translations: list[TranslatedWord]
+
+
 def extract_words(text: str) -> list[str]:
     return re.findall(r"\b\w+\b", text, re.UNICODE)
 
 
-def get_word_with_translation(word: str, context: str, lang_code: str) -> WordEntry:
-    if translator is None:
-        raise RuntimeError("DEEPL_API_KEY environment variable not set.")
+def translate_words(words: list[str], context: str, lang_code: str) -> list[WordEntry]:
+    client = OpenAI(api_key=get_required_env_var("OPENAI_API_KEY"))
+    if not words:
+        return []
 
-    try:
-        translation_result = translator.translate_text(
-            word,
-            target_lang="EN-US",
-            source_lang=lang_code.upper(),
-            context=context,
+    response = client.responses.parse(
+        model=TRANSLATION_MODEL,
+        input=[
+            {
+                "role": "developer",
+                "content": (
+                    "You translate subtitle tokens into concise American English glossary meanings. "
+                    "Return one item per input word in the same order. "
+                    "Use the surrounding subtitle context to disambiguate meaning. "
+                    "Keep meanings short, plain, and dictionary-like. "
+                    "Do not omit items, merge items, add explanations, or transliterate unless that is the only useful gloss."
+                ),
+            },
+            {
+                "role": "user",
+                "content": (
+                    f"Source language code: {lang_code}\n"
+                    f"Context subtitle text: {context}\n"
+                    f"Words to translate in order: {json.dumps(words, ensure_ascii=False)}"
+                ),
+            },
+        ],
+        text_format=TranslationBatch,
+    )
+
+    parsed = response.output_parsed
+    if parsed is None:
+        raise RuntimeError("OpenAI returned no parsed translation output.")
+    if len(parsed.translations) != len(words):
+        raise RuntimeError(
+            f"OpenAI returned {len(parsed.translations)} translations for {len(words)} input words."
         )
-        translation = translation_result.text
-    except Exception as exc:
-        print(f"Error translating word '{word}': {exc}")
-        translation = ""
-    return WordEntry(word=word, meaning=translation)
 
-
-def select_transcript(video_id: str, lang_code: str):
-    transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
-
-    desired_lang = lang_code.lower()
-    manual_transcript = None
-    auto_transcript = None
-
-    for transcript in transcript_list:
-        transcript_lang = transcript.language_code.split("-")[0].lower()
-        if transcript_lang == desired_lang:
-            if not transcript.is_generated:
-                manual_transcript = transcript
-                break
-            auto_transcript = transcript
-
-    if manual_transcript is not None:
-        return manual_transcript.fetch()
-    if auto_transcript is not None:
-        return auto_transcript.fetch()
-    raise RuntimeError(f"No transcript available for language '{lang_code}' in video '{video_id}'")
+    return [WordEntry(word=item.word, meaning=item.meaning) for item in parsed.translations]
 
 
 def process_video(video_id: str, subtitle_language: str, output_dir: Path) -> None:
@@ -77,7 +82,9 @@ def process_video(video_id: str, subtitle_language: str, output_dir: Path) -> No
 
     print(f"Processing video: {video_id}")
     try:
-        transcript = select_transcript(video_id, subtitle_language)
+        transcript, selected_track = fetch_subtitle_segments(video_id, subtitle_language)
+        track_kind = "auto" if selected_track.is_generated else "manual"
+        print(f"Using {track_kind} subtitle track '{selected_track.language_code}' for video {video_id}")
     except Exception as exc:
         print(f"Error fetching transcript for video '{video_id}': {exc}")
         return
@@ -101,8 +108,9 @@ def process_video(video_id: str, subtitle_language: str, output_dir: Path) -> No
         context_text = " ".join(filter(None, [prev_text, text, next_text]))
 
         snippet_data = {"start": start, "duration": duration, "words": []}
-        for word in extract_words(text):
-            word_entry = get_word_with_translation(word, context_text, subtitle_language)
+        words = extract_words(text)
+        translated_words = translate_words(words, context_text, subtitle_language)
+        for word_entry in translated_words:
             snippet_data["words"].append({
                 "native": word_entry.word,
                 "translation": word_entry.meaning,
@@ -116,6 +124,7 @@ def process_video(video_id: str, subtitle_language: str, output_dir: Path) -> No
 
 
 def run(language_code: str) -> None:
+    ensure_course_registered(language_code)
     course = load_course(language_code)
     ensure_directories(language_code)
     output_dir = course_video_dir(language_code)

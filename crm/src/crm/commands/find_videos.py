@@ -1,22 +1,17 @@
 from __future__ import annotations
 
 import json
-import os
 import re
 from pathlib import Path
 from typing import Any
 
 import googleapiclient.discovery
-from dotenv import load_dotenv
 from tqdm import tqdm
 from youtube_transcript_api import NoTranscriptFound, TranscriptsDisabled, YouTubeTranscriptApi
 
-from crm.course_index import load_course
+from crm.course_index import ensure_course_registered, load_course
+from crm.env import get_required_env_var
 from crm.paths import course_work_dir, ensure_directories
-
-
-load_dotenv()
-YOUTUBE_API_KEY = os.getenv("GOOGLE_API_KEY")
 ARABIC_UNICODE_RANGE = re.compile(r"[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]")
 
 
@@ -311,12 +306,11 @@ class EgyptVideoFinder:
 
 
 def run(language_code: str, target_count: int = 20, max_attempts: int = 10) -> None:
+    ensure_course_registered(language_code)
     load_course(language_code)
     if language_code != "arz":
         raise ValueError("find-videos currently only supports the 'arz' course.")
-    if not YOUTUBE_API_KEY:
-        raise RuntimeError("GOOGLE_API_KEY environment variable not set.")
 
     ensure_directories(language_code)
-    finder = EgyptVideoFinder(YOUTUBE_API_KEY, course_work_dir(language_code))
+    finder = EgyptVideoFinder(get_required_env_var("GOOGLE_API_KEY"), course_work_dir(language_code))
     finder.run_until_target_reached(target_count=target_count, max_attempts=max_attempts)

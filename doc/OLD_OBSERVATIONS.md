@@ -1,4 +1,0 @@
-- progress feels slow
-    - and you have no progress indicator
-- especially beginning of videos is so fast, no?
-- what are even the per-video goals?

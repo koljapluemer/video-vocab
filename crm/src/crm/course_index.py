@@ -10,7 +10,6 @@ from crm.paths import PUBLIC_DATA_ROOT, course_file
 @dataclass(frozen=True)
 class CourseVideo:
     id: str
-    cover_subtitles: bool = False
 
 
 @dataclass(frozen=True)
@@ -40,7 +39,7 @@ def load_course(language_code: str) -> CourseDefinition:
 
     data = _read_json(path)
     videos = [
-        CourseVideo(id=video["id"], cover_subtitles=video.get("coverSubtitles", False))
+        CourseVideo(id=video["id"])
         for video in data.get("videos", [])
     ]
     return CourseDefinition(

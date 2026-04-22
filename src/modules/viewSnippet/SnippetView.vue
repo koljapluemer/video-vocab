@@ -16,7 +16,6 @@ const isLoading = ref(true)
 const languageCode = route.params.languageCode as string
 const videoId = route.params.videoId as string
 const snippetIndex = parseInt(route.params.index as string)
-const coverSubtitles = ref(false)
 const loadError = ref<string | null>(null)
 
 onMounted(async () => {
@@ -33,7 +32,6 @@ onMounted(async () => {
     snippet.value = await getSnippet(languageCode, videoId, snippetIndex)
     flashcards.value = await getFlashcardsForSnippet(languageCode, videoId, snippetIndex)
     isLearnMode.value = true
-    coverSubtitles.value = video.coverSubtitles
   } catch (error) {
     console.error('Failed to load snippet:', error)
     loadError.value = `Failed to load snippet ${snippetIndex} for '${languageCode}/${videoId}'.`
@@ -90,7 +88,6 @@ const handleSingleFlashcardRated = (flashcard: Flashcard, rating: number) => {
         :start="snippet.start"
         :duration="snippet.duration"
         :current-index="snippetIndex"
-        :cover-subtitles="coverSubtitles"
         @study-again="isLearnMode = true"
       />
     </div>

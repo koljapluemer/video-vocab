@@ -11,7 +11,6 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
-          <div v-if="coverSubtitles" class="absolute bottom-6 left-0 right-0 h-32 bg-gray-800"></div>
         </div>
       </div>
       <div class="flex flex-col items-center space-y-4">
@@ -43,7 +42,6 @@ const props = defineProps<{
   start: number
   duration: number
   currentIndex: number
-  coverSubtitles: boolean
 }>()
 
 const replayKey = ref(Date.now())

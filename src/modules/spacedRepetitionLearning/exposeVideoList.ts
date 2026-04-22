@@ -1,7 +1,6 @@
 export interface Video {
   youtubeId: string;
   languageCode: string;
-  coverSubtitles: boolean;
 }
 
 export interface Course {
@@ -17,7 +16,7 @@ interface CourseJson {
   label: string;
   subtitleLanguage: string;
   direction: 'ltr' | 'rtl';
-  videos: Array<{ id: string; coverSubtitles?: boolean }>;
+  videos: Array<{ id: string }>;
 }
 
 interface IndexJson {
@@ -39,7 +38,6 @@ async function fetchCourse(languageCode: string): Promise<Course> {
     videos: data.videos.map((video) => ({
       youtubeId: video.id,
       languageCode: data.languageCode,
-      coverSubtitles: video.coverSubtitles ?? false,
     })),
   };
 }

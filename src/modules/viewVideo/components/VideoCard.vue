@@ -1,7 +1,7 @@
 <template>
   <div class="card bg-base-100 shadow-xl">
     <figure>
-      <img :src="`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`" :alt="`Thumbnail for video ${videoId}`" class="w-full h-48 object-cover" />
+      <img :src="`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`" alt="Video thumbnail" class="w-full h-48 object-cover" />
     </figure>
     <div class="card-body">
       <div class="flex justify-between items-center">

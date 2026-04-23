@@ -24,7 +24,7 @@ onMounted(async () => {
 
     const video = await getVideoById(languageCode, videoId)
     if (!video) {
-      loadError.value = `Video '${videoId}' was not found in course '${languageCode}'.`
+      loadError.value = 'This video could not be found.'
       isLoading.value = false
       return
     }
@@ -34,7 +34,7 @@ onMounted(async () => {
     isLearnMode.value = true
   } catch (error) {
     console.error('Failed to load snippet:', error)
-    loadError.value = `Failed to load snippet ${snippetIndex} for '${languageCode}/${videoId}'.`
+    loadError.value = 'Unable to load this snippet right now.'
   } finally {
     isLoading.value = false
   }

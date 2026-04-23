@@ -2,12 +2,26 @@ import { createRouter, createWebHistory } from 'vue-router';
 import VideoView from '@/modules/viewVideo/VideoView.vue';
 import VideoListView from '@/modules/viewVideoList/VideoListView.vue';
 import SnippetView from '@/modules/viewSnippet/SnippetView.vue';
+import TargetLanguageView from '@/modules/targetLanguage/TargetLanguageView.vue';
+import { getStoredTargetLanguage } from '@/modules/targetLanguage/targetLanguageStorage';
 
 const routes = [
   {
     path: '/',
     name: 'video-list',
-    component: VideoListView
+    component: VideoListView,
+    beforeEnter: () => {
+      if (!getStoredTargetLanguage()) {
+        return { name: 'target-language' };
+      }
+
+      return true;
+    }
+  },
+  {
+    path: '/target-language',
+    name: 'target-language',
+    component: TargetLanguageView
   },
   {
     path: '/course/:languageCode/video/:videoId',

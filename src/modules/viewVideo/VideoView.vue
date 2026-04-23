@@ -9,7 +9,7 @@
         <figure>
           <img
             :src="`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`"
-            :alt="`Thumbnail for video ${videoId}`"
+            alt="Video thumbnail"
             class="w-full h-96 object-cover"
           />
         </figure>
@@ -45,14 +45,14 @@ onMounted(async () => {
   try {
     const video = await getVideoById(languageCode, videoId);
     if (!video) {
-      loadError.value = `Video '${videoId}' was not found in course '${languageCode}'.`;
+      loadError.value = 'This video could not be found.';
       return;
     }
 
     snippetCount.value = await getNumberOfSnippetsOfVideo(languageCode, videoId);
   } catch (error) {
     console.error('Error fetching snippet count:', error);
-    loadError.value = `Failed to load video '${videoId}' for course '${languageCode}'.`;
+    loadError.value = 'Unable to load this video right now.';
   }
 });
 </script>

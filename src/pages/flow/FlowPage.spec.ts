@@ -1,4 +1,4 @@
-import { cleanup, render, waitFor } from '@testing-library/vue'
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const { getCourse, getOrCreateCardsForWords, getSnippetsOfVideo, loadYoutubeIframeApi, push } = vi.hoisted(() => ({
@@ -7,6 +7,11 @@ const { getCourse, getOrCreateCardsForWords, getSnippetsOfVideo, loadYoutubeIfra
   getSnippetsOfVideo: vi.fn(),
   loadYoutubeIframeApi: vi.fn(),
   push: vi.fn(),
+}))
+
+const { loadVideoByIdMock, destroyMock } = vi.hoisted(() => ({
+  loadVideoByIdMock: vi.fn(),
+  destroyMock: vi.fn(),
 }))
 
 vi.mock('vue-router', () => ({
@@ -47,6 +52,8 @@ describe('FlowPage', () => {
     getCourse.mockReset()
     getSnippetsOfVideo.mockReset()
     loadYoutubeIframeApi.mockReset()
+    loadVideoByIdMock.mockReset()
+    destroyMock.mockReset()
     getCourse.mockResolvedValue({
       languageCode: 'deu',
       label: 'German',
@@ -87,9 +94,13 @@ describe('FlowPage', () => {
         ENDED: 0,
       },
       Player: class {
-        loadVideoById() {}
+        loadVideoById(...args: unknown[]) {
+          loadVideoByIdMock(...args)
+        }
 
-        destroy() {}
+        destroy() {
+          destroyMock()
+        }
       },
     } as unknown as typeof window.YT
   })
@@ -141,6 +152,65 @@ describe('FlowPage', () => {
         { original: 'xin chao', meanings: ['hello'] },
         { original: 'ban', meanings: ['friend'] },
       ])
+    })
+
+    randomSpy.mockRestore()
+  })
+
+  it('switches flow videos from the next-video pagination control', async () => {
+    getCourse.mockResolvedValue({
+      languageCode: 'deu',
+      label: 'German',
+      videos: [
+        { youtubeId: 'abc123', languageCode: 'deu' },
+        { youtubeId: 'def456', languageCode: 'deu' },
+      ],
+    })
+    getSnippetsOfVideo.mockImplementation(async (_languageCode: string, videoId: string) => {
+      if (videoId === 'def456') {
+        return [
+          {
+            start: 0,
+            duration: 4,
+            words: [
+              { original: 'tschuss', meanings: ['bye'] },
+              { original: 'morgen', meanings: ['tomorrow'] },
+            ],
+          },
+        ]
+      }
+
+      return [
+        {
+          start: 0,
+          duration: 4,
+          words: [
+            { original: 'hallo', meanings: ['hello'] },
+            { original: 'welt', meanings: ['world'] },
+          ],
+        },
+      ]
+    })
+    const randomSpy = vi.spyOn(Math, 'random').mockReturnValue(0)
+
+    const { getByRole } = render(FlowPage)
+
+    await waitFor(() => {
+      expect(getSnippetsOfVideo).toHaveBeenCalledWith('deu', 'abc123')
+    })
+
+    await fireEvent.click(getByRole('button', { name: 'Next video' }))
+
+    await waitFor(() => {
+      expect(getSnippetsOfVideo).toHaveBeenCalledWith('deu', 'def456')
+      expect(getOrCreateCardsForWords).toHaveBeenLastCalledWith('deu', [
+        { original: 'tschuss', meanings: ['bye'] },
+        { original: 'morgen', meanings: ['tomorrow'] },
+      ])
+      expect(loadVideoByIdMock).toHaveBeenLastCalledWith({
+        videoId: 'def456',
+        startSeconds: 0,
+      })
     })
 
     randomSpy.mockRestore()

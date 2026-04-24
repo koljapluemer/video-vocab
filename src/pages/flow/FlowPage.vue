@@ -43,6 +43,25 @@ let isPlayerActivelyPlaying = false
 const currentSnippet = computed(() => snippets.value[currentSnippetIndex.value] ?? null)
 const hasSnippets = computed(() => snippets.value.length > 0)
 const flashcardDeckKey = computed(() => `${flashcardDeckVersion.value}`)
+const courseVideos = computed(() => course.value?.videos ?? [])
+const activeVideoIndex = computed(() =>
+  courseVideos.value.findIndex((video) => video.youtubeId === activeVideo.value?.youtubeId),
+)
+const hasMultipleVideos = computed(() => courseVideos.value.length > 1)
+const previousVideo = computed(() => {
+  if (activeVideoIndex.value <= 0) {
+    return null
+  }
+
+  return courseVideos.value[activeVideoIndex.value - 1] ?? null
+})
+const nextVideo = computed(() => {
+  if (activeVideoIndex.value < 0 || activeVideoIndex.value >= courseVideos.value.length - 1) {
+    return null
+  }
+
+  return courseVideos.value[activeVideoIndex.value + 1] ?? null
+})
 
 async function setExerciseDeck(snippetIndex: number) {
   activeExerciseSnippetIndex.value = snippetIndex
@@ -118,11 +137,7 @@ async function loadRandomVideo(options?: { excludeVideoId?: string }) {
     })
 
     try {
-      const nextSnippets = await getSnippetsOfVideo(randomVideo.languageCode, randomVideo.youtubeId)
-
-      activeVideo.value = randomVideo
-      snippets.value = nextSnippets
-      currentSnippetIndex.value = 0
+      await loadSpecificVideo(randomVideo)
       break
     } catch (error) {
       console.error(`Failed to load flow video '${randomVideo.youtubeId}':`, error)
@@ -134,10 +149,16 @@ async function loadRandomVideo(options?: { excludeVideoId?: string }) {
   if (!activeVideo.value || snippets.value.length === 0) {
     throw new Error(`No flow videos could be loaded for '${course.value.languageCode}'`)
   }
+}
 
-  if (currentFlashcards.value.length === 0) {
-    await setExerciseDeck(0)
-  }
+async function loadSpecificVideo(video: Video) {
+  const nextSnippets = await getSnippetsOfVideo(video.languageCode, video.youtubeId)
+
+  activeVideo.value = video
+  snippets.value = nextSnippets
+  currentSnippetIndex.value = 0
+  playerError.value = ''
+  await setExerciseDeck(0)
 }
 
 function playActiveVideo() {
@@ -155,6 +176,20 @@ function playActiveVideo() {
 async function queueRandomVideo() {
   await loadRandomVideo({ excludeVideoId: activeVideo.value?.youtubeId })
   playActiveVideo()
+}
+
+async function switchToVideo(video: Video) {
+  if (video.youtubeId === activeVideo.value?.youtubeId) {
+    return
+  }
+
+  try {
+    await loadSpecificVideo(video)
+    playActiveVideo()
+  } catch (error) {
+    console.error(`Failed to switch flow video '${video.youtubeId}':`, error)
+    playerError.value = 'Unable to load the selected flow video.'
+  }
 }
 
 async function loadInitialFlow() {
@@ -269,24 +304,86 @@ onBeforeUnmount(() => {
       <span class="loading loading-spinner loading-lg"></span>
     </div>
 
-    <div v-else-if="activeVideo && currentSnippet" class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-      <section>
-        <FlashCardsWrapper
-          :key="flashcardDeckKey"
-          :flashcards="currentFlashcards"
-          @all-flashcards-completed="handleAllFlashcardsCompleted"
-          @flashcard-revealed="handleFlashcardRevealed"
-          @single-flashcard-rated="handleSingleFlashcardRated"
-        />
-      </section>
+    <div v-else-if="activeVideo && currentSnippet" class="space-y-6">
+      <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
+        <section>
+          <FlashCardsWrapper
+            :key="flashcardDeckKey"
+            :flashcards="currentFlashcards"
+            @all-flashcards-completed="handleAllFlashcardsCompleted"
+            @flashcard-revealed="handleFlashcardRevealed"
+            @single-flashcard-rated="handleSingleFlashcardRated"
+          />
+        </section>
 
-      <section class="space-y-4">
-        <div v-if="playerError" class="alert alert-error">
-          <span>{{ playerError }}</span>
-        </div>
+        <section class="space-y-4">
+          <div v-if="playerError" class="alert alert-error">
+            <span>{{ playerError }}</span>
+          </div>
 
-        <div class="overflow-hidden rounded-xl bg-black">
-          <div class="aspect-video w-full" :id="playerHostId"></div>
+          <div class="overflow-hidden rounded-xl bg-black">
+            <div class="aspect-video w-full" :id="playerHostId"></div>
+          </div>
+        </section>
+      </div>
+
+      <section v-if="hasMultipleVideos" class="space-y-3">
+
+        <div class="flex flex-wrap items-start justify-center gap-3">
+          <button
+            type="button"
+            class="w-24 text-left md:w-28"
+            :class="previousVideo ? 'cursor-pointer' : 'cursor-not-allowed opacity-40'"
+            :disabled="!previousVideo"
+            aria-label="Previous video"
+            @click="previousVideo && switchToVideo(previousVideo)"
+          >
+            <div class="space-y-1 rounded-xl border border-base-300 p-2 transition-all duration-200 hover:border-primary/60 hover:bg-base-200/60">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-base-content/50">Previous</p>
+              <div class="overflow-hidden rounded-lg bg-base-200">
+                <img
+                  v-if="previousVideo"
+                  :src="`https://img.youtube.com/vi/${previousVideo.youtubeId}/mqdefault.jpg`"
+                  :alt="`Previous flow video ${previousVideo.youtubeId}`"
+                  class="aspect-video w-full object-cover"
+                />
+                <div v-else class="aspect-video w-full bg-base-200"></div>
+              </div>
+            </div>
+          </button>
+
+          <div class="w-24 rounded-xl border border-primary bg-base-200/60 p-2 md:w-28">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Current</p>
+            <div class="mt-1 overflow-hidden rounded-lg">
+              <img
+                :src="`https://img.youtube.com/vi/${activeVideo.youtubeId}/mqdefault.jpg`"
+                :alt="`Current flow video ${activeVideo.youtubeId}`"
+                class="aspect-video w-full object-cover"
+              />
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="w-24 text-left md:w-28"
+            :class="nextVideo ? 'cursor-pointer' : 'cursor-not-allowed opacity-40'"
+            :disabled="!nextVideo"
+            aria-label="Next video"
+            @click="nextVideo && switchToVideo(nextVideo)"
+          >
+            <div class="space-y-1 rounded-xl border border-base-300 p-2 transition-all duration-200 hover:border-primary/60 hover:bg-base-200/60">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-base-content/50">Next</p>
+              <div class="overflow-hidden rounded-lg bg-base-200">
+                <img
+                  v-if="nextVideo"
+                  :src="`https://img.youtube.com/vi/${nextVideo.youtubeId}/mqdefault.jpg`"
+                  :alt="`Next flow video ${nextVideo.youtubeId}`"
+                  class="aspect-video w-full object-cover"
+                />
+                <div v-else class="aspect-video w-full bg-base-200"></div>
+              </div>
+            </div>
+          </button>
         </div>
       </section>
     </div>

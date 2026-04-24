@@ -1,36 +1,11 @@
-<template>
-
-  <div class="card shadow-lg p-4 mb-4">
-    <div>
-      <p class="text-4xl font-bold mb-2">{{ flashcard.original }}</p>
-    </div>
-    <!-- Display meanings -->
-    <div v-if="revealed" class="mt-4">
-      <ul>
-        <li v-for="(meaning, index) in flashcard.meanings" :key="index"
-            class="odd:bg-gray-500 even:bg-gray-600 p-2">
-          <p class="text-lg">{{ meaning }}</p>
-        </li>
-      </ul>
-    </div>
-    <div v-else class="mt-4">
-      <button class="btn btn-primary" @click="reveal">Reveal</button>
-    </div>
-    <div v-if="revealed" class="mt-4">
-      <div class="btn-group flex flex-row gap-2">
-        <button class="btn btn-warning" @click="rate(Rating.Again)">Again</button>
-        <button class="btn btn-secondary" @click="rate(Rating.Hard)">Hard</button>
-        <button class="btn btn-success" @click="rate(Rating.Good)">Good</button>
-        <button class="btn btn-accent" @click="rate(Rating.Easy)">Easy</button>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import type { Flashcard } from '@/shared/types/domainTypes'
 import { Rating } from 'ts-fsrs'
+
+import ActionButtonRow, { type FlashcardAction } from './ActionButtonRow.vue'
+import IndexCard from './IndexCard.vue'
+import type { IndexCardRow } from './indexCardTypes'
 
 const props = defineProps<{
   flashcard: Flashcard
@@ -41,17 +16,87 @@ const emit = defineEmits<{
 }>()
 
 const revealed = ref(false)
+const flipped = ref(false)
 
 // Reset revealed state when flashcard changes
 watch(() => props.flashcard, () => {
   revealed.value = false
+  flipped.value = false
 })
 
 const reveal = () => {
   revealed.value = true
+  flipped.value = true
 }
 
 const rate = (rating: Rating) => {
   emit('single-flashcard-rated', rating)
 }
+
+const cardRows = computed<IndexCardRow[]>(() => {
+  const wordRow: IndexCardRow = {
+    type: 'text',
+    text: props.flashcard.original,
+    size: 'auto',
+  }
+
+  if (!revealed.value) {
+    return [wordRow]
+  }
+
+  return [
+    wordRow,
+    { type: 'divider' },
+    ...props.flashcard.meanings.map((meaning) => ({
+      type: 'text' as const,
+      text: meaning,
+      size: 'normal' as const,
+    })),
+  ]
+})
+
+const revealAction: FlashcardAction[] = [
+  { id: 'reveal', label: 'Reveal', icon: 'reveal', tone: 'neutral' },
+]
+
+const ratingActions: FlashcardAction[] = [
+  { id: 'again', label: 'Again', icon: 'again', tone: 'warning' },
+  { id: 'hard', label: 'Hard', icon: 'hard', tone: 'info' },
+  { id: 'good', label: 'Good', icon: 'good', tone: 'success' },
+  { id: 'easy', label: 'Easy', icon: 'easy', tone: 'accent' },
+]
+
+function handleAction(actionId: string) {
+  if (actionId === 'reveal') {
+    reveal()
+    return
+  }
+
+  const ratingMap: Record<string, Rating> = {
+    again: Rating.Again,
+    hard: Rating.Hard,
+    good: Rating.Good,
+    easy: Rating.Easy,
+  }
+
+  const rating = ratingMap[actionId]
+  if (rating !== undefined) {
+    rate(rating)
+  }
+}
 </script>
+
+<template>
+  <div class="mx-auto flex w-full max-w-2xl flex-col items-center gap-6" data-testid="flashcard-stage">
+    <IndexCard
+      :rows="cardRows"
+      :flipped="flipped"
+      fill
+    />
+
+    <ActionButtonRow
+      :actions="revealed ? ratingActions : revealAction"
+      @select="handleAction"
+    />
+  </div>
+</template>

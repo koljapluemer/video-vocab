@@ -1,16 +1,3 @@
-<template>
-  <div class="flex flex-col gap-4">
-    <FlashCard
-      v-if="currentFlashcard"
-      :flashcard="currentFlashcard"
-      @single-flashcard-rated="handleSingleFlashcardRated"
-    />
-    <div v-else class="text-center">
-      <p class="text-xl">No more flashcards to review!</p>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import type { Flashcard } from '@/shared/types/domainTypes'
@@ -18,6 +5,7 @@ import { Rating } from 'ts-fsrs'
 import FlashCard from './FlashCard.vue'
 import { useFlashCardStackHandler } from './flashCardStackHandler'
 import { FlashCardButtonLabel } from '@/shared/types/uiTypes'
+import IndexCard from './IndexCard.vue'
 
 const props = defineProps<{
   flashcards: Flashcard[]
@@ -60,3 +48,22 @@ watch(currentFlashcard, (newFlashcard) => {
   }
 })
 </script>
+
+<template>
+  <div class="flex min-h-[32rem] w-full flex-col items-center justify-center gap-6">
+    <FlashCard
+      v-if="currentFlashcard"
+      :flashcard="currentFlashcard"
+      @single-flashcard-rated="handleSingleFlashcardRated"
+    />
+    <div v-else class="mx-auto w-full max-w-2xl">
+      <IndexCard
+        :rows="[
+          { type: 'text', text: 'Done for now', size: 'auto' },
+          { type: 'divider' },
+          { type: 'text', text: 'No more flashcards to review.', size: 'normal' },
+        ]"
+      />
+    </div>
+  </div>
+</template>

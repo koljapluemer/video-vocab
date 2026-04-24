@@ -220,7 +220,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="container mx-auto p-4">
+  <div class="mx-auto w-full p-4">
     <div v-if="loadError" class="alert alert-error">
       <span>{{ loadError }}</span>
     </div>
@@ -229,8 +229,8 @@ onBeforeUnmount(() => {
       <span class="loading loading-spinner loading-lg"></span>
     </div>
 
-    <div v-else-if="activeVideo && currentSnippet" class="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(620px,48vw)]">
-      <section class="order-2 lg:order-1">
+    <div v-else-if="activeVideo && currentSnippet" class="flow-layout">
+      <section class="flow-practice">
         <FlashCardsWrapper
           :key="flashcardDeckKey"
           :flashcards="currentFlashcards"
@@ -238,7 +238,7 @@ onBeforeUnmount(() => {
         />
       </section>
 
-      <section class="order-1 lg:order-2">
+      <section class="flow-video">
         <div v-if="playerError" class="alert alert-error">
           <span>{{ playerError }}</span>
         </div>
@@ -250,3 +250,24 @@ onBeforeUnmount(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.flow-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.flow-practice,
+.flow-video {
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+@media (max-width: 767px) {
+  .flow-layout {
+    flex-direction: column;
+  }
+}
+</style>

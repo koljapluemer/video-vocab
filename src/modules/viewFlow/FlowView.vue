@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import { createEmptyCard } from 'ts-fsrs';
 import { useRouter } from 'vue-router';
 
@@ -17,20 +17,20 @@ const course = ref<Course | null>(null);
 const activeVideo = ref<Video | null>(null);
 const snippets = ref<Snippet[]>([]);
 const currentSnippetIndex = ref(0);
+const activeExerciseSnippetIndex = ref(0);
 const isLoading = ref(true);
 const loadError = ref('');
 const playerError = ref('');
 const currentFlashcards = ref<Flashcard[]>([]);
-const flowSession = ref(0);
+const flashcardDeckVersion = ref(0);
 const playerHostId = `flow-player-${Math.random().toString(36).slice(2)}`;
 
 let player: YT.Player | null = null;
 let snippetTimer: number | null = null;
 
 const currentSnippet = computed(() => snippets.value[currentSnippetIndex.value] ?? null);
-const nextSnippet = computed(() => snippets.value[currentSnippetIndex.value + 1] ?? null);
 const hasSnippets = computed(() => snippets.value.length > 0);
-const flashcardDeckKey = computed(() => `${activeVideo.value?.youtubeId ?? 'none'}-${currentSnippetIndex.value}-${flowSession.value}`);
+const flashcardDeckKey = computed(() => `${flashcardDeckVersion.value}`);
 
 function buildFlashcards(words: Word[]): Flashcard[] {
   const uniqueWords = new Map<string, Word>();
@@ -49,13 +49,19 @@ function buildFlashcards(words: Word[]): Flashcard[] {
   }));
 }
 
-function syncFlashcards() {
+function buildExerciseWords(snippetIndex: number): Word[] {
   const words = [
-    ...(currentSnippet.value?.words ?? []),
-    ...(nextSnippet.value?.words ?? []),
+    ...(snippets.value[snippetIndex]?.words ?? []),
+    ...(snippets.value[snippetIndex + 1]?.words ?? []),
   ];
 
-  currentFlashcards.value = buildFlashcards(words);
+  return words;
+}
+
+function setExerciseDeck(snippetIndex: number) {
+  activeExerciseSnippetIndex.value = snippetIndex;
+  currentFlashcards.value = buildFlashcards(buildExerciseWords(snippetIndex));
+  flashcardDeckVersion.value += 1;
 }
 
 function clearSnippetTimer() {
@@ -106,8 +112,10 @@ async function loadRandomVideo(options?: { excludeVideoId?: string }) {
   activeVideo.value = randomVideo;
   snippets.value = await getSnippetsOfVideo(randomVideo.languageCode, randomVideo.youtubeId);
   currentSnippetIndex.value = 0;
-  flowSession.value += 1;
-  syncFlashcards();
+
+  if (currentFlashcards.value.length === 0) {
+    setExerciseDeck(0);
+  }
 }
 
 function playActiveVideo() {
@@ -183,9 +191,18 @@ async function initializePlayer() {
   }
 }
 
-watch(currentSnippetIndex, () => {
-  syncFlashcards();
-});
+function handleAllFlashcardsCompleted() {
+  if (snippets.value.length === 0) {
+    return;
+  }
+
+  const nextExerciseSnippetIndex = Math.min(
+    snippets.value.length - 1,
+    Math.max(currentSnippetIndex.value, activeExerciseSnippetIndex.value + 1),
+  );
+
+  setExerciseDeck(nextExerciseSnippetIndex);
+}
 
 onMounted(async () => {
   await loadInitialFlow();
@@ -217,6 +234,7 @@ onBeforeUnmount(() => {
         <FlashCardsWrapper
           :key="flashcardDeckKey"
           :flashcards="currentFlashcards"
+          @all-flashcards-completed="handleAllFlashcardsCompleted"
         />
       </section>
 

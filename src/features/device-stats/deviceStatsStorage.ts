@@ -2,7 +2,7 @@ const DEVICE_STATS_STORAGE_KEY = 'video-vocab-device-stats'
 const DAYS_TO_KEEP = 14
 const MINUTE_IN_MS = 60_000
 
-interface StoredStats {
+interface StoredLanguageStats {
   minutesVideoWatched: number
   minutesAppInteracted: number
   flashcardsFlipped: number
@@ -10,26 +10,41 @@ interface StoredStats {
   minutesInteractedByDay: Record<string, number>
 }
 
-export interface DailyStatPoint {
-  date: string
-  value: number
+interface StoredStats {
+  languages: Record<string, StoredLanguageStats>
 }
 
-export interface DeviceStatsSnapshot {
+export interface DailyStatPoint {
+  date: string
+  values: Record<string, number>
+}
+
+export interface LanguageStatsSnapshot {
+  languageCode: string
   minutesVideoWatched: number
   minutesAppInteracted: number
   flashcardsFlipped: number
+}
+
+export interface DeviceStatsSnapshot {
+  languages: LanguageStatsSnapshot[]
   cardsFlippedByDay: DailyStatPoint[]
   minutesInteractedByDay: DailyStatPoint[]
 }
 
-function createEmptyStoredStats(): StoredStats {
+function createEmptyStoredLanguageStats(): StoredLanguageStats {
   return {
     minutesVideoWatched: 0,
     minutesAppInteracted: 0,
     flashcardsFlipped: 0,
     cardsFlippedByDay: {},
     minutesInteractedByDay: {},
+  }
+}
+
+function createEmptyStoredStats(): StoredStats {
+  return {
+    languages: {},
   }
 }
 
@@ -69,7 +84,10 @@ function normalizeDayMap(
   return normalized
 }
 
-function normalizeStats(stats: Partial<StoredStats> | null | undefined, referenceDate: Date): StoredStats {
+function normalizeLanguageStats(
+  stats: Partial<StoredLanguageStats> | null | undefined,
+  referenceDate: Date,
+): StoredLanguageStats {
   return {
     minutesVideoWatched: roundMinutes(stats?.minutesVideoWatched ?? 0),
     minutesAppInteracted: roundMinutes(stats?.minutesAppInteracted ?? 0),
@@ -77,6 +95,17 @@ function normalizeStats(stats: Partial<StoredStats> | null | undefined, referenc
     cardsFlippedByDay: normalizeDayMap(stats?.cardsFlippedByDay, referenceDate),
     minutesInteractedByDay: normalizeDayMap(stats?.minutesInteractedByDay, referenceDate),
   }
+}
+
+function normalizeStats(stats: Partial<StoredStats> | null | undefined, referenceDate: Date): StoredStats {
+  const languages = Object.fromEntries(
+    Object.entries(stats?.languages ?? {}).map(([languageCode, languageStats]) => [
+      languageCode,
+      normalizeLanguageStats(languageStats, referenceDate),
+    ]),
+  )
+
+  return { languages }
 }
 
 function readStoredStats(referenceDate = new Date()): StoredStats {
@@ -105,26 +134,50 @@ function updateStoredStats(
   writeStoredStats(nextStats)
 }
 
-function buildSeries(dayMap: Record<string, number>): DailyStatPoint[] {
-  return Object.entries(dayMap).map(([date, value]) => ({ date, value }))
+function getStoredLanguageStats(stats: StoredStats, languageCode: string): StoredLanguageStats {
+  return stats.languages[languageCode] ?? createEmptyStoredLanguageStats()
 }
 
-export function recordFlashcardFlip(at: Date) {
+function buildSeries(
+  dayKeys: string[],
+  languages: Record<string, StoredLanguageStats>,
+  selectDayMap: (languageStats: StoredLanguageStats) => Record<string, number>,
+): DailyStatPoint[] {
+  const languageEntries = Object.entries(languages)
+
+  return dayKeys.map((date) => ({
+    date,
+    values: Object.fromEntries(
+      languageEntries.map(([languageCode, languageStats]) => [
+        languageCode,
+        selectDayMap(languageStats)[date] ?? 0,
+      ]),
+    ),
+  }))
+}
+
+export function recordFlashcardFlip(languageCode: string, at: Date) {
   updateStoredStats((stats) => {
     const dayKey = getLocalDateKey(at)
+    const languageStats = getStoredLanguageStats(stats, languageCode)
 
     return {
-      ...stats,
-      flashcardsFlipped: stats.flashcardsFlipped + 1,
-      cardsFlippedByDay: {
-        ...stats.cardsFlippedByDay,
-        [dayKey]: (stats.cardsFlippedByDay[dayKey] ?? 0) + 1,
+      languages: {
+        ...stats.languages,
+        [languageCode]: {
+          ...languageStats,
+          flashcardsFlipped: languageStats.flashcardsFlipped + 1,
+          cardsFlippedByDay: {
+            ...languageStats.cardsFlippedByDay,
+            [dayKey]: (languageStats.cardsFlippedByDay[dayKey] ?? 0) + 1,
+          },
+        },
       },
     }
   }, at)
 }
 
-export function recordInteractionSlice(start: Date, end: Date) {
+export function recordInteractionSlice(languageCode: string, start: Date, end: Date) {
   const minutes = Math.max(0, end.getTime() - start.getTime()) / MINUTE_IN_MS
   if (minutes <= 0) {
     return
@@ -132,46 +185,74 @@ export function recordInteractionSlice(start: Date, end: Date) {
 
   updateStoredStats((stats) => {
     const dayKey = getLocalDateKey(end)
+    const languageStats = getStoredLanguageStats(stats, languageCode)
 
     return {
-      ...stats,
-      minutesAppInteracted: roundMinutes(stats.minutesAppInteracted + minutes),
-      minutesInteractedByDay: {
-        ...stats.minutesInteractedByDay,
-        [dayKey]: roundMinutes((stats.minutesInteractedByDay[dayKey] ?? 0) + minutes),
+      languages: {
+        ...stats.languages,
+        [languageCode]: {
+          ...languageStats,
+          minutesAppInteracted: roundMinutes(languageStats.minutesAppInteracted + minutes),
+          minutesInteractedByDay: {
+            ...languageStats.minutesInteractedByDay,
+            [dayKey]: roundMinutes((languageStats.minutesInteractedByDay[dayKey] ?? 0) + minutes),
+          },
+        },
       },
     }
   }, end)
 }
 
-export function recordVideoWatchSlice(start: Date, end: Date) {
+export function recordVideoWatchSlice(languageCode: string, start: Date, end: Date) {
   const minutes = Math.max(0, end.getTime() - start.getTime()) / MINUTE_IN_MS
   if (minutes <= 0) {
     return
   }
 
-  updateStoredStats((stats) => ({
-    ...stats,
-    minutesVideoWatched: roundMinutes(stats.minutesVideoWatched + minutes),
-  }), end)
+  updateStoredStats((stats) => {
+    const languageStats = getStoredLanguageStats(stats, languageCode)
+
+    return {
+      languages: {
+        ...stats.languages,
+        [languageCode]: {
+          ...languageStats,
+          minutesVideoWatched: roundMinutes(languageStats.minutesVideoWatched + minutes),
+        },
+      },
+    }
+  }, end)
 }
 
 export function getStatsSnapshot(referenceDate = new Date()): DeviceStatsSnapshot {
   const stats = readStoredStats(referenceDate)
+  const languages = Object.entries(stats.languages)
+    .sort(([leftLanguageCode], [rightLanguageCode]) => leftLanguageCode.localeCompare(rightLanguageCode))
+    .map(([languageCode, languageStats]) => ({
+      languageCode,
+      minutesVideoWatched: languageStats.minutesVideoWatched,
+      minutesAppInteracted: languageStats.minutesAppInteracted,
+      flashcardsFlipped: languageStats.flashcardsFlipped,
+    }))
+  const dayKeys = getLast14DayKeys(referenceDate)
 
   return {
-    minutesVideoWatched: stats.minutesVideoWatched,
-    minutesAppInteracted: stats.minutesAppInteracted,
-    flashcardsFlipped: stats.flashcardsFlipped,
-    cardsFlippedByDay: buildSeries(stats.cardsFlippedByDay),
-    minutesInteractedByDay: buildSeries(stats.minutesInteractedByDay),
+    languages,
+    cardsFlippedByDay: buildSeries(dayKeys, stats.languages, (languageStats) => languageStats.cardsFlippedByDay),
+    minutesInteractedByDay: buildSeries(
+      dayKeys,
+      stats.languages,
+      (languageStats) => languageStats.minutesInteractedByDay,
+    ),
   }
 }
 
 export const deviceStatsStorageInternals = {
+  createEmptyStoredLanguageStats,
   createEmptyStoredStats,
   getLast14DayKeys,
   getLocalDateKey,
+  normalizeLanguageStats,
   normalizeStats,
   readStoredStats,
   roundMinutes,

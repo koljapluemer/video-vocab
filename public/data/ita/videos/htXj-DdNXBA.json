@@ -1,0 +1,6612 @@
+{
+    "snippets": [
+        {
+            "start": 7.23,
+            "duration": 0.009999999999999787,
+            "words": [
+                {
+                    "native": "Musica",
+                    "translation": "music"
+                }
+            ]
+        },
+        {
+            "start": 7.24,
+            "duration": 3.0700000000000003,
+            "words": [
+                {
+                    "native": "Musica",
+                    "translation": "music"
+                },
+                {
+                    "native": "oggi",
+                    "translation": "today"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "we go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "fare",
+                    "translation": "make"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "ricetta",
+                    "translation": "recipe"
+                }
+            ]
+        },
+        {
+            "start": 10.31,
+            "duration": 0.009999999999999787,
+            "words": [
+                {
+                    "native": "oggi",
+                    "translation": "today"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "fare",
+                    "translation": "make"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "ricetta",
+                    "translation": "recipe"
+                }
+            ]
+        },
+        {
+            "start": 10.32,
+            "duration": 3.228999999999999,
+            "words": [
+                {
+                    "native": "oggi",
+                    "translation": "today"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "we go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "fare",
+                    "translation": "do"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "ricetta",
+                    "translation": "recipe"
+                },
+                {
+                    "native": "velocissima",
+                    "translation": "very quick"
+                },
+                {
+                    "native": "dal",
+                    "translation": "from the"
+                },
+                {
+                    "native": "nome",
+                    "translation": "name"
+                },
+                {
+                    "native": "Secondo",
+                    "translation": "second"
+                },
+                {
+                    "native": "me",
+                    "translation": "me"
+                },
+                {
+                    "native": "quasi",
+                    "translation": "almost"
+                }
+            ]
+        },
+        {
+            "start": 13.549,
+            "duration": 0.009999999999999787,
+            "words": [
+                {
+                    "native": "velocissima",
+                    "translation": "very fast"
+                },
+                {
+                    "native": "dal",
+                    "translation": "of the"
+                },
+                {
+                    "native": "nome",
+                    "translation": "name"
+                },
+                {
+                    "native": "Secondo",
+                    "translation": "according to"
+                },
+                {
+                    "native": "me",
+                    "translation": "me"
+                },
+                {
+                    "native": "quasi",
+                    "translation": "almost"
+                }
+            ]
+        },
+        {
+            "start": 13.559,
+            "duration": 1.9900000000000002,
+            "words": [
+                {
+                    "native": "velocissima",
+                    "translation": "very fast"
+                },
+                {
+                    "native": "dal",
+                    "translation": "from the"
+                },
+                {
+                    "native": "nome",
+                    "translation": "name"
+                },
+                {
+                    "native": "Secondo",
+                    "translation": "in my opinion"
+                },
+                {
+                    "native": "me",
+                    "translation": "me"
+                },
+                {
+                    "native": "quasi",
+                    "translation": "almost"
+                },
+                {
+                    "native": "improbabile",
+                    "translation": "unlikely"
+                },
+                {
+                    "native": "Ovvero",
+                    "translation": "that is"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "mezze",
+                    "translation": "half"
+                },
+                {
+                    "native": "penne",
+                    "translation": "penne"
+                },
+                {
+                    "native": "alla",
+                    "translation": "with the"
+                }
+            ]
+        },
+        {
+            "start": 15.549,
+            "duration": 0.009999999999999787,
+            "words": [
+                {
+                    "native": "improbabile",
+                    "translation": "unlikely"
+                },
+                {
+                    "native": "Ovvero",
+                    "translation": "that is"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "mezze",
+                    "translation": "half"
+                },
+                {
+                    "native": "penne",
+                    "translation": "penne pasta"
+                },
+                {
+                    "native": "alla",
+                    "translation": "in the style of"
+                }
+            ]
+        },
+        {
+            "start": 15.559,
+            "duration": 2.1910000000000007,
+            "words": [
+                {
+                    "native": "improbabile",
+                    "translation": "unlikely"
+                },
+                {
+                    "native": "Ovvero",
+                    "translation": "that is"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "mezze",
+                    "translation": "half"
+                },
+                {
+                    "native": "penne",
+                    "translation": "penne pasta"
+                },
+                {
+                    "native": "alla",
+                    "translation": "with"
+                },
+                {
+                    "native": "puttanesca",
+                    "translation": "puttanesca-style"
+                },
+                {
+                    "native": "saliamo",
+                    "translation": "we put in"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "acqua",
+                    "translation": "water"
+                },
+                {
+                    "native": "dove",
+                    "translation": "where"
+                }
+            ]
+        },
+        {
+            "start": 17.75,
+            "duration": 0.010000000000001563,
+            "words": [
+                {
+                    "native": "puttanesca",
+                    "translation": "prostitute-style; a tomato, olive, and caper sauce"
+                },
+                {
+                    "native": "saliamo",
+                    "translation": "we add salt; we bring to a boil"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "acqua",
+                    "translation": "water"
+                },
+                {
+                    "native": "dove",
+                    "translation": "where"
+                }
+            ]
+        },
+        {
+            "start": 17.76,
+            "duration": 3.1499999999999986,
+            "words": [
+                {
+                    "native": "puttanesca",
+                    "translation": "puttanesca sauce"
+                },
+                {
+                    "native": "saliamo",
+                    "translation": "we salt"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "acqua",
+                    "translation": "water"
+                },
+                {
+                    "native": "dove",
+                    "translation": "where"
+                },
+                {
+                    "native": "cuoceremo",
+                    "translation": "we will cook"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "we go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "cuocere",
+                    "translation": "cook"
+                }
+            ]
+        },
+        {
+            "start": 20.91,
+            "duration": 0.010000000000001563,
+            "words": [
+                {
+                    "native": "cuoceremo",
+                    "translation": "we will cook"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "we go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "cuocere",
+                    "translation": "to cook"
+                }
+            ]
+        },
+        {
+            "start": 20.92,
+            "duration": 2.668999999999997,
+            "words": [
+                {
+                    "native": "cuoceremo",
+                    "translation": "we will cook"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "we go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "cuocere",
+                    "translation": "cook"
+                },
+                {
+                    "native": "queste",
+                    "translation": "these"
+                },
+                {
+                    "native": "mezze",
+                    "translation": "half"
+                },
+                {
+                    "native": "penne",
+                    "translation": "penne"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                }
+            ]
+        },
+        {
+            "start": 23.589,
+            "duration": 0.010000000000001563,
+            "words": [
+                {
+                    "native": "queste",
+                    "translation": "these"
+                },
+                {
+                    "native": "mezze",
+                    "translation": "half"
+                },
+                {
+                    "native": "penne",
+                    "translation": "penne pasta"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                }
+            ]
+        },
+        {
+            "start": 23.599,
+            "duration": 3.471,
+            "words": [
+                {
+                    "native": "queste",
+                    "translation": "these"
+                },
+                {
+                    "native": "mezze",
+                    "translation": "half"
+                },
+                {
+                    "native": "penne",
+                    "translation": "penne pasta"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "cuoce",
+                    "translation": "cooks"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "circa",
+                    "translation": "about"
+                },
+                {
+                    "native": "11",
+                    "translation": "11"
+                },
+                {
+                    "native": "minuti",
+                    "translation": "minutes"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "noi",
+                    "translation": "we"
+                }
+            ]
+        },
+        {
+            "start": 27.07,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "cuoce",
+                    "translation": "cooks"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "circa",
+                    "translation": "about"
+                },
+                {
+                    "native": "11",
+                    "translation": "11"
+                },
+                {
+                    "native": "minuti",
+                    "translation": "minutes"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "noi",
+                    "translation": "we"
+                }
+            ]
+        },
+        {
+            "start": 27.08,
+            "duration": 1.870000000000001,
+            "words": [
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "cuoce",
+                    "translation": "cooks"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "circa",
+                    "translation": "about"
+                },
+                {
+                    "native": "11",
+                    "translation": "11"
+                },
+                {
+                    "native": "minuti",
+                    "translation": "minutes"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "noi",
+                    "translation": "we"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "11",
+                    "translation": "11"
+                },
+                {
+                    "native": "minuti",
+                    "translation": "minutes"
+                },
+                {
+                    "native": "andremo",
+                    "translation": "will go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "terminare",
+                    "translation": "finish"
+                },
+                {
+                    "native": "questa",
+                    "translation": "this"
+                }
+            ]
+        },
+        {
+            "start": 28.95,
+            "duration": 0.010000000000001563,
+            "words": [
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "11",
+                    "translation": "11"
+                },
+                {
+                    "native": "minuti",
+                    "translation": "minutes"
+                },
+                {
+                    "native": "andremo",
+                    "translation": "will go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "terminare",
+                    "translation": "finish"
+                },
+                {
+                    "native": "questa",
+                    "translation": "this"
+                }
+            ]
+        },
+        {
+            "start": 28.96,
+            "duration": 3.8299999999999983,
+            "words": [
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "11",
+                    "translation": "11"
+                },
+                {
+                    "native": "minuti",
+                    "translation": "minutes"
+                },
+                {
+                    "native": "andremo",
+                    "translation": "we will go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "terminare",
+                    "translation": "finish"
+                },
+                {
+                    "native": "questa",
+                    "translation": "this"
+                },
+                {
+                    "native": "ricetta",
+                    "translation": "recipe"
+                },
+                {
+                    "native": "Ecco",
+                    "translation": "here"
+                },
+                {
+                    "native": "qua",
+                    "translation": "here"
+                },
+                {
+                    "native": "accendiamo",
+                    "translation": "we turn on"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "fuoco",
+                    "translation": "heat"
+                }
+            ]
+        },
+        {
+            "start": 32.79,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "ricetta",
+                    "translation": "recipe"
+                },
+                {
+                    "native": "Ecco",
+                    "translation": "here"
+                },
+                {
+                    "native": "qua",
+                    "translation": "here"
+                },
+                {
+                    "native": "accendiamo",
+                    "translation": "we turn on"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "fuoco",
+                    "translation": "heat"
+                }
+            ]
+        },
+        {
+            "start": 32.8,
+            "duration": 1.470000000000006,
+            "words": [
+                {
+                    "native": "ricetta",
+                    "translation": "recipe"
+                },
+                {
+                    "native": "Ecco",
+                    "translation": "here"
+                },
+                {
+                    "native": "qua",
+                    "translation": "here"
+                },
+                {
+                    "native": "accendiamo",
+                    "translation": "we light"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "fuoco",
+                    "translation": "fire"
+                },
+                {
+                    "native": "sotto",
+                    "translation": "under"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 34.27,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "sotto",
+                    "translation": "under"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 34.28,
+            "duration": 3.1499999999999986,
+            "words": [
+                {
+                    "native": "sotto",
+                    "translation": "under"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "padella",
+                    "translation": "pan"
+                },
+                {
+                    "native": "mettiamo",
+                    "translation": "we put"
+                }
+            ]
+        },
+        {
+            "start": 37.43,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "padella",
+                    "translation": "pan"
+                },
+                {
+                    "native": "mettiamo",
+                    "translation": "we put"
+                }
+            ]
+        },
+        {
+            "start": 37.44,
+            "duration": 3.6700000000000017,
+            "words": [
+                {
+                    "native": "padella",
+                    "translation": "pan"
+                },
+                {
+                    "native": "mettiamo",
+                    "translation": "we put"
+                },
+                {
+                    "native": "dell",
+                    "translation": "some"
+                },
+                {
+                    "native": "olio",
+                    "translation": "oil"
+                },
+                {
+                    "native": "uno",
+                    "translation": "one"
+                },
+                {
+                    "native": "spicchio",
+                    "translation": "clove"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "aglio",
+                    "translation": "garlic"
+                },
+                {
+                    "native": "intero",
+                    "translation": "whole"
+                }
+            ]
+        },
+        {
+            "start": 41.11,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "dell",
+                    "translation": "of the"
+                },
+                {
+                    "native": "olio",
+                    "translation": "oil"
+                },
+                {
+                    "native": "uno",
+                    "translation": "a"
+                },
+                {
+                    "native": "spicchio",
+                    "translation": "clove"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "aglio",
+                    "translation": "garlic"
+                },
+                {
+                    "native": "intero",
+                    "translation": "whole"
+                }
+            ]
+        },
+        {
+            "start": 41.12,
+            "duration": 3.6700000000000017,
+            "words": [
+                {
+                    "native": "dell",
+                    "translation": "of the"
+                },
+                {
+                    "native": "olio",
+                    "translation": "oil"
+                },
+                {
+                    "native": "uno",
+                    "translation": "a"
+                },
+                {
+                    "native": "spicchio",
+                    "translation": "clove"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "aglio",
+                    "translation": "garlic"
+                },
+                {
+                    "native": "intero",
+                    "translation": "whole"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                },
+                {
+                    "native": "andremo",
+                    "translation": "we will"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "togliere",
+                    "translation": "remove"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "dei",
+                    "translation": "some"
+                },
+                {
+                    "native": "filetti",
+                    "translation": "fillets"
+                }
+            ]
+        },
+        {
+            "start": 44.79,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                },
+                {
+                    "native": "andremo",
+                    "translation": "will go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "togliere",
+                    "translation": "remove"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "dei",
+                    "translation": "some"
+                },
+                {
+                    "native": "filetti",
+                    "translation": "fillets"
+                }
+            ]
+        },
+        {
+            "start": 44.8,
+            "duration": 1.7100000000000009,
+            "words": [
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                },
+                {
+                    "native": "andremo",
+                    "translation": "we will go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "togliere",
+                    "translation": "remove"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "dei",
+                    "translation": "some"
+                },
+                {
+                    "native": "filetti",
+                    "translation": "strips"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                }
+            ]
+        },
+        {
+            "start": 46.51,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "di",
+                    "translation": "of"
+                }
+            ]
+        },
+        {
+            "start": 46.52,
+            "duration": 2.5489999999999995,
+            "words": [
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "acciuga",
+                    "translation": "anchovy"
+                },
+                {
+                    "native": "salati",
+                    "translation": "salted"
+                },
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                },
+                {
+                    "native": "sciacquato",
+                    "translation": "rinsed"
+                }
+            ]
+        },
+        {
+            "start": 49.069,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "acciuga",
+                    "translation": "anchovy"
+                },
+                {
+                    "native": "salati",
+                    "translation": "salted"
+                },
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                },
+                {
+                    "native": "sciacquato",
+                    "translation": "rinsed"
+                }
+            ]
+        },
+        {
+            "start": 49.079,
+            "duration": 3.9110000000000014,
+            "words": [
+                {
+                    "native": "acciuga",
+                    "translation": "anchovy"
+                },
+                {
+                    "native": "salati",
+                    "translation": "salted"
+                },
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                },
+                {
+                    "native": "sciacquato",
+                    "translation": "rinsed"
+                },
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                },
+                {
+                    "native": "tolto",
+                    "translation": "removed"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "spina",
+                    "translation": "bone"
+                },
+                {
+                    "native": "La",
+                    "translation": "the"
+                },
+                {
+                    "native": "Lisca",
+                    "translation": "fish bone"
+                },
+                {
+                    "native": "centrale",
+                    "translation": "central"
+                }
+            ]
+        },
+        {
+            "start": 52.99,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                },
+                {
+                    "native": "tolto",
+                    "translation": "removed"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "spina",
+                    "translation": "bone"
+                },
+                {
+                    "native": "La",
+                    "translation": "the"
+                },
+                {
+                    "native": "Lisca",
+                    "translation": "fishbone"
+                },
+                {
+                    "native": "centrale",
+                    "translation": "central"
+                }
+            ]
+        },
+        {
+            "start": 53.0,
+            "duration": 2.6700000000000017,
+            "words": [
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                },
+                {
+                    "native": "tolto",
+                    "translation": "removed"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "spina",
+                    "translation": "bone"
+                },
+                {
+                    "native": "La",
+                    "translation": "the"
+                },
+                {
+                    "native": "Lisca",
+                    "translation": "bone"
+                },
+                {
+                    "native": "centrale",
+                    "translation": "central"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "messa",
+                    "translation": "put"
+                },
+                {
+                    "native": "sott",
+                    "translation": "under"
+                },
+                {
+                    "native": "olio",
+                    "translation": "oil"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "ne",
+                    "translation": "of it"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                }
+            ]
+        },
+        {
+            "start": 55.67,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "messa",
+                    "translation": "put"
+                },
+                {
+                    "native": "sott",
+                    "translation": "under"
+                },
+                {
+                    "native": "olio",
+                    "translation": "oil"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "ne",
+                    "translation": "of it"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                }
+            ]
+        },
+        {
+            "start": 55.68,
+            "duration": 1.7899999999999991,
+            "words": [
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "messa",
+                    "translation": "put"
+                },
+                {
+                    "native": "sott",
+                    "translation": "under"
+                },
+                {
+                    "native": "olio",
+                    "translation": "oil"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "ne",
+                    "translation": "of it"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "we go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "mettere",
+                    "translation": "put"
+                },
+                {
+                    "native": "considerate",
+                    "translation": "consider"
+                },
+                {
+                    "native": "ho",
+                    "translation": "I have"
+                },
+                {
+                    "native": "fatto",
+                    "translation": "made"
+                },
+                {
+                    "native": "2",
+                    "translation": "2"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                }
+            ]
+        },
+        {
+            "start": 57.47,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "mettere",
+                    "translation": "to put"
+                },
+                {
+                    "native": "considerate",
+                    "translation": "consider"
+                },
+                {
+                    "native": "ho",
+                    "translation": "I have"
+                },
+                {
+                    "native": "fatto",
+                    "translation": "made"
+                },
+                {
+                    "native": "2",
+                    "translation": "2"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                }
+            ]
+        },
+        {
+            "start": 57.48,
+            "duration": 4.510000000000005,
+            "words": [
+                {
+                    "native": "mettere",
+                    "translation": "put"
+                },
+                {
+                    "native": "considerate",
+                    "translation": "consider"
+                },
+                {
+                    "native": "ho",
+                    "translation": "I have"
+                },
+                {
+                    "native": "fatto",
+                    "translation": "made"
+                },
+                {
+                    "native": "2",
+                    "translation": "2"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "mezzo",
+                    "translation": "half"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                },
+                {
+                    "native": "metterò",
+                    "translation": "I will put"
+                },
+                {
+                    "native": "circa",
+                    "translation": "about"
+                }
+            ]
+        },
+        {
+            "start": 65.95,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "5",
+                    "translation": "5"
+                },
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "filetti",
+                    "translation": "strips"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "peperoncino",
+                    "translation": "chili pepper"
+                },
+                {
+                    "native": "verde",
+                    "translation": "green"
+                },
+                {
+                    "native": "fresco",
+                    "translation": "fresh"
+                }
+            ]
+        },
+        {
+            "start": 65.96,
+            "duration": 2.8290000000000077,
+            "words": [
+                {
+                    "native": "5",
+                    "translation": "five"
+                },
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "filetti",
+                    "translation": "slivers"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "peperoncino",
+                    "translation": "chili pepper"
+                },
+                {
+                    "native": "verde",
+                    "translation": "green"
+                },
+                {
+                    "native": "fresco",
+                    "translation": "fresh"
+                },
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "lo",
+                    "translation": "it"
+                },
+                {
+                    "native": "avete",
+                    "translation": "you have"
+                },
+                {
+                    "native": "senò",
+                    "translation": "otherwise"
+                },
+                {
+                    "native": "altrimenti",
+                    "translation": "otherwise"
+                },
+                {
+                    "native": "potete",
+                    "translation": "you can"
+                }
+            ]
+        },
+        {
+            "start": 68.789,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "lo",
+                    "translation": "it"
+                },
+                {
+                    "native": "avete",
+                    "translation": "you have"
+                },
+                {
+                    "native": "senò",
+                    "translation": "otherwise"
+                },
+                {
+                    "native": "altrimenti",
+                    "translation": "otherwise"
+                },
+                {
+                    "native": "potete",
+                    "translation": "you can"
+                }
+            ]
+        },
+        {
+            "start": 68.799,
+            "duration": 3.1509999999999962,
+            "words": [
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "lo",
+                    "translation": "it"
+                },
+                {
+                    "native": "avete",
+                    "translation": "you have"
+                },
+                {
+                    "native": "senò",
+                    "translation": "otherwise"
+                },
+                {
+                    "native": "altrimenti",
+                    "translation": "otherwise"
+                },
+                {
+                    "native": "potete",
+                    "translation": "you can"
+                },
+                {
+                    "native": "mettere",
+                    "translation": "to put"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "peperoncino",
+                    "translation": "chili pepper"
+                }
+            ]
+        },
+        {
+            "start": 71.95,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "mettere",
+                    "translation": "to put"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "peperoncino",
+                    "translation": "chili pepper"
+                }
+            ]
+        },
+        {
+            "start": 71.96000000000001,
+            "duration": 4.22999999999999,
+            "words": [
+                {
+                    "native": "mettere",
+                    "translation": "to put"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "peperoncino",
+                    "translation": "chili pepper"
+                },
+                {
+                    "native": "normale",
+                    "translation": "normal"
+                },
+                {
+                    "native": "metto",
+                    "translation": "I put"
+                },
+                {
+                    "native": "quello",
+                    "translation": "that one"
+                },
+                {
+                    "native": "verde",
+                    "translation": "green"
+                },
+                {
+                    "native": "Perché",
+                    "translation": "why"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "meno",
+                    "translation": "less"
+                }
+            ]
+        },
+        {
+            "start": 76.19,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "normale",
+                    "translation": "normal"
+                },
+                {
+                    "native": "metto",
+                    "translation": "I put"
+                },
+                {
+                    "native": "quello",
+                    "translation": "that one"
+                },
+                {
+                    "native": "verde",
+                    "translation": "green"
+                },
+                {
+                    "native": "Perché",
+                    "translation": "because"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "meno",
+                    "translation": "less"
+                }
+            ]
+        },
+        {
+            "start": 76.2,
+            "duration": 2.8689999999999998,
+            "words": [
+                {
+                    "native": "normale",
+                    "translation": "normal"
+                },
+                {
+                    "native": "metto",
+                    "translation": "put"
+                },
+                {
+                    "native": "quello",
+                    "translation": "that one"
+                },
+                {
+                    "native": "verde",
+                    "translation": "green"
+                },
+                {
+                    "native": "Perché",
+                    "translation": "because"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "meno",
+                    "translation": "less"
+                },
+                {
+                    "native": "forte",
+                    "translation": "strong"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "peperoncino",
+                    "translation": "chili pepper"
+                },
+                {
+                    "native": "normale",
+                    "translation": "normal"
+                },
+                {
+                    "native": "però",
+                    "translation": "though"
+                },
+                {
+                    "native": "ha",
+                    "translation": "has"
+                }
+            ]
+        },
+        {
+            "start": 79.069,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "forte",
+                    "translation": "strong"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "peperoncino",
+                    "translation": "chili pepper"
+                },
+                {
+                    "native": "normale",
+                    "translation": "normal"
+                },
+                {
+                    "native": "però",
+                    "translation": "but"
+                },
+                {
+                    "native": "ha",
+                    "translation": "has"
+                }
+            ]
+        },
+        {
+            "start": 79.07900000000001,
+            "duration": 3.830999999999989,
+            "words": [
+                {
+                    "native": "forte",
+                    "translation": "strong"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "peperoncino",
+                    "translation": "chili pepper"
+                },
+                {
+                    "native": "normale",
+                    "translation": "normal"
+                },
+                {
+                    "native": "però",
+                    "translation": "but"
+                },
+                {
+                    "native": "ha",
+                    "translation": "has"
+                },
+                {
+                    "native": "quel",
+                    "translation": "that"
+                },
+                {
+                    "native": "quel",
+                    "translation": "that"
+                },
+                {
+                    "native": "leggero",
+                    "translation": "light"
+                },
+                {
+                    "native": "gusto",
+                    "translation": "taste"
+                },
+                {
+                    "native": "piccantello",
+                    "translation": "slightly spicy"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 82.91,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "quel",
+                    "translation": "that"
+                },
+                {
+                    "native": "quel",
+                    "translation": "that"
+                },
+                {
+                    "native": "leggero",
+                    "translation": "light"
+                },
+                {
+                    "native": "gusto",
+                    "translation": "taste"
+                },
+                {
+                    "native": "piccantello",
+                    "translation": "slightly spicy"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 82.92,
+            "duration": 3.269999999999996,
+            "words": [
+                {
+                    "native": "quel",
+                    "translation": "that"
+                },
+                {
+                    "native": "quel",
+                    "translation": "that"
+                },
+                {
+                    "native": "leggero",
+                    "translation": "light"
+                },
+                {
+                    "native": "gusto",
+                    "translation": "taste"
+                },
+                {
+                    "native": "piccantello",
+                    "translation": "slightly spicy"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "me",
+                    "translation": "me"
+                },
+                {
+                    "native": "piace",
+                    "translation": "like"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very much"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "preparare",
+                    "translation": "prepare"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 86.19,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "me",
+                    "translation": "me"
+                },
+                {
+                    "native": "piace",
+                    "translation": "I like"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very much"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "preparare",
+                    "translation": "prepare"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 86.2,
+            "duration": 3.7099999999999937,
+            "words": [
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "me",
+                    "translation": "me"
+                },
+                {
+                    "native": "piace",
+                    "translation": "like"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very much"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "preparare",
+                    "translation": "prepare"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                },
+                {
+                    "native": "pomodori",
+                    "translation": "tomatoes"
+                },
+                {
+                    "native": "questi",
+                    "translation": "these"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                },
+                {
+                    "native": "dei",
+                    "translation": "some"
+                },
+                {
+                    "native": "pomodorini",
+                    "translation": "cherry tomatoes"
+                },
+                {
+                    "native": "che",
+                    "translation": "what"
+                }
+            ]
+        },
+        {
+            "start": 89.91,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "pomodori",
+                    "translation": "tomatoes"
+                },
+                {
+                    "native": "questi",
+                    "translation": "these"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                },
+                {
+                    "native": "dei",
+                    "translation": "some"
+                },
+                {
+                    "native": "pomodorini",
+                    "translation": "cherry tomatoes"
+                },
+                {
+                    "native": "che",
+                    "translation": "what"
+                }
+            ]
+        },
+        {
+            "start": 89.92,
+            "duration": 1.3100000000000023,
+            "words": [
+                {
+                    "native": "pomodori",
+                    "translation": "tomatoes"
+                },
+                {
+                    "native": "questi",
+                    "translation": "these"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                },
+                {
+                    "native": "dei",
+                    "translation": "some"
+                },
+                {
+                    "native": "pomodorini",
+                    "translation": "cherry tomatoes"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "we go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "tagliare",
+                    "translation": "cut"
+                },
+                {
+                    "native": "in",
+                    "translation": "into"
+                },
+                {
+                    "native": "quattro",
+                    "translation": "four"
+                },
+                {
+                    "native": "Se",
+                    "translation": "if"
+                }
+            ]
+        },
+        {
+            "start": 91.23,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "we go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "tagliare",
+                    "translation": "cut"
+                },
+                {
+                    "native": "in",
+                    "translation": "into"
+                },
+                {
+                    "native": "quattro",
+                    "translation": "four"
+                },
+                {
+                    "native": "Se",
+                    "translation": "if"
+                }
+            ]
+        },
+        {
+            "start": 91.24,
+            "duration": 1.909000000000006,
+            "words": [
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "we go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "tagliare",
+                    "translation": "cut"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "quattro",
+                    "translation": "four"
+                },
+                {
+                    "native": "Se",
+                    "translation": "if"
+                },
+                {
+                    "native": "avete",
+                    "translation": "you have"
+                },
+                {
+                    "native": "dei",
+                    "translation": "some"
+                },
+                {
+                    "native": "pomodorini",
+                    "translation": "cherry tomatoes"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "piccolini",
+                    "translation": "smaller"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 93.149,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "avete",
+                    "translation": "you have"
+                },
+                {
+                    "native": "dei",
+                    "translation": "some"
+                },
+                {
+                    "native": "pomodorini",
+                    "translation": "cherry tomatoes"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "piccolini",
+                    "translation": "small"
+                },
+                {
+                    "native": "le",
+                    "translation": "them"
+                }
+            ]
+        },
+        {
+            "start": 93.15899999999999,
+            "duration": 1.6610000000000014,
+            "words": [
+                {
+                    "native": "avete",
+                    "translation": "you have"
+                },
+                {
+                    "native": "dei",
+                    "translation": "some"
+                },
+                {
+                    "native": "pomodorini",
+                    "translation": "cherry tomatoes"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "piccolini",
+                    "translation": "smaller"
+                },
+                {
+                    "native": "le",
+                    "translation": "them"
+                },
+                {
+                    "native": "potete",
+                    "translation": "you can"
+                },
+                {
+                    "native": "dividere",
+                    "translation": "split"
+                },
+                {
+                    "native": "tranquillamente",
+                    "translation": "easily"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                }
+            ]
+        },
+        {
+            "start": 94.82,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "potete",
+                    "translation": "you can"
+                },
+                {
+                    "native": "dividere",
+                    "translation": "divide"
+                },
+                {
+                    "native": "tranquillamente",
+                    "translation": "easily"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                }
+            ]
+        },
+        {
+            "start": 94.83,
+            "duration": 6.319000000000003,
+            "words": [
+                {
+                    "native": "potete",
+                    "translation": "you can"
+                },
+                {
+                    "native": "dividere",
+                    "translation": "divide"
+                },
+                {
+                    "native": "tranquillamente",
+                    "translation": "safely"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "Musica",
+                    "translation": "music"
+                }
+            ]
+        },
+        {
+            "start": 103.87,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "metà",
+                    "translation": "half"
+                },
+                {
+                    "native": "rialziamo",
+                    "translation": "we raise"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "temperatura",
+                    "translation": "temperature"
+                },
+                {
+                    "native": "Quindi",
+                    "translation": "so"
+                }
+            ]
+        },
+        {
+            "start": 103.88,
+            "duration": 1.5090000000000146,
+            "words": [
+                {
+                    "native": "metà",
+                    "translation": "half"
+                },
+                {
+                    "native": "rialziamo",
+                    "translation": "we raise again"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "temperatura",
+                    "translation": "temperature"
+                },
+                {
+                    "native": "Quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                }
+            ]
+        },
+        {
+            "start": 105.38900000000001,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                }
+            ]
+        },
+        {
+            "start": 105.399,
+            "duration": 3.8710000000000093,
+            "words": [
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "olio",
+                    "translation": "oil"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "praticamente",
+                    "translation": "practically"
+                }
+            ]
+        },
+        {
+            "start": 109.27000000000001,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "olio",
+                    "translation": "oil"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "praticamente",
+                    "translation": "practically"
+                }
+            ]
+        },
+        {
+            "start": 109.28,
+            "duration": 2.6700000000000017,
+            "words": [
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "olio",
+                    "translation": "oil"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "praticamente",
+                    "translation": "practically"
+                },
+                {
+                    "native": "bollente",
+                    "translation": "boiling hot"
+                },
+                {
+                    "native": "spostiamo",
+                    "translation": "let's move"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "padella",
+                    "translation": "pan"
+                },
+                {
+                    "native": "dal",
+                    "translation": "from the"
+                },
+                {
+                    "native": "fuoco",
+                    "translation": "heat"
+                }
+            ]
+        },
+        {
+            "start": 111.95,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "bollente",
+                    "translation": "boiling hot"
+                },
+                {
+                    "native": "spostiamo",
+                    "translation": "move"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "padella",
+                    "translation": "pan"
+                },
+                {
+                    "native": "dal",
+                    "translation": "from the"
+                },
+                {
+                    "native": "fuoco",
+                    "translation": "stove"
+                }
+            ]
+        },
+        {
+            "start": 111.96000000000001,
+            "duration": 1.7889999999999873,
+            "words": [
+                {
+                    "native": "bollente",
+                    "translation": "boiling hot"
+                },
+                {
+                    "native": "spostiamo",
+                    "translation": "move"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "padella",
+                    "translation": "pan"
+                },
+                {
+                    "native": "dal",
+                    "translation": "from the"
+                },
+                {
+                    "native": "fuoco",
+                    "translation": "fire"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "buttare",
+                    "translation": "throw away"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 113.749,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "buttare",
+                    "translation": "put in"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 113.759,
+            "duration": 3.030000000000001,
+            "words": [
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let’s go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "buttare",
+                    "translation": "throw"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                },
+                {
+                    "native": "pomodori",
+                    "translation": "tomatoes"
+                },
+                {
+                    "native": "così",
+                    "translation": "so"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "rimettiamo",
+                    "translation": "put back"
+                },
+                {
+                    "native": "subito",
+                    "translation": "right away"
+                },
+                {
+                    "native": "sul",
+                    "translation": "on the"
+                }
+            ]
+        },
+        {
+            "start": 116.789,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "pomodori",
+                    "translation": "tomatoes"
+                },
+                {
+                    "native": "così",
+                    "translation": "so"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "rimettiamo",
+                    "translation": "put back"
+                },
+                {
+                    "native": "subito",
+                    "translation": "right away"
+                },
+                {
+                    "native": "sul",
+                    "translation": "on the"
+                }
+            ]
+        },
+        {
+            "start": 116.799,
+            "duration": 4.190999999999988,
+            "words": [
+                {
+                    "native": "pomodori",
+                    "translation": "tomatoes"
+                },
+                {
+                    "native": "così",
+                    "translation": "like this"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "rimettiamo",
+                    "translation": "we put back"
+                },
+                {
+                    "native": "subito",
+                    "translation": "right away"
+                },
+                {
+                    "native": "sul",
+                    "translation": "on the"
+                },
+                {
+                    "native": "fuoco",
+                    "translation": "heat"
+                }
+            ]
+        },
+        {
+            "start": 124.149,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "punto",
+                    "translation": "point"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "aggiungere",
+                    "translation": "add"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 124.159,
+            "duration": 3.7509999999999906,
+            "words": [
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "punto",
+                    "translation": "point"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "aggiungere",
+                    "translation": "add"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                },
+                {
+                    "native": "capperi",
+                    "translation": "capers"
+                },
+                {
+                    "native": "questi",
+                    "translation": "these"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                },
+                {
+                    "native": "capperi",
+                    "translation": "capers"
+                },
+                {
+                    "native": "sottoaceto",
+                    "translation": "pickled"
+                }
+            ]
+        },
+        {
+            "start": 127.91,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "capperi",
+                    "translation": "capers"
+                },
+                {
+                    "native": "questi",
+                    "translation": "these"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                },
+                {
+                    "native": "capperi",
+                    "translation": "capers"
+                },
+                {
+                    "native": "sottoaceto",
+                    "translation": "pickled"
+                }
+            ]
+        },
+        {
+            "start": 127.92,
+            "duration": 2.910000000000011,
+            "words": [
+                {
+                    "native": "capperi",
+                    "translation": "capers"
+                },
+                {
+                    "native": "questi",
+                    "translation": "these"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                },
+                {
+                    "native": "capperi",
+                    "translation": "capers"
+                },
+                {
+                    "native": "sottoaceto",
+                    "translation": "pickled"
+                },
+                {
+                    "native": "ne",
+                    "translation": "none"
+                }
+            ]
+        },
+        {
+            "start": 130.83,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "ne",
+                    "translation": "of it"
+                }
+            ]
+        },
+        {
+            "start": 130.84,
+            "duration": 3.3100000000000023,
+            "words": [
+                {
+                    "native": "ne",
+                    "translation": "of it"
+                },
+                {
+                    "native": "mettiamo",
+                    "translation": "we put"
+                },
+                {
+                    "native": "due",
+                    "translation": "two"
+                },
+                {
+                    "native": "cucchiai",
+                    "translation": "spoons"
+                },
+                {
+                    "native": "facciamo",
+                    "translation": "we make"
+                },
+                {
+                    "native": "due",
+                    "translation": "two"
+                }
+            ]
+        },
+        {
+            "start": 134.15,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "mettiamo",
+                    "translation": "we put"
+                },
+                {
+                    "native": "due",
+                    "translation": "two"
+                },
+                {
+                    "native": "cucchiai",
+                    "translation": "tablespoons"
+                },
+                {
+                    "native": "facciamo",
+                    "translation": "we make"
+                },
+                {
+                    "native": "due",
+                    "translation": "two"
+                }
+            ]
+        },
+        {
+            "start": 134.16,
+            "duration": 1.2700000000000102,
+            "words": [
+                {
+                    "native": "mettiamo",
+                    "translation": "we put"
+                },
+                {
+                    "native": "due",
+                    "translation": "two"
+                },
+                {
+                    "native": "cucchiai",
+                    "translation": "spoons"
+                },
+                {
+                    "native": "facciamo",
+                    "translation": "we make"
+                },
+                {
+                    "native": "due",
+                    "translation": "two"
+                },
+                {
+                    "native": "cucchiai",
+                    "translation": "spoons"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                }
+            ]
+        },
+        {
+            "start": 135.43,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "cucchiai",
+                    "translation": "spoons"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                }
+            ]
+        },
+        {
+            "start": 135.44,
+            "duration": 2.5090000000000146,
+            "words": [
+                {
+                    "native": "cucchiai",
+                    "translation": "spoons"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "Musica",
+                    "translation": "music"
+                }
+            ]
+        },
+        {
+            "start": 137.949,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "Musica",
+                    "translation": "music"
+                }
+            ]
+        },
+        {
+            "start": 137.959,
+            "duration": 3.390999999999991,
+            "words": [
+                {
+                    "native": "Musica",
+                    "translation": "music"
+                },
+                {
+                    "native": "mezzo",
+                    "translation": "middle"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "aggiungere",
+                    "translation": "add"
+                },
+                {
+                    "native": "vedete",
+                    "translation": "you see"
+                },
+                {
+                    "native": "si",
+                    "translation": "itself"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 141.35,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "mezzo",
+                    "translation": "half"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "aggiungere",
+                    "translation": "add"
+                },
+                {
+                    "native": "vedete",
+                    "translation": "you see"
+                },
+                {
+                    "native": "si",
+                    "translation": "itself"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 141.36,
+            "duration": 3.0299999999999727,
+            "words": [
+                {
+                    "native": "mezzo",
+                    "translation": "half"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "aggiungere",
+                    "translation": "add"
+                },
+                {
+                    "native": "vedete",
+                    "translation": "see"
+                },
+                {
+                    "native": "si",
+                    "translation": "itself"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "asciugato",
+                    "translation": "dried"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "po",
+                    "translation": "a little"
+                },
+                {
+                    "native": "troppo",
+                    "translation": "too much"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "nostro",
+                    "translation": "our"
+                },
+                {
+                    "native": "sughet",
+                    "translation": "sauce"
+                }
+            ]
+        },
+        {
+            "start": 144.39,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "asciugato",
+                    "translation": "dried"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "po",
+                    "translation": "a little"
+                },
+                {
+                    "native": "troppo",
+                    "translation": "too much"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "nostro",
+                    "translation": "our"
+                },
+                {
+                    "native": "sughet",
+                    "translation": "sauce"
+                }
+            ]
+        },
+        {
+            "start": 144.4,
+            "duration": 3.509999999999991,
+            "words": [
+                {
+                    "native": "asciugato",
+                    "translation": "dried"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "po",
+                    "translation": "a little"
+                },
+                {
+                    "native": "troppo",
+                    "translation": "too much"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "nostro",
+                    "translation": "our"
+                },
+                {
+                    "native": "sughet",
+                    "translation": "sauce"
+                },
+                {
+                    "native": "Dino",
+                    "translation": "Dino"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "prendiamo",
+                    "translation": "we take"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "mezzo",
+                    "translation": "half"
+                },
+                {
+                    "native": "cucchiaio",
+                    "translation": "spoonful"
+                }
+            ]
+        },
+        {
+            "start": 147.91,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "Dino",
+                    "translation": "Dino"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "prendiamo",
+                    "translation": "we take"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "mezzo",
+                    "translation": "half"
+                },
+                {
+                    "native": "cucchiaio",
+                    "translation": "spoonful"
+                }
+            ]
+        },
+        {
+            "start": 147.92000000000002,
+            "duration": 5.028999999999996,
+            "words": [
+                {
+                    "native": "Dino",
+                    "translation": "Dino"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "prendiamo",
+                    "translation": "we take"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "mezzo",
+                    "translation": "half"
+                },
+                {
+                    "native": "cucchiaio",
+                    "translation": "tablespoon"
+                },
+                {
+                    "native": "dell",
+                    "translation": "of the"
+                },
+                {
+                    "native": "acqua",
+                    "translation": "water"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "cottura",
+                    "translation": "cooking"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "li",
+                    "translation": "them"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "giù",
+                    "translation": "down"
+                }
+            ]
+        },
+        {
+            "start": 156.03,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "Perfetto",
+                    "translation": "perfect"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "aggiungere",
+                    "translation": "add"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "olive",
+                    "translation": "olives"
+                }
+            ]
+        },
+        {
+            "start": 156.04,
+            "duration": 1.9090000000000202,
+            "words": [
+                {
+                    "native": "Perfetto",
+                    "translation": "perfect"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "aggiungere",
+                    "translation": "add"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "olive",
+                    "translation": "olives"
+                },
+                {
+                    "native": "Io",
+                    "translation": "I"
+                },
+                {
+                    "native": "sto",
+                    "translation": "am"
+                },
+                {
+                    "native": "usando",
+                    "translation": "using"
+                },
+                {
+                    "native": "due",
+                    "translation": "two"
+                },
+                {
+                    "native": "tipi",
+                    "translation": "types"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "olive",
+                    "translation": "olives"
+                }
+            ]
+        },
+        {
+            "start": 157.949,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "Io",
+                    "translation": "I"
+                },
+                {
+                    "native": "sto",
+                    "translation": "am"
+                },
+                {
+                    "native": "usando",
+                    "translation": "using"
+                },
+                {
+                    "native": "due",
+                    "translation": "two"
+                },
+                {
+                    "native": "tipi",
+                    "translation": "types"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "olive",
+                    "translation": "olives"
+                }
+            ]
+        },
+        {
+            "start": 157.959,
+            "duration": 2.269999999999982,
+            "words": [
+                {
+                    "native": "Io",
+                    "translation": "I"
+                },
+                {
+                    "native": "sto",
+                    "translation": "am"
+                },
+                {
+                    "native": "usando",
+                    "translation": "using"
+                },
+                {
+                    "native": "due",
+                    "translation": "two"
+                },
+                {
+                    "native": "tipi",
+                    "translation": "types"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "olive",
+                    "translation": "olives"
+                },
+                {
+                    "native": "differenti",
+                    "translation": "different"
+                },
+                {
+                    "native": "metterò",
+                    "translation": "will put"
+                },
+                {
+                    "native": "sia",
+                    "translation": "both"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "olive",
+                    "translation": "olives"
+                },
+                {
+                    "native": "verdi",
+                    "translation": "green"
+                }
+            ]
+        },
+        {
+            "start": 160.22899999999998,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "differenti",
+                    "translation": "different"
+                },
+                {
+                    "native": "metterò",
+                    "translation": "I will put"
+                },
+                {
+                    "native": "sia",
+                    "translation": "both"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "olive",
+                    "translation": "olives"
+                },
+                {
+                    "native": "verdi",
+                    "translation": "green"
+                }
+            ]
+        },
+        {
+            "start": 160.239,
+            "duration": 2.1910000000000025,
+            "words": [
+                {
+                    "native": "differenti",
+                    "translation": "different"
+                },
+                {
+                    "native": "metterò",
+                    "translation": "I will put"
+                },
+                {
+                    "native": "sia",
+                    "translation": "both"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "olive",
+                    "translation": "olives"
+                },
+                {
+                    "native": "verdi",
+                    "translation": "green"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "danno",
+                    "translation": "give"
+                },
+                {
+                    "native": "comunque",
+                    "translation": "anyway"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "bella",
+                    "translation": "nice"
+                },
+                {
+                    "native": "acidità",
+                    "translation": "acidity"
+                },
+                {
+                    "native": "sia",
+                    "translation": "both"
+                }
+            ]
+        },
+        {
+            "start": 162.43,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "danno",
+                    "translation": "give"
+                },
+                {
+                    "native": "comunque",
+                    "translation": "anyway"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "bella",
+                    "translation": "nice"
+                },
+                {
+                    "native": "acidità",
+                    "translation": "acidity"
+                },
+                {
+                    "native": "sia",
+                    "translation": "both"
+                }
+            ]
+        },
+        {
+            "start": 162.44,
+            "duration": 2.6299999999999955,
+            "words": [
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "danno",
+                    "translation": "give"
+                },
+                {
+                    "native": "comunque",
+                    "translation": "anyway"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "bella",
+                    "translation": "nice"
+                },
+                {
+                    "native": "acidità",
+                    "translation": "acidity"
+                },
+                {
+                    "native": "sia",
+                    "translation": "both"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "oliva",
+                    "translation": "olive"
+                },
+                {
+                    "native": "nera",
+                    "translation": "black"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "dolce",
+                    "translation": "sweet"
+                },
+                {
+                    "native": "ne",
+                    "translation": "of it"
+                }
+            ]
+        },
+        {
+            "start": 165.07,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "oliva",
+                    "translation": "olive"
+                },
+                {
+                    "native": "nera",
+                    "translation": "black"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "dolce",
+                    "translation": "sweet"
+                },
+                {
+                    "native": "ne",
+                    "translation": "of it"
+                }
+            ]
+        },
+        {
+            "start": 165.07999999999998,
+            "duration": 1.8300000000000125,
+            "words": [
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "oliva",
+                    "translation": "olive"
+                },
+                {
+                    "native": "nera",
+                    "translation": "black"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "dolce",
+                    "translation": "sweet"
+                },
+                {
+                    "native": "ne",
+                    "translation": "thereof"
+                },
+                {
+                    "native": "vado",
+                    "translation": "go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "mettere",
+                    "translation": "put"
+                }
+            ]
+        },
+        {
+            "start": 166.91,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "vado",
+                    "translation": "I go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "mettere",
+                    "translation": "put"
+                }
+            ]
+        },
+        {
+            "start": 166.92000000000002,
+            "duration": 4.109999999999985,
+            "words": [
+                {
+                    "native": "vado",
+                    "translation": "I go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "mettere",
+                    "translation": "put"
+                },
+                {
+                    "native": "almeno",
+                    "translation": "at least"
+                },
+                {
+                    "native": "due",
+                    "translation": "two"
+                },
+                {
+                    "native": "cucchiai",
+                    "translation": "tablespoons"
+                },
+                {
+                    "native": "du",
+                    "translation": "of"
+                },
+                {
+                    "native": "Tre",
+                    "translation": "three"
+                }
+            ]
+        },
+        {
+            "start": 171.03,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "almeno",
+                    "translation": "at least"
+                },
+                {
+                    "native": "due",
+                    "translation": "two"
+                },
+                {
+                    "native": "cucchiai",
+                    "translation": "spoons"
+                },
+                {
+                    "native": "du",
+                    "translation": "of"
+                },
+                {
+                    "native": "Tre",
+                    "translation": "three"
+                }
+            ]
+        },
+        {
+            "start": 171.04,
+            "duration": 2.630000000000024,
+            "words": [
+                {
+                    "native": "almeno",
+                    "translation": "at least"
+                },
+                {
+                    "native": "due",
+                    "translation": "two"
+                },
+                {
+                    "native": "cucchiai",
+                    "translation": "spoons"
+                },
+                {
+                    "native": "du",
+                    "translation": "of the"
+                },
+                {
+                    "native": "Tre",
+                    "translation": "three"
+                },
+                {
+                    "native": "Musica",
+                    "translation": "music"
+                }
+            ]
+        },
+        {
+            "start": 173.67000000000002,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "Musica",
+                    "translation": "music"
+                }
+            ]
+        },
+        {
+            "start": 173.68,
+            "duration": 3.3100000000000023,
+            "words": [
+                {
+                    "native": "Musica",
+                    "translation": "music"
+                },
+                {
+                    "native": "cucchiai",
+                    "translation": "spoons"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "assaggiare",
+                    "translation": "taste"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "sughet",
+                    "translation": "sauce"
+                }
+            ]
+        },
+        {
+            "start": 176.99,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "cucchiai",
+                    "translation": "spoons"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "assaggiare",
+                    "translation": "taste"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "sughet",
+                    "translation": "sauce"
+                }
+            ]
+        },
+        {
+            "start": 177.0,
+            "duration": 2.3499999999999943,
+            "words": [
+                {
+                    "native": "cucchiai",
+                    "translation": "spoons"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "let's go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "assaggiare",
+                    "translation": "taste"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "sughet",
+                    "translation": "sauce"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "sentire",
+                    "translation": "check"
+                },
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "quantità",
+                    "translation": "amount"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "sale",
+                    "translation": "salt"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 179.35,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "sentire",
+                    "translation": "taste"
+                },
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "quantità",
+                    "translation": "amount"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "sale",
+                    "translation": "salt"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 179.36,
+            "duration": 1.5889999999999986,
+            "words": [
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "sentire",
+                    "translation": "check"
+                },
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "quantità",
+                    "translation": "amount"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "sale",
+                    "translation": "salt"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "corretta",
+                    "translation": "correct"
+                },
+                {
+                    "native": "Considerando",
+                    "translation": "considering"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                }
+            ]
+        },
+        {
+            "start": 180.949,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "corretta",
+                    "translation": "correct"
+                },
+                {
+                    "native": "Considerando",
+                    "translation": "considering"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                }
+            ]
+        },
+        {
+            "start": 180.959,
+            "duration": 1.8710000000000093,
+            "words": [
+                {
+                    "native": "corretta",
+                    "translation": "correct"
+                },
+                {
+                    "native": "Considerando",
+                    "translation": "considering"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                },
+                {
+                    "native": "delle",
+                    "translation": "some"
+                },
+                {
+                    "native": "acciughe",
+                    "translation": "anchovies"
+                },
+                {
+                    "native": "dentro",
+                    "translation": "inside"
+                },
+                {
+                    "native": "Io",
+                    "translation": "I"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "ho",
+                    "translation": "have"
+                },
+                {
+                    "native": "aggiunto",
+                    "translation": "added"
+                }
+            ]
+        },
+        {
+            "start": 182.83,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "delle",
+                    "translation": "some"
+                },
+                {
+                    "native": "acciughe",
+                    "translation": "anchovies"
+                },
+                {
+                    "native": "dentro",
+                    "translation": "inside"
+                },
+                {
+                    "native": "Io",
+                    "translation": "I"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "ho",
+                    "translation": "have"
+                },
+                {
+                    "native": "aggiunto",
+                    "translation": "added"
+                }
+            ]
+        },
+        {
+            "start": 182.84,
+            "duration": 2.1899999999999977,
+            "words": [
+                {
+                    "native": "delle",
+                    "translation": "some"
+                },
+                {
+                    "native": "acciughe",
+                    "translation": "anchovies"
+                },
+                {
+                    "native": "dentro",
+                    "translation": "inside"
+                },
+                {
+                    "native": "Io",
+                    "translation": "I"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "ho",
+                    "translation": "have"
+                },
+                {
+                    "native": "aggiunto",
+                    "translation": "added"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "sale",
+                    "translation": "salt"
+                },
+                {
+                    "native": "perché",
+                    "translation": "because"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "rischio",
+                    "translation": "risk"
+                },
+                {
+                    "native": "era",
+                    "translation": "was"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 185.03,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "sale",
+                    "translation": "salt"
+                },
+                {
+                    "native": "perché",
+                    "translation": "because"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "rischio",
+                    "translation": "risk"
+                },
+                {
+                    "native": "era",
+                    "translation": "was"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 185.04,
+            "duration": 4.430000000000007,
+            "words": [
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "sale",
+                    "translation": "salt"
+                },
+                {
+                    "native": "perché",
+                    "translation": "because"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "rischio",
+                    "translation": "risk"
+                },
+                {
+                    "native": "era",
+                    "translation": "was"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "venisse",
+                    "translation": "came"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                },
+                {
+                    "native": "troppo",
+                    "translation": "too"
+                }
+            ]
+        },
+        {
+            "start": 193.55,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "salato",
+                    "translation": "salty"
+                },
+                {
+                    "native": "No",
+                    "translation": "no"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "acido",
+                    "translation": "sour"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "giusto",
+                    "translation": "right"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "secondo",
+                    "translation": "according"
+                },
+                {
+                    "native": "me",
+                    "translation": "me"
+                }
+            ]
+        },
+        {
+            "start": 193.56,
+            "duration": 2.2700000000000102,
+            "words": [
+                {
+                    "native": "salato",
+                    "translation": "salty"
+                },
+                {
+                    "native": "No",
+                    "translation": "no"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "acido",
+                    "translation": "sour"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "giusto",
+                    "translation": "right"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "secondo",
+                    "translation": "according to"
+                },
+                {
+                    "native": "me",
+                    "translation": "me"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "va",
+                    "translation": "should"
+                },
+                {
+                    "native": "aggiunto",
+                    "translation": "added"
+                },
+                {
+                    "native": "assolutamente",
+                    "translation": "absolutely"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "sale",
+                    "translation": "salt"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                }
+            ]
+        },
+        {
+            "start": 195.83,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "va",
+                    "translation": "should be"
+                },
+                {
+                    "native": "aggiunto",
+                    "translation": "added"
+                },
+                {
+                    "native": "assolutamente",
+                    "translation": "absolutely"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "sale",
+                    "translation": "salt"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                }
+            ]
+        },
+        {
+            "start": 195.84,
+            "duration": 3.6299999999999955,
+            "words": [
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "va",
+                    "translation": "should be"
+                },
+                {
+                    "native": "aggiunto",
+                    "translation": "added"
+                },
+                {
+                    "native": "assolutamente",
+                    "translation": "absolutely"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "sale",
+                    "translation": "salt"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "vado",
+                    "translation": "I go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "scolare",
+                    "translation": "drain"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                },
+                {
+                    "native": "la",
+                    "translation": "it"
+                },
+                {
+                    "native": "scolo",
+                    "translation": "I drain"
+                },
+                {
+                    "native": "sempre",
+                    "translation": "always"
+                }
+            ]
+        },
+        {
+            "start": 199.47,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "vado",
+                    "translation": "I go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "scolare",
+                    "translation": "drain"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                },
+                {
+                    "native": "la",
+                    "translation": "it"
+                },
+                {
+                    "native": "scolo",
+                    "translation": "I drain"
+                },
+                {
+                    "native": "sempre",
+                    "translation": "always"
+                }
+            ]
+        },
+        {
+            "start": 199.48,
+            "duration": 2.109000000000009,
+            "words": [
+                {
+                    "native": "vado",
+                    "translation": "I go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "scolare",
+                    "translation": "drain"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                },
+                {
+                    "native": "la",
+                    "translation": "it"
+                },
+                {
+                    "native": "scolo",
+                    "translation": "I drain"
+                },
+                {
+                    "native": "sempre",
+                    "translation": "always"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "pochino",
+                    "translation": "a little"
+                },
+                {
+                    "native": "al",
+                    "translation": "to the"
+                },
+                {
+                    "native": "dente",
+                    "translation": "bite"
+                },
+                {
+                    "native": "In",
+                    "translation": "in"
+                },
+                {
+                    "native": "modo",
+                    "translation": "way"
+                },
+                {
+                    "native": "tale",
+                    "translation": "such"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 201.589,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "un",
+                    "translation": "a little"
+                },
+                {
+                    "native": "pochino",
+                    "translation": "little bit"
+                },
+                {
+                    "native": "al",
+                    "translation": "to the"
+                },
+                {
+                    "native": "dente",
+                    "translation": "tooth"
+                },
+                {
+                    "native": "In",
+                    "translation": "in"
+                },
+                {
+                    "native": "modo",
+                    "translation": "way"
+                },
+                {
+                    "native": "tale",
+                    "translation": "such"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 201.599,
+            "duration": 1.710000000000008,
+            "words": [
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "pochino",
+                    "translation": "a little"
+                },
+                {
+                    "native": "al",
+                    "translation": "to the"
+                },
+                {
+                    "native": "dente",
+                    "translation": "tooth"
+                },
+                {
+                    "native": "In",
+                    "translation": "in"
+                },
+                {
+                    "native": "modo",
+                    "translation": "way"
+                },
+                {
+                    "native": "tale",
+                    "translation": "such"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "posso",
+                    "translation": "I can"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                }
+            ]
+        },
+        {
+            "start": 203.309,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "posso",
+                    "translation": "I can"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                }
+            ]
+        },
+        {
+            "start": 203.319,
+            "duration": 3.951000000000022,
+            "words": [
+                {
+                    "native": "posso",
+                    "translation": "I can"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                },
+                {
+                    "native": "lasciare",
+                    "translation": "leave"
+                },
+                {
+                    "native": "nella",
+                    "translation": "in the"
+                },
+                {
+                    "native": "pentola",
+                    "translation": "pot"
+                },
+                {
+                    "native": "senza",
+                    "translation": "without"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "rischio",
+                    "translation": "risk"
+                }
+            ]
+        },
+        {
+            "start": 207.27,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "lasciare",
+                    "translation": "leave"
+                },
+                {
+                    "native": "nella",
+                    "translation": "in the"
+                },
+                {
+                    "native": "pentola",
+                    "translation": "pot"
+                },
+                {
+                    "native": "senza",
+                    "translation": "without"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "rischio",
+                    "translation": "risk"
+                }
+            ]
+        },
+        {
+            "start": 207.28,
+            "duration": 2.5889999999999986,
+            "words": [
+                {
+                    "native": "lasciare",
+                    "translation": "to leave"
+                },
+                {
+                    "native": "nella",
+                    "translation": "in the"
+                },
+                {
+                    "native": "pentola",
+                    "translation": "pot"
+                },
+                {
+                    "native": "senza",
+                    "translation": "without"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "rischio",
+                    "translation": "risk"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "si",
+                    "translation": "itself"
+                },
+                {
+                    "native": "scuoce",
+                    "translation": "overcooks"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "vado",
+                    "translation": "I go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "aggiungere",
+                    "translation": "to add"
+                },
+                {
+                    "native": "nel",
+                    "translation": "in the"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 209.869,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "si",
+                    "translation": "itself"
+                },
+                {
+                    "native": "scuoce",
+                    "translation": "overcooks"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "vado",
+                    "translation": "go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "aggiungere",
+                    "translation": "add"
+                },
+                {
+                    "native": "nel",
+                    "translation": "in the"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 209.879,
+            "duration": 1.4710000000000036,
+            "words": [
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "si",
+                    "translation": "itself"
+                },
+                {
+                    "native": "scuoce",
+                    "translation": "overcooks"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "vado",
+                    "translation": "I go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "aggiungere",
+                    "translation": "add"
+                },
+                {
+                    "native": "nel",
+                    "translation": "in the"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "padella",
+                    "translation": "pan"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "sugo",
+                    "translation": "sauce"
+                },
+                {
+                    "native": "Quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "vedete",
+                    "translation": "you see"
+                },
+                {
+                    "native": "ho",
+                    "translation": "I have"
+                },
+                {
+                    "native": "fatto",
+                    "translation": "made"
+                }
+            ]
+        },
+        {
+            "start": 211.35,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "padella",
+                    "translation": "pan"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "sugo",
+                    "translation": "sauce"
+                },
+                {
+                    "native": "Quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "vedete",
+                    "translation": "you see"
+                },
+                {
+                    "native": "ho",
+                    "translation": "I have"
+                },
+                {
+                    "native": "fatto",
+                    "translation": "made"
+                }
+            ]
+        },
+        {
+            "start": 211.36,
+            "duration": 2.508999999999986,
+            "words": [
+                {
+                    "native": "padella",
+                    "translation": "pan"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "sugo",
+                    "translation": "sauce"
+                },
+                {
+                    "native": "Quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "vedete",
+                    "translation": "you see"
+                },
+                {
+                    "native": "ho",
+                    "translation": "I have"
+                },
+                {
+                    "native": "fatto",
+                    "translation": "made"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "sugo",
+                    "translation": "sauce"
+                },
+                {
+                    "native": "veramente",
+                    "translation": "really"
+                },
+                {
+                    "native": "ricco",
+                    "translation": "rich"
+                },
+                {
+                    "native": "abbondante",
+                    "translation": "generous"
+                },
+                {
+                    "native": "ma",
+                    "translation": "but"
+                }
+            ]
+        },
+        {
+            "start": 213.869,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "sugo",
+                    "translation": "sauce"
+                },
+                {
+                    "native": "veramente",
+                    "translation": "really"
+                },
+                {
+                    "native": "ricco",
+                    "translation": "rich"
+                },
+                {
+                    "native": "abbondante",
+                    "translation": "plentiful"
+                },
+                {
+                    "native": "ma",
+                    "translation": "but"
+                }
+            ]
+        },
+        {
+            "start": 213.879,
+            "duration": 2.430000000000007,
+            "words": [
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "sugo",
+                    "translation": "sauce"
+                },
+                {
+                    "native": "veramente",
+                    "translation": "really"
+                },
+                {
+                    "native": "ricco",
+                    "translation": "rich"
+                },
+                {
+                    "native": "abbondante",
+                    "translation": "plentiful"
+                },
+                {
+                    "native": "ma",
+                    "translation": "but"
+                },
+                {
+                    "native": "questa",
+                    "translation": "this"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "buona",
+                    "translation": "good"
+                },
+                {
+                    "native": "proprio",
+                    "translation": "really"
+                },
+                {
+                    "native": "perché",
+                    "translation": "because"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 216.309,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "questa",
+                    "translation": "this"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "buona",
+                    "translation": "good"
+                },
+                {
+                    "native": "proprio",
+                    "translation": "just"
+                },
+                {
+                    "native": "perché",
+                    "translation": "because"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 216.31900000000002,
+            "duration": 2.870999999999981,
+            "words": [
+                {
+                    "native": "questa",
+                    "translation": "this"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "buona",
+                    "translation": "good"
+                },
+                {
+                    "native": "proprio",
+                    "translation": "exactly"
+                },
+                {
+                    "native": "perché",
+                    "translation": "because"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "bella",
+                    "translation": "nice"
+                },
+                {
+                    "native": "sugosa",
+                    "translation": "juicy"
+                },
+                {
+                    "native": "Ecco",
+                    "translation": "here"
+                },
+                {
+                    "native": "qua",
+                    "translation": "here"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "ci",
+                    "translation": "there"
+                },
+                {
+                    "native": "deve",
+                    "translation": "must"
+                },
+                {
+                    "native": "essere",
+                    "translation": "be"
+                }
+            ]
+        },
+        {
+            "start": 219.19,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "bella",
+                    "translation": "nice"
+                },
+                {
+                    "native": "sugosa",
+                    "translation": "juicy"
+                },
+                {
+                    "native": "Ecco",
+                    "translation": "here"
+                },
+                {
+                    "native": "qua",
+                    "translation": "here"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "ci",
+                    "translation": "there"
+                },
+                {
+                    "native": "deve",
+                    "translation": "must"
+                },
+                {
+                    "native": "essere",
+                    "translation": "be"
+                }
+            ]
+        },
+        {
+            "start": 219.2,
+            "duration": 2.4700000000000273,
+            "words": [
+                {
+                    "native": "bella",
+                    "translation": "nice"
+                },
+                {
+                    "native": "sugosa",
+                    "translation": "juicy"
+                },
+                {
+                    "native": "Ecco",
+                    "translation": "there"
+                },
+                {
+                    "native": "qua",
+                    "translation": "here"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "ci",
+                    "translation": "there"
+                },
+                {
+                    "native": "deve",
+                    "translation": "must"
+                },
+                {
+                    "native": "essere",
+                    "translation": "be"
+                },
+                {
+                    "native": "troppo",
+                    "translation": "too"
+                },
+                {
+                    "native": "liquido",
+                    "translation": "liquid"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "caso",
+                    "translation": "case"
+                },
+                {
+                    "native": "lo",
+                    "translation": "it"
+                },
+                {
+                    "native": "vedete",
+                    "translation": "see"
+                }
+            ]
+        },
+        {
+            "start": 221.67000000000002,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "troppo",
+                    "translation": "too much"
+                },
+                {
+                    "native": "liquido",
+                    "translation": "liquid; runny"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "caso",
+                    "translation": "case"
+                },
+                {
+                    "native": "lo",
+                    "translation": "it"
+                },
+                {
+                    "native": "vedete",
+                    "translation": "you see"
+                }
+            ]
+        },
+        {
+            "start": 221.68,
+            "duration": 1.8700000000000045,
+            "words": [
+                {
+                    "native": "troppo",
+                    "translation": "too"
+                },
+                {
+                    "native": "liquido",
+                    "translation": "runny"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "caso",
+                    "translation": "case"
+                },
+                {
+                    "native": "lo",
+                    "translation": "it"
+                },
+                {
+                    "native": "vedete",
+                    "translation": "you see"
+                },
+                {
+                    "native": "Praticamente",
+                    "translation": "basically"
+                },
+                {
+                    "native": "ha",
+                    "translation": "has"
+                },
+                {
+                    "native": "assorbito",
+                    "translation": "absorbed"
+                },
+                {
+                    "native": "tutta",
+                    "translation": "all"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "dough"
+                }
+            ]
+        },
+        {
+            "start": 223.55,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "Praticamente",
+                    "translation": "basically"
+                },
+                {
+                    "native": "ha",
+                    "translation": "has"
+                },
+                {
+                    "native": "assorbito",
+                    "translation": "absorbed"
+                },
+                {
+                    "native": "tutta",
+                    "translation": "all"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                }
+            ]
+        },
+        {
+            "start": 223.56,
+            "duration": 1.710000000000008,
+            "words": [
+                {
+                    "native": "Praticamente",
+                    "translation": "basically"
+                },
+                {
+                    "native": "ha",
+                    "translation": "has"
+                },
+                {
+                    "native": "assorbito",
+                    "translation": "absorbed"
+                },
+                {
+                    "native": "tutta",
+                    "translation": "all"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "pasta",
+                    "translation": "pasta"
+                },
+                {
+                    "native": "tutto",
+                    "translation": "all"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "liquido",
+                    "translation": "liquid"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "sugo",
+                    "translation": "sauce"
+                },
+                {
+                    "native": "deve",
+                    "translation": "must"
+                }
+            ]
+        },
+        {
+            "start": 225.27,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "tutto",
+                    "translation": "all"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "liquido",
+                    "translation": "liquid"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "sugo",
+                    "translation": "sauce"
+                },
+                {
+                    "native": "deve",
+                    "translation": "must"
+                }
+            ]
+        },
+        {
+            "start": 225.28,
+            "duration": 3.069999999999993,
+            "words": [
+                {
+                    "native": "tutto",
+                    "translation": "all"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "liquido",
+                    "translation": "liquid"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "sugo",
+                    "translation": "sauce"
+                },
+                {
+                    "native": "deve",
+                    "translation": "must"
+                },
+                {
+                    "native": "essere",
+                    "translation": "be"
+                },
+                {
+                    "native": "sempre",
+                    "translation": "always"
+                }
+            ]
+        },
+        {
+            "start": 231.39,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "così",
+                    "translation": "like this"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "we go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "togliere",
+                    "translation": "remove"
+                },
+                {
+                    "native": "lo",
+                    "translation": "the"
+                },
+                {
+                    "native": "spicchio",
+                    "translation": "clove"
+                }
+            ]
+        },
+        {
+            "start": 231.4,
+            "duration": 2.908999999999992,
+            "words": [
+                {
+                    "native": "così",
+                    "translation": "so"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "we go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "togliere",
+                    "translation": "remove"
+                },
+                {
+                    "native": "lo",
+                    "translation": "the"
+                },
+                {
+                    "native": "spicchio",
+                    "translation": "clove"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "aglio",
+                    "translation": "garlic"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "evitare",
+                    "translation": "avoid"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "possa",
+                    "translation": "may"
+                },
+                {
+                    "native": "finire",
+                    "translation": "end up"
+                }
+            ]
+        },
+        {
+            "start": 234.309,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "aglio",
+                    "translation": "garlic"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "evitare",
+                    "translation": "avoid"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "possa",
+                    "translation": "may"
+                },
+                {
+                    "native": "finire",
+                    "translation": "end up"
+                }
+            ]
+        },
+        {
+            "start": 234.31900000000002,
+            "duration": 1.350999999999999,
+            "words": [
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "aglio",
+                    "translation": "garlic"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "evitare",
+                    "translation": "avoid"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "possa",
+                    "translation": "may"
+                },
+                {
+                    "native": "finire",
+                    "translation": "end up"
+                },
+                {
+                    "native": "nel",
+                    "translation": "in the"
+                },
+                {
+                    "native": "piatto",
+                    "translation": "plate"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "qualcuno",
+                    "translation": "someone"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "lo",
+                    "translation": "it"
+                }
+            ]
+        },
+        {
+            "start": 235.67000000000002,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "nel",
+                    "translation": "in the"
+                },
+                {
+                    "native": "piatto",
+                    "translation": "plate"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "qualcuno",
+                    "translation": "someone"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "lo",
+                    "translation": "it"
+                }
+            ]
+        },
+        {
+            "start": 235.68,
+            "duration": 3.8100000000000023,
+            "words": [
+                {
+                    "native": "nel",
+                    "translation": "in the"
+                },
+                {
+                    "native": "piatto",
+                    "translation": "plate"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "qualcuno",
+                    "translation": "someone"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "lo",
+                    "translation": "it"
+                },
+                {
+                    "native": "apprezza",
+                    "translation": "appreciates"
+                }
+            ]
+        },
+        {
+            "start": 247.11,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "Musica",
+                    "translation": "music"
+                }
+            ]
+        },
+        {
+            "start": 247.12,
+            "duration": 6.8700000000000045,
+            "words": [
+                {
+                    "native": "Musica",
+                    "translation": "music"
+                },
+                {
+                    "native": "ora",
+                    "translation": "now"
+                },
+                {
+                    "native": "solamente",
+                    "translation": "only"
+                },
+                {
+                    "native": "però",
+                    "translation": "but"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "chi",
+                    "translation": "who"
+                },
+                {
+                    "native": "piace",
+                    "translation": "likes"
+                },
+                {
+                    "native": "oltre",
+                    "translation": "beyond"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                }
+            ]
+        },
+        {
+            "start": 253.99,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "ora",
+                    "translation": "now"
+                },
+                {
+                    "native": "solamente",
+                    "translation": "only"
+                },
+                {
+                    "native": "però",
+                    "translation": "though"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "chi",
+                    "translation": "who"
+                },
+                {
+                    "native": "piace",
+                    "translation": "likes"
+                },
+                {
+                    "native": "oltre",
+                    "translation": "beyond"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                }
+            ]
+        },
+        {
+            "start": 254.0,
+            "duration": 4.550000000000011,
+            "words": [
+                {
+                    "native": "ora",
+                    "translation": "now"
+                },
+                {
+                    "native": "solamente",
+                    "translation": "only"
+                },
+                {
+                    "native": "però",
+                    "translation": "however"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "chi",
+                    "translation": "who"
+                },
+                {
+                    "native": "piace",
+                    "translation": "likes"
+                },
+                {
+                    "native": "oltre",
+                    "translation": "plus"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "leggero",
+                    "translation": "light"
+                },
+                {
+                    "native": "giro",
+                    "translation": "drizzle"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "olio",
+                    "translation": "oil"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "fa",
+                    "translation": "makes"
+                },
+                {
+                    "native": "tanto",
+                    "translation": "so much"
+                },
+                {
+                    "native": "chef",
+                    "translation": "chef"
+                }
+            ]
+        },
+        {
+            "start": 258.55,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "leggero",
+                    "translation": "light"
+                },
+                {
+                    "native": "giro",
+                    "translation": "drizzle"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "olio",
+                    "translation": "oil"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "fa",
+                    "translation": "makes"
+                },
+                {
+                    "native": "tanto",
+                    "translation": "very"
+                },
+                {
+                    "native": "chef",
+                    "translation": "chef"
+                }
+            ]
+        },
+        {
+            "start": 258.56,
+            "duration": 2.0299999999999727,
+            "words": [
+                {
+                    "native": "leggero",
+                    "translation": "light"
+                },
+                {
+                    "native": "giro",
+                    "translation": "drizzle"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "olio",
+                    "translation": "oil"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "fa",
+                    "translation": "makes"
+                },
+                {
+                    "native": "tanto",
+                    "translation": "very"
+                },
+                {
+                    "native": "chef",
+                    "translation": "chef"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "gelatina",
+                    "translation": "gelatin"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                }
+            ]
+        },
+        {
+            "start": 260.59,
+            "duration": 0.010000000000047748,
+            "words": [
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "gelatina",
+                    "translation": "jelly"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                }
+            ]
+        },
+        {
+            "start": 260.6,
+            "duration": 2.8689999999999714,
+            "words": [
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "gelatina",
+                    "translation": "jelly"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "pepe",
+                    "translation": "pepper"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "questa",
+                    "translation": "this"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "nostra",
+                    "translation": "our"
+                },
+                {
+                    "native": "versione",
+                    "translation": "version"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                }
+            ]
+        },
+        {
+            "start": 263.469,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "pepe",
+                    "translation": "pepper"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "questa",
+                    "translation": "this"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "nostra",
+                    "translation": "our"
+                },
+                {
+                    "native": "versione",
+                    "translation": "version"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                }
+            ]
+        },
+        {
+            "start": 263.479,
+            "duration": 2.11099999999999,
+            "words": [
+                {
+                    "native": "pepe",
+                    "translation": "pepper"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "questa",
+                    "translation": "this"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "nostra",
+                    "translation": "our"
+                },
+                {
+                    "native": "versione",
+                    "translation": "version"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "puttanesca",
+                    "translation": "puttanesca-style"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "mezze",
+                    "translation": "half"
+                },
+                {
+                    "native": "penne",
+                    "translation": "penne"
+                },
+                {
+                    "native": "alla",
+                    "translation": "in the style of"
+                }
+            ]
+        },
+        {
+            "start": 265.59,
+            "duration": 0.010000000000047748,
+            "words": [
+                {
+                    "native": "puttanesca",
+                    "translation": "whore-style; puttanesca sauce"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "mezze",
+                    "translation": "half"
+                },
+                {
+                    "native": "penne",
+                    "translation": "penne pasta"
+                },
+                {
+                    "native": "alla",
+                    "translation": "in the style of; with"
+                }
+            ]
+        },
+        {
+            "start": 265.6,
+            "duration": 4.229999999999961,
+            "words": [
+                {
+                    "native": "puttanesca",
+                    "translation": "puttanesca sauce"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "mezze",
+                    "translation": "half"
+                },
+                {
+                    "native": "penne",
+                    "translation": "penne pasta"
+                },
+                {
+                    "native": "alla",
+                    "translation": "with"
+                },
+                {
+                    "native": "puttanesca",
+                    "translation": "puttanesca sauce"
+                },
+                {
+                    "native": "Buon",
+                    "translation": "good"
+                },
+                {
+                    "native": "appetito",
+                    "translation": "appetite"
+                }
+            ]
+        },
+        {
+            "start": 269.83,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "puttanesca",
+                    "translation": "a tomato sauce with olives, capers, and anchovies"
+                },
+                {
+                    "native": "Buon",
+                    "translation": "good"
+                },
+                {
+                    "native": "appetito",
+                    "translation": "appetite"
+                }
+            ]
+        },
+        {
+            "start": 269.84,
+            "duration": 1.7300000000000182,
+            "words": [
+                {
+                    "native": "puttanesca",
+                    "translation": "puttanesca sauce"
+                },
+                {
+                    "native": "Buon",
+                    "translation": "good"
+                },
+                {
+                    "native": "appetito",
+                    "translation": "appetite"
+                },
+                {
+                    "native": "P",
+                    "translation": "P"
+                }
+            ]
+        },
+        {
+            "start": 271.57,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "P",
+                    "translation": "P"
+                }
+            ]
+        },
+        {
+            "start": 271.58,
+            "duration": 27.680000000000007,
+            "words": [
+                {
+                    "native": "P",
+                    "translation": "piano"
+                },
+                {
+                    "native": "Musica",
+                    "translation": "music"
+                }
+            ]
+        }
+    ]
+}

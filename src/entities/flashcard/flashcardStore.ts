@@ -11,6 +11,12 @@ import {
 
 const scheduler = fsrs()
 
+export interface LanguageWordStats {
+  languageCode: string
+  total: number
+  stateCounts: Record<State, number>
+}
+
 function toPlainMeanings(meanings: string[]): string[] {
   return [...meanings]
 }
@@ -134,6 +140,32 @@ export async function getCardStateCounts(): Promise<Record<State, number>> {
   }
 
   return counts
+}
+
+export async function getWordStatsByLanguage(): Promise<LanguageWordStats[]> {
+  const statsByLanguage = new Map<string, LanguageWordStats>()
+  const savedCards = await learnerDb.flashcards.toArray()
+
+  for (const card of savedCards) {
+    const existingStats = statsByLanguage.get(card.languageCode) ?? {
+      languageCode: card.languageCode,
+      total: 0,
+      stateCounts: {
+        [State.New]: 0,
+        [State.Learning]: 0,
+        [State.Review]: 0,
+        [State.Relearning]: 0,
+      },
+    }
+
+    existingStats.total += 1
+    existingStats.stateCounts[card.state as State] += 1
+    statsByLanguage.set(card.languageCode, existingStats)
+  }
+
+  return Array.from(statsByLanguage.values()).sort((left, right) =>
+    left.languageCode.localeCompare(right.languageCode),
+  )
 }
 
 export const flashcardStoreInternals = {

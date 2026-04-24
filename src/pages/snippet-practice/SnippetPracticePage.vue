@@ -57,7 +57,7 @@ async function handleSingleFlashcardRated(flashcard: Flashcard, rating: Rating) 
 }
 
 function handleFlashcardRevealed() {
-  recordFlashcardFlip(new Date())
+  recordFlashcardFlip(languageCode, new Date())
 }
 
 </script>

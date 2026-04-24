@@ -101,7 +101,7 @@ function startVideoWatchTracking() {
   videoWatchTimer = window.setInterval(() => {
     const now = Date.now()
     if (isPlayerActivelyPlaying && !document.hidden) {
-      recordVideoWatchSlice(new Date(lastVideoWatchTickAt), new Date(now))
+      recordVideoWatchSlice(selectedLanguageCode, new Date(lastVideoWatchTickAt), new Date(now))
     }
     lastVideoWatchTickAt = now
   }, 5_000)
@@ -275,7 +275,7 @@ async function handleSingleFlashcardRated(flashcard: Flashcard, rating: Rating) 
 }
 
 function handleFlashcardRevealed() {
-  recordFlashcardFlip(new Date())
+  recordFlashcardFlip(selectedLanguageCode, new Date())
 }
 
 onMounted(async () => {

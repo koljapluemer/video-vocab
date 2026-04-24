@@ -1,48 +1,72 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
-import { State } from 'ts-fsrs'
 
-import { getCardStateCounts } from '@/entities/flashcard/flashcardStore'
+import { getAllCourses } from '@/entities/course/course'
+import {
+  getWordStatsByLanguage,
+  type LanguageWordStats,
+} from '@/entities/flashcard/flashcardStore'
 import {
   getStatsSnapshot,
-  type DailyStatPoint,
   type DeviceStatsSnapshot,
 } from '@/features/device-stats/deviceStatsStorage'
 
-import DailyBarChart from './DailyBarChart.vue'
+import LanguageWordStatsTable from './LanguageWordStatsTable.vue'
+import StackedDailyBarChart from './StackedDailyBarChart.vue'
 
-const stats = ref<DeviceStatsSnapshot | null>(null)
-const cardStateCounts = ref<Record<State, number>>({
-  [State.New]: 0,
-  [State.Learning]: 0,
-  [State.Review]: 0,
-  [State.Relearning]: 0,
+const stats = ref<DeviceStatsSnapshot>({
+  languages: [],
+  cardsFlippedByDay: [],
+  minutesInteractedByDay: [],
 })
+const wordStats = ref<LanguageWordStats[]>([])
+const languageLabels = ref<Record<string, string>>({})
+const loadError = ref('')
 
-const totalStats = computed(() => [
-  { label: 'Minutes video watched', value: stats.value?.minutesVideoWatched ?? 0 },
-  { label: 'Minutes interacted', value: stats.value?.minutesAppInteracted ?? 0 },
-  { label: 'Flashcards flipped', value: stats.value?.flashcardsFlipped ?? 0 },
-])
+const totalStats = computed(() => {
+  const totalWords = wordStats.value.reduce((sum, languageStat) => sum + languageStat.total, 0)
+  const totals = stats.value.languages.reduce(
+    (sum, languageStat) => ({
+      minutesVideoWatched: sum.minutesVideoWatched + languageStat.minutesVideoWatched,
+      minutesAppInteracted: sum.minutesAppInteracted + languageStat.minutesAppInteracted,
+      flashcardsFlipped: sum.flashcardsFlipped + languageStat.flashcardsFlipped,
+    }),
+    {
+      minutesVideoWatched: 0,
+      minutesAppInteracted: 0,
+      flashcardsFlipped: 0,
+    },
+  )
 
-const cardStateSummary = computed(() => [
-  { label: 'New', value: cardStateCounts.value[State.New] },
-  { label: 'Learning', value: cardStateCounts.value[State.Learning] },
-  { label: 'Review', value: cardStateCounts.value[State.Review] },
-  { label: 'Relearning', value: cardStateCounts.value[State.Relearning] },
-])
+  return [
+    { label: 'Words saved', value: totalWords },
+    { label: 'Minutes video watched', value: totals.minutesVideoWatched },
+    { label: 'Minutes interacted', value: totals.minutesAppInteracted },
+    { label: 'Flashcards flipped', value: totals.flashcardsFlipped },
+  ]
+})
 
 function formatValue(value: number) {
   return Number.isInteger(value) ? `${value}` : value.toFixed(2)
 }
 
-function normalizeBars(points: DailyStatPoint[] | undefined) {
-  return points ?? []
-}
-
 onMounted(async () => {
-  stats.value = getStatsSnapshot()
-  cardStateCounts.value = await getCardStateCounts()
+  try {
+    stats.value = getStatsSnapshot()
+
+    const [nextWordStats, courses] = await Promise.all([
+      getWordStatsByLanguage(),
+      getAllCourses(),
+    ])
+
+    wordStats.value = nextWordStats
+    languageLabels.value = Object.fromEntries(
+      courses.map((course) => [course.languageCode, course.label]),
+    )
+  } catch (error) {
+    console.error('Failed to load stats page:', error)
+    loadError.value = 'Unable to load stats right now.'
+  }
 })
 </script>
 
@@ -55,50 +79,39 @@ onMounted(async () => {
       </p>
     </section>
 
-    <section class="grid gap-4 md:grid-cols-2">
-      <div class="card bg-base-100 shadow-sm">
-        <div class="card-body gap-3">
-          <h2 class="card-title text-lg">Totals</h2>
-          <div class="space-y-2">
-            <div
-              v-for="stat in totalStats"
-              :key="stat.label"
-              class="flex items-center justify-between gap-4 rounded-lg bg-base-200 px-3 py-2"
-            >
-              <span>{{ stat.label }}</span>
-              <span class="font-semibold">{{ formatValue(stat.value) }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div v-if="loadError" class="alert alert-error">
+      <span>{{ loadError }}</span>
+    </div>
 
-      <div class="card bg-base-100 shadow-sm">
-        <div class="card-body gap-3">
-          <h2 class="card-title text-lg">Card states</h2>
-          <div class="space-y-2">
-            <div
-              v-for="stateSummary in cardStateSummary"
-              :key="stateSummary.label"
-              class="flex items-center justify-between gap-4 rounded-lg bg-base-200 px-3 py-2"
-            >
-              <span>{{ stateSummary.label }}</span>
-              <span class="font-semibold">{{ stateSummary.value }}</span>
-            </div>
-          </div>
+    <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div
+        v-for="stat in totalStats"
+        :key="stat.label"
+        class="card bg-base-100 shadow-sm"
+      >
+        <div class="card-body gap-1">
+          <p class="text-sm text-base-content/70">{{ stat.label }}</p>
+          <p class="text-3xl font-semibold">{{ formatValue(stat.value) }}</p>
         </div>
       </div>
     </section>
 
-    <section class="grid gap-4 lg:grid-cols-2">
-      <DailyBarChart
+    <section>
+      <LanguageWordStatsTable :stats="wordStats" :language-labels="languageLabels" />
+    </section>
+
+    <section class="grid gap-4 xl:grid-cols-2">
+      <StackedDailyBarChart
         title="Cards flipped per day"
-        :bars="normalizeBars(stats?.cardsFlippedByDay)"
+        :points="stats.cardsFlippedByDay"
         value-label="cards"
+        :language-labels="languageLabels"
       />
-      <DailyBarChart
+      <StackedDailyBarChart
         title="Minutes interacted per day"
-        :bars="normalizeBars(stats?.minutesInteractedByDay)"
+        :points="stats.minutesInteractedByDay"
         value-label="min"
+        :language-labels="languageLabels"
       />
     </section>
   </div>

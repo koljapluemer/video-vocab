@@ -5,7 +5,7 @@ import { recordInteractionSlice } from './deviceStatsStorage'
 const INTERACTION_IDLE_TIMEOUT_MS = 30_000
 const INTERACTION_TICK_MS = 5_000
 
-export function useAppInteractionTracking() {
+export function useAppInteractionTracking(getLanguageCode: () => string | null) {
   let lastActivityAt = Date.now()
   let lastTickAt = Date.now()
   let intervalId: number | null = null
@@ -24,7 +24,10 @@ export function useAppInteractionTracking() {
       return
     }
 
-    recordInteractionSlice(new Date(lastTickAt), new Date(now))
+    const languageCode = getLanguageCode()
+    if (languageCode) {
+      recordInteractionSlice(languageCode, new Date(lastTickAt), new Date(now))
+    }
     lastTickAt = now
   }
 

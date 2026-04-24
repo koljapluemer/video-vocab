@@ -22,6 +22,7 @@
 
 <script setup lang="ts">
 import { useAppInteractionTracking } from '@/features/device-stats/useAppInteractionTracking'
+import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
 
-useAppInteractionTracking()
+useAppInteractionTracking(getStoredTargetLanguage)
 </script>

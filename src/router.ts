@@ -3,6 +3,7 @@ import VideoView from '@/modules/viewVideo/VideoView.vue';
 import VideoListView from '@/modules/viewVideoList/VideoListView.vue';
 import SnippetView from '@/modules/viewSnippet/SnippetView.vue';
 import TargetLanguageView from '@/modules/targetLanguage/TargetLanguageView.vue';
+import FlowView from '@/modules/viewFlow/FlowView.vue';
 import { getStoredTargetLanguage } from '@/modules/targetLanguage/targetLanguageStorage';
 
 const routes = [
@@ -22,6 +23,18 @@ const routes = [
     path: '/target-language',
     name: 'target-language',
     component: TargetLanguageView
+  },
+  {
+    path: '/flow',
+    name: 'flow',
+    component: FlowView,
+    beforeEnter: () => {
+      if (!getStoredTargetLanguage()) {
+        return { name: 'target-language' };
+      }
+
+      return true;
+    }
   },
   {
     path: '/course/:languageCode/video/:videoId',

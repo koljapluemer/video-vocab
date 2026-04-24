@@ -11,9 +11,14 @@
     <section v-else-if="course" class="space-y-4">
       <div class="flex items-center justify-between gap-4">
         <h2 class="text-2xl font-semibold">{{ course.label }}</h2>
-        <router-link class="btn btn-outline btn-sm" :to="{ name: 'target-language' }">
-          Change Language
-        </router-link>
+        <div class="flex items-center gap-2">
+          <router-link class="btn btn-primary btn-sm" :to="{ name: 'flow' }">
+            Open Flow
+          </router-link>
+          <router-link class="btn btn-outline btn-sm" :to="{ name: 'target-language' }">
+            Change Language
+          </router-link>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">

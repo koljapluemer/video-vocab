@@ -1,8 +1,10 @@
 import { cleanup, render, waitFor } from '@testing-library/vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-const { getOrCreateCardsForWords, loadYoutubeIframeApi, push } = vi.hoisted(() => ({
+const { getCourse, getOrCreateCardsForWords, getSnippetsOfVideo, loadYoutubeIframeApi, push } = vi.hoisted(() => ({
+  getCourse: vi.fn(),
   getOrCreateCardsForWords: vi.fn(),
+  getSnippetsOfVideo: vi.fn(),
   loadYoutubeIframeApi: vi.fn(),
   push: vi.fn(),
 }))
@@ -16,24 +18,11 @@ vi.mock('@/features/target-language-select/targetLanguageStorage', () => ({
 }))
 
 vi.mock('@/entities/course/course', () => ({
-  getCourse: () => Promise.resolve({
-    languageCode: 'deu',
-    label: 'German',
-    videos: [{ youtubeId: 'abc123', languageCode: 'deu' }],
-  }),
+  getCourse,
 }))
 
 vi.mock('@/entities/snippet/snippet', () => ({
-  getSnippetsOfVideo: () => Promise.resolve([
-    {
-      start: 0,
-      duration: 4,
-      words: [
-        { original: 'hallo', meanings: ['hello'] },
-        { original: 'welt', meanings: ['world'] },
-      ],
-    },
-  ]),
+  getSnippetsOfVideo,
 }))
 
 vi.mock('@/entities/flashcard/flashcardStore', () => ({
@@ -55,7 +44,24 @@ describe('FlowPage', () => {
   beforeEach(() => {
     push.mockReset()
     getOrCreateCardsForWords.mockReset()
+    getCourse.mockReset()
+    getSnippetsOfVideo.mockReset()
     loadYoutubeIframeApi.mockReset()
+    getCourse.mockResolvedValue({
+      languageCode: 'deu',
+      label: 'German',
+      videos: [{ youtubeId: 'abc123', languageCode: 'deu' }],
+    })
+    getSnippetsOfVideo.mockResolvedValue([
+      {
+        start: 0,
+        duration: 4,
+        words: [
+          { original: 'hallo', meanings: ['hello'] },
+          { original: 'welt', meanings: ['world'] },
+        ],
+      },
+    ])
     getOrCreateCardsForWords.mockResolvedValue([
       {
         cardId: 'deu::hallo::hello',
@@ -97,5 +103,46 @@ describe('FlowPage', () => {
         { original: 'welt', meanings: ['world'] },
       ])
     })
+  })
+
+  it('skips broken random videos and continues with a loadable one', async () => {
+    getCourse.mockResolvedValue({
+      languageCode: 'vie',
+      label: 'Vietnamese',
+      videos: [
+        { youtubeId: 'missing-video', languageCode: 'vie' },
+        { youtubeId: 'working-video', languageCode: 'vie' },
+      ],
+    })
+    getSnippetsOfVideo.mockImplementation(async (_languageCode: string, videoId: string) => {
+      if (videoId === 'missing-video') {
+        throw new Error('missing JSON payload')
+      }
+
+      return [
+        {
+          start: 0,
+          duration: 4,
+          words: [
+            { original: 'xin chao', meanings: ['hello'] },
+            { original: 'ban', meanings: ['friend'] },
+          ],
+        },
+      ]
+    })
+    const randomSpy = vi.spyOn(Math, 'random').mockReturnValueOnce(0).mockReturnValueOnce(0)
+
+    render(FlowPage)
+
+    await waitFor(() => {
+      expect(getSnippetsOfVideo).toHaveBeenCalledWith('vie', 'missing-video')
+      expect(getSnippetsOfVideo).toHaveBeenCalledWith('vie', 'working-video')
+      expect(getOrCreateCardsForWords).toHaveBeenCalledWith('deu', [
+        { original: 'xin chao', meanings: ['hello'] },
+        { original: 'ban', meanings: ['friend'] },
+      ])
+    })
+
+    randomSpy.mockRestore()
   })
 })

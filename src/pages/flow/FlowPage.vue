@@ -108,11 +108,32 @@ async function loadRandomVideo(options?: { excludeVideoId?: string }) {
     return
   }
 
-  const randomVideo = pickRandomVideo(course.value, options?.excludeVideoId)
+  const candidates = course.value.videos.filter((video) => video.youtubeId !== options?.excludeVideoId)
+  const remainingVideos = candidates.length > 0 ? [...candidates] : [...course.value.videos]
 
-  activeVideo.value = randomVideo
-  snippets.value = await getSnippetsOfVideo(randomVideo.languageCode, randomVideo.youtubeId)
-  currentSnippetIndex.value = 0
+  while (remainingVideos.length > 0) {
+    const randomVideo = pickRandomVideo({
+      ...course.value,
+      videos: remainingVideos,
+    })
+
+    try {
+      const nextSnippets = await getSnippetsOfVideo(randomVideo.languageCode, randomVideo.youtubeId)
+
+      activeVideo.value = randomVideo
+      snippets.value = nextSnippets
+      currentSnippetIndex.value = 0
+      break
+    } catch (error) {
+      console.error(`Failed to load flow video '${randomVideo.youtubeId}':`, error)
+      const nextIndex = remainingVideos.findIndex((video) => video.youtubeId === randomVideo.youtubeId)
+      remainingVideos.splice(nextIndex, 1)
+    }
+  }
+
+  if (!activeVideo.value || snippets.value.length === 0) {
+    throw new Error(`No flow videos could be loaded for '${course.value.languageCode}'`)
+  }
 
   if (currentFlashcards.value.length === 0) {
     await setExerciseDeck(0)

@@ -1,0 +1,6248 @@
+{
+    "snippets": [
+        {
+            "start": 0.0,
+            "duration": 6.06,
+            "words": [
+                {
+                    "native": "ciao",
+                    "translation": "hi"
+                },
+                {
+                    "native": "raga",
+                    "translation": "guys"
+                },
+                {
+                    "native": "bentornati",
+                    "translation": "welcome back"
+                },
+                {
+                    "native": "alla",
+                    "translation": "to the"
+                },
+                {
+                    "native": "Boulder",
+                    "translation": "Boulder"
+                },
+                {
+                    "native": "Factory",
+                    "translation": "Factory"
+                },
+                {
+                    "native": "Climbing",
+                    "translation": "Climbing"
+                },
+                {
+                    "native": "Class",
+                    "translation": "Class"
+                },
+                {
+                    "native": "come",
+                    "translation": "how"
+                },
+                {
+                    "native": "state",
+                    "translation": "are you"
+                },
+                {
+                    "native": "bene",
+                    "translation": "well"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very"
+                },
+                {
+                    "native": "bravi",
+                    "translation": "good"
+                },
+                {
+                    "native": "oggi",
+                    "translation": "today"
+                }
+            ]
+        },
+        {
+            "start": 6.06,
+            "duration": 7.740000000000001,
+            "words": [
+                {
+                    "native": "voglio",
+                    "translation": "want"
+                },
+                {
+                    "native": "parlare",
+                    "translation": "talk"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "cinque",
+                    "translation": "five"
+                },
+                {
+                    "native": "errori",
+                    "translation": "mistakes"
+                },
+                {
+                    "native": "tecnici",
+                    "translation": "technical"
+                },
+                {
+                    "native": "diciamo",
+                    "translation": "say"
+                },
+                {
+                    "native": "comuni",
+                    "translation": "common"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "commettono",
+                    "translation": "make"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "persone",
+                    "translation": "people"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "iniziano",
+                    "translation": "start"
+                }
+            ]
+        },
+        {
+            "start": 13.8,
+            "duration": 5.550000000000001,
+            "words": [
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "o",
+                    "translation": "or"
+                },
+                {
+                    "native": "meno",
+                    "translation": "less"
+                },
+                {
+                    "native": "ad",
+                    "translation": "to"
+                },
+                {
+                    "native": "arrampicare",
+                    "translation": "climb"
+                },
+                {
+                    "native": "quando",
+                    "translation": "when"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                },
+                {
+                    "native": "ci",
+                    "translation": "there"
+                },
+                {
+                    "native": "si",
+                    "translation": "one"
+                },
+                {
+                    "native": "attacca",
+                    "translation": "clings"
+                },
+                {
+                    "native": "alle",
+                    "translation": "to the"
+                },
+                {
+                    "native": "prime",
+                    "translation": "first"
+                },
+                {
+                    "native": "volte",
+                    "translation": "times"
+                },
+                {
+                    "native": "ad",
+                    "translation": "to"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "parete",
+                    "translation": "wall"
+                },
+                {
+                    "native": "vediamo",
+                    "translation": "let's see"
+                },
+                {
+                    "native": "quali",
+                    "translation": "which"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                }
+            ]
+        },
+        {
+            "start": 19.35,
+            "duration": 7.559999999999999,
+            "words": [
+                {
+                    "native": "allora",
+                    "translation": "so"
+                },
+                {
+                    "native": "vi",
+                    "translation": "you"
+                },
+                {
+                    "native": "parlo",
+                    "translation": "speak"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "questi",
+                    "translation": "these"
+                },
+                {
+                    "native": "cinque",
+                    "translation": "five"
+                },
+                {
+                    "native": "errori",
+                    "translation": "mistakes"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "premettendo",
+                    "translation": "prefacing"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                },
+                {
+                    "native": "ovviamente",
+                    "translation": "obviously"
+                },
+                {
+                    "native": "gli",
+                    "translation": "the"
+                },
+                {
+                    "native": "unici",
+                    "translation": "only"
+                }
+            ]
+        },
+        {
+            "start": 26.91,
+            "duration": 6.720000000000002,
+            "words": [
+                {
+                    "native": "perché",
+                    "translation": "because"
+                },
+                {
+                    "native": "ognuno",
+                    "translation": "each one"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "suo",
+                    "translation": "his"
+                },
+                {
+                    "native": "background",
+                    "translation": "background"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "motorio",
+                    "translation": "motor"
+                },
+                {
+                    "native": "alla",
+                    "translation": "to the"
+                },
+                {
+                    "native": "sua",
+                    "translation": "his"
+                },
+                {
+                    "native": "capacità",
+                    "translation": "ability"
+                },
+                {
+                    "native": "coordinativa",
+                    "translation": "coordinative"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "farà",
+                    "translation": "will make"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 33.63,
+            "duration": 5.699999999999996,
+            "words": [
+                {
+                    "native": "suoi",
+                    "translation": "his, her, their"
+                },
+                {
+                    "native": "errori",
+                    "translation": "mistakes"
+                },
+                {
+                    "native": "avrà",
+                    "translation": "will have"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                },
+                {
+                    "native": "suoi",
+                    "translation": "his, her, their"
+                },
+                {
+                    "native": "pregi",
+                    "translation": "strengths"
+                },
+                {
+                    "native": "ei",
+                    "translation": "and the"
+                },
+                {
+                    "native": "suoi",
+                    "translation": "his, her, their"
+                },
+                {
+                    "native": "difetti",
+                    "translation": "faults"
+                },
+                {
+                    "native": "ma",
+                    "translation": "but"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "linea",
+                    "translation": "line"
+                },
+                {
+                    "native": "generale",
+                    "translation": "general"
+                },
+                {
+                    "native": "per",
+                    "translation": "for"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "mia",
+                    "translation": "my"
+                },
+                {
+                    "native": "esperienza",
+                    "translation": "experience"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 39.33,
+            "duration": 6.93,
+            "words": [
+                {
+                    "native": "ciò",
+                    "translation": "that"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "ho",
+                    "translation": "have"
+                },
+                {
+                    "native": "riscontrato",
+                    "translation": "found"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "modo",
+                    "translation": "way"
+                },
+                {
+                    "native": "più",
+                    "translation": "most"
+                },
+                {
+                    "native": "diffuso",
+                    "translation": "common"
+                },
+                {
+                    "native": "tra",
+                    "translation": "among"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "popolazione",
+                    "translation": "population"
+                },
+                {
+                    "native": "tra",
+                    "translation": "among"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                },
+                {
+                    "native": "big",
+                    "translation": "the big ones"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "tra",
+                    "translation": "among"
+                },
+                {
+                    "native": "quelli",
+                    "translation": "those"
+                },
+                {
+                    "native": "che",
+                    "translation": "who"
+                },
+                {
+                    "native": "mi",
+                    "translation": "me"
+                }
+            ]
+        },
+        {
+            "start": 46.26,
+            "duration": 6.300000000000004,
+            "words": [
+                {
+                    "native": "arrivano",
+                    "translation": "come"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "palestra",
+                    "translation": "gym"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "approcciano",
+                    "translation": "approach"
+                },
+                {
+                    "native": "appunto",
+                    "translation": "just"
+                },
+                {
+                    "native": "per",
+                    "translation": "for"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "prima",
+                    "translation": "first"
+                },
+                {
+                    "native": "volta",
+                    "translation": "time"
+                },
+                {
+                    "native": "alla",
+                    "translation": "to the"
+                },
+                {
+                    "native": "parete",
+                    "translation": "wall"
+                },
+                {
+                    "native": "verticale",
+                    "translation": "vertical"
+                },
+                {
+                    "native": "errore",
+                    "translation": "error"
+                },
+                {
+                    "native": "numero",
+                    "translation": "number"
+                }
+            ]
+        },
+        {
+            "start": 52.56,
+            "duration": 8.879999999999995,
+            "words": [
+                {
+                    "native": "1",
+                    "translation": "1"
+                },
+                {
+                    "native": "scalare",
+                    "translation": "to climb"
+                },
+                {
+                    "native": "coi",
+                    "translation": "with the"
+                },
+                {
+                    "native": "gomiti",
+                    "translation": "elbows"
+                },
+                {
+                    "native": "piegati",
+                    "translation": "bent"
+                },
+                {
+                    "native": "uno",
+                    "translation": "one"
+                },
+                {
+                    "native": "dei",
+                    "translation": "of the"
+                },
+                {
+                    "native": "rari",
+                    "translation": "rare"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "diffusi",
+                    "translation": "common"
+                },
+                {
+                    "native": "da",
+                    "translation": "as"
+                },
+                {
+                    "native": "vero",
+                    "translation": "real"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "proprio",
+                    "translation": "actual"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "voler",
+                    "translation": "to want"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "tutti",
+                    "translation": "all"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 61.44,
+            "duration": 6.780000000000001,
+            "words": [
+                {
+                    "native": "costi",
+                    "translation": "costs"
+                },
+                {
+                    "native": "istintivamente",
+                    "translation": "instinctively"
+                },
+                {
+                    "native": "difendersi",
+                    "translation": "to defend oneself"
+                },
+                {
+                    "native": "da",
+                    "translation": "from"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "eventuale",
+                    "translation": "possible"
+                },
+                {
+                    "native": "caduta",
+                    "translation": "fall"
+                },
+                {
+                    "native": "utilizzando",
+                    "translation": "using"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "prime",
+                    "translation": "first"
+                },
+                {
+                    "native": "armi",
+                    "translation": "weapons"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                }
+            ]
+        },
+        {
+            "start": 68.22,
+            "duration": 6.599999999999994,
+            "words": [
+                {
+                    "native": "disposizione",
+                    "translation": "availability"
+                },
+                {
+                    "native": "ovvero",
+                    "translation": "that is"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "braccia",
+                    "translation": "arms"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "sostanzialmente",
+                    "translation": "basically"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "battaglia",
+                    "translation": "battle"
+                },
+                {
+                    "native": "contro",
+                    "translation": "against"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "nostro",
+                    "translation": "our"
+                },
+                {
+                    "native": "cervello",
+                    "translation": "brain"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "ci",
+                    "translation": "us"
+                }
+            ]
+        },
+        {
+            "start": 74.82,
+            "duration": 5.280000000000001,
+            "words": [
+                {
+                    "native": "sta",
+                    "translation": "is"
+                },
+                {
+                    "native": "dicendo",
+                    "translation": "saying"
+                },
+                {
+                    "native": "oddio",
+                    "translation": "oh no"
+                },
+                {
+                    "native": "sei",
+                    "translation": "you are"
+                },
+                {
+                    "native": "scemo",
+                    "translation": "stupid"
+                },
+                {
+                    "native": "guarda",
+                    "translation": "look"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "stai",
+                    "translation": "are"
+                },
+                {
+                    "native": "per",
+                    "translation": "about to"
+                },
+                {
+                    "native": "cadere",
+                    "translation": "fall"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "nostra",
+                    "translation": "our"
+                },
+                {
+                    "native": "volontà",
+                    "translation": "will"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "fare",
+                    "translation": "do"
+                },
+                {
+                    "native": "quello",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 80.1,
+            "duration": 5.219999999999999,
+            "words": [
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "facciamo",
+                    "translation": "we do"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "nostro",
+                    "translation": "our"
+                },
+                {
+                    "native": "cervello",
+                    "translation": "brain"
+                },
+                {
+                    "native": "difendendoci",
+                    "translation": "defending ourselves"
+                },
+                {
+                    "native": "da",
+                    "translation": "from"
+                },
+                {
+                    "native": "questa",
+                    "translation": "this"
+                },
+                {
+                    "native": "eventuale",
+                    "translation": "possible"
+                },
+                {
+                    "native": "caduta",
+                    "translation": "fall"
+                },
+                {
+                    "native": "utilizza",
+                    "translation": "uses"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "prime",
+                    "translation": "first"
+                }
+            ]
+        },
+        {
+            "start": 85.32,
+            "duration": 7.050000000000011,
+            "words": [
+                {
+                    "native": "armi",
+                    "translation": "tools"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "conosce",
+                    "translation": "knows"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "possano",
+                    "translation": "may"
+                },
+                {
+                    "native": "esserci",
+                    "translation": "be there"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "possano",
+                    "translation": "may"
+                },
+                {
+                    "native": "risultare",
+                    "translation": "prove"
+                },
+                {
+                    "native": "utili",
+                    "translation": "useful"
+                },
+                {
+                    "native": "su",
+                    "translation": "on"
+                },
+                {
+                    "native": "appunto",
+                    "translation": "just"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "parete",
+                    "translation": "wall"
+                },
+                {
+                    "native": "verticale",
+                    "translation": "vertical"
+                }
+            ]
+        },
+        {
+            "start": 92.37,
+            "duration": 8.189999999999998,
+            "words": [
+                {
+                    "native": "cerchiamo",
+                    "translation": "we try"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "tutti",
+                    "translation": "all"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                },
+                {
+                    "native": "costi",
+                    "translation": "costs"
+                },
+                {
+                    "native": "di",
+                    "translation": "to"
+                },
+                {
+                    "native": "togliere",
+                    "translation": "take off"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "peso",
+                    "translation": "weight"
+                },
+                {
+                    "native": "dai",
+                    "translation": "from the"
+                },
+                {
+                    "native": "piedi",
+                    "translation": "feet"
+                },
+                {
+                    "native": "stare",
+                    "translation": "stay"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very"
+                },
+                {
+                    "native": "chiusi",
+                    "translation": "close"
+                },
+                {
+                    "native": "sulle",
+                    "translation": "on the"
+                },
+                {
+                    "native": "braccia",
+                    "translation": "arms"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "erogare",
+                    "translation": "exert"
+                }
+            ]
+        },
+        {
+            "start": 100.56,
+            "duration": 7.409999999999997,
+            "words": [
+                {
+                    "native": "tutta",
+                    "translation": "all"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "forza",
+                    "translation": "force"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "garantire",
+                    "translation": "ensure"
+                },
+                {
+                    "native": "al",
+                    "translation": "to the"
+                },
+                {
+                    "native": "nostro",
+                    "translation": "our"
+                },
+                {
+                    "native": "corpo",
+                    "translation": "body"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "difendere",
+                    "translation": "defend"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "nostro",
+                    "translation": "our"
+                },
+                {
+                    "native": "cervello",
+                    "translation": "brain"
+                },
+                {
+                    "native": "da",
+                    "translation": "from"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "paura",
+                    "translation": "fear"
+                }
+            ]
+        },
+        {
+            "start": 107.97,
+            "duration": 5.759999999999991,
+            "words": [
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "eventuale",
+                    "translation": "possible"
+                },
+                {
+                    "native": "caduta",
+                    "translation": "fall"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "rimaniamo",
+                    "translation": "we stay"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very"
+                },
+                {
+                    "native": "compressi",
+                    "translation": "compressed"
+                },
+                {
+                    "native": "siamo",
+                    "translation": "we are"
+                },
+                {
+                    "native": "costantemente",
+                    "translation": "constantly"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "trazione",
+                    "translation": "tension"
+                },
+                {
+                    "native": "senza",
+                    "translation": "without"
+                }
+            ]
+        },
+        {
+            "start": 113.72999999999999,
+            "duration": 4.980000000000018,
+            "words": [
+                {
+                    "native": "renderci",
+                    "translation": "to realize"
+                },
+                {
+                    "native": "conto",
+                    "translation": "account; realize"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "modo",
+                    "translation": "way"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "facciamo",
+                    "translation": "we do"
+                },
+                {
+                    "native": "altro",
+                    "translation": "other"
+                },
+                {
+                    "native": "che",
+                    "translation": "than"
+                },
+                {
+                    "native": "sprecare",
+                    "translation": "to waste"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "bruciare",
+                    "translation": "to burn"
+                },
+                {
+                    "native": "tutte",
+                    "translation": "all"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "energie",
+                    "translation": "energy"
+                }
+            ]
+        },
+        {
+            "start": 118.71000000000001,
+            "duration": 8.529999999999987,
+            "words": [
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "nell",
+                    "translation": "in the"
+                },
+                {
+                    "native": "economia",
+                    "translation": "economy"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "risparmio",
+                    "translation": "saving"
+                },
+                {
+                    "native": "delle",
+                    "translation": "of the"
+                },
+                {
+                    "native": "forze",
+                    "translation": "strengths"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "tutto",
+                    "translation": "all"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "percorso",
+                    "translation": "path"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "risulta",
+                    "translation": "appears"
+                },
+                {
+                    "native": "essere",
+                    "translation": "to be"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "buona",
+                    "translation": "good"
+                }
+            ]
+        },
+        {
+            "start": 127.24,
+            "duration": 8.010000000000005,
+            "words": [
+                {
+                    "native": "tattica",
+                    "translation": "tactic"
+                },
+                {
+                    "native": "consiglio",
+                    "translation": "advice"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "tutti",
+                    "translation": "everyone"
+                },
+                {
+                    "native": "quelli",
+                    "translation": "those"
+                },
+                {
+                    "native": "che",
+                    "translation": "who"
+                },
+                {
+                    "native": "iniziano",
+                    "translation": "start"
+                },
+                {
+                    "native": "sforzatevi",
+                    "translation": "try"
+                },
+                {
+                    "native": "di",
+                    "translation": "to"
+                },
+                {
+                    "native": "allungare",
+                    "translation": "stretch out"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "braccia",
+                    "translation": "arms"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "concetto",
+                    "translation": "idea"
+                }
+            ]
+        },
+        {
+            "start": 135.25,
+            "duration": 10.199999999999989,
+            "words": [
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "stare",
+                    "translation": "to be"
+                },
+                {
+                    "native": "appoggiati",
+                    "translation": "supported"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "appesi",
+                    "translation": "hanging"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "relazione",
+                    "translation": "relation"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "passiamo",
+                    "translation": "we move on"
+                },
+                {
+                    "native": "all",
+                    "translation": "to the"
+                },
+                {
+                    "native": "errore",
+                    "translation": "mistake"
+                },
+                {
+                    "native": "numero",
+                    "translation": "number"
+                },
+                {
+                    "native": "2",
+                    "translation": "2"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "comporta",
+                    "translation": "involves"
+                }
+            ]
+        },
+        {
+            "start": 145.45,
+            "duration": 7.260000000000019,
+            "words": [
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "fatto",
+                    "translation": "fact"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "scalare",
+                    "translation": "climb"
+                },
+                {
+                    "native": "coi",
+                    "translation": "with the"
+                },
+                {
+                    "native": "gomiti",
+                    "translation": "elbows"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "trazione",
+                    "translation": "pulling"
+                },
+                {
+                    "native": "beh",
+                    "translation": "well"
+                },
+                {
+                    "native": "sicuramente",
+                    "translation": "certainly"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "allungare",
+                    "translation": "stretch"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "gambe",
+                    "translation": "legs"
+                },
+                {
+                    "native": "avete",
+                    "translation": "you have"
+                },
+                {
+                    "native": "mai",
+                    "translation": "ever"
+                },
+                {
+                    "native": "visto",
+                    "translation": "seen"
+                }
+            ]
+        },
+        {
+            "start": 152.71,
+            "duration": 6.719999999999999,
+            "words": [
+                {
+                    "native": "gli",
+                    "translation": "the"
+                },
+                {
+                    "native": "scalatori",
+                    "translation": "climbers"
+                },
+                {
+                    "native": "quando",
+                    "translation": "when"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                },
+                {
+                    "native": "all",
+                    "translation": "at the"
+                },
+                {
+                    "native": "inizio",
+                    "translation": "beginning"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "hanno",
+                    "translation": "have"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "gambe",
+                    "translation": "legs"
+                },
+                {
+                    "native": "a",
+                    "translation": "as"
+                },
+                {
+                    "native": "spaghetto",
+                    "translation": "spaghetti-like"
+                },
+                {
+                    "native": "comunque",
+                    "translation": "anyway"
+                },
+                {
+                    "native": "gambe",
+                    "translation": "legs"
+                },
+                {
+                    "native": "tese",
+                    "translation": "straight"
+                },
+                {
+                    "native": "dritte",
+                    "translation": "straight"
+                },
+                {
+                    "native": "come",
+                    "translation": "like"
+                }
+            ]
+        },
+        {
+            "start": 159.43,
+            "duration": 7.829999999999984,
+            "words": [
+                {
+                    "native": "dei",
+                    "translation": "some"
+                },
+                {
+                    "native": "pali",
+                    "translation": "poles"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "appunto",
+                    "translation": "just"
+                },
+                {
+                    "native": "questi",
+                    "translation": "these"
+                },
+                {
+                    "native": "gomiti",
+                    "translation": "elbows"
+                },
+                {
+                    "native": "così",
+                    "translation": "like this"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "gambe",
+                    "translation": "legs"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "ci",
+                    "translation": "us"
+                },
+                {
+                    "native": "aiutano",
+                    "translation": "help"
+                },
+                {
+                    "native": "per",
+                    "translation": "for"
+                },
+                {
+                    "native": "niente",
+                    "translation": "nothing"
+                },
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "noi",
+                    "translation": "we"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "sfruttiamo",
+                    "translation": "use"
+                }
+            ]
+        },
+        {
+            "start": 167.26,
+            "duration": 6.0,
+            "words": [
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "escursione",
+                    "translation": "range of motion"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "spiegamento",
+                    "translation": "extension"
+                },
+                {
+                    "native": "delle",
+                    "translation": "of the"
+                },
+                {
+                    "native": "ginocchia",
+                    "translation": "knees"
+                },
+                {
+                    "native": "ci",
+                    "translation": "us"
+                },
+                {
+                    "native": "può",
+                    "translation": "can"
+                },
+                {
+                    "native": "offrire",
+                    "translation": "offer"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "le",
+                    "translation": "them"
+                },
+                {
+                    "native": "teniamo",
+                    "translation": "keep"
+                },
+                {
+                    "native": "tese",
+                    "translation": "straight"
+                },
+                {
+                    "native": "come",
+                    "translation": "like"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                }
+            ]
+        },
+        {
+            "start": 173.26,
+            "duration": 6.420000000000016,
+            "words": [
+                {
+                    "native": "bacchi",
+                    "translation": "sticks"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "legno",
+                    "translation": "wood"
+                },
+                {
+                    "native": "sicuramente",
+                    "translation": "certainly"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                },
+                {
+                    "native": "inutilizzabili",
+                    "translation": "unusable"
+                },
+                {
+                    "native": "dobbiamo",
+                    "translation": "we must"
+                },
+                {
+                    "native": "sempre",
+                    "translation": "always"
+                },
+                {
+                    "native": "ricordarci",
+                    "translation": "remember"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "mantenere",
+                    "translation": "maintain"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                }
+            ]
+        },
+        {
+            "start": 179.68,
+            "duration": 6.8700000000000045,
+            "words": [
+                {
+                    "native": "posizione",
+                    "translation": "position"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "agiata",
+                    "translation": "comfortable"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "rilassata",
+                    "translation": "relaxed"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "come",
+                    "translation": "as"
+                },
+                {
+                    "native": "ho",
+                    "translation": "have"
+                },
+                {
+                    "native": "detto",
+                    "translation": "said"
+                },
+                {
+                    "native": "prima",
+                    "translation": "before"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "appoggio",
+                    "translation": "support"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                }
+            ]
+        },
+        {
+            "start": 186.55,
+            "duration": 8.159999999999997,
+            "words": [
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "trazione",
+                    "translation": "pulling"
+                },
+                {
+                    "native": "dobbiamo",
+                    "translation": "we must"
+                },
+                {
+                    "native": "capire",
+                    "translation": "understand"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "oltre",
+                    "translation": "beyond"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "stendere",
+                    "translation": "straighten"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "braccia",
+                    "translation": "arms"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "ad",
+                    "translation": "to"
+                },
+                {
+                    "native": "allungare",
+                    "translation": "extend"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                },
+                {
+                    "native": "gomiti",
+                    "translation": "elbows"
+                },
+                {
+                    "native": "dobbiamo",
+                    "translation": "we must"
+                }
+            ]
+        },
+        {
+            "start": 194.71,
+            "duration": 6.359999999999985,
+            "words": [
+                {
+                    "native": "piegare",
+                    "translation": "bend"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "ginocchia",
+                    "translation": "knees"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "modo",
+                    "translation": "way"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "solo",
+                    "translation": "only"
+                },
+                {
+                    "native": "avremo",
+                    "translation": "will have"
+                },
+                {
+                    "native": "proprio",
+                    "translation": "really"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "cambio",
+                    "translation": "change"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "posizione",
+                    "translation": "position"
+                },
+                {
+                    "native": "dall",
+                    "translation": "from the"
+                },
+                {
+                    "native": "alto",
+                    "translation": "top"
+                }
+            ]
+        },
+        {
+            "start": 201.07,
+            "duration": 6.3300000000000125,
+            "words": [
+                {
+                    "native": "verso",
+                    "translation": "toward"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "basso",
+                    "translation": "down"
+                },
+                {
+                    "native": "diciamo",
+                    "translation": "say"
+                },
+                {
+                    "native": "da",
+                    "translation": "from"
+                },
+                {
+                    "native": "da",
+                    "translation": "from"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "situazione",
+                    "translation": "situation"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "trazione",
+                    "translation": "traction"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "situazione",
+                    "translation": "situation"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "appoggio",
+                    "translation": "support"
+                },
+                {
+                    "native": "ma",
+                    "translation": "but"
+                },
+                {
+                    "native": "potremmo",
+                    "translation": "could"
+                }
+            ]
+        },
+        {
+            "start": 207.4,
+            "duration": 8.219999999999999,
+            "words": [
+                {
+                    "native": "anche",
+                    "translation": "also"
+                },
+                {
+                    "native": "attraverso",
+                    "translation": "through"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "allungamento",
+                    "translation": "stretching"
+                },
+                {
+                    "native": "delle",
+                    "translation": "of the"
+                },
+                {
+                    "native": "gambe",
+                    "translation": "legs"
+                },
+                {
+                    "native": "gestire",
+                    "translation": "manage"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "modo",
+                    "translation": "way"
+                },
+                {
+                    "native": "ottimale",
+                    "translation": "optimal"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "nostro",
+                    "translation": "our"
+                },
+                {
+                    "native": "baricentro",
+                    "translation": "center of gravity"
+                }
+            ]
+        },
+        {
+            "start": 215.62,
+            "duration": 7.199999999999989,
+            "words": [
+                {
+                    "native": "po",
+                    "translation": "then"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "baricentro",
+                    "translation": "center of gravity"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "tanto",
+                    "translation": "so much"
+                },
+                {
+                    "native": "ci",
+                    "translation": "us"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "utile",
+                    "translation": "useful"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "riuscire",
+                    "translation": "succeed"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "mantenere",
+                    "translation": "maintain"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "equilibrio",
+                    "translation": "balance"
+                },
+                {
+                    "native": "ottimale",
+                    "translation": "optimal"
+                },
+                {
+                    "native": "a",
+                    "translation": "at"
+                },
+                {
+                    "native": "seconda",
+                    "translation": "depending"
+                },
+                {
+                    "native": "della",
+                    "translation": "of the"
+                }
+            ]
+        },
+        {
+            "start": 222.82,
+            "duration": 6.420000000000016,
+            "words": [
+                {
+                    "native": "presa",
+                    "translation": "grip"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "vogliamo",
+                    "translation": "want"
+                },
+                {
+                    "native": "tenere",
+                    "translation": "hold"
+                },
+                {
+                    "native": "ma",
+                    "translation": "but"
+                },
+                {
+                    "native": "per",
+                    "translation": "for"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                },
+                {
+                    "native": "faremo",
+                    "translation": "will make"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "video",
+                    "translation": "video"
+                },
+                {
+                    "native": "a",
+                    "translation": "at"
+                },
+                {
+                    "native": "parte",
+                    "translation": "separate"
+                },
+                {
+                    "native": "errore",
+                    "translation": "error"
+                },
+                {
+                    "native": "numero",
+                    "translation": "number"
+                },
+                {
+                    "native": "3",
+                    "translation": "3"
+                },
+                {
+                    "native": "allora",
+                    "translation": "then"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                }
+            ]
+        },
+        {
+            "start": 229.24,
+            "duration": 5.489999999999981,
+            "words": [
+                {
+                    "native": "errore",
+                    "translation": "error"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "si",
+                    "translation": "yes"
+                },
+                {
+                    "native": "rifà",
+                    "translation": "refers back"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "pochino",
+                    "translation": "a little"
+                },
+                {
+                    "native": "all",
+                    "translation": "to the"
+                },
+                {
+                    "native": "errore",
+                    "translation": "error"
+                },
+                {
+                    "native": "numero",
+                    "translation": "number"
+                },
+                {
+                    "native": "uno",
+                    "translation": "one"
+                },
+                {
+                    "native": "ovvero",
+                    "translation": "that is"
+                },
+                {
+                    "native": "quello",
+                    "translation": "that"
+                },
+                {
+                    "native": "dei",
+                    "translation": "of the"
+                },
+                {
+                    "native": "gomiti",
+                    "translation": "elbows"
+                },
+                {
+                    "native": "piegati",
+                    "translation": "bent"
+                },
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "io",
+                    "translation": "I"
+                }
+            ]
+        },
+        {
+            "start": 234.73,
+            "duration": 6.27000000000001,
+            "words": [
+                {
+                    "native": "nell",
+                    "translation": "in the"
+                },
+                {
+                    "native": "errore",
+                    "translation": "error"
+                },
+                {
+                    "native": "numero",
+                    "translation": "number"
+                },
+                {
+                    "native": "1",
+                    "translation": "one"
+                },
+                {
+                    "native": "considero",
+                    "translation": "consider"
+                },
+                {
+                    "native": "sempre",
+                    "translation": "always"
+                },
+                {
+                    "native": "di",
+                    "translation": "to"
+                },
+                {
+                    "native": "scalare",
+                    "translation": "climb"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "trazione",
+                    "translation": "pulling"
+                },
+                {
+                    "native": "perché",
+                    "translation": "because"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "mio",
+                    "translation": "my"
+                },
+                {
+                    "native": "cervello",
+                    "translation": "brain"
+                },
+                {
+                    "native": "come",
+                    "translation": "as"
+                },
+                {
+                    "native": "dire",
+                    "translation": "say"
+                },
+                {
+                    "native": "si",
+                    "translation": "itself"
+                }
+            ]
+        },
+        {
+            "start": 241.0,
+            "duration": 6.509999999999991,
+            "words": [
+                {
+                    "native": "vuole",
+                    "translation": "wants"
+                },
+                {
+                    "native": "difendere",
+                    "translation": "defend"
+                },
+                {
+                    "native": "da",
+                    "translation": "from"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "eventuale",
+                    "translation": "possible"
+                },
+                {
+                    "native": "caduta",
+                    "translation": "fall"
+                },
+                {
+                    "native": "quest",
+                    "translation": "this"
+                },
+                {
+                    "native": "altro",
+                    "translation": "other"
+                },
+                {
+                    "native": "errore",
+                    "translation": "mistake"
+                },
+                {
+                    "native": "sempre",
+                    "translation": "always"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "utilizzo",
+                    "translation": "use"
+                },
+                {
+                    "native": "dei",
+                    "translation": "of the"
+                },
+                {
+                    "native": "gomiti",
+                    "translation": "elbows"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "però",
+                    "translation": "however"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 247.51,
+            "duration": 6.780000000000001,
+            "words": [
+                {
+                    "native": "finalizzato",
+                    "translation": "aimed"
+                },
+                {
+                    "native": "al",
+                    "translation": "to the"
+                },
+                {
+                    "native": "rivale",
+                    "translation": "opponent"
+                },
+                {
+                    "native": "ad",
+                    "translation": "to"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "presa",
+                    "translation": "grip"
+                },
+                {
+                    "native": "successiva",
+                    "translation": "next"
+                },
+                {
+                    "native": "cosa",
+                    "translation": "what"
+                },
+                {
+                    "native": "voglio",
+                    "translation": "want"
+                },
+                {
+                    "native": "dire",
+                    "translation": "mean"
+                },
+                {
+                    "native": "con",
+                    "translation": "with"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "io",
+                    "translation": "I"
+                },
+                {
+                    "native": "devo",
+                    "translation": "must"
+                },
+                {
+                    "native": "andare",
+                    "translation": "go"
+                }
+            ]
+        },
+        {
+            "start": 254.29,
+            "duration": 6.299999999999983,
+            "words": [
+                {
+                    "native": "da",
+                    "translation": "from"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "presa",
+                    "translation": "hold"
+                },
+                {
+                    "native": "all",
+                    "translation": "to"
+                },
+                {
+                    "native": "altra",
+                    "translation": "other"
+                },
+                {
+                    "native": "dovrò",
+                    "translation": "will have to"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "seconda",
+                    "translation": "depending"
+                },
+                {
+                    "native": "della",
+                    "translation": "of the"
+                },
+                {
+                    "native": "mia",
+                    "translation": "my"
+                },
+                {
+                    "native": "esperienza",
+                    "translation": "experience"
+                },
+                {
+                    "native": "comunque",
+                    "translation": "anyway"
+                },
+                {
+                    "native": "della",
+                    "translation": "of the"
+                },
+                {
+                    "native": "mia",
+                    "translation": "my"
+                },
+                {
+                    "native": "maturità",
+                    "translation": "maturity"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "quanto",
+                    "translation": "as"
+                }
+            ]
+        },
+        {
+            "start": 260.59,
+            "duration": 7.890000000000043,
+            "words": [
+                {
+                    "native": "scalatore",
+                    "translation": "climber"
+                },
+                {
+                    "native": "valutare",
+                    "translation": "assess"
+                },
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "arrivarci",
+                    "translation": "get there"
+                },
+                {
+                    "native": "mi",
+                    "translation": "me"
+                },
+                {
+                    "native": "serve",
+                    "translation": "need"
+                },
+                {
+                    "native": "davvero",
+                    "translation": "really"
+                },
+                {
+                    "native": "chiudere",
+                    "translation": "close"
+                },
+                {
+                    "native": "con",
+                    "translation": "with"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                },
+                {
+                    "native": "gomiti",
+                    "translation": "elbows"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "erogare",
+                    "translation": "apply"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 268.48,
+            "duration": 6.6299999999999955,
+            "words": [
+                {
+                    "native": "forza",
+                    "translation": "force"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "o",
+                    "translation": "or"
+                },
+                {
+                    "native": "nelle",
+                    "translation": "in the"
+                },
+                {
+                    "native": "braccia",
+                    "translation": "arms"
+                },
+                {
+                    "native": "oppure",
+                    "translation": "or"
+                },
+                {
+                    "native": "impostare",
+                    "translation": "set up"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "mio",
+                    "translation": "my"
+                },
+                {
+                    "native": "corpo",
+                    "translation": "body"
+                },
+                {
+                    "native": "grazie",
+                    "translation": "thanks"
+                },
+                {
+                    "native": "alla",
+                    "translation": "to the"
+                },
+                {
+                    "native": "cui",
+                    "translation": "whose"
+                },
+                {
+                    "native": "spinta",
+                    "translation": "push"
+                },
+                {
+                    "native": "riesco",
+                    "translation": "I manage"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "raggiungere",
+                    "translation": "reach"
+                }
+            ]
+        },
+        {
+            "start": 275.11,
+            "duration": 6.990000000000009,
+            "words": [
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "posizione",
+                    "translation": "position"
+                },
+                {
+                    "native": "tale",
+                    "translation": "such"
+                },
+                {
+                    "native": "per",
+                    "translation": "for"
+                },
+                {
+                    "native": "cui",
+                    "translation": "which"
+                },
+                {
+                    "native": "arrivo",
+                    "translation": "arrive"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "destinazione",
+                    "translation": "destination"
+                },
+                {
+                    "native": "senza",
+                    "translation": "without"
+                },
+                {
+                    "native": "alcun",
+                    "translation": "any"
+                },
+                {
+                    "native": "problema",
+                    "translation": "problem"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "sempre",
+                    "translation": "always"
+                },
+                {
+                    "native": "detto",
+                    "translation": "said"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 282.1,
+            "duration": 6.92999999999995,
+            "words": [
+                {
+                    "native": "lontananza",
+                    "translation": "distance"
+                },
+                {
+                    "native": "delle",
+                    "translation": "of the"
+                },
+                {
+                    "native": "prese",
+                    "translation": "holds"
+                },
+                {
+                    "native": "implichi",
+                    "translation": "implies"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "utilizzo",
+                    "translation": "use"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "forza",
+                    "translation": "force"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "da",
+                    "translation": "from"
+                },
+                {
+                    "native": "0",
+                    "translation": "0"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "100",
+                    "translation": "100"
+                },
+                {
+                    "native": "si",
+                    "translation": "is"
+                },
+                {
+                    "native": "misura",
+                    "translation": "measured"
+                },
+                {
+                    "native": "con",
+                    "translation": "with"
+                },
+                {
+                    "native": "con",
+                    "translation": "with"
+                },
+                {
+                    "native": "cento",
+                    "translation": "100"
+                }
+            ]
+        },
+        {
+            "start": 289.03,
+            "duration": 6.480000000000018,
+            "words": [
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "devo",
+                    "translation": "must"
+                },
+                {
+                    "native": "erogare",
+                    "translation": "deliver"
+                },
+                {
+                    "native": "tutto",
+                    "translation": "all"
+                },
+                {
+                    "native": "quello",
+                    "translation": "that"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "ho",
+                    "translation": "have"
+                },
+                {
+                    "native": "ad",
+                    "translation": "at"
+                },
+                {
+                    "native": "ogni",
+                    "translation": "every"
+                },
+                {
+                    "native": "movimento",
+                    "translation": "movement"
+                },
+                {
+                    "native": "per",
+                    "translation": "for"
+                },
+                {
+                    "native": "forza",
+                    "translation": "necessarily"
+                },
+                {
+                    "native": "dovrò",
+                    "translation": "will have to"
+                },
+                {
+                    "native": "valutare",
+                    "translation": "judge"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "seconda",
+                    "translation": "depending"
+                }
+            ]
+        },
+        {
+            "start": 295.51,
+            "duration": 5.670000000000016,
+            "words": [
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "piede",
+                    "translation": "foot"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "sfondo",
+                    "translation": "background"
+                },
+                {
+                    "native": "della",
+                    "translation": "of the"
+                },
+                {
+                    "native": "posizione",
+                    "translation": "position"
+                },
+                {
+                    "native": "seconda",
+                    "translation": "second"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "passaggio",
+                    "translation": "passage"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "mi",
+                    "translation": "me"
+                },
+                {
+                    "native": "si",
+                    "translation": "itself"
+                },
+                {
+                    "native": "porrà",
+                    "translation": "will pose"
+                },
+                {
+                    "native": "davanti",
+                    "translation": "in front"
+                },
+                {
+                    "native": "quanto",
+                    "translation": "how much"
+                }
+            ]
+        },
+        {
+            "start": 301.18,
+            "duration": 6.810000000000002,
+            "words": [
+                {
+                    "native": "io",
+                    "translation": "I"
+                },
+                {
+                    "native": "potrò",
+                    "translation": "will be able to"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "dovrò",
+                    "translation": "will have to"
+                },
+                {
+                    "native": "sprecare",
+                    "translation": "waste"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "utilizzare",
+                    "translation": "use"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "mie",
+                    "translation": "my"
+                },
+                {
+                    "native": "energie",
+                    "translation": "energy"
+                },
+                {
+                    "native": "allora",
+                    "translation": "then"
+                },
+                {
+                    "native": "premettiamo",
+                    "translation": "let's first say"
+                },
+                {
+                    "native": "sempre",
+                    "translation": "always"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                }
+            ]
+        },
+        {
+            "start": 307.99,
+            "duration": 5.759999999999991,
+            "words": [
+                {
+                    "native": "cosa",
+                    "translation": "thing"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "arrampicata",
+                    "translation": "climbing"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "uno",
+                    "translation": "a"
+                },
+                {
+                    "native": "sport",
+                    "translation": "sport"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very"
+                },
+                {
+                    "native": "violento",
+                    "translation": "physically demanding"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very"
+                },
+                {
+                    "native": "violento",
+                    "translation": "physically demanding"
+                },
+                {
+                    "native": "a",
+                    "translation": "at"
+                },
+                {
+                    "native": "livello",
+                    "translation": "level"
+                },
+                {
+                    "native": "fisico",
+                    "translation": "physical"
+                },
+                {
+                    "native": "intendo",
+                    "translation": "mean"
+                },
+                {
+                    "native": "dire",
+                    "translation": "say"
+                }
+            ]
+        },
+        {
+            "start": 313.75,
+            "duration": 6.899999999999977,
+            "words": [
+                {
+                    "native": "richiede",
+                    "translation": "requires"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "altissima",
+                    "translation": "very high"
+                },
+                {
+                    "native": "dose",
+                    "translation": "dose"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "forza",
+                    "translation": "strength"
+                },
+                {
+                    "native": "ma",
+                    "translation": "but"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "dimentichiamoci",
+                    "translation": "let's not forget"
+                },
+                {
+                    "native": "mai",
+                    "translation": "ever"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "questa",
+                    "translation": "this"
+                },
+                {
+                    "native": "forza",
+                    "translation": "strength"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                }
+            ]
+        },
+        {
+            "start": 320.65,
+            "duration": 6.5400000000000205,
+            "words": [
+                {
+                    "native": "impariamo",
+                    "translation": "we learn"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "utilizzarla",
+                    "translation": "use it"
+                },
+                {
+                    "native": "esattamente",
+                    "translation": "exactly"
+                },
+                {
+                    "native": "nel",
+                    "translation": "in the"
+                },
+                {
+                    "native": "momento",
+                    "translation": "moment"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "cui",
+                    "translation": "which"
+                },
+                {
+                    "native": "ci",
+                    "translation": "us"
+                },
+                {
+                    "native": "serve",
+                    "translation": "is needed"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "andiamo",
+                    "translation": "go"
+                },
+                {
+                    "native": "da",
+                    "translation": "to"
+                },
+                {
+                    "native": "nessuna",
+                    "translation": "no"
+                },
+                {
+                    "native": "parte",
+                    "translation": "place"
+                }
+            ]
+        },
+        {
+            "start": 328.41,
+            "duration": 10.379999999999995,
+            "words": [
+                {
+                    "native": "ma",
+                    "translation": "but"
+                },
+                {
+                    "native": "quando",
+                    "translation": "when"
+                },
+                {
+                    "native": "mi",
+                    "translation": "me"
+                },
+                {
+                    "native": "sarà",
+                    "translation": "will be"
+                },
+                {
+                    "native": "richiesto",
+                    "translation": "required"
+                },
+                {
+                    "native": "da",
+                    "translation": "by"
+                },
+                {
+                    "native": "rho",
+                    "translation": "rho"
+                },
+                {
+                    "native": "cento",
+                    "translation": "hundred"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "termini",
+                    "translation": "terms"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "forza",
+                    "translation": "strength"
+                },
+                {
+                    "native": "quando",
+                    "translation": "when"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "mi",
+                    "translation": "me"
+                },
+                {
+                    "native": "sarà",
+                    "translation": "will be"
+                },
+                {
+                    "native": "richiesto",
+                    "translation": "required"
+                }
+            ]
+        },
+        {
+            "start": 338.79,
+            "duration": 7.800000000000011,
+            "words": [
+                {
+                    "native": "utilizzerò",
+                    "translation": "I will use"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "corpo",
+                    "translation": "body"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "adattarlo",
+                    "translation": "to adapt it"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "plasmarlo",
+                    "translation": "to shape it"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "modo",
+                    "translation": "way"
+                },
+                {
+                    "native": "tale",
+                    "translation": "such"
+                },
+                {
+                    "native": "da",
+                    "translation": "so as to"
+                },
+                {
+                    "native": "riuscire",
+                    "translation": "manage"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "proseguire",
+                    "translation": "continue"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "mia",
+                    "translation": "my"
+                },
+                {
+                    "native": "salita",
+                    "translation": "climb"
+                }
+            ]
+        },
+        {
+            "start": 346.59000000000003,
+            "duration": 6.869999999999948,
+            "words": [
+                {
+                    "native": "errore",
+                    "translation": "mistake"
+                },
+                {
+                    "native": "numero",
+                    "translation": "number"
+                },
+                {
+                    "native": "4",
+                    "translation": "4"
+                },
+                {
+                    "native": "allora",
+                    "translation": "so"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "errore",
+                    "translation": "mistake"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "cosa",
+                    "translation": "thing"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very"
+                },
+                {
+                    "native": "diffusa",
+                    "translation": "common"
+                },
+                {
+                    "native": "soprattutto",
+                    "translation": "especially"
+                },
+                {
+                    "native": "per",
+                    "translation": "for"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "idea",
+                    "translation": "idea"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "uno",
+                    "translation": "one"
+                }
+            ]
+        },
+        {
+            "start": 353.46,
+            "duration": 6.390000000000043,
+            "words": [
+                {
+                    "native": "scalatore",
+                    "translation": "climber"
+                },
+                {
+                    "native": "all",
+                    "translation": "to the"
+                },
+                {
+                    "native": "inizio",
+                    "translation": "beginning"
+                },
+                {
+                    "native": "percepisce",
+                    "translation": "perceives"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "salita",
+                    "translation": "climb"
+                },
+                {
+                    "native": "come",
+                    "translation": "as"
+                },
+                {
+                    "native": "lo",
+                    "translation": "the"
+                },
+                {
+                    "native": "sforzo",
+                    "translation": "effort"
+                },
+                {
+                    "native": "continuo",
+                    "translation": "continuous"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "può",
+                    "translation": "can"
+                },
+                {
+                    "native": "calare",
+                    "translation": "decrease"
+                },
+                {
+                    "native": "mai",
+                    "translation": "never"
+                },
+                {
+                    "native": "dall",
+                    "translation": "from the"
+                },
+                {
+                    "native": "inizio",
+                    "translation": "beginning"
+                }
+            ]
+        },
+        {
+            "start": 359.85,
+            "duration": 7.949999999999989,
+            "words": [
+                {
+                    "native": "alla",
+                    "translation": "to the"
+                },
+                {
+                    "native": "fine",
+                    "translation": "end"
+                },
+                {
+                    "native": "ecco",
+                    "translation": "well"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "così",
+                    "translation": "like that"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "arrampicata",
+                    "translation": "climbing"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "uno",
+                    "translation": "a"
+                },
+                {
+                    "native": "sforzo",
+                    "translation": "effort"
+                },
+                {
+                    "native": "molto",
+                    "translation": "very"
+                },
+                {
+                    "native": "discontinuo",
+                    "translation": "irregular"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "ci",
+                    "translation": "there"
+                },
+                {
+                    "native": "saranno",
+                    "translation": "will be"
+                },
+                {
+                    "native": "mai",
+                    "translation": "ever"
+                },
+                {
+                    "native": "delle",
+                    "translation": "some"
+                }
+            ]
+        },
+        {
+            "start": 367.8,
+            "duration": 7.680000000000007,
+            "words": [
+                {
+                    "native": "sezioni",
+                    "translation": "sections"
+                },
+                {
+                    "native": "tante",
+                    "translation": "many"
+                },
+                {
+                    "native": "sezioni",
+                    "translation": "sections"
+                },
+                {
+                    "native": "con",
+                    "translation": "with"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "stessa",
+                    "translation": "same"
+                },
+                {
+                    "native": "intensità",
+                    "translation": "intensity"
+                },
+                {
+                    "native": "una",
+                    "translation": "one"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "fila",
+                    "translation": "row"
+                },
+                {
+                    "native": "all",
+                    "translation": "to the"
+                },
+                {
+                    "native": "altra",
+                    "translation": "other"
+                },
+                {
+                    "native": "ci",
+                    "translation": "there"
+                },
+                {
+                    "native": "sarà",
+                    "translation": "will be"
+                },
+                {
+                    "native": "sempre",
+                    "translation": "always"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "momento",
+                    "translation": "moment"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "cui",
+                    "translation": "which"
+                }
+            ]
+        },
+        {
+            "start": 375.48,
+            "duration": 5.639999999999986,
+            "words": [
+                {
+                    "native": "dovrò",
+                    "translation": "I will have to"
+                },
+                {
+                    "native": "mollare",
+                    "translation": "ease up"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "pochino",
+                    "translation": "little bit"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "riuscirò",
+                    "translation": "I will be able to"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "respirare",
+                    "translation": "breathe"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "pochino",
+                    "translation": "little bit"
+                },
+                {
+                    "native": "di",
+                    "translation": "more"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "rilassarvi",
+                    "translation": "relax"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "pochino",
+                    "translation": "little bit"
+                },
+                {
+                    "native": "di",
+                    "translation": "more"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                }
+            ]
+        },
+        {
+            "start": 381.12,
+            "duration": 8.009999999999991,
+            "words": [
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "dei",
+                    "translation": "some"
+                },
+                {
+                    "native": "momenti",
+                    "translation": "moments"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "cui",
+                    "translation": "which"
+                },
+                {
+                    "native": "dovrò",
+                    "translation": "I will have to"
+                },
+                {
+                    "native": "dare",
+                    "translation": "give"
+                },
+                {
+                    "native": "tutto",
+                    "translation": "everything"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "per",
+                    "translation": "for"
+                },
+                {
+                    "native": "cui",
+                    "translation": "which"
+                },
+                {
+                    "native": "tutti",
+                    "translation": "all"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                },
+                {
+                    "native": "momenti",
+                    "translation": "moments"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "cui",
+                    "translation": "which"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "attenzione",
+                    "translation": "attention"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 389.13,
+            "duration": 8.639999999999986,
+            "words": [
+                {
+                    "native": "forza",
+                    "translation": "strength"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "impegno",
+                    "translation": "effort"
+                },
+                {
+                    "native": "calerà",
+                    "translation": "will drop"
+                },
+                {
+                    "native": "perché",
+                    "translation": "because"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "via",
+                    "translation": "way"
+                },
+                {
+                    "native": "mi",
+                    "translation": "me"
+                },
+                {
+                    "native": "offrirà",
+                    "translation": "will offer"
+                },
+                {
+                    "native": "dei",
+                    "translation": "some"
+                },
+                {
+                    "native": "punti",
+                    "translation": "points"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "cui",
+                    "translation": "where"
+                },
+                {
+                    "native": "potrò",
+                    "translation": "I will be able to"
+                },
+                {
+                    "native": "rilassarmi",
+                    "translation": "relax"
+                },
+                {
+                    "native": "dovrò",
+                    "translation": "I will have to"
+                },
+                {
+                    "native": "sfruttarli",
+                    "translation": "use them"
+                }
+            ]
+        },
+        {
+            "start": 397.77,
+            "duration": 8.160000000000025,
+            "words": [
+                {
+                    "native": "al",
+                    "translation": "to the"
+                },
+                {
+                    "native": "meglio",
+                    "translation": "best"
+                },
+                {
+                    "native": "come",
+                    "translation": "like"
+                },
+                {
+                    "native": "imparando",
+                    "translation": "learning"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "riposare",
+                    "translation": "rest"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "gergo",
+                    "translation": "jargon"
+                },
+                {
+                    "native": "si",
+                    "translation": "one"
+                },
+                {
+                    "native": "dice",
+                    "translation": "says"
+                },
+                {
+                    "native": "svisare",
+                    "translation": "relax"
+                },
+                {
+                    "native": "provero",
+                    "translation": "I will try"
+                },
+                {
+                    "native": "rilassare",
+                    "translation": "relax"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "mano",
+                    "translation": "hand"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 405.93,
+            "duration": 4.319999999999993,
+            "words": [
+                {
+                    "native": "mi",
+                    "translation": "myself"
+                },
+                {
+                    "native": "posso",
+                    "translation": "can"
+                },
+                {
+                    "native": "permettere",
+                    "translation": "allow"
+                },
+                {
+                    "native": "di",
+                    "translation": "to"
+                },
+                {
+                    "native": "staccare",
+                    "translation": "relax"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "quel",
+                    "translation": "that"
+                },
+                {
+                    "native": "momento",
+                    "translation": "moment"
+                },
+                {
+                    "native": "quando",
+                    "translation": "when"
+                },
+                {
+                    "native": "sono",
+                    "translation": "am"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "posizione",
+                    "translation": "position"
+                },
+                {
+                    "native": "ottimale",
+                    "translation": "optimal"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "cercare",
+                    "translation": "try"
+                }
+            ]
+        },
+        {
+            "start": 410.25,
+            "duration": 6.329999999999984,
+            "words": [
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "sciogliere",
+                    "translation": "loosen"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "acido",
+                    "translation": "acid"
+                },
+                {
+                    "native": "lattico",
+                    "translation": "lactic"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "crea",
+                    "translation": "creates"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "indurimento",
+                    "translation": "hardening"
+                },
+                {
+                    "native": "dei",
+                    "translation": "of the"
+                },
+                {
+                    "native": "miei",
+                    "translation": "my"
+                },
+                {
+                    "native": "avambracci",
+                    "translation": "forearms"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "questa",
+                    "translation": "this"
+                }
+            ]
+        },
+        {
+            "start": 416.58,
+            "duration": 6.1200000000000045,
+            "words": [
+                {
+                    "native": "valutazione",
+                    "translation": "assessment"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "discorso",
+                    "translation": "discussion"
+                },
+                {
+                    "native": "dello",
+                    "translation": "of the"
+                },
+                {
+                    "native": "svizzere",
+                    "translation": "Swiss"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "tecnica",
+                    "translation": "technique"
+                },
+                {
+                    "native": "fondamentale",
+                    "translation": "fundamental"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "prima",
+                    "translation": "earlier"
+                },
+                {
+                    "native": "si",
+                    "translation": "one"
+                },
+                {
+                    "native": "impara",
+                    "translation": "learns"
+                },
+                {
+                    "native": "meglio",
+                    "translation": "better"
+                }
+            ]
+        },
+        {
+            "start": 422.7,
+            "duration": 5.850000000000023,
+            "words": [
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "prima",
+                    "translation": "first"
+                },
+                {
+                    "native": "si",
+                    "translation": "one"
+                },
+                {
+                    "native": "riconoscono",
+                    "translation": "recognize"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                },
+                {
+                    "native": "punti",
+                    "translation": "points"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "via",
+                    "translation": "route"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "cui",
+                    "translation": "which"
+                },
+                {
+                    "native": "si",
+                    "translation": "one"
+                },
+                {
+                    "native": "possono",
+                    "translation": "can"
+                },
+                {
+                    "native": "recuperare",
+                    "translation": "recover"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "energie",
+                    "translation": "energy"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "prima",
+                    "translation": "first"
+                }
+            ]
+        },
+        {
+            "start": 428.55,
+            "duration": 6.920000000000016,
+            "words": [
+                {
+                    "native": "si",
+                    "translation": "one"
+                },
+                {
+                    "native": "impara",
+                    "translation": "learns"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "scalare",
+                    "translation": "climb"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "modo",
+                    "translation": "way"
+                },
+                {
+                    "native": "ottimale",
+                    "translation": "optimal"
+                },
+                {
+                    "native": "quindi",
+                    "translation": "so"
+                },
+                {
+                    "native": "raga",
+                    "translation": "guys"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "vi",
+                    "translation": "you"
+                },
+                {
+                    "native": "dimenticate",
+                    "translation": "forget"
+                },
+                {
+                    "native": "mi",
+                    "translation": "me"
+                },
+                {
+                    "native": "raccomando",
+                    "translation": "urge"
+                },
+                {
+                    "native": "quinto",
+                    "translation": "fifth"
+                }
+            ]
+        },
+        {
+            "start": 435.47,
+            "duration": 8.669999999999959,
+            "words": [
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "ultimo",
+                    "translation": "last"
+                },
+                {
+                    "native": "errore",
+                    "translation": "mistake"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "meno",
+                    "translation": "less"
+                },
+                {
+                    "native": "importante",
+                    "translation": "important"
+                },
+                {
+                    "native": "degli",
+                    "translation": "of the"
+                },
+                {
+                    "native": "altri",
+                    "translation": "others"
+                },
+                {
+                    "native": "io",
+                    "translation": "I"
+                },
+                {
+                    "native": "vedo",
+                    "translation": "see"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "chi",
+                    "translation": "who"
+                },
+                {
+                    "native": "parte",
+                    "translation": "starts"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "arrampicare",
+                    "translation": "climb"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "fare",
+                    "translation": "do"
+                }
+            ]
+        },
+        {
+            "start": 444.14,
+            "duration": 4.350000000000023,
+            "words": [
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "bulder",
+                    "translation": "boulder"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "fare",
+                    "translation": "do"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "percorso",
+                    "translation": "route"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "palestra",
+                    "translation": "gym"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "fare",
+                    "translation": "do"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "via",
+                    "translation": "route"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "fare",
+                    "translation": "do"
+                },
+                {
+                    "native": "qualsiasi",
+                    "translation": "any"
+                },
+                {
+                    "native": "cosa",
+                    "translation": "thing"
+                },
+                {
+                    "native": "riguardi",
+                    "translation": "concern"
+                }
+            ]
+        },
+        {
+            "start": 448.49,
+            "duration": 9.120000000000005,
+            "words": [
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "arrampicata",
+                    "translation": "climbing"
+                },
+                {
+                    "native": "all",
+                    "translation": "at the"
+                },
+                {
+                    "native": "inizio",
+                    "translation": "beginning"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "studia",
+                    "translation": "studies"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "percorso",
+                    "translation": "route"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "mente",
+                    "translation": "mind"
+                },
+                {
+                    "native": "cosa",
+                    "translation": "what"
+                },
+                {
+                    "native": "significa",
+                    "translation": "means"
+                },
+                {
+                    "native": "questa",
+                    "translation": "this"
+                },
+                {
+                    "native": "avete",
+                    "translation": "you have"
+                },
+                {
+                    "native": "presente",
+                    "translation": "familiar"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 457.61,
+            "duration": 5.279999999999973,
+            "words": [
+                {
+                    "native": "ricognizioni",
+                    "translation": "scouting"
+                },
+                {
+                    "native": "dei",
+                    "translation": "of the"
+                },
+                {
+                    "native": "blocchi",
+                    "translation": "blocks"
+                },
+                {
+                    "native": "durante",
+                    "translation": "during"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "gare",
+                    "translation": "competitions"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "abbiamo",
+                    "translation": "we have"
+                },
+                {
+                    "native": "viste",
+                    "translation": "seen"
+                },
+                {
+                    "native": "anche",
+                    "translation": "also"
+                },
+                {
+                    "native": "insieme",
+                    "translation": "together"
+                },
+                {
+                    "native": "con",
+                    "translation": "with"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "reazioni",
+                    "translation": "reactions"
+                }
+            ]
+        },
+        {
+            "start": 462.89,
+            "duration": 7.2900000000000205,
+            "words": [
+                {
+                    "native": "delle",
+                    "translation": "of the"
+                },
+                {
+                    "native": "coppe",
+                    "translation": "cups"
+                },
+                {
+                    "native": "del",
+                    "translation": "of the"
+                },
+                {
+                    "native": "mondo",
+                    "translation": "world"
+                },
+                {
+                    "native": "eccetera",
+                    "translation": "etc."
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "ricognizione",
+                    "translation": "inspection"
+                },
+                {
+                    "native": "quei",
+                    "translation": "those"
+                },
+                {
+                    "native": "due",
+                    "translation": "two"
+                },
+                {
+                    "native": "minuti",
+                    "translation": "minutes"
+                },
+                {
+                    "native": "sono",
+                    "translation": "are"
+                },
+                {
+                    "native": "fondamentali",
+                    "translation": "crucial"
+                },
+                {
+                    "native": "per",
+                    "translation": "for"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "atleta",
+                    "translation": "athlete"
+                }
+            ]
+        },
+        {
+            "start": 470.18,
+            "duration": 7.6200000000000045,
+            "words": [
+                {
+                    "native": "perché",
+                    "translation": "because"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "volta",
+                    "translation": "time"
+                },
+                {
+                    "native": "scaduti",
+                    "translation": "expired"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "avranno",
+                    "translation": "will have"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "modo",
+                    "translation": "way"
+                },
+                {
+                    "native": "di",
+                    "translation": "to"
+                },
+                {
+                    "native": "guardare",
+                    "translation": "look at"
+                },
+                {
+                    "native": "quello",
+                    "translation": "that"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                },
+                {
+                    "native": "dovranno",
+                    "translation": "will have to"
+                },
+                {
+                    "native": "affrontare",
+                    "translation": "face"
+                }
+            ]
+        },
+        {
+            "start": 477.8,
+            "duration": 6.71999999999997,
+            "words": [
+                {
+                    "native": "durante",
+                    "translation": "during"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "gara",
+                    "translation": "race"
+                },
+                {
+                    "native": "effettiva",
+                    "translation": "actual"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "cosa",
+                    "translation": "thing"
+                },
+                {
+                    "native": "significa",
+                    "translation": "means"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "meglio",
+                    "translation": "better"
+                },
+                {
+                    "native": "guarderò",
+                    "translation": "I will look at"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "percorso",
+                    "translation": "course"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "sarò",
+                    "translation": "I will be"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "grado",
+                    "translation": "able"
+                }
+            ]
+        },
+        {
+            "start": 484.52,
+            "duration": 7.5,
+            "words": [
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "interpretarlo",
+                    "translation": "to interpret it"
+                },
+                {
+                    "native": "nel",
+                    "translation": "in the"
+                },
+                {
+                    "native": "migliore",
+                    "translation": "best"
+                },
+                {
+                    "native": "dei",
+                    "translation": "of the"
+                },
+                {
+                    "native": "modi",
+                    "translation": "ways"
+                },
+                {
+                    "native": "nella",
+                    "translation": "in the"
+                },
+                {
+                    "native": "mia",
+                    "translation": "my"
+                },
+                {
+                    "native": "testa",
+                    "translation": "head"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "possibilità",
+                    "translation": "chance"
+                },
+                {
+                    "native": "però",
+                    "translation": "however"
+                },
+                {
+                    "native": "di",
+                    "translation": "to"
+                },
+                {
+                    "native": "fare",
+                    "translation": "do"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "miglior",
+                    "translation": "best"
+                }
+            ]
+        },
+        {
+            "start": 492.02,
+            "duration": 4.920000000000016,
+            "words": [
+                {
+                    "native": "tentativo",
+                    "translation": "attempt"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "ho",
+                    "translation": "have"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "disposizione",
+                    "translation": "available"
+                },
+                {
+                    "native": "ovviamente",
+                    "translation": "obviously"
+                },
+                {
+                    "native": "nel",
+                    "translation": "in the"
+                },
+                {
+                    "native": "caso",
+                    "translation": "case"
+                },
+                {
+                    "native": "nelle",
+                    "translation": "in the"
+                },
+                {
+                    "native": "gare",
+                    "translation": "competitions"
+                },
+                {
+                    "native": "al",
+                    "translation": "at the"
+                },
+                {
+                    "native": "minor",
+                    "translation": "least"
+                },
+                {
+                    "native": "tempo",
+                    "translation": "time"
+                },
+                {
+                    "native": "possibile",
+                    "translation": "possible"
+                }
+            ]
+        },
+        {
+            "start": 496.94,
+            "duration": 7.3799999999999955,
+            "words": [
+                {
+                    "native": "perché",
+                    "translation": "because"
+                },
+                {
+                    "native": "prima",
+                    "translation": "before"
+                },
+                {
+                    "native": "lo",
+                    "translation": "it"
+                },
+                {
+                    "native": "faccio",
+                    "translation": "do"
+                },
+                {
+                    "native": "meglio",
+                    "translation": "better"
+                },
+                {
+                    "native": "nel",
+                    "translation": "in the"
+                },
+                {
+                    "native": "caso",
+                    "translation": "case"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "cui",
+                    "translation": "which"
+                },
+                {
+                    "native": "noi",
+                    "translation": "we"
+                },
+                {
+                    "native": "fossimo",
+                    "translation": "were"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "falesia",
+                    "translation": "climbing crag"
+                },
+                {
+                    "native": "nel",
+                    "translation": "in the"
+                },
+                {
+                    "native": "caso",
+                    "translation": "case"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "cui",
+                    "translation": "which"
+                },
+                {
+                    "native": "fossimo",
+                    "translation": "were"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "fare",
+                    "translation": "do"
+                }
+            ]
+        },
+        {
+            "start": 504.32,
+            "duration": 4.920000000000016,
+            "words": [
+                {
+                    "native": "bulder",
+                    "translation": "bouldering"
+                },
+                {
+                    "native": "comunque",
+                    "translation": "anyway"
+                },
+                {
+                    "native": "su",
+                    "translation": "on"
+                },
+                {
+                    "native": "roccia",
+                    "translation": "rock"
+                },
+                {
+                    "native": "ti",
+                    "translation": "you"
+                },
+                {
+                    "native": "caso",
+                    "translation": "case"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "cui",
+                    "translation": "which"
+                },
+                {
+                    "native": "anche",
+                    "translation": "also"
+                },
+                {
+                    "native": "fossimo",
+                    "translation": "were"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "palestra",
+                    "translation": "gym"
+                },
+                {
+                    "native": "teniamo",
+                    "translation": "keep"
+                },
+                {
+                    "native": "sempre",
+                    "translation": "always"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "conto",
+                    "translation": "count"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                }
+            ]
+        },
+        {
+            "start": 509.24,
+            "duration": 7.889999999999986,
+            "words": [
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "partire",
+                    "translation": "start"
+                },
+                {
+                    "native": "con",
+                    "translation": "with"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "sprovvedutezza",
+                    "translation": "carelessness"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "aver",
+                    "translation": "have"
+                },
+                {
+                    "native": "guardato",
+                    "translation": "looked at"
+                },
+                {
+                    "native": "gli",
+                    "translation": "the"
+                },
+                {
+                    "native": "appigli",
+                    "translation": "holds"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "andremo",
+                    "translation": "will go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "tenere",
+                    "translation": "hold"
+                },
+                {
+                    "native": "ritorno",
+                    "translation": "back"
+                }
+            ]
+        },
+        {
+            "start": 517.13,
+            "duration": 5.340000000000032,
+            "words": [
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "nuovo",
+                    "translation": "again"
+                },
+                {
+                    "native": "agli",
+                    "translation": "to the"
+                },
+                {
+                    "native": "scalatori",
+                    "translation": "climbers"
+                },
+                {
+                    "native": "nelle",
+                    "translation": "in the"
+                },
+                {
+                    "native": "ricognizioni",
+                    "translation": "reconnaissance trips"
+                },
+                {
+                    "native": "no",
+                    "translation": "no"
+                },
+                {
+                    "native": "sembrano",
+                    "translation": "seem"
+                },
+                {
+                    "native": "degli",
+                    "translation": "some"
+                },
+                {
+                    "native": "scemi",
+                    "translation": "fools"
+                },
+                {
+                    "native": "prestano",
+                    "translation": "pay"
+                },
+                {
+                    "native": "tutti",
+                    "translation": "all"
+                },
+                {
+                    "native": "questi",
+                    "translation": "these"
+                },
+                {
+                    "native": "queste",
+                    "translation": "these"
+                }
+            ]
+        },
+        {
+            "start": 522.47,
+            "duration": 7.139999999999986,
+            "words": [
+                {
+                    "native": "gestualità",
+                    "translation": "gestures"
+                },
+                {
+                    "native": "mimano",
+                    "translation": "mimic"
+                },
+                {
+                    "native": "no",
+                    "translation": "no"
+                },
+                {
+                    "native": "eccola",
+                    "translation": "there it is"
+                },
+                {
+                    "native": "mimata",
+                    "translation": "mimed"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "fondamentale",
+                    "translation": "fundamental"
+                },
+                {
+                    "native": "immaginatevi",
+                    "translation": "imagine"
+                },
+                {
+                    "native": "di",
+                    "translation": "to"
+                },
+                {
+                    "native": "immedesimarvi",
+                    "translation": "identify with"
+                },
+                {
+                    "native": "come",
+                    "translation": "like"
+                },
+                {
+                    "native": "quando",
+                    "translation": "when"
+                },
+                {
+                    "native": "eravate",
+                    "translation": "you were"
+                }
+            ]
+        },
+        {
+            "start": 529.61,
+            "duration": 7.0499999999999545,
+            "words": [
+                {
+                    "native": "piccoli",
+                    "translation": "small"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "sognavate",
+                    "translation": "dreamed"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "essere",
+                    "translation": "to be"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "astronauti",
+                    "translation": "astronauts"
+                },
+                {
+                    "native": "nella",
+                    "translation": "in the"
+                },
+                {
+                    "native": "vostra",
+                    "translation": "your"
+                },
+                {
+                    "native": "testa",
+                    "translation": "head"
+                },
+                {
+                    "native": "tutto",
+                    "translation": "all"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "percorso",
+                    "translation": "path"
+                },
+                {
+                    "native": "tutto",
+                    "translation": "all"
+                },
+                {
+                    "native": "ciò",
+                    "translation": "what"
+                }
+            ]
+        },
+        {
+            "start": 536.66,
+            "duration": 6.0,
+            "words": [
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "potreste",
+                    "translation": "could"
+                },
+                {
+                    "native": "fare",
+                    "translation": "do"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "volta",
+                    "translation": "time"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "poi",
+                    "translation": "then"
+                },
+                {
+                    "native": "troverete",
+                    "translation": "will find"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "via",
+                    "translation": "way"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "burger",
+                    "translation": "burger"
+                },
+                {
+                    "native": "ecco",
+                    "translation": "there you go"
+                },
+                {
+                    "native": "questo",
+                    "translation": "this"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "ricognizione",
+                    "translation": "reconnaissance"
+                }
+            ]
+        },
+        {
+            "start": 542.66,
+            "duration": 6.990000000000009,
+            "words": [
+                {
+                    "native": "questa",
+                    "translation": "this"
+                },
+                {
+                    "native": "qua",
+                    "translation": "here"
+                },
+                {
+                    "native": "è",
+                    "translation": "is"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "visione",
+                    "translation": "vision"
+                },
+                {
+                    "native": "tattica",
+                    "translation": "tactical"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "allenamento",
+                    "translation": "training"
+                },
+                {
+                    "native": "tattico",
+                    "translation": "tactical"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "cui",
+                    "translation": "which"
+                },
+                {
+                    "native": "vi",
+                    "translation": "you"
+                },
+                {
+                    "native": "sto",
+                    "translation": "am"
+                },
+                {
+                    "native": "parlando",
+                    "translation": "talking"
+                },
+                {
+                    "native": "più",
+                    "translation": "more"
+                },
+                {
+                    "native": "riusciremo",
+                    "translation": "will manage"
+                }
+            ]
+        },
+        {
+            "start": 549.65,
+            "duration": 7.290000000000077,
+            "words": [
+                {
+                    "native": "ad",
+                    "translation": "to"
+                },
+                {
+                    "native": "avere",
+                    "translation": "have"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "fantasia",
+                    "translation": "imagination"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "visione",
+                    "translation": "vision"
+                },
+                {
+                    "native": "mentale",
+                    "translation": "mental"
+                },
+                {
+                    "native": "chiara",
+                    "translation": "clear"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "ciò",
+                    "translation": "what"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "andremo",
+                    "translation": "will go"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "fare",
+                    "translation": "do"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "vi",
+                    "translation": "you"
+                },
+                {
+                    "native": "assicuro",
+                    "translation": "assure"
+                },
+                {
+                    "native": "raga",
+                    "translation": "guys"
+                },
+                {
+                    "native": "meno",
+                    "translation": "less"
+                }
+            ]
+        },
+        {
+            "start": 556.94,
+            "duration": 5.639999999999986,
+            "words": [
+                {
+                    "native": "sbaglieremo",
+                    "translation": "will make mistakes"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "volta",
+                    "translation": "time"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "passeremo",
+                    "translation": "we will move"
+                },
+                {
+                    "native": "all",
+                    "translation": "to the"
+                },
+                {
+                    "native": "azione",
+                    "translation": "action"
+                },
+                {
+                    "native": "piccola",
+                    "translation": "small"
+                },
+                {
+                    "native": "parentesi",
+                    "translation": "parenthesis"
+                },
+                {
+                    "native": "voi",
+                    "translation": "you"
+                },
+                {
+                    "native": "giustamente",
+                    "translation": "rightly"
+                },
+                {
+                    "native": "vi",
+                    "translation": "you"
+                },
+                {
+                    "native": "chiederete",
+                    "translation": "will ask"
+                }
+            ]
+        },
+        {
+            "start": 562.58,
+            "duration": 6.240000000000009,
+            "words": [
+                {
+                    "native": "mai",
+                    "translation": "ever"
+                },
+                {
+                    "native": "in",
+                    "translation": "in"
+                },
+                {
+                    "native": "falesia",
+                    "translation": "cliff"
+                },
+                {
+                    "native": "come",
+                    "translation": "how"
+                },
+                {
+                    "native": "faccia",
+                    "translation": "does"
+                },
+                {
+                    "native": "vedere",
+                    "translation": "see"
+                },
+                {
+                    "native": "tutte",
+                    "translation": "all"
+                },
+                {
+                    "native": "tutti",
+                    "translation": "all"
+                },
+                {
+                    "native": "i",
+                    "translation": "the"
+                },
+                {
+                    "native": "passaggi",
+                    "translation": "moves"
+                },
+                {
+                    "native": "delle",
+                    "translation": "of the"
+                },
+                {
+                    "native": "vie",
+                    "translation": "routes"
+                },
+                {
+                    "native": "tutte",
+                    "translation": "all"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "prese",
+                    "translation": "holds"
+                },
+                {
+                    "native": "rai",
+                    "translation": "I swear"
+                },
+                {
+                    "native": "ve",
+                    "translation": "you"
+                },
+                {
+                    "native": "lo",
+                    "translation": "it"
+                }
+            ]
+        },
+        {
+            "start": 568.82,
+            "duration": 7.349999999999909,
+            "words": [
+                {
+                    "native": "giuro",
+                    "translation": "I swear"
+                },
+                {
+                    "native": "gli",
+                    "translation": "the"
+                },
+                {
+                    "native": "scalatori",
+                    "translation": "climbers"
+                },
+                {
+                    "native": "esperti",
+                    "translation": "experienced"
+                },
+                {
+                    "native": "se",
+                    "translation": "if"
+                },
+                {
+                    "native": "vogliono",
+                    "translation": "want"
+                },
+                {
+                    "native": "fare",
+                    "translation": "do"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "via",
+                    "translation": "route"
+                },
+                {
+                    "native": "vista",
+                    "translation": "scouted"
+                },
+                {
+                    "native": "capita",
+                    "translation": "happens"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "si",
+                    "translation": "they"
+                },
+                {
+                    "native": "portino",
+                    "translation": "bring"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "binocolo",
+                    "translation": "binoculars"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 576.17,
+            "duration": 5.8799999999999955,
+            "words": [
+                {
+                    "native": "osservino",
+                    "translation": "observe"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "facciano",
+                    "translation": "do"
+                },
+                {
+                    "native": "una",
+                    "translation": "a"
+                },
+                {
+                    "native": "ricognizione",
+                    "translation": "survey"
+                },
+                {
+                    "native": "della",
+                    "translation": "of the"
+                },
+                {
+                    "native": "via",
+                    "translation": "route"
+                },
+                {
+                    "native": "col",
+                    "translation": "with the"
+                },
+                {
+                    "native": "binocolo",
+                    "translation": "binoculars"
+                },
+                {
+                    "native": "per",
+                    "translation": "to"
+                },
+                {
+                    "native": "guardare",
+                    "translation": "look at"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 582.05,
+            "duration": 5.8799999999999955,
+            "words": [
+                {
+                    "native": "prese",
+                    "translation": "holds"
+                },
+                {
+                    "native": "dal",
+                    "translation": "from the"
+                },
+                {
+                    "native": "basso",
+                    "translation": "below"
+                },
+                {
+                    "native": "e",
+                    "translation": "and"
+                },
+                {
+                    "native": "cercare",
+                    "translation": "to look for"
+                },
+                {
+                    "native": "di",
+                    "translation": "to"
+                },
+                {
+                    "native": "scorgere",
+                    "translation": "to spot"
+                },
+                {
+                    "native": "ogni",
+                    "translation": "every"
+                },
+                {
+                    "native": "minimo",
+                    "translation": "smallest"
+                },
+                {
+                    "native": "dettaglio",
+                    "translation": "detail"
+                },
+                {
+                    "native": "di",
+                    "translation": "of"
+                },
+                {
+                    "native": "esso",
+                    "translation": "it"
+                },
+                {
+                    "native": "il",
+                    "translation": "the"
+                },
+                {
+                    "native": "video",
+                    "translation": "video"
+                },
+                {
+                    "native": "finisce",
+                    "translation": "ends"
+                }
+            ]
+        },
+        {
+            "start": 587.93,
+            "duration": 4.290000000000077,
+            "words": [
+                {
+                    "native": "qua",
+                    "translation": "here"
+                },
+                {
+                    "native": "spero",
+                    "translation": "hope"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "li",
+                    "translation": "there"
+                },
+                {
+                    "native": "possa",
+                    "translation": "may"
+                },
+                {
+                    "native": "essere",
+                    "translation": "be"
+                },
+                {
+                    "native": "stato",
+                    "translation": "been"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "aiuto",
+                    "translation": "help"
+                },
+                {
+                    "native": "non",
+                    "translation": "not"
+                },
+                {
+                    "native": "dimenticatevi",
+                    "translation": "forget"
+                },
+                {
+                    "native": "di",
+                    "translation": "to"
+                },
+                {
+                    "native": "iscrivervi",
+                    "translation": "subscribe"
+                },
+                {
+                    "native": "al",
+                    "translation": "to the"
+                },
+                {
+                    "native": "canale",
+                    "translation": "channel"
+                },
+                {
+                    "native": "dai",
+                    "translation": "come on"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 592.22,
+            "duration": 5.25,
+            "words": [
+                {
+                    "native": "siamo",
+                    "translation": "we are"
+                },
+                {
+                    "native": "quasi",
+                    "translation": "almost"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "mille",
+                    "translation": "one thousand"
+                },
+                {
+                    "native": "da",
+                    "translation": "from"
+                },
+                {
+                    "native": "che",
+                    "translation": "that"
+                },
+                {
+                    "native": "siamo",
+                    "translation": "we are"
+                },
+                {
+                    "native": "quasi",
+                    "translation": "almost"
+                },
+                {
+                    "native": "a",
+                    "translation": "to"
+                },
+                {
+                    "native": "mille",
+                    "translation": "one thousand"
+                },
+                {
+                    "native": "sono",
+                    "translation": "I am"
+                },
+                {
+                    "native": "felicissimo",
+                    "translation": "very happy"
+                },
+                {
+                    "native": "vi",
+                    "translation": "you"
+                },
+                {
+                    "native": "abbraccio",
+                    "translation": "I hug"
+                },
+                {
+                    "native": "tutti",
+                    "translation": "all"
+                },
+                {
+                    "native": "alla",
+                    "translation": "to the"
+                },
+                {
+                    "native": "prossima",
+                    "translation": "next"
+                }
+            ]
+        }
+    ]
+}

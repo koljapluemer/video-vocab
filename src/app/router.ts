@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
 import FlowPage from '@/pages/flow/FlowPage.vue'
 import SnippetPracticePage from '@/pages/snippet-practice/SnippetPracticePage.vue'
+import StatsPage from '@/pages/stats/StatsPage.vue'
 import TargetLanguagePage from '@/pages/target-language/TargetLanguagePage.vue'
 import VideoDetailPage from '@/pages/video-detail/VideoDetailPage.vue'
 import VideoListPage from '@/pages/video-list/VideoListPage.vue'
@@ -36,6 +37,11 @@ const routes = [
 
       return true
     },
+  },
+  {
+    path: '/stats',
+    name: 'stats',
+    component: StatsPage,
   },
   {
     path: '/course/:languageCode/video/:videoId',

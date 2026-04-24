@@ -1,21 +1,27 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { Rating } from 'ts-fsrs'
 import { useRouter } from 'vue-router'
 
 import { getCourse, type Course, type Video } from '@/entities/course/course'
 import type { Flashcard } from '@/entities/flashcard/flashcard'
+import { applyRating, getOrCreateCardsForWords } from '@/entities/flashcard/flashcardStore'
 import { getSnippetsOfVideo, type Snippet } from '@/entities/snippet/snippet'
+import {
+  recordFlashcardFlip,
+  recordVideoWatchSlice,
+} from '@/features/device-stats/deviceStatsStorage'
 import FlashCardsWrapper from '@/features/flashcard-review/FlashCardsWrapper.vue'
 import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
 import { loadYoutubeIframeApi } from '@/features/video-embed/loadYoutubeIframeApi'
 
-import { buildFlowDeck } from './buildFlowDeck'
+import { buildFlowDeckWords } from './buildFlowDeck'
 import { getSnippetIndexForTime } from './getSnippetIndexForTime'
 import { pickRandomVideo } from './pickRandomVideo'
 
 const router = useRouter()
 
-const selectedLanguageCode = getStoredTargetLanguage()
+const selectedLanguageCode = getStoredTargetLanguage() ?? ''
 const course = ref<Course | null>(null)
 const activeVideo = ref<Video | null>(null)
 const snippets = ref<Snippet[]>([])
@@ -30,14 +36,20 @@ const playerHostId = `flow-player-${Math.random().toString(36).slice(2)}`
 
 let player: YT.Player | null = null
 let snippetTimer: number | null = null
+let videoWatchTimer: number | null = null
+let lastVideoWatchTickAt = Date.now()
+let isPlayerActivelyPlaying = false
 
 const currentSnippet = computed(() => snippets.value[currentSnippetIndex.value] ?? null)
 const hasSnippets = computed(() => snippets.value.length > 0)
 const flashcardDeckKey = computed(() => `${flashcardDeckVersion.value}`)
 
-function setExerciseDeck(snippetIndex: number) {
+async function setExerciseDeck(snippetIndex: number) {
   activeExerciseSnippetIndex.value = snippetIndex
-  currentFlashcards.value = buildFlowDeck(snippets.value, snippetIndex)
+  currentFlashcards.value = await getOrCreateCardsForWords(
+    selectedLanguageCode,
+    buildFlowDeckWords(snippets.value, snippetIndex),
+  )
   flashcardDeckVersion.value += 1
 }
 
@@ -46,6 +58,34 @@ function clearSnippetTimer() {
     window.clearInterval(snippetTimer)
     snippetTimer = null
   }
+}
+
+function clearVideoWatchTimer() {
+  if (videoWatchTimer !== null) {
+    window.clearInterval(videoWatchTimer)
+    videoWatchTimer = null
+  }
+}
+
+function stopVideoWatchTracking() {
+  isPlayerActivelyPlaying = false
+  clearVideoWatchTimer()
+}
+
+function startVideoWatchTracking() {
+  lastVideoWatchTickAt = Date.now()
+
+  if (videoWatchTimer !== null) {
+    return
+  }
+
+  videoWatchTimer = window.setInterval(() => {
+    const now = Date.now()
+    if (isPlayerActivelyPlaying && !document.hidden) {
+      recordVideoWatchSlice(new Date(lastVideoWatchTickAt), new Date(now))
+    }
+    lastVideoWatchTickAt = now
+  }, 5_000)
 }
 
 function startTrackingPlayback() {
@@ -75,7 +115,7 @@ async function loadRandomVideo(options?: { excludeVideoId?: string }) {
   currentSnippetIndex.value = 0
 
   if (currentFlashcards.value.length === 0) {
-    setExerciseDeck(0)
+    await setExerciseDeck(0)
   }
 }
 
@@ -137,6 +177,14 @@ async function initializePlayer() {
           playActiveVideo()
         },
         onStateChange: (event) => {
+          if (event.data === window.YT!.PlayerState.PLAYING) {
+            isPlayerActivelyPlaying = true
+            startVideoWatchTracking()
+          } else if (event.data === window.YT!.PlayerState.PAUSED ||
+            event.data === window.YT!.PlayerState.ENDED) {
+            stopVideoWatchTracking()
+          }
+
           if (event.data === window.YT!.PlayerState.ENDED) {
             void queueRandomVideo()
           }
@@ -162,7 +210,16 @@ function handleAllFlashcardsCompleted() {
     Math.max(currentSnippetIndex.value, activeExerciseSnippetIndex.value + 1),
   )
 
-  setExerciseDeck(nextExerciseSnippetIndex)
+  void setExerciseDeck(nextExerciseSnippetIndex)
+}
+
+async function handleSingleFlashcardRated(flashcard: Flashcard, rating: Rating) {
+  const updatedFlashcard = await applyRating(flashcard.cardId, rating, new Date())
+  Object.assign(flashcard, updatedFlashcard)
+}
+
+function handleFlashcardRevealed() {
+  recordFlashcardFlip(new Date())
 }
 
 onMounted(async () => {
@@ -175,6 +232,7 @@ onMounted(async () => {
 
 onBeforeUnmount(() => {
   clearSnippetTimer()
+  stopVideoWatchTracking()
   player?.destroy()
   player = null
 })
@@ -196,6 +254,8 @@ onBeforeUnmount(() => {
           :key="flashcardDeckKey"
           :flashcards="currentFlashcards"
           @all-flashcards-completed="handleAllFlashcardsCompleted"
+          @flashcard-revealed="handleFlashcardRevealed"
+          @single-flashcard-rated="handleSingleFlashcardRated"
         />
       </section>
 

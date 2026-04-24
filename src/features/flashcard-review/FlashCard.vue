@@ -14,6 +14,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'single-flashcard-rated', rating: Rating): void
+  (e: 'flashcard-revealed'): void
 }>()
 
 const revealed = ref(false)
@@ -27,6 +28,7 @@ watch(() => props.flashcard, () => {
 const reveal = () => {
   revealed.value = true
   flipped.value = true
+  emit('flashcard-revealed')
 }
 
 const rate = (rating: Rating) => {

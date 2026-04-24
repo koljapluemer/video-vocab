@@ -33,3 +33,9 @@ Do not use `index.ts` file reexporting components, simply export directly.
 - KEEP. IT. SIMPLE.
 - always run `npm run build` and `npm run lint:fix` to ensure everything is well done. Fix problems by writing clean code, not by disabling the linter.
 - save inputs on blur, avoid using "Save" buttons
+
+## Persistence Safety
+
+- Never pass Vue reactive state (`ref`, `reactive`, `computed`, proxied arrays/objects) directly into Dexie, IndexedDB, `structuredClone`, `postMessage`, or any browser API that clones data.
+- Always convert persisted payloads to plain JS data at the storage boundary. For arrays/objects, explicitly clone/sanitize them first.
+- In practice: before writing app data to Dexie/localStorage/IndexedDB, create a plain DTO and copy nested arrays/objects instead of reusing reactive references.

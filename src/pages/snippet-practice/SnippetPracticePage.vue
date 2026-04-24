@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import { Rating } from 'ts-fsrs'
 import { useRoute } from 'vue-router'
 
+import { applyRating, getOrCreateCardsForWords } from '@/entities/flashcard/flashcardStore'
 import { getVideoById } from '@/entities/course/course'
 import type { Flashcard } from '@/entities/flashcard/flashcard'
 import { getSnippet, type Snippet } from '@/entities/snippet/snippet'
+import { recordFlashcardFlip } from '@/features/device-stats/deviceStatsStorage'
 import FlashCardsWrapper from '@/features/flashcard-review/FlashCardsWrapper.vue'
-import { getFlashcardsForSnippet } from '@/features/snippet-flashcard-session/snippetFlashcardSession'
+import { getFlashcardWordsForSnippet } from '@/features/snippet-flashcard-session/snippetFlashcardSession'
 
 import WatchSnippet from './WatchSnippet.vue'
 
@@ -31,7 +34,10 @@ onMounted(async () => {
     }
 
     snippet.value = await getSnippet(languageCode, videoId, snippetIndex)
-    flashcards.value = await getFlashcardsForSnippet(languageCode, videoId, snippetIndex)
+    flashcards.value = await getOrCreateCardsForWords(
+      languageCode,
+      await getFlashcardWordsForSnippet(languageCode, videoId, snippetIndex),
+    )
     isLearnMode.value = true
   } catch (error) {
     console.error('Failed to load snippet:', error)
@@ -43,6 +49,15 @@ onMounted(async () => {
 
 const handleAllFlashcardsCompleted = () => {
   isLearnMode.value = false
+}
+
+async function handleSingleFlashcardRated(flashcard: Flashcard, rating: Rating) {
+  const updatedFlashcard = await applyRating(flashcard.cardId, rating, new Date())
+  Object.assign(flashcard, updatedFlashcard)
+}
+
+function handleFlashcardRevealed() {
+  recordFlashcardFlip(new Date())
 }
 
 </script>
@@ -76,6 +91,8 @@ const handleAllFlashcardsCompleted = () => {
         <FlashCardsWrapper
           :flashcards="flashcards"
           @all-flashcards-completed="handleAllFlashcardsCompleted"
+          @flashcard-revealed="handleFlashcardRevealed"
+          @single-flashcard-rated="handleSingleFlashcardRated"
         />
       </div>
       <WatchSnippet

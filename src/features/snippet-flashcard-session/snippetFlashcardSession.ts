@@ -1,4 +1,4 @@
-import { createFlashcard, type Flashcard } from '@/entities/flashcard/flashcard'
+import type { FlashcardWord } from '@/entities/flashcard/flashcard'
 import { getWordsOfSnippet, type Snippet, type Word } from '@/entities/snippet/snippet'
 
 function deduplicateWords(words: Word[]): Word[] {
@@ -14,19 +14,22 @@ function deduplicateWords(words: Word[]): Word[] {
   return Array.from(uniqueWords.values())
 }
 
-export function buildFlashcardsFromWords(words: Word[]): Flashcard[] {
-  return deduplicateWords(words).map((word) => createFlashcard(word.original, word.meanings))
+export function buildFlashcardWords(words: Word[]): FlashcardWord[] {
+  return deduplicateWords(words).map((word) => ({
+    original: word.original,
+    meanings: word.meanings,
+  }))
 }
 
-export function buildFlashcardsFromSnippets(snippets: Snippet[]): Flashcard[] {
-  return buildFlashcardsFromWords(snippets.flatMap((snippet) => snippet.words))
+export function buildFlashcardWordsFromSnippets(snippets: Snippet[]): FlashcardWord[] {
+  return buildFlashcardWords(snippets.flatMap((snippet) => snippet.words))
 }
 
-export async function getFlashcardsForSnippet(
+export async function getFlashcardWordsForSnippet(
   languageCode: string,
   videoId: string,
   snippetIndex: number,
-): Promise<Flashcard[]> {
+): Promise<FlashcardWord[]> {
   const words = await getWordsOfSnippet(languageCode, videoId, snippetIndex)
-  return buildFlashcardsFromWords(words)
+  return buildFlashcardWords(words)
 }

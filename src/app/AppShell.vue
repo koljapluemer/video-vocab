@@ -4,6 +4,7 @@
       <nav class="m-auto flex flex-row justify-center gap-2">
         <router-link class="btn" to="/">Videos</router-link>
         <router-link class="btn" :to="{ name: 'flow' }">Flow</router-link>
+        <router-link class="btn" :to="{ name: 'stats' }">Stats</router-link>
       </nav>
     </header>
     <main class="flex-1">
@@ -20,4 +21,7 @@
 </template>
 
 <script setup lang="ts">
+import { useAppInteractionTracking } from '@/features/device-stats/useAppInteractionTracking'
+
+useAppInteractionTracking()
 </script>

@@ -14,6 +14,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'single-flashcard-rated', flashcard: Flashcard, rating: Rating): void
+  (e: 'flashcard-revealed', flashcard: Flashcard): void
   (e: 'all-flashcards-completed'): void
 }>()
 
@@ -35,6 +36,12 @@ const handleSingleFlashcardRated = (rating: Rating) => {
   currentFlashcard.value = rateFlashcardAndGetNext(currentFlashcard.value, reviewRating)
 }
 
+const handleFlashcardRevealed = () => {
+  if (!currentFlashcard.value) return
+
+  emit('flashcard-revealed', currentFlashcard.value)
+}
+
 watch(currentFlashcard, (newFlashcard) => {
   if (!newFlashcard) {
     emit('all-flashcards-completed')
@@ -47,6 +54,7 @@ watch(currentFlashcard, (newFlashcard) => {
     <FlashCard
       v-if="currentFlashcard"
       :flashcard="currentFlashcard"
+      @flashcard-revealed="handleFlashcardRevealed"
       @single-flashcard-rated="handleSingleFlashcardRated"
     />
     <div v-else class="mx-auto w-full max-w-2xl">

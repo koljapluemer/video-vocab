@@ -93,18 +93,21 @@ describe('FlashCard', () => {
 })
 
 describe('FlashCardsWrapper', () => {
-  it('reveal does not advance the deck and ratings still emit completion', async () => {
+  it('reveal does not advance the deck, emits reveal, and ratings still emit completion', async () => {
     const onAllFlashcardsCompleted = vi.fn()
+    const onFlashcardRevealed = vi.fn()
 
     const { getByTestId, getByText } = render(FlashCardsWrapper, {
       props: {
         flashcards: [createFlashcard({ meanings: ['hello'] })],
         'onAll-flashcards-completed': onAllFlashcardsCompleted,
+        'onFlashcard-revealed': onFlashcardRevealed,
       },
     })
 
     await fireEvent.click(getByTestId('action-reveal'))
     expect(getByText('hello')).toBeTruthy()
+    expect(onFlashcardRevealed).toHaveBeenCalledTimes(1)
 
     await fireEvent.click(getByTestId('action-good'))
 

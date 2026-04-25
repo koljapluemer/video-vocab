@@ -1,0 +1,5654 @@
+{
+    "snippets": [
+        {
+            "start": 27.41,
+            "duration": 0.010000000000001563,
+            "words": [
+                {
+                    "native": "Musique",
+                    "translation": "music"
+                }
+            ]
+        },
+        {
+            "start": 27.42,
+            "duration": 2.608999999999998,
+            "words": [
+                {
+                    "native": "Musique",
+                    "translation": "music"
+                },
+                {
+                    "native": "Applaudissements",
+                    "translation": "applause"
+                }
+            ]
+        },
+        {
+            "start": 30.029,
+            "duration": 0.010000000000001563,
+            "words": [
+                {
+                    "native": "Applaudissements",
+                    "translation": "applause"
+                }
+            ]
+        },
+        {
+            "start": 30.039,
+            "duration": 2.0700000000000003,
+            "words": [
+                {
+                    "native": "Applaudissements",
+                    "translation": "applause"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "beau",
+                    "translation": "beautiful"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "bon",
+                    "translation": "good"
+                },
+                {
+                    "native": "stage",
+                    "translation": "workshop"
+                },
+                {
+                    "native": "là",
+                    "translation": "there"
+                },
+                {
+                    "native": "sur",
+                    "translation": "on"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 32.109,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "beau",
+                    "translation": "beautiful"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "bon",
+                    "translation": "good"
+                },
+                {
+                    "native": "stage",
+                    "translation": "internship"
+                },
+                {
+                    "native": "là",
+                    "translation": "there"
+                },
+                {
+                    "native": "sur",
+                    "translation": "on"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 32.119,
+            "duration": 1.8710000000000022,
+            "words": [
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "beau",
+                    "translation": "beautiful"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "bon",
+                    "translation": "good"
+                },
+                {
+                    "native": "stage",
+                    "translation": "internship"
+                },
+                {
+                    "native": "là",
+                    "translation": "there"
+                },
+                {
+                    "native": "sur",
+                    "translation": "on"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "pôle",
+                    "translation": "center"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "ex",
+                    "translation": "Ex"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "Provence",
+                    "translation": "Provence"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                }
+            ]
+        },
+        {
+            "start": 33.99,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "pôle",
+                    "translation": "center"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "ex",
+                    "translation": "training"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "Provence",
+                    "translation": "Provence"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                }
+            ]
+        },
+        {
+            "start": 34.0,
+            "duration": 2.270000000000003,
+            "words": [
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "pôle",
+                    "translation": "center"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "ex",
+                    "translation": "formerly"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "Provence",
+                    "translation": "Provence"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "stage",
+                    "translation": "training camp"
+                },
+                {
+                    "native": "des",
+                    "translation": "of the"
+                },
+                {
+                    "native": "deux",
+                    "translation": "two"
+                },
+                {
+                    "native": "équipes",
+                    "translation": "teams"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "France",
+                    "translation": "France"
+                },
+                {
+                    "native": "senior",
+                    "translation": "senior"
+                }
+            ]
+        },
+        {
+            "start": 36.27,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "stage",
+                    "translation": "training camp"
+                },
+                {
+                    "native": "des",
+                    "translation": "of the"
+                },
+                {
+                    "native": "deux",
+                    "translation": "two"
+                },
+                {
+                    "native": "équipes",
+                    "translation": "teams"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "France",
+                    "translation": "France"
+                },
+                {
+                    "native": "senior",
+                    "translation": "senior"
+                }
+            ]
+        },
+        {
+            "start": 36.28,
+            "duration": 3.6299999999999955,
+            "words": [
+                {
+                    "native": "stage",
+                    "translation": "training camp"
+                },
+                {
+                    "native": "des",
+                    "translation": "of the"
+                },
+                {
+                    "native": "deux",
+                    "translation": "two"
+                },
+                {
+                    "native": "équipes",
+                    "translation": "teams"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "France",
+                    "translation": "France"
+                },
+                {
+                    "native": "senior",
+                    "translation": "senior"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "bouldering"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "difficulté",
+                    "translation": "difficulty"
+                },
+                {
+                    "native": "qui",
+                    "translation": "that"
+                },
+                {
+                    "native": "préfigure",
+                    "translation": "foreshadows"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 39.91,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "bloc",
+                    "translation": "bouldering"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "difficulté",
+                    "translation": "difficulty"
+                },
+                {
+                    "native": "qui",
+                    "translation": "that"
+                },
+                {
+                    "native": "préfigure",
+                    "translation": "foreshadows"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 39.92,
+            "duration": 1.9099999999999966,
+            "words": [
+                {
+                    "native": "bloc",
+                    "translation": "block"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "difficulté",
+                    "translation": "difficulty"
+                },
+                {
+                    "native": "qui",
+                    "translation": "that"
+                },
+                {
+                    "native": "préfigure",
+                    "translation": "foreshadows"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "préparation",
+                    "translation": "preparation"
+                },
+                {
+                    "native": "pour",
+                    "translation": "for"
+                },
+                {
+                    "native": "deux",
+                    "translation": "two"
+                },
+                {
+                    "native": "saisons",
+                    "translation": "seasons"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                }
+            ]
+        },
+        {
+            "start": 41.83,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "préparation",
+                    "translation": "preparation"
+                },
+                {
+                    "native": "pour",
+                    "translation": "for"
+                },
+                {
+                    "native": "deux",
+                    "translation": "two"
+                },
+                {
+                    "native": "saisons",
+                    "translation": "seasons"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                }
+            ]
+        },
+        {
+            "start": 41.84,
+            "duration": 1.269999999999996,
+            "words": [
+                {
+                    "native": "préparation",
+                    "translation": "preparation"
+                },
+                {
+                    "native": "pour",
+                    "translation": "for"
+                },
+                {
+                    "native": "deux",
+                    "translation": "two"
+                },
+                {
+                    "native": "saisons",
+                    "translation": "seasons"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "importantes",
+                    "translation": "important"
+                },
+                {
+                    "native": "pour",
+                    "translation": "for"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "Fédération",
+                    "translation": "federation"
+                },
+                {
+                    "native": "Française",
+                    "translation": "French"
+                }
+            ]
+        },
+        {
+            "start": 43.11,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "importantes",
+                    "translation": "important"
+                },
+                {
+                    "native": "pour",
+                    "translation": "for"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "Fédération",
+                    "translation": "federation"
+                },
+                {
+                    "native": "Française",
+                    "translation": "French"
+                }
+            ]
+        },
+        {
+            "start": 43.12,
+            "duration": 1.7899999999999991,
+            "words": [
+                {
+                    "native": "importantes",
+                    "translation": "important"
+                },
+                {
+                    "native": "pour",
+                    "translation": "for"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "Fédération",
+                    "translation": "federation"
+                },
+                {
+                    "native": "Française",
+                    "translation": "French"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "montagne",
+                    "translation": "mountain"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "escalade",
+                    "translation": "climbing"
+                },
+                {
+                    "native": "deux",
+                    "translation": "two"
+                }
+            ]
+        },
+        {
+            "start": 44.91,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "montagne",
+                    "translation": "mountain"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "escalade",
+                    "translation": "climbing"
+                },
+                {
+                    "native": "deux",
+                    "translation": "two"
+                }
+            ]
+        },
+        {
+            "start": 44.92,
+            "duration": 1.75,
+            "words": [
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "montagne",
+                    "translation": "mountain"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "escalade",
+                    "translation": "climbing"
+                },
+                {
+                    "native": "deux",
+                    "translation": "two"
+                },
+                {
+                    "native": "championnat",
+                    "translation": "championship"
+                },
+                {
+                    "native": "du",
+                    "translation": "of the"
+                },
+                {
+                    "native": "monde",
+                    "translation": "world"
+                },
+                {
+                    "native": "qui",
+                    "translation": "that"
+                },
+                {
+                    "native": "suivent",
+                    "translation": "follow"
+                },
+                {
+                    "native": "cet",
+                    "translation": "this"
+                },
+                {
+                    "native": "été",
+                    "translation": "summer"
+                }
+            ]
+        },
+        {
+            "start": 46.67,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "championnat",
+                    "translation": "championship"
+                },
+                {
+                    "native": "du",
+                    "translation": "of the"
+                },
+                {
+                    "native": "monde",
+                    "translation": "world"
+                },
+                {
+                    "native": "qui",
+                    "translation": "that"
+                },
+                {
+                    "native": "suivent",
+                    "translation": "follow"
+                },
+                {
+                    "native": "cet",
+                    "translation": "this"
+                },
+                {
+                    "native": "été",
+                    "translation": "summer"
+                }
+            ]
+        },
+        {
+            "start": 46.68,
+            "duration": 2.950000000000003,
+            "words": [
+                {
+                    "native": "championnat",
+                    "translation": "championship"
+                },
+                {
+                    "native": "du",
+                    "translation": "of the"
+                },
+                {
+                    "native": "monde",
+                    "translation": "world"
+                },
+                {
+                    "native": "qui",
+                    "translation": "that"
+                },
+                {
+                    "native": "suivent",
+                    "translation": "follow"
+                },
+                {
+                    "native": "cet",
+                    "translation": "this"
+                },
+                {
+                    "native": "été",
+                    "translation": "summer"
+                },
+                {
+                    "native": "arco",
+                    "translation": "Arco"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "2012",
+                    "translation": "2012"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "championnats",
+                    "translation": "championships"
+                },
+                {
+                    "native": "du",
+                    "translation": "of the"
+                }
+            ]
+        },
+        {
+            "start": 49.63,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "arco",
+                    "translation": "Archery"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "2012",
+                    "translation": "2012"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "championnats",
+                    "translation": "championships"
+                },
+                {
+                    "native": "du",
+                    "translation": "of the"
+                }
+            ]
+        },
+        {
+            "start": 49.64,
+            "duration": 1.9799999999999969,
+            "words": [
+                {
+                    "native": "arco",
+                    "translation": "Arco"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "2012",
+                    "translation": "2012"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "championnats",
+                    "translation": "championships"
+                },
+                {
+                    "native": "du",
+                    "translation": "of the"
+                },
+                {
+                    "native": "monde",
+                    "translation": "world"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "parisbery",
+                    "translation": "Parisberry"
+                }
+            ]
+        },
+        {
+            "start": 51.62,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "monde",
+                    "translation": "world"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "parisbery",
+                    "translation": "Paris-Bercy"
+                }
+            ]
+        },
+        {
+            "start": 51.63,
+            "duration": 9.598999999999997,
+            "words": [
+                {
+                    "native": "monde",
+                    "translation": "people"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "parisbery",
+                    "translation": "Parisbery"
+                },
+                {
+                    "native": "Musique",
+                    "translation": "music"
+                }
+            ]
+        },
+        {
+            "start": 63.069,
+            "duration": 0.00999999999999801,
+            "words": [
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "avec",
+                    "translation": "with"
+                },
+                {
+                    "native": "six",
+                    "translation": "six"
+                },
+                {
+                    "native": "ouvreurs",
+                    "translation": "openers"
+                },
+                {
+                    "native": "là",
+                    "translation": "there"
+                },
+                {
+                    "native": "toute",
+                    "translation": "all"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 63.079,
+            "duration": 1.7100000000000009,
+            "words": [
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "avec",
+                    "translation": "with"
+                },
+                {
+                    "native": "six",
+                    "translation": "six"
+                },
+                {
+                    "native": "ouvreurs",
+                    "translation": "openers"
+                },
+                {
+                    "native": "là",
+                    "translation": "there"
+                },
+                {
+                    "native": "toute",
+                    "translation": "all"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "semaine",
+                    "translation": "week"
+                },
+                {
+                    "native": "depuis",
+                    "translation": "since"
+                },
+                {
+                    "native": "lundi",
+                    "translation": "Monday"
+                },
+                {
+                    "native": "matin",
+                    "translation": "morning"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "pendant",
+                    "translation": "during"
+                }
+            ]
+        },
+        {
+            "start": 64.789,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "semaine",
+                    "translation": "week"
+                },
+                {
+                    "native": "depuis",
+                    "translation": "since"
+                },
+                {
+                    "native": "lundi",
+                    "translation": "Monday"
+                },
+                {
+                    "native": "matin",
+                    "translation": "morning"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "pendant",
+                    "translation": "during"
+                }
+            ]
+        },
+        {
+            "start": 64.799,
+            "duration": 2.5509999999999877,
+            "words": [
+                {
+                    "native": "semaine",
+                    "translation": "week"
+                },
+                {
+                    "native": "depuis",
+                    "translation": "since"
+                },
+                {
+                    "native": "lundi",
+                    "translation": "Monday"
+                },
+                {
+                    "native": "matin",
+                    "translation": "morning"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "pendant",
+                    "translation": "during"
+                },
+                {
+                    "native": "5",
+                    "translation": "5"
+                },
+                {
+                    "native": "jours",
+                    "translation": "days"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "a",
+                    "translation": "has"
+                },
+                {
+                    "native": "tracé",
+                    "translation": "mapped out"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                },
+                {
+                    "native": "itinéraires",
+                    "translation": "routes"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 67.35,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "5",
+                    "translation": "5"
+                },
+                {
+                    "native": "jours",
+                    "translation": "days"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "a",
+                    "translation": "has"
+                },
+                {
+                    "native": "tracé",
+                    "translation": "drawn"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                },
+                {
+                    "native": "itinéraires",
+                    "translation": "routes"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 67.36,
+            "duration": 2.7489999999999952,
+            "words": [
+                {
+                    "native": "5",
+                    "translation": "5"
+                },
+                {
+                    "native": "jours",
+                    "translation": "days"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "a",
+                    "translation": "has"
+                },
+                {
+                    "native": "tracé",
+                    "translation": "mapped out"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                },
+                {
+                    "native": "itinéraires",
+                    "translation": "routes"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                },
+                {
+                    "native": "ce",
+                    "translation": "this"
+                },
+                {
+                    "native": "soit",
+                    "translation": "be"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "bouldering"
+                },
+                {
+                    "native": "ou",
+                    "translation": "or"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "difficulté",
+                    "translation": "difficulty"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 70.109,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "ce",
+                    "translation": "this"
+                },
+                {
+                    "native": "soit",
+                    "translation": "either"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "bouldering"
+                },
+                {
+                    "native": "ou",
+                    "translation": "or"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "difficulté",
+                    "translation": "difficulty"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 70.119,
+            "duration": 2.070999999999998,
+            "words": [
+                {
+                    "native": "ce",
+                    "translation": "it"
+                },
+                {
+                    "native": "soit",
+                    "translation": "whether"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "group"
+                },
+                {
+                    "native": "ou",
+                    "translation": "or"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "difficulté",
+                    "translation": "difficulty"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "petits",
+                    "translation": "small"
+                },
+                {
+                    "native": "jeux",
+                    "translation": "games"
+                },
+                {
+                    "native": "qu",
+                    "translation": "that"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "va",
+                    "translation": "will"
+                },
+                {
+                    "native": "leur",
+                    "translation": "to them"
+                },
+                {
+                    "native": "proposer",
+                    "translation": "offer"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 72.19,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "petits",
+                    "translation": "small"
+                },
+                {
+                    "native": "jeux",
+                    "translation": "games"
+                },
+                {
+                    "native": "qu",
+                    "translation": "that"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "va",
+                    "translation": "is going to"
+                },
+                {
+                    "native": "leur",
+                    "translation": "to them"
+                },
+                {
+                    "native": "proposer",
+                    "translation": "propose"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 72.2,
+            "duration": 2.030000000000001,
+            "words": [
+                {
+                    "native": "petits",
+                    "translation": "small"
+                },
+                {
+                    "native": "jeux",
+                    "translation": "games"
+                },
+                {
+                    "native": "qu",
+                    "translation": "that"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "va",
+                    "translation": "is going to"
+                },
+                {
+                    "native": "leur",
+                    "translation": "them"
+                },
+                {
+                    "native": "proposer",
+                    "translation": "suggest"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                },
+                {
+                    "native": "là",
+                    "translation": "there"
+                },
+                {
+                    "native": "ils",
+                    "translation": "they"
+                },
+                {
+                    "native": "seront",
+                    "translation": "will be"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "équipe",
+                    "translation": "team"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "4",
+                    "translation": "4"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                }
+            ]
+        },
+        {
+            "start": 74.23,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "que",
+                    "translation": "that"
+                },
+                {
+                    "native": "là",
+                    "translation": "there"
+                },
+                {
+                    "native": "ils",
+                    "translation": "they"
+                },
+                {
+                    "native": "seront",
+                    "translation": "will be"
+                },
+                {
+                    "native": "par",
+                    "translation": "per"
+                },
+                {
+                    "native": "équipe",
+                    "translation": "team"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "4",
+                    "translation": "4"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                }
+            ]
+        },
+        {
+            "start": 74.24,
+            "duration": 1.869000000000014,
+            "words": [
+                {
+                    "native": "que",
+                    "translation": "that"
+                },
+                {
+                    "native": "là",
+                    "translation": "there"
+                },
+                {
+                    "native": "ils",
+                    "translation": "they"
+                },
+                {
+                    "native": "seront",
+                    "translation": "will be"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "équipe",
+                    "translation": "team"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "4",
+                    "translation": "4"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "chaque",
+                    "translation": "each"
+                },
+                {
+                    "native": "équipe",
+                    "translation": "team"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "4",
+                    "translation": "4"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "composée",
+                    "translation": "made up"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                }
+            ]
+        },
+        {
+            "start": 76.10900000000001,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "chaque",
+                    "translation": "each"
+                },
+                {
+                    "native": "équipe",
+                    "translation": "team"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "4",
+                    "translation": "4"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "composée",
+                    "translation": "made up"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                }
+            ]
+        },
+        {
+            "start": 76.119,
+            "duration": 1.7510000000000048,
+            "words": [
+                {
+                    "native": "chaque",
+                    "translation": "each"
+                },
+                {
+                    "native": "équipe",
+                    "translation": "team"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "4",
+                    "translation": "4"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "composée",
+                    "translation": "made up"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "bloqueur",
+                    "translation": "blocker"
+                },
+                {
+                    "native": "une",
+                    "translation": "a"
+                },
+                {
+                    "native": "bloqueuse",
+                    "translation": "female blocker"
+                },
+                {
+                    "native": "unulteur",
+                    "translation": "uploader"
+                }
+            ]
+        },
+        {
+            "start": 77.87,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "bloqueur",
+                    "translation": "blocker"
+                },
+                {
+                    "native": "une",
+                    "translation": "a"
+                },
+                {
+                    "native": "bloqueuse",
+                    "translation": "female blocker"
+                },
+                {
+                    "native": "unulteur",
+                    "translation": "blocker"
+                }
+            ]
+        },
+        {
+            "start": 77.88,
+            "duration": 2.3100000000000023,
+            "words": [
+                {
+                    "native": "bloqueur",
+                    "translation": "blocker"
+                },
+                {
+                    "native": "une",
+                    "translation": "a"
+                },
+                {
+                    "native": "bloqueuse",
+                    "translation": "blocker"
+                },
+                {
+                    "native": "unulteur",
+                    "translation": "blocker"
+                },
+                {
+                    "native": "uneulteuse",
+                    "translation": "blocker"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "ils",
+                    "translation": "they"
+                },
+                {
+                    "native": "vont",
+                    "translation": "are going"
+                },
+                {
+                    "native": "devoir",
+                    "translation": "have to"
+                },
+                {
+                    "native": "passer",
+                    "translation": "pass"
+                }
+            ]
+        },
+        {
+            "start": 80.19,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "uneulteuse",
+                    "translation": "unknown term"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "ils",
+                    "translation": "they"
+                },
+                {
+                    "native": "vont",
+                    "translation": "are going"
+                },
+                {
+                    "native": "devoir",
+                    "translation": "have to"
+                },
+                {
+                    "native": "passer",
+                    "translation": "go through"
+                }
+            ]
+        },
+        {
+            "start": 80.2,
+            "duration": 2.1099999999999994,
+            "words": [
+                {
+                    "native": "uneulteuse",
+                    "translation": "unknown term"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "ils",
+                    "translation": "they"
+                },
+                {
+                    "native": "vont",
+                    "translation": "are going"
+                },
+                {
+                    "native": "devoir",
+                    "translation": "have to"
+                },
+                {
+                    "native": "passer",
+                    "translation": "pass through"
+                },
+                {
+                    "native": "dans",
+                    "translation": "in"
+                },
+                {
+                    "native": "différents",
+                    "translation": "different"
+                },
+                {
+                    "native": "secteurs",
+                    "translation": "sectors"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                }
+            ]
+        },
+        {
+            "start": 82.31,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "dans",
+                    "translation": "in"
+                },
+                {
+                    "native": "différents",
+                    "translation": "different"
+                },
+                {
+                    "native": "secteurs",
+                    "translation": "sectors"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                }
+            ]
+        },
+        {
+            "start": 82.32,
+            "duration": 2.2700000000000102,
+            "words": [
+                {
+                    "native": "dans",
+                    "translation": "in"
+                },
+                {
+                    "native": "différents",
+                    "translation": "different"
+                },
+                {
+                    "native": "secteurs",
+                    "translation": "sectors"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "des",
+                    "translation": "of the"
+                },
+                {
+                    "native": "secteurs",
+                    "translation": "sectors"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "block"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "voie",
+                    "translation": "track"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "fin",
+                    "translation": "end"
+                }
+            ]
+        },
+        {
+            "start": 84.59,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "secteurs",
+                    "translation": "sections"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "block"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "voie",
+                    "translation": "track"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "à",
+                    "translation": "at"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "fin",
+                    "translation": "end"
+                }
+            ]
+        },
+        {
+            "start": 84.6,
+            "duration": 1.6700000000000017,
+            "words": [
+                {
+                    "native": "secteurs",
+                    "translation": "sections"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "block"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "voie",
+                    "translation": "track"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "à",
+                    "translation": "at"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "fin",
+                    "translation": "end"
+                },
+                {
+                    "native": "du",
+                    "translation": "of the"
+                },
+                {
+                    "native": "weekend",
+                    "translation": "weekend"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "comptabilisera",
+                    "translation": "will count"
+                },
+                {
+                    "native": "tous",
+                    "translation": "all"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 86.27,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "du",
+                    "translation": "of the"
+                },
+                {
+                    "native": "weekend",
+                    "translation": "weekend"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "comptabilisera",
+                    "translation": "will count"
+                },
+                {
+                    "native": "tous",
+                    "translation": "all"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 86.28,
+            "duration": 2.75,
+            "words": [
+                {
+                    "native": "du",
+                    "translation": "of the"
+                },
+                {
+                    "native": "weekend",
+                    "translation": "weekend"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "comptabilisera",
+                    "translation": "will count"
+                },
+                {
+                    "native": "tous",
+                    "translation": "all"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "points",
+                    "translation": "points"
+                },
+                {
+                    "native": "réalisés",
+                    "translation": "scored"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "équipes",
+                    "translation": "teams"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "ça",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 89.03,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "points",
+                    "translation": "points"
+                },
+                {
+                    "native": "réalisés",
+                    "translation": "scored"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "équipes",
+                    "translation": "teams"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "ça",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 89.03999999999999,
+            "duration": 1.5900000000000034,
+            "words": [
+                {
+                    "native": "points",
+                    "translation": "points"
+                },
+                {
+                    "native": "réalisés",
+                    "translation": "scored"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "équipes",
+                    "translation": "teams"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "ça",
+                    "translation": "that"
+                },
+                {
+                    "native": "nous",
+                    "translation": "us"
+                },
+                {
+                    "native": "donnera",
+                    "translation": "will give"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "équipe",
+                    "translation": "team"
+                },
+                {
+                    "native": "qui",
+                    "translation": "that"
+                },
+                {
+                    "native": "a",
+                    "translation": "has"
+                },
+                {
+                    "native": "marqué",
+                    "translation": "scored"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 90.63,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "nous",
+                    "translation": "us"
+                },
+                {
+                    "native": "donnera",
+                    "translation": "will give"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "équipe",
+                    "translation": "team"
+                },
+                {
+                    "native": "qui",
+                    "translation": "who"
+                },
+                {
+                    "native": "a",
+                    "translation": "has"
+                },
+                {
+                    "native": "marqué",
+                    "translation": "scored"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 90.64,
+            "duration": 2.0700000000000074,
+            "words": [
+                {
+                    "native": "nous",
+                    "translation": "us"
+                },
+                {
+                    "native": "donnera",
+                    "translation": "will give"
+                },
+                {
+                    "native": "l",
+                    "translation": "the"
+                },
+                {
+                    "native": "équipe",
+                    "translation": "team"
+                },
+                {
+                    "native": "qui",
+                    "translation": "that/who"
+                },
+                {
+                    "native": "a",
+                    "translation": "has"
+                },
+                {
+                    "native": "marqué",
+                    "translation": "scored"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "plus",
+                    "translation": "most"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "points",
+                    "translation": "points"
+                },
+                {
+                    "native": "voilà",
+                    "translation": "there you go"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "pour",
+                    "translation": "to"
+                },
+                {
+                    "native": "créer",
+                    "translation": "create"
+                }
+            ]
+        },
+        {
+            "start": 92.71000000000001,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "plus",
+                    "translation": "more"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "points",
+                    "translation": "points"
+                },
+                {
+                    "native": "voilà",
+                    "translation": "there it is"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "pour",
+                    "translation": "for"
+                },
+                {
+                    "native": "créer",
+                    "translation": "create"
+                }
+            ]
+        },
+        {
+            "start": 92.72,
+            "duration": 1.6299999999999955,
+            "words": [
+                {
+                    "native": "plus",
+                    "translation": "more"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "points",
+                    "translation": "points"
+                },
+                {
+                    "native": "voilà",
+                    "translation": "there you go"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "pour",
+                    "translation": "to"
+                },
+                {
+                    "native": "créer",
+                    "translation": "create"
+                },
+                {
+                    "native": "une",
+                    "translation": "a"
+                },
+                {
+                    "native": "bonne",
+                    "translation": "good"
+                },
+                {
+                    "native": "ambiance",
+                    "translation": "atmosphere"
+                },
+                {
+                    "native": "entre",
+                    "translation": "between"
+                },
+                {
+                    "native": "eux",
+                    "translation": "them"
+                },
+                {
+                    "native": "qui",
+                    "translation": "who"
+                },
+                {
+                    "native": "se",
+                    "translation": "each other"
+                }
+            ]
+        },
+        {
+            "start": 94.35,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "une",
+                    "translation": "a"
+                },
+                {
+                    "native": "bonne",
+                    "translation": "good"
+                },
+                {
+                    "native": "ambiance",
+                    "translation": "atmosphere"
+                },
+                {
+                    "native": "entre",
+                    "translation": "between"
+                },
+                {
+                    "native": "eux",
+                    "translation": "them"
+                },
+                {
+                    "native": "qui",
+                    "translation": "who"
+                },
+                {
+                    "native": "se",
+                    "translation": "themselves"
+                }
+            ]
+        },
+        {
+            "start": 94.36,
+            "duration": 2.0290000000000106,
+            "words": [
+                {
+                    "native": "une",
+                    "translation": "a"
+                },
+                {
+                    "native": "bonne",
+                    "translation": "good"
+                },
+                {
+                    "native": "ambiance",
+                    "translation": "atmosphere"
+                },
+                {
+                    "native": "entre",
+                    "translation": "between"
+                },
+                {
+                    "native": "eux",
+                    "translation": "them"
+                },
+                {
+                    "native": "qui",
+                    "translation": "who"
+                },
+                {
+                    "native": "se",
+                    "translation": "each other"
+                },
+                {
+                    "native": "connaissent",
+                    "translation": "know"
+                },
+                {
+                    "native": "mieux",
+                    "translation": "better"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "puis",
+                    "translation": "then"
+                },
+                {
+                    "native": "puis",
+                    "translation": "then"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 96.38900000000001,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "connaissent",
+                    "translation": "know"
+                },
+                {
+                    "native": "mieux",
+                    "translation": "better"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "puis",
+                    "translation": "then"
+                },
+                {
+                    "native": "puis",
+                    "translation": "then"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                }
+            ]
+        },
+        {
+            "start": 96.399,
+            "duration": 1.5109999999999957,
+            "words": [
+                {
+                    "native": "connaissent",
+                    "translation": "know"
+                },
+                {
+                    "native": "mieux",
+                    "translation": "better"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "puis",
+                    "translation": "then"
+                },
+                {
+                    "native": "puis",
+                    "translation": "then"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "sympa",
+                    "translation": "nice"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "début",
+                    "translation": "start"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "saison",
+                    "translation": "season"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "pouvoir",
+                    "translation": "to be able to"
+                },
+                {
+                    "native": "leur",
+                    "translation": "them"
+                }
+            ]
+        },
+        {
+            "start": 97.91,
+            "duration": 0.010000000000005116,
+            "words": [
+                {
+                    "native": "sympa",
+                    "translation": "nice"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "début",
+                    "translation": "beginning"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "saison",
+                    "translation": "season"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "pouvoir",
+                    "translation": "can"
+                },
+                {
+                    "native": "leur",
+                    "translation": "them"
+                }
+            ]
+        },
+        {
+            "start": 97.92,
+            "duration": 24.39,
+            "words": [
+                {
+                    "native": "sympa",
+                    "translation": "nice"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "début",
+                    "translation": "beginning"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "saison",
+                    "translation": "season"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "pouvoir",
+                    "translation": "be able to"
+                },
+                {
+                    "native": "leur",
+                    "translation": "them"
+                },
+                {
+                    "native": "proposer",
+                    "translation": "offer"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                },
+                {
+                    "native": "exercices",
+                    "translation": "exercises"
+                },
+                {
+                    "native": "comme",
+                    "translation": "like"
+                },
+                {
+                    "native": "ça",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 180.949,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "Musique",
+                    "translation": "music"
+                }
+            ]
+        },
+        {
+            "start": 182.949,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "alors",
+                    "translation": "so"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "cotations",
+                    "translation": "ratings"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "dur",
+                    "translation": "hard"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "estimer",
+                    "translation": "estimate"
+                }
+            ]
+        },
+        {
+            "start": 182.959,
+            "duration": 2.790999999999997,
+            "words": [
+                {
+                    "native": "alors",
+                    "translation": "so"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "cotations",
+                    "translation": "ratings"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "dur",
+                    "translation": "hard"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "estimer",
+                    "translation": "estimate"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "bulk"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "dire",
+                    "translation": "say"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                },
+                {
+                    "native": "ça",
+                    "translation": "that"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                }
+            ]
+        },
+        {
+            "start": 185.75,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "group"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "dire",
+                    "translation": "say"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                },
+                {
+                    "native": "ça",
+                    "translation": "that"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                }
+            ]
+        },
+        {
+            "start": 185.76,
+            "duration": 2.3500000000000227,
+            "words": [
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "block"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "dire",
+                    "translation": "say"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                },
+                {
+                    "native": "ça",
+                    "translation": "it"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "d",
+                    "translation": "of"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "block"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "Calif",
+                    "translation": "California"
+                },
+                {
+                    "native": "femme",
+                    "translation": "woman"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "une",
+                    "translation": "a"
+                },
+                {
+                    "native": "finale",
+                    "translation": "final"
+                },
+                {
+                    "native": "homme",
+                    "translation": "man"
+                }
+            ]
+        },
+        {
+            "start": 188.11,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "bloc",
+                    "translation": "block"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "Calif",
+                    "translation": "Calif."
+                },
+                {
+                    "native": "femme",
+                    "translation": "woman"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "une",
+                    "translation": "a"
+                },
+                {
+                    "native": "finale",
+                    "translation": "final"
+                },
+                {
+                    "native": "homme",
+                    "translation": "man"
+                }
+            ]
+        },
+        {
+            "start": 188.12,
+            "duration": 1.710000000000008,
+            "words": [
+                {
+                    "native": "bloc",
+                    "translation": "block"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "Calif",
+                    "translation": "Calif."
+                },
+                {
+                    "native": "femme",
+                    "translation": "woman"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "une",
+                    "translation": "a"
+                },
+                {
+                    "native": "finale",
+                    "translation": "final"
+                },
+                {
+                    "native": "homme",
+                    "translation": "man"
+                },
+                {
+                    "native": "voilà",
+                    "translation": "there"
+                },
+                {
+                    "native": "sur",
+                    "translation": "on"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "30",
+                    "translation": "30"
+                },
+                {
+                    "native": "blocs",
+                    "translation": "blocks"
+                },
+                {
+                    "native": "qu",
+                    "translation": "that"
+                },
+                {
+                    "native": "il",
+                    "translation": "it"
+                },
+                {
+                    "native": "y",
+                    "translation": "there"
+                },
+                {
+                    "native": "aura",
+                    "translation": "will be"
+                },
+                {
+                    "native": "sur",
+                    "translation": "on"
+                }
+            ]
+        },
+        {
+            "start": 189.83,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "voilà",
+                    "translation": "there"
+                },
+                {
+                    "native": "sur",
+                    "translation": "on"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "30",
+                    "translation": "30"
+                },
+                {
+                    "native": "blocs",
+                    "translation": "boulders"
+                },
+                {
+                    "native": "qu",
+                    "translation": "that"
+                },
+                {
+                    "native": "il",
+                    "translation": "there"
+                },
+                {
+                    "native": "y",
+                    "translation": "there"
+                },
+                {
+                    "native": "aura",
+                    "translation": "will be"
+                },
+                {
+                    "native": "sur",
+                    "translation": "on"
+                }
+            ]
+        },
+        {
+            "start": 189.84,
+            "duration": 2.509999999999991,
+            "words": [
+                {
+                    "native": "voilà",
+                    "translation": "here are"
+                },
+                {
+                    "native": "sur",
+                    "translation": "on"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "30",
+                    "translation": "30"
+                },
+                {
+                    "native": "blocs",
+                    "translation": "blocks"
+                },
+                {
+                    "native": "qu",
+                    "translation": "that"
+                },
+                {
+                    "native": "il",
+                    "translation": "it"
+                },
+                {
+                    "native": "y",
+                    "translation": "there"
+                },
+                {
+                    "native": "aura",
+                    "translation": "will be"
+                },
+                {
+                    "native": "sur",
+                    "translation": "on"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "zone",
+                    "translation": "zone"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "block"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "cotation",
+                    "translation": "rating"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "block"
+                }
+            ]
+        },
+        {
+            "start": 192.35,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "zone",
+                    "translation": "area"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "bouldering"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "cotation",
+                    "translation": "grading"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "bouldering"
+                }
+            ]
+        },
+        {
+            "start": 192.36,
+            "duration": 1.8689999999999714,
+            "words": [
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "zone",
+                    "translation": "zone"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "block"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "cotation",
+                    "translation": "rating"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "block"
+                },
+                {
+                    "native": "suivant",
+                    "translation": "following"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "style",
+                    "translation": "style"
+                },
+                {
+                    "native": "si",
+                    "translation": "if"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "dal",
+                    "translation": "D"
+                },
+                {
+                    "native": "ou",
+                    "translation": "or"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "D",
+                    "translation": "D"
+                }
+            ]
+        },
+        {
+            "start": 194.22899999999998,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "suivant",
+                    "translation": "following"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "style",
+                    "translation": "style"
+                },
+                {
+                    "native": "si",
+                    "translation": "if"
+                },
+                {
+                    "native": "c",
+                    "translation": "this"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "dal",
+                    "translation": "DAL"
+                },
+                {
+                    "native": "ou",
+                    "translation": "or"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "D",
+                    "translation": "D"
+                }
+            ]
+        },
+        {
+            "start": 194.239,
+            "duration": 3.150999999999982,
+            "words": [
+                {
+                    "native": "suivant",
+                    "translation": "depending on"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "style",
+                    "translation": "style"
+                },
+                {
+                    "native": "si",
+                    "translation": "if"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "dal",
+                    "translation": "DAL"
+                },
+                {
+                    "native": "ou",
+                    "translation": "or"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "D",
+                    "translation": "D"
+                },
+                {
+                    "native": "ver",
+                    "translation": "toward"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "dur",
+                    "translation": "hard"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "estimer",
+                    "translation": "estimate"
+                },
+                {
+                    "native": "mais",
+                    "translation": "but"
+                },
+                {
+                    "native": "je",
+                    "translation": "I"
+                },
+                {
+                    "native": "sais",
+                    "translation": "know"
+                },
+                {
+                    "native": "pas",
+                    "translation": "not"
+                }
+            ]
+        },
+        {
+            "start": 197.39,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "ver",
+                    "translation": "short for \"vers\"; around"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "dur",
+                    "translation": "hard"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "estimer",
+                    "translation": "estimate"
+                },
+                {
+                    "native": "mais",
+                    "translation": "but"
+                },
+                {
+                    "native": "je",
+                    "translation": "I"
+                },
+                {
+                    "native": "sais",
+                    "translation": "know"
+                },
+                {
+                    "native": "pas",
+                    "translation": "not"
+                }
+            ]
+        },
+        {
+            "start": 197.4,
+            "duration": 2.6299999999999955,
+            "words": [
+                {
+                    "native": "ver",
+                    "translation": "worm"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "dur",
+                    "translation": "hard"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "estimer",
+                    "translation": "estimate"
+                },
+                {
+                    "native": "mais",
+                    "translation": "but"
+                },
+                {
+                    "native": "je",
+                    "translation": "I"
+                },
+                {
+                    "native": "sais",
+                    "translation": "know"
+                },
+                {
+                    "native": "pas",
+                    "translation": "not"
+                },
+                {
+                    "native": "je",
+                    "translation": "I"
+                },
+                {
+                    "native": "ça",
+                    "translation": "that"
+                },
+                {
+                    "native": "commence",
+                    "translation": "starts"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "partir",
+                    "translation": "start"
+                },
+                {
+                    "native": "6c",
+                    "translation": "6c"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "boulder"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "va",
+                    "translation": "go"
+                }
+            ]
+        },
+        {
+            "start": 200.03,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "je",
+                    "translation": "I"
+                },
+                {
+                    "native": "ça",
+                    "translation": "that"
+                },
+                {
+                    "native": "commence",
+                    "translation": "starts"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "partir",
+                    "translation": "from"
+                },
+                {
+                    "native": "6c",
+                    "translation": "6c"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "boulder problem"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "va",
+                    "translation": "go"
+                }
+            ]
+        },
+        {
+            "start": 200.04,
+            "duration": 1.710000000000008,
+            "words": [
+                {
+                    "native": "je",
+                    "translation": "I"
+                },
+                {
+                    "native": "ça",
+                    "translation": "that"
+                },
+                {
+                    "native": "commence",
+                    "translation": "begins"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "partir",
+                    "translation": "start"
+                },
+                {
+                    "native": "6c",
+                    "translation": "6c"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "boulder problem"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "va",
+                    "translation": "are going to"
+                },
+                {
+                    "native": "dire",
+                    "translation": "say"
+                },
+                {
+                    "native": "voilà",
+                    "translation": "there"
+                },
+                {
+                    "native": "ce",
+                    "translation": "this"
+                },
+                {
+                    "native": "sera",
+                    "translation": "will be"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "boulder problem"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "plus",
+                    "translation": "most"
+                }
+            ]
+        },
+        {
+            "start": 201.75,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "dire",
+                    "translation": "say"
+                },
+                {
+                    "native": "voilà",
+                    "translation": "there you go"
+                },
+                {
+                    "native": "ce",
+                    "translation": "this"
+                },
+                {
+                    "native": "sera",
+                    "translation": "will be"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "boulder"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "plus",
+                    "translation": "most"
+                }
+            ]
+        },
+        {
+            "start": 201.76,
+            "duration": 2.7900000000000205,
+            "words": [
+                {
+                    "native": "dire",
+                    "translation": "say"
+                },
+                {
+                    "native": "voilà",
+                    "translation": "there it is"
+                },
+                {
+                    "native": "ce",
+                    "translation": "this"
+                },
+                {
+                    "native": "sera",
+                    "translation": "will be"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "bloc",
+                    "translation": "boulder"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "plus",
+                    "translation": "most"
+                },
+                {
+                    "native": "facile",
+                    "translation": "easy"
+                },
+                {
+                    "native": "ou",
+                    "translation": "or"
+                },
+                {
+                    "native": "peut",
+                    "translation": "can"
+                },
+                {
+                    "native": "être",
+                    "translation": "be"
+                },
+                {
+                    "native": "6b",
+                    "translation": "6B"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "ça",
+                    "translation": "that"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "sûrement",
+                    "translation": "surely"
+                }
+            ]
+        },
+        {
+            "start": 204.55,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "facile",
+                    "translation": "easy"
+                },
+                {
+                    "native": "ou",
+                    "translation": "or"
+                },
+                {
+                    "native": "peut",
+                    "translation": "can"
+                },
+                {
+                    "native": "être",
+                    "translation": "be"
+                },
+                {
+                    "native": "6b",
+                    "translation": "6b"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "ça",
+                    "translation": "that"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "sûrement",
+                    "translation": "surely"
+                }
+            ]
+        },
+        {
+            "start": 204.56,
+            "duration": 3.1100000000000136,
+            "words": [
+                {
+                    "native": "facile",
+                    "translation": "easy"
+                },
+                {
+                    "native": "ou",
+                    "translation": "or"
+                },
+                {
+                    "native": "peut",
+                    "translation": "can"
+                },
+                {
+                    "native": "être",
+                    "translation": "be"
+                },
+                {
+                    "native": "6b",
+                    "translation": "6b"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "ça",
+                    "translation": "that"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "sûrement",
+                    "translation": "surely"
+                },
+                {
+                    "native": "jusqu",
+                    "translation": "until"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "vers",
+                    "translation": "around"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "7c",
+                    "translation": "7c"
+                },
+                {
+                    "native": "on",
+                    "translation": "one"
+                },
+                {
+                    "native": "va",
+                    "translation": "go"
+                },
+                {
+                    "native": "dire",
+                    "translation": "say"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                }
+            ]
+        },
+        {
+            "start": 207.67000000000002,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "jusqu",
+                    "translation": "until"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "vers",
+                    "translation": "around"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "7c",
+                    "translation": "7c"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "dire",
+                    "translation": "say"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                }
+            ]
+        },
+        {
+            "start": 207.68,
+            "duration": 2.548999999999978,
+            "words": [
+                {
+                    "native": "jusqu",
+                    "translation": "until"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "vers",
+                    "translation": "around"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "7c",
+                    "translation": "7c"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "dire",
+                    "translation": "say"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "voie",
+                    "translation": "route"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "voie",
+                    "translation": "route"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "plus",
+                    "translation": "most"
+                },
+                {
+                    "native": "facile",
+                    "translation": "easy"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                }
+            ]
+        },
+        {
+            "start": 210.22899999999998,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "voie",
+                    "translation": "route"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "voie",
+                    "translation": "route"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "plus",
+                    "translation": "more"
+                },
+                {
+                    "native": "facile",
+                    "translation": "easy"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                }
+            ]
+        },
+        {
+            "start": 210.239,
+            "duration": 3.6299999999999955,
+            "words": [
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "voie",
+                    "translation": "route"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "voie",
+                    "translation": "route"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "plus",
+                    "translation": "most"
+                },
+                {
+                    "native": "facile",
+                    "translation": "easy"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "va",
+                    "translation": "goes"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "7c",
+                    "translation": "7c"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "plus",
+                    "translation": "most"
+                },
+                {
+                    "native": "dure",
+                    "translation": "hard"
+                },
+                {
+                    "native": "8b",
+                    "translation": "8b"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "sachant",
+                    "translation": "knowing"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 213.869,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "7c",
+                    "translation": "7c"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "plus",
+                    "translation": "more"
+                },
+                {
+                    "native": "dure",
+                    "translation": "hardest"
+                },
+                {
+                    "native": "8b",
+                    "translation": "8b"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "sachant",
+                    "translation": "knowing"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 213.879,
+            "duration": 1.5109999999999957,
+            "words": [
+                {
+                    "native": "7c",
+                    "translation": "7c"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "plus",
+                    "translation": "most"
+                },
+                {
+                    "native": "dure",
+                    "translation": "hard"
+                },
+                {
+                    "native": "8b",
+                    "translation": "8b"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "sachant",
+                    "translation": "knowing"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                },
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "exercice",
+                    "translation": "exercise"
+                },
+                {
+                    "native": "particulier",
+                    "translation": "specific"
+                },
+                {
+                    "native": "parce",
+                    "translation": "because"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 215.39,
+            "duration": 0.010000000000019327,
+            "words": [
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "exercice",
+                    "translation": "exercise"
+                },
+                {
+                    "native": "particulier",
+                    "translation": "special"
+                },
+                {
+                    "native": "parce",
+                    "translation": "because"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                }
+            ]
+        },
+        {
+            "start": 215.4,
+            "duration": 3.1500000000000057,
+            "words": [
+                {
+                    "native": "c",
+                    "translation": "this"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "exercice",
+                    "translation": "exercise"
+                },
+                {
+                    "native": "particulier",
+                    "translation": "special"
+                },
+                {
+                    "native": "parce",
+                    "translation": "because"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                },
+                {
+                    "native": "c",
+                    "translation": "this"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "contestte",
+                    "translation": "contest"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "fait",
+                    "translation": "fact"
+                },
+                {
+                    "native": "ils",
+                    "translation": "they"
+                }
+            ]
+        },
+        {
+            "start": 218.55,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "contestte",
+                    "translation": "contest"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "fait",
+                    "translation": "fact"
+                },
+                {
+                    "native": "ils",
+                    "translation": "they"
+                }
+            ]
+        },
+        {
+            "start": 218.56,
+            "duration": 1.710000000000008,
+            "words": [
+                {
+                    "native": "c",
+                    "translation": "it"
+                },
+                {
+                    "native": "est",
+                    "translation": "is"
+                },
+                {
+                    "native": "un",
+                    "translation": "a"
+                },
+                {
+                    "native": "contestte",
+                    "translation": "contest"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                },
+                {
+                    "native": "fait",
+                    "translation": "fact"
+                },
+                {
+                    "native": "ils",
+                    "translation": "they"
+                },
+                {
+                    "native": "seront",
+                    "translation": "will be"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "fatigués",
+                    "translation": "tired"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "volume",
+                    "translation": "volume"
+                },
+                {
+                    "native": "parce",
+                    "translation": "because"
+                }
+            ]
+        },
+        {
+            "start": 220.27,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "seront",
+                    "translation": "will be"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "fatigués",
+                    "translation": "tired"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "volume",
+                    "translation": "volume"
+                },
+                {
+                    "native": "parce",
+                    "translation": "because"
+                }
+            ]
+        },
+        {
+            "start": 220.28,
+            "duration": 1.710000000000008,
+            "words": [
+                {
+                    "native": "seront",
+                    "translation": "will be"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "fatigués",
+                    "translation": "tired"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "le",
+                    "translation": "the"
+                },
+                {
+                    "native": "volume",
+                    "translation": "volume"
+                },
+                {
+                    "native": "parce",
+                    "translation": "because"
+                },
+                {
+                    "native": "que",
+                    "translation": "that"
+                },
+                {
+                    "native": "chaque",
+                    "translation": "each"
+                },
+                {
+                    "native": "heure",
+                    "translation": "hour"
+                },
+                {
+                    "native": "il",
+                    "translation": "he"
+                },
+                {
+                    "native": "tourne",
+                    "translation": "turns"
+                },
+                {
+                    "native": "de",
+                    "translation": "from"
+                },
+                {
+                    "native": "secteur",
+                    "translation": "sector"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                }
+            ]
+        },
+        {
+            "start": 221.99,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "que",
+                    "translation": "that"
+                },
+                {
+                    "native": "chaque",
+                    "translation": "each"
+                },
+                {
+                    "native": "heure",
+                    "translation": "hour"
+                },
+                {
+                    "native": "il",
+                    "translation": "he"
+                },
+                {
+                    "native": "tourne",
+                    "translation": "moves around"
+                },
+                {
+                    "native": "de",
+                    "translation": "from"
+                },
+                {
+                    "native": "secteur",
+                    "translation": "area"
+                },
+                {
+                    "native": "en",
+                    "translation": "in"
+                }
+            ]
+        },
+        {
+            "start": 222.0,
+            "duration": 2.429000000000002,
+            "words": [
+                {
+                    "native": "que",
+                    "translation": "that"
+                },
+                {
+                    "native": "chaque",
+                    "translation": "each"
+                },
+                {
+                    "native": "heure",
+                    "translation": "hour"
+                },
+                {
+                    "native": "il",
+                    "translation": "he"
+                },
+                {
+                    "native": "tourne",
+                    "translation": "goes around"
+                },
+                {
+                    "native": "de",
+                    "translation": "from"
+                },
+                {
+                    "native": "secteur",
+                    "translation": "sector"
+                },
+                {
+                    "native": "en",
+                    "translation": "to"
+                },
+                {
+                    "native": "secteur",
+                    "translation": "sector"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "là",
+                    "translation": "there"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "a",
+                    "translation": "has"
+                },
+                {
+                    "native": "proposé",
+                    "translation": "proposed"
+                },
+                {
+                    "native": "déjà",
+                    "translation": "already"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                }
+            ]
+        },
+        {
+            "start": 224.429,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "secteur",
+                    "translation": "area"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "là",
+                    "translation": "there"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "a",
+                    "translation": "has"
+                },
+                {
+                    "native": "proposé",
+                    "translation": "suggested"
+                },
+                {
+                    "native": "déjà",
+                    "translation": "already"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                }
+            ]
+        },
+        {
+            "start": 224.439,
+            "duration": 2.1500000000000057,
+            "words": [
+                {
+                    "native": "secteur",
+                    "translation": "sector"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "là",
+                    "translation": "there"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "a",
+                    "translation": "has"
+                },
+                {
+                    "native": "proposé",
+                    "translation": "proposed"
+                },
+                {
+                    "native": "déjà",
+                    "translation": "already"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                },
+                {
+                    "native": "voies",
+                    "translation": "routes"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "dures",
+                    "translation": "hard"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "rapport",
+                    "translation": "comparison"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 226.589,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "voies",
+                    "translation": "ways"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "dures",
+                    "translation": "hard"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "rapport",
+                    "translation": "relation"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                }
+            ]
+        },
+        {
+            "start": 226.599,
+            "duration": 3.031000000000006,
+            "words": [
+                {
+                    "native": "voies",
+                    "translation": "ways"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "dures",
+                    "translation": "hard"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "rapport",
+                    "translation": "comparison"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "contrainte",
+                    "translation": "constraint"
+                },
+                {
+                    "native": "du",
+                    "translation": "of the"
+                },
+                {
+                    "native": "stage",
+                    "translation": "internship"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "si",
+                    "translation": "if"
+                },
+                {
+                    "native": "quelqu",
+                    "translation": "someone"
+                },
+                {
+                    "native": "un",
+                    "translation": "one"
+                }
+            ]
+        },
+        {
+            "start": 229.63,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "contrainte",
+                    "translation": "constraint"
+                },
+                {
+                    "native": "du",
+                    "translation": "of the"
+                },
+                {
+                    "native": "stage",
+                    "translation": "internship"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "si",
+                    "translation": "if"
+                },
+                {
+                    "native": "quelqu",
+                    "translation": "someone"
+                },
+                {
+                    "native": "un",
+                    "translation": "one"
+                }
+            ]
+        },
+        {
+            "start": 229.64,
+            "duration": 1.4300000000000068,
+            "words": [
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "contrainte",
+                    "translation": "constraint"
+                },
+                {
+                    "native": "du",
+                    "translation": "of the"
+                },
+                {
+                    "native": "stage",
+                    "translation": "training course"
+                },
+                {
+                    "native": "donc",
+                    "translation": "so"
+                },
+                {
+                    "native": "si",
+                    "translation": "if"
+                },
+                {
+                    "native": "quelqu",
+                    "translation": "someone"
+                },
+                {
+                    "native": "un",
+                    "translation": "one"
+                },
+                {
+                    "native": "arrive",
+                    "translation": "manages"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "enchaîner",
+                    "translation": "link together"
+                },
+                {
+                    "native": "toutes",
+                    "translation": "all"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "voies",
+                    "translation": "routes"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                }
+            ]
+        },
+        {
+            "start": 231.07,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "arrive",
+                    "translation": "manages"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "enchaîner",
+                    "translation": "link together"
+                },
+                {
+                    "native": "toutes",
+                    "translation": "all"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "voies",
+                    "translation": "routes"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                }
+            ]
+        },
+        {
+            "start": 231.07999999999998,
+            "duration": 1.0300000000000296,
+            "words": [
+                {
+                    "native": "arrive",
+                    "translation": "manages"
+                },
+                {
+                    "native": "à",
+                    "translation": "to"
+                },
+                {
+                    "native": "enchaîner",
+                    "translation": "link together"
+                },
+                {
+                    "native": "toutes",
+                    "translation": "all"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "voies",
+                    "translation": "routes"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "tous",
+                    "translation": "all"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "blocs",
+                    "translation": "boulders"
+                },
+                {
+                    "native": "ce",
+                    "translation": "this"
+                },
+                {
+                    "native": "sera",
+                    "translation": "will be"
+                },
+                {
+                    "native": "vraiment",
+                    "translation": "really"
+                }
+            ]
+        },
+        {
+            "start": 232.11,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "tous",
+                    "translation": "all"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "blocs",
+                    "translation": "boulders"
+                },
+                {
+                    "native": "ce",
+                    "translation": "this"
+                },
+                {
+                    "native": "sera",
+                    "translation": "will be"
+                },
+                {
+                    "native": "vraiment",
+                    "translation": "really"
+                }
+            ]
+        },
+        {
+            "start": 232.12,
+            "duration": 1.8290000000000077,
+            "words": [
+                {
+                    "native": "tous",
+                    "translation": "all"
+                },
+                {
+                    "native": "les",
+                    "translation": "the"
+                },
+                {
+                    "native": "blocs",
+                    "translation": "blocks"
+                },
+                {
+                    "native": "ce",
+                    "translation": "this"
+                },
+                {
+                    "native": "sera",
+                    "translation": "will be"
+                },
+                {
+                    "native": "vraiment",
+                    "translation": "really"
+                },
+                {
+                    "native": "exceptionnel",
+                    "translation": "exceptional"
+                },
+                {
+                    "native": "parce",
+                    "translation": "because"
+                },
+                {
+                    "native": "qu",
+                    "translation": "that"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "a",
+                    "translation": "has"
+                },
+                {
+                    "native": "proposé",
+                    "translation": "proposed"
+                },
+                {
+                    "native": "quand",
+                    "translation": "when"
+                }
+            ]
+        },
+        {
+            "start": 233.949,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "exceptionnel",
+                    "translation": "exceptional"
+                },
+                {
+                    "native": "parce",
+                    "translation": "because"
+                },
+                {
+                    "native": "qu",
+                    "translation": "that"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "a",
+                    "translation": "has"
+                },
+                {
+                    "native": "proposé",
+                    "translation": "proposed"
+                },
+                {
+                    "native": "quand",
+                    "translation": "when"
+                }
+            ]
+        },
+        {
+            "start": 233.959,
+            "duration": 1.9099999999999966,
+            "words": [
+                {
+                    "native": "exceptionnel",
+                    "translation": "exceptional"
+                },
+                {
+                    "native": "parce",
+                    "translation": "because"
+                },
+                {
+                    "native": "qu",
+                    "translation": "that"
+                },
+                {
+                    "native": "on",
+                    "translation": "we"
+                },
+                {
+                    "native": "a",
+                    "translation": "has"
+                },
+                {
+                    "native": "proposé",
+                    "translation": "proposed"
+                },
+                {
+                    "native": "quand",
+                    "translation": "when"
+                },
+                {
+                    "native": "même",
+                    "translation": "even"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                },
+                {
+                    "native": "voies",
+                    "translation": "routes"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                },
+                {
+                    "native": "blocs",
+                    "translation": "blocks"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                }
+            ]
+        },
+        {
+            "start": 235.869,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "même",
+                    "translation": "even"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                },
+                {
+                    "native": "voies",
+                    "translation": "routes"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                },
+                {
+                    "native": "blocs",
+                    "translation": "boulders"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                }
+            ]
+        },
+        {
+            "start": 235.879,
+            "duration": 2.8310000000000173,
+            "words": [
+                {
+                    "native": "même",
+                    "translation": "even"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                },
+                {
+                    "native": "voies",
+                    "translation": "routes"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "des",
+                    "translation": "some"
+                },
+                {
+                    "native": "blocs",
+                    "translation": "blocks"
+                },
+                {
+                    "native": "très",
+                    "translation": "very"
+                },
+                {
+                    "native": "exigeants",
+                    "translation": "demanding"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "par",
+                    "translation": "because of"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "difficulté",
+                    "translation": "difficulty"
+                },
+                {
+                    "native": "mais",
+                    "translation": "but"
+                }
+            ]
+        },
+        {
+            "start": 238.71,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "exigeants",
+                    "translation": "demanding"
+                },
+                {
+                    "native": "de",
+                    "translation": "of"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "difficulté",
+                    "translation": "difficulty"
+                },
+                {
+                    "native": "mais",
+                    "translation": "but"
+                }
+            ]
+        },
+        {
+            "start": 238.72,
+            "duration": 1.7090000000000032,
+            "words": [
+                {
+                    "native": "exigeants",
+                    "translation": "demanding"
+                },
+                {
+                    "native": "de",
+                    "translation": "from"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "difficulté",
+                    "translation": "difficulty"
+                },
+                {
+                    "native": "mais",
+                    "translation": "but"
+                },
+                {
+                    "native": "aussi",
+                    "translation": "also"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "contrainte",
+                    "translation": "constraint"
+                },
+                {
+                    "native": "technique",
+                    "translation": "technical"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                }
+            ]
+        },
+        {
+            "start": 240.429,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "aussi",
+                    "translation": "also"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "contrainte",
+                    "translation": "constraint"
+                },
+                {
+                    "native": "technique",
+                    "translation": "technical"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                }
+            ]
+        },
+        {
+            "start": 240.439,
+            "duration": 1.271000000000015,
+            "words": [
+                {
+                    "native": "aussi",
+                    "translation": "also"
+                },
+                {
+                    "native": "par",
+                    "translation": "by"
+                },
+                {
+                    "native": "la",
+                    "translation": "the"
+                },
+                {
+                    "native": "contrainte",
+                    "translation": "constraint"
+                },
+                {
+                    "native": "technique",
+                    "translation": "technical"
+                },
+                {
+                    "native": "et",
+                    "translation": "and"
+                },
+                {
+                    "native": "gestuel",
+                    "translation": "gestural"
+                }
+            ]
+        },
+        {
+            "start": 241.71,
+            "duration": 0.009999999999990905,
+            "words": [
+                {
+                    "native": "gestuel",
+                    "translation": "gestural"
+                }
+            ]
+        },
+        {
+            "start": 241.72,
+            "duration": 35.68999999999997,
+            "words": [
+                {
+                    "native": "gestuel",
+                    "translation": "gestural"
+                },
+                {
+                    "native": "Musique",
+                    "translation": "music"
+                }
+            ]
+        }
+    ]
+}

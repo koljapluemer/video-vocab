@@ -1,0 +1,56 @@
+{
+    "snippets": [
+        {
+            "start": 22.905,
+            "duration": 3.988999999999997,
+            "words": [
+                {
+                    "native": "welcome",
+                    "translation": "welcome"
+                },
+                {
+                    "native": "to",
+                    "translation": "to"
+                },
+                {
+                    "native": "mon",
+                    "translation": "dish"
+                },
+                {
+                    "native": "ngon",
+                    "translation": "delicious"
+                },
+                {
+                    "native": "de",
+                    "translation": "easy"
+                },
+                {
+                    "native": "lam",
+                    "translation": "make"
+                }
+            ]
+        },
+        {
+            "start": 54.655,
+            "duration": 5.028999999999996,
+            "words": [
+                {
+                    "native": "cá",
+                    "translation": "fish"
+                },
+                {
+                    "native": "dứa",
+                    "translation": "anchovy"
+                },
+                {
+                    "native": "kho",
+                    "translation": "braised"
+                },
+                {
+                    "native": "lạt",
+                    "translation": "lightly salted"
+                }
+            ]
+        }
+    ]
+}

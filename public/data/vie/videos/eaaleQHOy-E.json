@@ -1,0 +1,56 @@
+{
+    "snippets": [
+        {
+            "start": 20.576,
+            "duration": 3.9819999999999993,
+            "words": [
+                {
+                    "native": "welcome",
+                    "translation": "welcome"
+                },
+                {
+                    "native": "to",
+                    "translation": "to"
+                },
+                {
+                    "native": "mon",
+                    "translation": "dish"
+                },
+                {
+                    "native": "ngon",
+                    "translation": "delicious"
+                },
+                {
+                    "native": "de",
+                    "translation": "easy"
+                },
+                {
+                    "native": "lam",
+                    "translation": "make"
+                }
+            ]
+        },
+        {
+            "start": 60.698,
+            "duration": 5.000999999999998,
+            "words": [
+                {
+                    "native": "tàu",
+                    "translation": "Vietnamese"
+                },
+                {
+                    "native": "hũ",
+                    "translation": "jar"
+                },
+                {
+                    "native": "kho",
+                    "translation": "braised"
+                },
+                {
+                    "native": "lạt",
+                    "translation": "not salty"
+                }
+            ]
+        }
+    ]
+}

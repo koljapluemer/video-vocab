@@ -1,11 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, type RouteLocationNormalized } from 'vue-router'
 
+import { isVideoPracticeMode } from '@/dumb/videoPracticeMode'
 import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
 import FlowPage from '@/pages/flow/FlowPage.vue'
 import SnippetPracticePage from '@/pages/snippet-practice/SnippetPracticePage.vue'
 import StatsPage from '@/pages/stats/StatsPage.vue'
 import TargetLanguagePage from '@/pages/target-language/TargetLanguagePage.vue'
-import VideoDetailPage from '@/pages/video-detail/VideoDetailPage.vue'
 import VideoListPage from '@/pages/video-list/VideoListPage.vue'
 
 const routes = [
@@ -27,9 +27,14 @@ const routes = [
     component: TargetLanguagePage,
   },
   {
-    path: '/flow',
-    name: 'flow',
-    component: FlowPage,
+    path: '/stats',
+    name: 'stats',
+    component: StatsPage,
+  },
+  {
+    path: '/video/:videoId/snippet',
+    name: 'video-snippet-practice',
+    component: SnippetPracticePage,
     beforeEnter: () => {
       if (!getStoredTargetLanguage()) {
         return { name: 'target-language' }
@@ -39,19 +44,20 @@ const routes = [
     },
   },
   {
-    path: '/stats',
-    name: 'stats',
-    component: StatsPage,
-  },
-  {
-    path: '/course/:languageCode/video/:videoId',
-    name: 'video',
-    component: VideoDetailPage,
-  },
-  {
-    path: '/course/:languageCode/video/:videoId/snippet/:index',
-    name: 'snippet',
-    component: SnippetPracticePage,
+    path: '/video/:videoId/:practiceMode',
+    name: 'video-practice',
+    component: FlowPage,
+    beforeEnter: (to: RouteLocationNormalized) => {
+      if (!getStoredTargetLanguage()) {
+        return { name: 'target-language' }
+      }
+
+      if (!isVideoPracticeMode(to.params.practiceMode) || to.params.practiceMode === 'snippet') {
+        return { name: 'video-list' }
+      }
+
+      return true
+    },
   },
 ]
 

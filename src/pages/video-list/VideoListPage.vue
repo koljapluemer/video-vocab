@@ -9,31 +9,37 @@
     </div>
 
     <section v-else-if="course" class="space-y-4">
-      <div class="flex items-center justify-between gap-4">
-        <h2 class="text-2xl font-semibold">{{ course.label }}</h2>
-        <div class="flex items-center gap-2">
-          <router-link class="btn btn-primary btn-sm" :to="{ name: 'flow' }">
-            Open Flow
-          </router-link>
-          <router-link class="btn btn-outline btn-sm" :to="{ name: 'target-language' }">
-            Change Language
-          </router-link>
-        </div>
-      </div>
 
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <router-link
+        <article
           v-for="video in course.videos"
           :key="`${course.languageCode}-${video.youtubeId}`"
-          :to="{ name: 'video', params: { languageCode: course.languageCode, videoId: video.youtubeId } }"
-          class="group relative overflow-hidden rounded-lg shadow-lg transition-transform hover:scale-105"
+          class="card bg-base-100 shadow-md"
         >
-          <img
-            :src="`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`"
-            :alt="`Thumbnail for a ${course.label} video`"
-            class="h-48 w-full object-cover"
-          />
-        </router-link>
+          <figure>
+            <img
+              :src="`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`"
+              :alt="`Thumbnail for a ${course.label} video`"
+              class="h-48 w-full object-cover"
+            />
+          </figure>
+          <div class="card-body gap-3">
+            <div class="card-actions flex-col items-stretch sm:flex-row">
+              <router-link
+                class="btn btn-outline flex-1"
+                :to="{ name: 'video-snippet-practice', params: { videoId: video.youtubeId } }"
+              >
+                Practice Snippet by Snippet
+              </router-link>
+              <router-link
+                class="btn btn-outline flex-1"
+                :to="{ name: 'video-practice', params: { videoId: video.youtubeId, practiceMode: 'parallel' } }"
+              >
+                Parallel Practice
+              </router-link>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   </div>

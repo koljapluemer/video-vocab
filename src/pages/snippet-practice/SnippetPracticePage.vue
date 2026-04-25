@@ -1,42 +1,74 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { Rating } from 'ts-fsrs'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
-import { applyRating, getOrCreateCardsForWords } from '@/entities/flashcard/flashcardStore'
-import { getVideoById } from '@/entities/course/course'
+import { getCourse, getVideoById } from '@/entities/course/course'
+import { pickRandomVideo } from '@/entities/course/course'
 import type { Flashcard } from '@/entities/flashcard/flashcard'
-import { getSnippet, type Snippet } from '@/entities/snippet/snippet'
+import { applyRating, getOrCreateCardsForWords } from '@/entities/flashcard/flashcardStore'
+import { getSnippet, getSnippetsOfVideo, type Snippet } from '@/entities/snippet/snippet'
+import { getVideoPracticeLabel } from '@/dumb/videoPracticeMode'
 import { recordFlashcardFlip } from '@/features/device-stats/deviceStatsStorage'
 import FlashCardsWrapper from '@/features/flashcard-review/FlashCardsWrapper.vue'
 import { getFlashcardWordsForSnippet } from '@/features/snippet-flashcard-session/snippetFlashcardSession'
+import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
 
 import WatchSnippet from './WatchSnippet.vue'
 
 const route = useRoute()
+const router = useRouter()
 
 const snippet = ref<Snippet | null>(null)
 const flashcards = ref<Flashcard[]>([])
 const isLearnMode = ref(true)
 const isLoading = ref(true)
-const languageCode = route.params.languageCode as string
-const videoId = route.params.videoId as string
-const snippetIndex = parseInt(route.params.index as string)
 const loadError = ref<string | null>(null)
+const snippetCount = ref(0)
+
+const languageCode = getStoredTargetLanguage() ?? ''
+const videoId = computed(() => route.params.videoId as string)
+const snippetIndex = computed(() => {
+  const value = Number(route.query.snippet ?? 0)
+
+  if (!Number.isInteger(value) || value < 0) {
+    return 0
+  }
+
+  return value
+})
+const hasNextSnippet = computed(() => snippetIndex.value < snippetCount.value - 1)
+const nextSnippetQuery = computed(() => ({ snippet: String(snippetIndex.value + 1) }))
+const alternatePracticeMode = computed(() => ({
+  mode: 'parallel' as const,
+  label: getVideoPracticeLabel('parallel'),
+}))
 
 onMounted(async () => {
+  if (!languageCode) {
+    loadError.value = 'Choose a target language first.'
+    isLoading.value = false
+    return
+  }
+
   try {
-    const video = await getVideoById(languageCode, videoId)
+    const video = await getVideoById(languageCode, videoId.value)
     if (!video) {
       loadError.value = 'This video could not be found.'
-      isLoading.value = false
       return
     }
 
-    snippet.value = await getSnippet(languageCode, videoId, snippetIndex)
+    const snippets = await getSnippetsOfVideo(languageCode, videoId.value)
+    snippetCount.value = snippets.length
+    if (snippetIndex.value >= snippets.length) {
+      loadError.value = 'This snippet could not be found.'
+      return
+    }
+
+    snippet.value = await getSnippet(languageCode, videoId.value, snippetIndex.value)
     flashcards.value = await getOrCreateCardsForWords(
       languageCode,
-      await getFlashcardWordsForSnippet(languageCode, videoId, snippetIndex),
+      await getFlashcardWordsForSnippet(languageCode, videoId.value, snippetIndex.value),
     )
     isLearnMode.value = true
   } catch (error) {
@@ -60,6 +92,15 @@ function handleFlashcardRevealed() {
   recordFlashcardFlip(languageCode, new Date())
 }
 
+async function openRandomNextVideo() {
+  const course = await getCourse(languageCode)
+  const nextVideo = pickRandomVideo(course, videoId.value)
+
+  await router.push({
+    name: 'video-snippet-practice' as const,
+    params: { videoId: nextVideo.youtubeId },
+  })
+}
 </script>
 
 <template>
@@ -69,43 +110,30 @@ function handleFlashcardRevealed() {
     </div>
 
     <div v-if="snippet" class="space-y-4">
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Snippet Details</h2>
-          <div class="space-y-2">
-            <p><span class="font-semibold">Start Time:</span> {{ snippet.start }}s</p>
-            <p><span class="font-semibold">Duration:</span> {{ snippet.duration }}s</p>
-          </div>
-          <div class="card-actions justify-end mt-4">
-            <router-link
-              :to="{ name: 'video', params: { languageCode, videoId } }"
-              class="btn btn-primary"
-            >
-              Back to Video
-            </router-link>
-          </div>
-        </div>
-      </div>
 
       <div v-if="isLearnMode && !isLoading">
-        <FlashCardsWrapper
-          :flashcards="flashcards"
-          @all-flashcards-completed="handleAllFlashcardsCompleted"
-          @flashcard-revealed="handleFlashcardRevealed"
-          @single-flashcard-rated="handleSingleFlashcardRated"
-        />
+        <FlashCardsWrapper :flashcards="flashcards" @all-flashcards-completed="handleAllFlashcardsCompleted"
+          @flashcard-revealed="handleFlashcardRevealed" @single-flashcard-rated="handleSingleFlashcardRated" />
       </div>
-      <WatchSnippet
-        v-else-if="!isLoading"
-        :language-code="languageCode"
-        :video-id="videoId"
-        :start="snippet.start"
-        :duration="snippet.duration"
-        :current-index="snippetIndex"
-        @study-again="isLearnMode = true"
-      />
+      <WatchSnippet v-else-if="!isLoading" :video-id="videoId" :start="snippet.start" :duration="snippet.duration"
+        :current-index="snippetIndex" :has-next-snippet="hasNextSnippet" :next-snippet-query="nextSnippetQuery"
+        @study-again="isLearnMode = true" />
+
+      <div class="flex justify-center gap-2">
+
+        <router-link :to="{ name: 'video-list' }" class="btn">
+          Back to Video Overview
+        </router-link>
+        <router-link :to="{ name: 'video-practice', params: { videoId, practiceMode: alternatePracticeMode.mode } }"
+          class="btn">
+          {{ alternatePracticeMode.label }}
+        </router-link>
+        <button type="button" class="btn" @click="openRandomNextVideo">
+          Switch Video
+        </button>
+      </div>
     </div>
-    <div v-else-if="isLoading" class="flex justify-center items-center h-64">
+    <div v-else-if="isLoading" class="flex h-64 items-center justify-center">
       <span class="loading loading-spinner loading-lg"></span>
     </div>
   </div>

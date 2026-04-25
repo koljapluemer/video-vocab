@@ -14,19 +14,23 @@
         </div>
       </div>
       <div class="flex flex-col items-center space-y-4">
-        <button @click="replaySnippet" class="btn btn-primary">
+        <button type="button" @click="replaySnippet" class="btn btn-primary">
           Replay Snippet
         </button>
         <div class="btn-group gap-2">
-          <button @click="onStudyAgain" class="btn btn-warning">
+          <button type="button" @click="onStudyAgain" class="btn btn-warning">
             Study Again
           </button>
           <router-link
-            :to="{ name: 'snippet', params: { languageCode, videoId, index: currentIndex + 1 } }"
+            v-if="hasNextSnippet"
+            :to="{ name: 'video-snippet-practice', params: { videoId }, query: nextSnippetQuery }"
             class="btn btn-success"
           >
             Next Snippet
           </router-link>
+          <button v-else type="button" class="btn btn-success" disabled>
+            Next Snippet
+          </button>
         </div>
       </div>
     </div>
@@ -37,11 +41,12 @@
 import { computed, ref } from 'vue'
 
 const props = defineProps<{
-  languageCode: string
   videoId: string
   start: number
   duration: number
   currentIndex: number
+  hasNextSnippet: boolean
+  nextSnippetQuery: Record<string, string>
 }>()
 
 const replayKey = ref(Date.now())

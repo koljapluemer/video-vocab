@@ -73,3 +73,9 @@ export async function getVideoById(languageCode: string, videoId: string): Promi
   const videos = await getAllVideosWithLanguageCode(languageCode)
   return videos.find((video) => video.youtubeId === videoId)
 }
+
+export function pickRandomVideo(course: Course, excludeVideoId?: string): Video {
+  const availableVideos = course.videos.filter((video) => video.youtubeId !== excludeVideoId)
+  const source = availableVideos.length > 0 ? availableVideos : course.videos
+  return source[Math.floor(Math.random() * source.length)]
+}

@@ -1,9 +1,17 @@
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-const { getCourse, getOrCreateCardsForWords, getSnippetsOfVideo, loadYoutubeIframeApi, push } = vi.hoisted(() => ({
+const {
+  getCourse,
+  getOrCreateCardsForWords,
+  getVideoById,
+  getSnippetsOfVideo,
+  loadYoutubeIframeApi,
+  push,
+} = vi.hoisted(() => ({
   getCourse: vi.fn(),
   getOrCreateCardsForWords: vi.fn(),
+  getVideoById: vi.fn(),
   getSnippetsOfVideo: vi.fn(),
   loadYoutubeIframeApi: vi.fn(),
   push: vi.fn(),
@@ -15,6 +23,12 @@ const { loadVideoByIdMock, destroyMock } = vi.hoisted(() => ({
 }))
 
 vi.mock('vue-router', () => ({
+  useRoute: () => ({
+    params: {
+      videoId: 'abc123',
+      practiceMode: 'parallel',
+    },
+  }),
   useRouter: () => ({ push }),
 }))
 
@@ -24,6 +38,7 @@ vi.mock('@/features/target-language-select/targetLanguageStorage', () => ({
 
 vi.mock('@/entities/course/course', () => ({
   getCourse,
+  getVideoById,
 }))
 
 vi.mock('@/entities/snippet/snippet', () => ({
@@ -50,6 +65,7 @@ describe('FlowPage', () => {
     push.mockReset()
     getOrCreateCardsForWords.mockReset()
     getCourse.mockReset()
+    getVideoById.mockReset()
     getSnippetsOfVideo.mockReset()
     loadYoutubeIframeApi.mockReset()
     loadVideoByIdMock.mockReset()
@@ -59,6 +75,7 @@ describe('FlowPage', () => {
       label: 'German',
       videos: [{ youtubeId: 'abc123', languageCode: 'deu' }],
     })
+    getVideoById.mockResolvedValue({ youtubeId: 'abc123', languageCode: 'deu' })
     getSnippetsOfVideo.mockResolvedValue([
       {
         start: 0,
@@ -105,10 +122,11 @@ describe('FlowPage', () => {
     } as unknown as typeof window.YT
   })
 
-  it('hydrates the flow deck from persisted cards', async () => {
+  it('hydrates the parallel practice deck from persisted cards', async () => {
     render(FlowPage)
 
     await waitFor(() => {
+      expect(getVideoById).toHaveBeenCalledWith('deu', 'abc123')
       expect(getOrCreateCardsForWords).toHaveBeenCalledWith('deu', [
         { original: 'hallo', meanings: ['hello'] },
         { original: 'welt', meanings: ['world'] },
@@ -116,48 +134,15 @@ describe('FlowPage', () => {
     })
   })
 
-  it('skips broken random videos and continues with a loadable one', async () => {
-    getCourse.mockResolvedValue({
-      languageCode: 'vie',
-      label: 'Vietnamese',
-      videos: [
-        { youtubeId: 'missing-video', languageCode: 'vie' },
-        { youtubeId: 'working-video', languageCode: 'vie' },
-      ],
-    })
-    getSnippetsOfVideo.mockImplementation(async (_languageCode: string, videoId: string) => {
-      if (videoId === 'missing-video') {
-        throw new Error('missing JSON payload')
-      }
+  it('shows a missing-video error when the route video is not available', async () => {
+    getVideoById.mockResolvedValue(undefined)
 
-      return [
-        {
-          start: 0,
-          duration: 4,
-          words: [
-            { original: 'xin chao', meanings: ['hello'] },
-            { original: 'ban', meanings: ['friend'] },
-          ],
-        },
-      ]
-    })
-    const randomSpy = vi.spyOn(Math, 'random').mockReturnValueOnce(0).mockReturnValueOnce(0)
+    const { findByText } = render(FlowPage)
 
-    render(FlowPage)
-
-    await waitFor(() => {
-      expect(getSnippetsOfVideo).toHaveBeenCalledWith('vie', 'missing-video')
-      expect(getSnippetsOfVideo).toHaveBeenCalledWith('vie', 'working-video')
-      expect(getOrCreateCardsForWords).toHaveBeenCalledWith('deu', [
-        { original: 'xin chao', meanings: ['hello'] },
-        { original: 'ban', meanings: ['friend'] },
-      ])
-    })
-
-    randomSpy.mockRestore()
+    expect(await findByText('This video could not be found.')).toBeTruthy()
   })
 
-  it('switches flow videos from the next-video pagination control', async () => {
+  it('opens a random next video in the same practice mode', async () => {
     getCourse.mockResolvedValue({
       languageCode: 'deu',
       label: 'German',
@@ -165,31 +150,6 @@ describe('FlowPage', () => {
         { youtubeId: 'abc123', languageCode: 'deu' },
         { youtubeId: 'def456', languageCode: 'deu' },
       ],
-    })
-    getSnippetsOfVideo.mockImplementation(async (_languageCode: string, videoId: string) => {
-      if (videoId === 'def456') {
-        return [
-          {
-            start: 0,
-            duration: 4,
-            words: [
-              { original: 'tschuss', meanings: ['bye'] },
-              { original: 'morgen', meanings: ['tomorrow'] },
-            ],
-          },
-        ]
-      }
-
-      return [
-        {
-          start: 0,
-          duration: 4,
-          words: [
-            { original: 'hallo', meanings: ['hello'] },
-            { original: 'welt', meanings: ['world'] },
-          ],
-        },
-      ]
     })
     const randomSpy = vi.spyOn(Math, 'random').mockReturnValue(0)
 
@@ -199,17 +159,12 @@ describe('FlowPage', () => {
       expect(getSnippetsOfVideo).toHaveBeenCalledWith('deu', 'abc123')
     })
 
-    await fireEvent.click(getByRole('button', { name: 'Next video' }))
+    await fireEvent.click(getByRole('button', { name: 'Next Video' }))
 
     await waitFor(() => {
-      expect(getSnippetsOfVideo).toHaveBeenCalledWith('deu', 'def456')
-      expect(getOrCreateCardsForWords).toHaveBeenLastCalledWith('deu', [
-        { original: 'tschuss', meanings: ['bye'] },
-        { original: 'morgen', meanings: ['tomorrow'] },
-      ])
-      expect(loadVideoByIdMock).toHaveBeenLastCalledWith({
-        videoId: 'def456',
-        startSeconds: 0,
+      expect(push).toHaveBeenCalledWith({
+        name: 'video-practice',
+        params: { videoId: 'def456', practiceMode: 'parallel' },
       })
     })
 

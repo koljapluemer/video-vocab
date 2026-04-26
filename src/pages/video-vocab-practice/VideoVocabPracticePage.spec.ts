@@ -27,6 +27,10 @@ vi.mock('vue-router', () => ({
     },
   }),
   useRouter: () => ({ push }),
+  RouterLink: {
+    props: ['to'],
+    template: '<a><slot /></a>',
+  },
 }))
 
 vi.mock('@/features/target-language-select/targetLanguageStorage', () => ({
@@ -42,13 +46,13 @@ vi.mock('@/entities/course/course', () => ({
 vi.mock('./useVideoVocabPractice', () => ({
   useVideoVocabPractice: () => ({
     currentIntroduction: ref(null),
-    dueReviewFlashcards: ref([]),
+    currentPracticeFlashcard: ref(null),
+    currentPromptKey: ref('1'),
     isSavingIntroduction: ref(false),
     load,
     progressUpdatedAt: ref(0),
     rateFlashcard,
     rememberCurrentIntroduction,
-    reviewDeckKey: ref('1'),
     snippets: ref([]),
   }),
 }))
@@ -69,10 +73,10 @@ vi.mock('@/features/video-vocab-progress/VideoVocabProgressBar.vue', () => ({
   },
 }))
 
-vi.mock('@/features/flashcard-review/FlashCardsWrapper.vue', () => ({
+vi.mock('@/features/flashcard-review/FlashCard.vue', () => ({
   default: {
-    props: ['flashcards'],
-    template: '<div>Due cards: {{ flashcards.length }}</div>',
+    props: ['flashcard'],
+    template: '<div>Practice {{ flashcard.original }}</div>',
   },
 }))
 

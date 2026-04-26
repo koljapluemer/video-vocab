@@ -65,11 +65,54 @@ describe('useVideoVocabPractice', () => {
     const practice = useVideoVocabPractice('deu')
     await practice.load('abc123')
 
-    expect(practice.dueReviewFlashcards.value).toHaveLength(1)
+    expect(practice.currentPracticeFlashcard.value?.original).toBe('hallo')
     expect(practice.currentIntroduction.value).toBeNull()
   })
 
-  it('introduces the most frequent new word once no cards are due', async () => {
+  it('introduces the most frequent unseen word once no cards are due', async () => {
+    getSnippetsOfVideo.mockResolvedValue([
+      {
+        start: 0,
+        duration: 2,
+        words: [
+          { original: 'welt', meanings: ['world'] },
+          { original: 'hallo', meanings: ['hello'] },
+        ],
+      },
+      {
+        start: 2,
+        duration: 2,
+        words: [
+          { original: 'welt', meanings: ['earth'] },
+        ],
+      },
+    ])
+    getSavedCardsForWords.mockResolvedValue([
+      {
+        cardId: 'deu::hallo',
+        languageCode: 'deu',
+        original: 'hallo',
+        meanings: ['hello'],
+        due: new Date('2026-04-30T10:00:00'),
+        stability: 1,
+        difficulty: 1,
+        elapsed_days: 1,
+        scheduled_days: 5,
+        learning_steps: 0,
+        reps: 1,
+        lapses: 0,
+        state: 2,
+      },
+    ])
+
+    const practice = useVideoVocabPractice('deu')
+    await practice.load('abc123')
+
+    expect(practice.currentIntroduction.value?.word.original).toBe('welt')
+    expect(practice.currentPracticeFlashcard.value).toBeNull()
+  })
+
+  it('does not immediately practice the card that was just introduced', async () => {
     getSnippetsOfVideo.mockResolvedValue([
       {
         start: 0,
@@ -112,30 +155,47 @@ describe('useVideoVocabPractice', () => {
       original: 'welt',
       meanings: ['world', 'earth'],
     })
-    expect(practice.dueReviewFlashcards.value).toHaveLength(1)
-    expect(practice.dueReviewFlashcards.value[0]?.original).toBe('welt')
+    expect(practice.currentIntroduction.value?.word.original).toBe('hallo')
+    expect(practice.currentPracticeFlashcard.value).toBeNull()
   })
 
-  it('updates progress after rating a flashcard', async () => {
+  it('updates progress and advances to the next introduction after rating the current card', async () => {
+    getSnippetsOfVideo.mockResolvedValue([
+      {
+        start: 0,
+        duration: 2,
+        words: [
+          { original: 'hallo', meanings: ['hello'] },
+          { original: 'welt', meanings: ['world'] },
+        ],
+      },
+    ])
+    getSavedCardsForWords.mockResolvedValue([
+      {
+        cardId: 'deu::hallo',
+        languageCode: 'deu',
+        original: 'hallo',
+        meanings: ['hello'],
+        due: new Date('2026-04-20T10:00:00'),
+        stability: 0,
+        difficulty: 0,
+        elapsed_days: 0,
+        scheduled_days: 0,
+        learning_steps: 0,
+        reps: 0,
+        lapses: 0,
+        state: 0,
+      },
+    ])
+
     const practice = useVideoVocabPractice('deu')
-    const flashcard = {
-      cardId: 'deu::hallo',
-      languageCode: 'deu',
-      original: 'hallo',
-      meanings: ['hello'],
-      due: new Date('2026-04-20T10:00:00'),
-      stability: 0,
-      difficulty: 0,
-      elapsed_days: 0,
-      scheduled_days: 0,
-      learning_steps: 0,
-      reps: 0,
-      lapses: 0,
-      state: 0,
-    }
+    await practice.load('abc123')
+
+    const flashcard = practice.currentPracticeFlashcard.value!
 
     applyRating.mockResolvedValue({
       ...flashcard,
+      due: new Date('2026-04-30T12:00:00'),
       reps: 1,
       last_review: new Date('2026-04-26T12:00:00'),
     })
@@ -144,6 +204,8 @@ describe('useVideoVocabPractice', () => {
 
     expect(applyRating).toHaveBeenCalledWith('deu::hallo', Rating.Good, expect.any(Date))
     expect(flashcard.reps).toBe(1)
+    expect(practice.currentIntroduction.value?.word.original).toBe('welt')
+    expect(practice.currentPracticeFlashcard.value).toBeNull()
     expect(practice.progressUpdatedAt.value).toBeGreaterThan(0)
   })
 })

@@ -1,7 +1,7 @@
 import { computed, ref } from 'vue'
 import { type Rating } from 'ts-fsrs'
 
-import { buildFlashcardId, flashcardWasNeverSeenBefore, type Flashcard } from '@/entities/flashcard/flashcard'
+import { buildFlashcardId, type Flashcard } from '@/entities/flashcard/flashcard'
 import { applyRating, createCardForWord, getSavedCardsForWords } from '@/entities/flashcard/flashcardStore'
 import { getSnippetsOfVideo, type Snippet } from '@/entities/snippet/snippet'
 import {
@@ -11,45 +11,93 @@ import {
 
 export function useVideoVocabPractice(languageCode: string) {
   const snippets = ref<Snippet[]>([])
+  const videoVocabEntries = ref<VideoVocabEntry[]>([])
   const reviewFlashcards = ref<Flashcard[]>([])
-  const pendingIntroductions = ref<VideoVocabEntry[]>([])
-  const introducedCardIds = ref<string[]>([])
+  const currentIntroduction = ref<VideoVocabEntry | null>(null)
+  const currentPracticeFlashcard = ref<Flashcard | null>(null)
   const isSavingIntroduction = ref(false)
   const progressUpdatedAt = ref(0)
-  const reviewDeckVersion = ref(0)
+  const currentPromptVersion = ref(0)
+  const lastSeenCardId = ref<string | null>(null)
 
-  const dueReviewFlashcards = computed(() => {
+  const currentPromptKey = computed(() => `${currentPromptVersion.value}`)
+
+  function getDueFlashcards(excludedCardId: string | null): Flashcard[] {
     const now = new Date()
-    const introducedIds = new Set(introducedCardIds.value)
 
-    return reviewFlashcards.value.filter((flashcard) => {
-      const isSeenCard = !flashcardWasNeverSeenBefore(flashcard) || introducedIds.has(flashcard.cardId)
-      return isSeenCard && flashcard.due <= now
-    })
-  })
+    return reviewFlashcards.value.filter(
+      (flashcard) => flashcard.cardId !== excludedCardId && flashcard.due <= now,
+    )
+  }
 
-  const currentIntroduction = computed(() =>
-    dueReviewFlashcards.value.length === 0 ? (pendingIntroductions.value[0] ?? null) : null,
-  )
+  function getNextIntroduction(): VideoVocabEntry | null {
+    const savedCardIds = new Set(reviewFlashcards.value.map((flashcard) => flashcard.cardId))
 
-  const reviewDeckKey = computed(() => `${reviewDeckVersion.value}`)
+    return videoVocabEntries.value.find(
+      (entry) => !savedCardIds.has(buildFlashcardId(languageCode, entry.word.original)),
+    ) ?? null
+  }
+
+  function getNextDueFlashcard(excludedCardId: string | null): Flashcard | null {
+    const dueFlashcardsById = new Map(
+      getDueFlashcards(excludedCardId).map((flashcard) => [flashcard.cardId, flashcard] as const),
+    )
+
+    for (const entry of videoVocabEntries.value) {
+      const flashcard = dueFlashcardsById.get(buildFlashcardId(languageCode, entry.word.original))
+      if (flashcard) {
+        return flashcard
+      }
+    }
+
+    return null
+  }
+
+  function setCurrentPrompt() {
+    const nextDueFlashcard = getNextDueFlashcard(lastSeenCardId.value)
+
+    if (nextDueFlashcard) {
+      currentPracticeFlashcard.value = nextDueFlashcard
+      currentIntroduction.value = null
+      currentPromptVersion.value += 1
+      return
+    }
+
+    currentIntroduction.value = getNextIntroduction()
+    currentPracticeFlashcard.value = null
+    currentPromptVersion.value += 1
+  }
+
+  function upsertReviewFlashcard(nextFlashcard: Flashcard) {
+    const existingIndex = reviewFlashcards.value.findIndex(
+      (flashcard) => flashcard.cardId === nextFlashcard.cardId,
+    )
+
+    if (existingIndex === -1) {
+      reviewFlashcards.value = [...reviewFlashcards.value, nextFlashcard]
+      return
+    }
+
+    const nextReviewFlashcards = [...reviewFlashcards.value]
+    nextReviewFlashcards[existingIndex] = nextFlashcard
+    reviewFlashcards.value = nextReviewFlashcards
+  }
 
   async function load(videoId: string) {
     const nextSnippets = await getSnippetsOfVideo(languageCode, videoId)
-    const videoVocabEntries = buildVideoVocabEntries(nextSnippets)
+    const nextVideoVocabEntries = buildVideoVocabEntries(nextSnippets)
     const savedCards = await getSavedCardsForWords(
       languageCode,
-      videoVocabEntries.map((entry) => entry.word),
+      nextVideoVocabEntries.map((entry) => entry.word),
     )
-    const savedCardIds = new Set(savedCards.map((card) => card.cardId))
 
     snippets.value = nextSnippets
+    videoVocabEntries.value = nextVideoVocabEntries
     reviewFlashcards.value = savedCards
-    pendingIntroductions.value = videoVocabEntries.filter(
-      (entry) => !savedCardIds.has(buildFlashcardId(languageCode, entry.word.original)),
-    )
-    introducedCardIds.value = []
-    reviewDeckVersion.value += 1
+    currentIntroduction.value = null
+    currentPracticeFlashcard.value = null
+    lastSeenCardId.value = null
+    setCurrentPrompt()
   }
 
   async function rememberCurrentIntroduction() {
@@ -62,11 +110,10 @@ export function useVideoVocabPractice(languageCode: string) {
 
     try {
       const createdCard = await createCardForWord(languageCode, currentEntry.word)
-      reviewFlashcards.value = [...reviewFlashcards.value, createdCard]
-      pendingIntroductions.value = pendingIntroductions.value.slice(1)
-      introducedCardIds.value = [...introducedCardIds.value, createdCard.cardId]
-      reviewDeckVersion.value += 1
+      upsertReviewFlashcard(createdCard)
+      lastSeenCardId.value = createdCard.cardId
       progressUpdatedAt.value = Date.now()
+      setCurrentPrompt()
     } finally {
       isSavingIntroduction.value = false
     }
@@ -74,19 +121,22 @@ export function useVideoVocabPractice(languageCode: string) {
 
   async function rateFlashcard(flashcard: Flashcard, rating: Rating) {
     const updatedCard = await applyRating(flashcard.cardId, rating, new Date())
+    upsertReviewFlashcard(updatedCard)
     Object.assign(flashcard, updatedCard)
+    lastSeenCardId.value = updatedCard.cardId
     progressUpdatedAt.value = Date.now()
+    setCurrentPrompt()
   }
 
   return {
     currentIntroduction,
-    dueReviewFlashcards,
+    currentPracticeFlashcard,
+    currentPromptKey,
     isSavingIntroduction,
     load,
     progressUpdatedAt,
     rateFlashcard,
     rememberCurrentIntroduction,
-    reviewDeckKey,
     snippets,
   }
 }

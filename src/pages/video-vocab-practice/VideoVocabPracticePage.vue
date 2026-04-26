@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { type Rating } from 'ts-fsrs'
 
 import VideoPracticeLayout from '@/dumb/VideoPracticeLayout.vue'
+import IndexCard from '@/dumb/index-card/IndexCard.vue'
 import { getCourse, getVideoById, pickRandomVideo, type Course } from '@/entities/course/course'
 import { recordFlashcardFlip } from '@/features/device-stats/deviceStatsStorage'
-import FlashCardsWrapper from '@/features/flashcard-review/FlashCardsWrapper.vue'
+import FlashCard from '@/features/flashcard-review/FlashCard.vue'
 import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
 import VideoVocabProgressBar from '@/features/video-vocab-progress/VideoVocabProgressBar.vue'
 
@@ -22,13 +24,13 @@ const loadError = ref<string | null>(null)
 const videoId = computed(() => route.params.videoId as string)
 const {
   currentIntroduction,
-  dueReviewFlashcards,
+  currentPracticeFlashcard,
+  currentPromptKey,
   isSavingIntroduction,
   load,
   progressUpdatedAt,
   rateFlashcard,
   rememberCurrentIntroduction,
-  reviewDeckKey,
   snippets,
 } = useVideoVocabPractice(languageCode)
 
@@ -59,6 +61,14 @@ async function loadVideoVocabPractice() {
 
 function handleFlashcardRevealed() {
   recordFlashcardFlip(languageCode, new Date())
+}
+
+async function handleFlashcardRated(rating: Rating) {
+  if (!currentPracticeFlashcard.value) {
+    return
+  }
+
+  await rateFlashcard(currentPracticeFlashcard.value, rating)
 }
 
 async function openRandomNextVideo() {
@@ -97,12 +107,22 @@ onMounted(() => {
           @remember="rememberCurrentIntroduction"
         />
 
-        <div v-else class="flex w-full flex-1">
-          <FlashCardsWrapper
-            :key="reviewDeckKey"
-            :flashcards="dueReviewFlashcards"
+        <div v-else-if="currentPracticeFlashcard" class="flex w-full flex-1">
+          <FlashCard
+            :key="currentPromptKey"
+            :flashcard="currentPracticeFlashcard"
             @flashcard-revealed="handleFlashcardRevealed"
-            @single-flashcard-rated="rateFlashcard"
+            @single-flashcard-rated="handleFlashcardRated"
+          />
+        </div>
+
+        <div v-else class="mx-auto w-full max-w-2xl">
+          <IndexCard
+            :rows="[
+              { type: 'text', text: 'Done for now', size: 'auto' },
+              { type: 'divider' },
+              { type: 'text', text: 'No more flashcards to review.', size: 'normal' },
+            ]"
           />
         </div>
       </div>

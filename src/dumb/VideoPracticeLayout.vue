@@ -30,8 +30,8 @@ function getPracticeRoute(mode: VideoPracticeMode) {
 </script>
 
 <template>
-  <div class="container mx-auto p-4">
-    <section class="overflow-hidden rounded-box border border-base-300 bg-base-100">
+  <div class="container mx-auto flex min-h-full flex-col p-4">
+    <section class="flex flex-1 flex-col overflow-hidden rounded-box border border-base-300 bg-base-100">
       <div
         role="tablist"
         aria-label="Video practice modes"
@@ -49,7 +49,7 @@ function getPracticeRoute(mode: VideoPracticeMode) {
         </router-link>
       </div>
 
-      <div class="space-y-6 p-4 md:p-6">
+      <div class="flex flex-1 flex-col space-y-6 p-4 md:p-6">
         <slot />
       </div>
     </section>

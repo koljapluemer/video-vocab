@@ -88,21 +88,23 @@ onMounted(() => {
       <span class="loading loading-spinner loading-lg"></span>
     </div>
 
-    <div v-else class="space-y-6">
-      <VocabIntroductionCard
-        v-if="currentIntroduction"
-        :word="currentIntroduction.word"
-        :occurrences="currentIntroduction.occurrences"
-        @remember="rememberCurrentIntroduction"
-      />
-
-      <div v-else>
-        <FlashCardsWrapper
-          :key="reviewDeckKey"
-          :flashcards="dueReviewFlashcards"
-          @flashcard-revealed="handleFlashcardRevealed"
-          @single-flashcard-rated="rateFlashcard"
+    <div v-else class="flex flex-1 flex-col gap-6">
+      <div class="flex flex-1 items-center">
+        <VocabIntroductionCard
+          v-if="currentIntroduction"
+          :word="currentIntroduction.word"
+          :occurrences="currentIntroduction.occurrences"
+          @remember="rememberCurrentIntroduction"
         />
+
+        <div v-else class="flex w-full flex-1">
+          <FlashCardsWrapper
+            :key="reviewDeckKey"
+            :flashcards="dueReviewFlashcards"
+            @flashcard-revealed="handleFlashcardRevealed"
+            @single-flashcard-rated="rateFlashcard"
+          />
+        </div>
       </div>
 
       <div v-if="isSavingIntroduction" class="flex justify-center">

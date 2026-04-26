@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import IndexCard from '@/dumb/index-card/IndexCard.vue'
 import type { FlashcardWord } from '@/entities/flashcard/flashcard'
+import ActionButtonRow, { type FlashcardAction } from '@/features/flashcard-review/ActionButtonRow.vue'
 
 defineProps<{
   word: FlashcardWord
@@ -10,6 +11,10 @@ defineProps<{
 defineEmits<{
   (e: 'remember'): void
 }>()
+
+const rememberAction: FlashcardAction[] = [
+  { id: 'remember', label: 'I will remember', icon: 'good', tone: 'success' },
+]
 </script>
 
 <template>
@@ -24,8 +29,9 @@ defineEmits<{
       fill
     />
 
-    <button type="button" class="btn btn-primary min-w-48" @click="$emit('remember')">
-      I will remember
-    </button>
+    <ActionButtonRow
+      :actions="rememberAction"
+      @select="$emit('remember')"
+    />
   </div>
 </template>

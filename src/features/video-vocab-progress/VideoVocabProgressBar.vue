@@ -17,6 +17,7 @@ const props = defineProps<{
 }>()
 
 const isLoading = ref(true)
+const hasLoadedOnce = ref(false)
 const counts = ref<VideoVocabProgressCounts>({
   seenNotDue: 0,
   seenDue: 0,
@@ -58,6 +59,7 @@ async function loadProgress() {
     const videoWords = getUniqueVideoFlashcardWords(props.snippets)
     const savedCards = await getSavedCardsForWords(props.languageCode, videoWords)
     counts.value = getVideoVocabProgressCounts(videoWords, savedCards, new Date())
+    hasLoadedOnce.value = true
   } finally {
     isLoading.value = false
   }
@@ -79,10 +81,13 @@ watch(
   <section class="space-y-2">
     <div class="flex items-baseline justify-between gap-3">
       <h2 class="text-sm font-medium">Video vocab</h2>
-      <span class="text-xs text-base-content/70">{{ counts.total }} unique</span>
+      <div class="flex items-center gap-2 text-xs text-base-content/70">
+        <span>{{ counts.total }} unique</span>
+        <span v-if="isLoading && hasLoadedOnce" class="loading loading-spinner loading-xs"></span>
+      </div>
     </div>
 
-    <div v-if="isLoading" class="flex h-3 items-center">
+    <div v-if="isLoading && !hasLoadedOnce" class="flex h-3 items-center">
       <span class="loading loading-spinner loading-xs"></span>
     </div>
 

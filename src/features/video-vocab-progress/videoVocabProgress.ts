@@ -1,5 +1,5 @@
 import type { FlashcardWord } from '@/entities/flashcard/flashcard'
-import { flashcardWasNeverSeenBefore, type Flashcard } from '@/entities/flashcard/flashcard'
+import { flashcardWasNeverSeenBefore, mergeFlashcardWords, type Flashcard } from '@/entities/flashcard/flashcard'
 import type { Snippet } from '@/entities/snippet/snippet'
 
 export interface VideoVocabProgressCounts {
@@ -10,16 +10,7 @@ export interface VideoVocabProgressCounts {
 }
 
 function deduplicateWords(words: FlashcardWord[]): FlashcardWord[] {
-  const uniqueWords = new Map<string, FlashcardWord>()
-
-  for (const word of words) {
-    const key = `${word.original}::${word.meanings.join('|')}`
-    if (!uniqueWords.has(key)) {
-      uniqueWords.set(key, word)
-    }
-  }
-
-  return Array.from(uniqueWords.values())
+  return mergeFlashcardWords(words)
 }
 
 export function getUniqueVideoFlashcardWords(snippets: Snippet[]): FlashcardWord[] {

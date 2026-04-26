@@ -3,12 +3,12 @@ import { computed, onMounted, ref } from 'vue'
 import { Rating } from 'ts-fsrs'
 import { useRoute, useRouter } from 'vue-router'
 
+import VideoPracticeLayout from '@/dumb/VideoPracticeLayout.vue'
 import { getCourse, getVideoById } from '@/entities/course/course'
 import { pickRandomVideo } from '@/entities/course/course'
 import type { Flashcard } from '@/entities/flashcard/flashcard'
 import { applyRating, getOrCreateCardsForWords } from '@/entities/flashcard/flashcardStore'
 import { getSnippet, getSnippetsOfVideo, type Snippet } from '@/entities/snippet/snippet'
-import { getVideoPracticeLabel } from '@/dumb/videoPracticeMode'
 import { recordFlashcardFlip } from '@/features/device-stats/deviceStatsStorage'
 import FlashCardsWrapper from '@/features/flashcard-review/FlashCardsWrapper.vue'
 import { getFlashcardWordsForSnippet } from '@/features/snippet-flashcard-session/snippetFlashcardSession'
@@ -42,10 +42,6 @@ const snippetIndex = computed(() => {
 })
 const hasNextSnippet = computed(() => snippetIndex.value < snippetCount.value - 1)
 const nextSnippetQuery = computed(() => ({ snippet: String(snippetIndex.value + 1) }))
-const alternatePracticeMode = computed(() => ({
-  mode: 'parallel' as const,
-  label: getVideoPracticeLabel('parallel'),
-}))
 
 onMounted(async () => {
   if (!languageCode) {
@@ -108,7 +104,7 @@ async function openRandomNextVideo() {
 </script>
 
 <template>
-  <div class="container mx-auto p-4">
+  <VideoPracticeLayout active-mode="snippet" :video-id="videoId">
     <div v-if="loadError" class="alert alert-error mb-4">
       <span>{{ loadError }}</span>
     </div>
@@ -133,10 +129,6 @@ async function openRandomNextVideo() {
         <router-link :to="{ name: 'video-list' }" class="btn">
           Back to Video Overview
         </router-link>
-        <router-link :to="{ name: 'video-practice', params: { videoId, practiceMode: alternatePracticeMode.mode } }"
-          class="btn">
-          {{ alternatePracticeMode.label }}
-        </router-link>
         <button type="button" class="btn" @click="openRandomNextVideo">
           Switch Video
         </button>
@@ -145,5 +137,5 @@ async function openRandomNextVideo() {
     <div v-else-if="isLoading" class="flex h-64 items-center justify-center">
       <span class="loading loading-spinner loading-lg"></span>
     </div>
-  </div>
+  </VideoPracticeLayout>
 </template>

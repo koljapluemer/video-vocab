@@ -7,6 +7,7 @@ import SnippetPracticePage from '@/pages/snippet-practice/SnippetPracticePage.vu
 import StatsPage from '@/pages/stats/StatsPage.vue'
 import TargetLanguagePage from '@/pages/target-language/TargetLanguagePage.vue'
 import VideoListPage from '@/pages/video-list/VideoListPage.vue'
+import VideoVocabPracticePage from '@/pages/video-vocab-practice/VideoVocabPracticePage.vue'
 
 const routes = [
   {
@@ -44,6 +45,18 @@ const routes = [
     },
   },
   {
+    path: '/video/:videoId/vocab',
+    name: 'video-vocab-practice',
+    component: VideoVocabPracticePage,
+    beforeEnter: () => {
+      if (!getStoredTargetLanguage()) {
+        return { name: 'target-language' }
+      }
+
+      return true
+    },
+  },
+  {
     path: '/video/:videoId/:practiceMode',
     name: 'video-practice',
     component: FlowPage,
@@ -52,7 +65,11 @@ const routes = [
         return { name: 'target-language' }
       }
 
-      if (!isVideoPracticeMode(to.params.practiceMode) || to.params.practiceMode === 'snippet') {
+      if (
+        !isVideoPracticeMode(to.params.practiceMode) ||
+        to.params.practiceMode === 'snippet' ||
+        to.params.practiceMode === 'vocab'
+      ) {
         return { name: 'video-list' }
       }
 

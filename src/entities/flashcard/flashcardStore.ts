@@ -5,6 +5,8 @@ import { learnerDb, type SavedFlashcardRecord } from '@/db/learnerDb'
 import {
   buildFlashcardId,
   createFlashcard,
+  mergeFlashcardWords,
+  normalizeMeanings,
   type Flashcard,
   type FlashcardWord,
 } from './flashcard'
@@ -18,7 +20,7 @@ export interface LanguageWordStats {
 }
 
 function toPlainMeanings(meanings: string[]): string[] {
-  return [...meanings]
+  return [...normalizeMeanings(meanings)]
 }
 
 function toSavedFlashcardRecord(flashcard: Flashcard): SavedFlashcardRecord {
@@ -60,20 +62,37 @@ function toFlashcard(record: SavedFlashcardRecord): Flashcard {
 }
 
 function deduplicateWords(words: FlashcardWord[]): FlashcardWord[] {
-  const uniqueWords = new Map<string, FlashcardWord>()
-
-  for (const word of words) {
-    const key = `${word.original}::${word.meanings.join('|')}`
-    if (!uniqueWords.has(key)) {
-      uniqueWords.set(key, word)
-    }
-  }
-
-  return Array.from(uniqueWords.values())
+  return mergeFlashcardWords(words)
 }
 
 function createPersistedFlashcard(languageCode: string, word: FlashcardWord): Flashcard {
   return createFlashcard(word.original, toPlainMeanings(word.meanings), languageCode)
+}
+
+export async function createCardForWord(
+  languageCode: string,
+  word: FlashcardWord,
+): Promise<Flashcard> {
+  const cardId = buildFlashcardId(languageCode, word.original)
+  const existingCard = await learnerDb.flashcards.get(cardId)
+
+  if (existingCard) {
+    const mergedMeanings = toPlainMeanings([...existingCard.meanings, ...word.meanings])
+    if (mergedMeanings.join('|') !== existingCard.meanings.join('|')) {
+      const updatedCard = {
+        ...existingCard,
+        meanings: mergedMeanings,
+      }
+      await learnerDb.flashcards.put(updatedCard)
+      return toFlashcard(updatedCard)
+    }
+
+    return toFlashcard(existingCard)
+  }
+
+  const freshCard = createPersistedFlashcard(languageCode, word)
+  await learnerDb.flashcards.put(toSavedFlashcardRecord(freshCard))
+  return freshCard
 }
 
 export async function getOrCreateCardsForWords(
@@ -81,14 +100,26 @@ export async function getOrCreateCardsForWords(
   words: FlashcardWord[],
 ): Promise<Flashcard[]> {
   const uniqueWords = deduplicateWords(words)
-  const cardIds = uniqueWords.map((word) => buildFlashcardId(languageCode, word.original, word.meanings))
+  const cardIds = uniqueWords.map((word) => buildFlashcardId(languageCode, word.original))
   const savedCards = await learnerDb.flashcards.bulkGet(cardIds)
   const flashcards: Flashcard[] = []
   const recordsToCreate: SavedFlashcardRecord[] = []
+  const recordsToUpdate: SavedFlashcardRecord[] = []
 
   uniqueWords.forEach((word, index) => {
     const savedCard = savedCards[index]
     if (savedCard) {
+      const mergedMeanings = toPlainMeanings([...savedCard.meanings, ...word.meanings])
+      if (mergedMeanings.join('|') !== savedCard.meanings.join('|')) {
+        const updatedRecord = {
+          ...savedCard,
+          meanings: mergedMeanings,
+        }
+        flashcards.push(toFlashcard(updatedRecord))
+        recordsToUpdate.push(updatedRecord)
+        return
+      }
+
       flashcards.push(toFlashcard(savedCard))
       return
     }
@@ -98,8 +129,9 @@ export async function getOrCreateCardsForWords(
     recordsToCreate.push(toSavedFlashcardRecord(freshCard))
   })
 
-  if (recordsToCreate.length > 0) {
-    await learnerDb.flashcards.bulkPut(recordsToCreate)
+  const recordsToPersist = [...recordsToCreate, ...recordsToUpdate]
+  if (recordsToPersist.length > 0) {
+    await learnerDb.flashcards.bulkPut(recordsToPersist)
   }
 
   return flashcards
@@ -110,7 +142,7 @@ export async function getSavedCardsForWords(
   words: FlashcardWord[],
 ): Promise<Flashcard[]> {
   const uniqueWords = deduplicateWords(words)
-  const cardIds = uniqueWords.map((word) => buildFlashcardId(languageCode, word.original, word.meanings))
+  const cardIds = uniqueWords.map((word) => buildFlashcardId(languageCode, word.original))
   const savedCards = await learnerDb.flashcards.bulkGet(cardIds)
 
   return savedCards.flatMap((savedCard) => (savedCard ? [toFlashcard(savedCard)] : []))

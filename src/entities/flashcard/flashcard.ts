@@ -14,8 +14,42 @@ export interface FlashcardWord {
   meanings: string[]
 }
 
-export function buildFlashcardId(languageCode: string, original: string, meanings: string[]): string {
-  return `${languageCode}::${original}::${meanings.join('|')}`
+export function normalizeMeanings(meanings: string[]): string[] {
+  const normalizedMeanings: string[] = []
+
+  for (const meaning of meanings) {
+    const trimmedMeaning = meaning.trim()
+    if (!trimmedMeaning || normalizedMeanings.includes(trimmedMeaning)) {
+      continue
+    }
+
+    normalizedMeanings.push(trimmedMeaning)
+  }
+
+  return normalizedMeanings
+}
+
+export function mergeFlashcardWords<T extends FlashcardWord>(words: T[]): T[] {
+  const uniqueWords = new Map<string, T>()
+
+  for (const word of words) {
+    const existingWord = uniqueWords.get(word.original)
+    if (!existingWord) {
+      uniqueWords.set(word.original, {
+        ...word,
+        meanings: normalizeMeanings(word.meanings),
+      })
+      continue
+    }
+
+    existingWord.meanings = normalizeMeanings([...existingWord.meanings, ...word.meanings])
+  }
+
+  return Array.from(uniqueWords.values())
+}
+
+export function buildFlashcardId(languageCode: string, original: string): string {
+  return `${languageCode}::${original}`
 }
 
 export function createFlashcard(
@@ -25,10 +59,10 @@ export function createFlashcard(
 ): Flashcard {
   return {
     ...createEmptyCard(),
-    cardId: buildFlashcardId(languageCode, original, meanings),
+    cardId: buildFlashcardId(languageCode, original),
     languageCode,
     original,
-    meanings,
+    meanings: normalizeMeanings(meanings),
   }
 }
 

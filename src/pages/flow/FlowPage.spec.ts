@@ -4,16 +4,20 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 const {
   getCourse,
   getOrCreateCardsForWords,
+  getSavedCardsForWords,
   getVideoById,
   getSnippetsOfVideo,
   loadYoutubeIframeApi,
+  pickRandomVideo,
   push,
 } = vi.hoisted(() => ({
   getCourse: vi.fn(),
   getOrCreateCardsForWords: vi.fn(),
+  getSavedCardsForWords: vi.fn(),
   getVideoById: vi.fn(),
   getSnippetsOfVideo: vi.fn(),
   loadYoutubeIframeApi: vi.fn(),
+  pickRandomVideo: vi.fn(),
   push: vi.fn(),
 }))
 
@@ -39,6 +43,7 @@ vi.mock('@/features/target-language-select/targetLanguageStorage', () => ({
 vi.mock('@/entities/course/course', () => ({
   getCourse,
   getVideoById,
+  pickRandomVideo,
 }))
 
 vi.mock('@/entities/snippet/snippet', () => ({
@@ -47,11 +52,24 @@ vi.mock('@/entities/snippet/snippet', () => ({
 
 vi.mock('@/entities/flashcard/flashcardStore', () => ({
   getOrCreateCardsForWords,
+  getSavedCardsForWords,
   applyRating: vi.fn(),
 }))
 
 vi.mock('@/features/video-embed/loadYoutubeIframeApi', () => ({
   loadYoutubeIframeApi,
+}))
+
+vi.mock('@/dumb/VideoPracticeLayout.vue', () => ({
+  default: {
+    template: '<div><slot /></div>',
+  },
+}))
+
+vi.mock('@/features/video-vocab-progress/VideoVocabProgressBar.vue', () => ({
+  default: {
+    template: '<div>Progress</div>',
+  },
 }))
 
 import FlowPage from './FlowPage.vue'
@@ -64,10 +82,12 @@ describe('FlowPage', () => {
   beforeEach(() => {
     push.mockReset()
     getOrCreateCardsForWords.mockReset()
+    getSavedCardsForWords.mockReset()
     getCourse.mockReset()
     getVideoById.mockReset()
     getSnippetsOfVideo.mockReset()
     loadYoutubeIframeApi.mockReset()
+    pickRandomVideo.mockReset()
     loadVideoByIdMock.mockReset()
     destroyMock.mockReset()
     getCourse.mockResolvedValue({
@@ -76,6 +96,7 @@ describe('FlowPage', () => {
       videos: [{ youtubeId: 'abc123', languageCode: 'deu' }],
     })
     getVideoById.mockResolvedValue({ youtubeId: 'abc123', languageCode: 'deu' })
+    getSavedCardsForWords.mockResolvedValue([])
     getSnippetsOfVideo.mockResolvedValue([
       {
         start: 0,
@@ -88,7 +109,7 @@ describe('FlowPage', () => {
     ])
     getOrCreateCardsForWords.mockResolvedValue([
       {
-        cardId: 'deu::hallo::hello',
+        cardId: 'deu::hallo',
         languageCode: 'deu',
         original: 'hallo',
         meanings: ['hello'],
@@ -151,6 +172,7 @@ describe('FlowPage', () => {
         { youtubeId: 'def456', languageCode: 'deu' },
       ],
     })
+    pickRandomVideo.mockReturnValue({ youtubeId: 'def456', languageCode: 'deu' })
     const randomSpy = vi.spyOn(Math, 'random').mockReturnValue(0)
 
     const { getByRole } = render(FlowPage)
@@ -159,7 +181,7 @@ describe('FlowPage', () => {
       expect(getSnippetsOfVideo).toHaveBeenCalledWith('deu', 'abc123')
     })
 
-    await fireEvent.click(getByRole('button', { name: 'Next Video' }))
+    await fireEvent.click(getByRole('button', { name: 'Switch Video' }))
 
     await waitFor(() => {
       expect(push).toHaveBeenCalledWith({

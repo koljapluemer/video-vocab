@@ -22,6 +22,7 @@ vi.mock('@/db/learnerDb', () => ({
 
 import {
   applyRating,
+  createCardForWord,
   flashcardStoreInternals,
   getCardStateCounts,
   getOrCreateCardsForWords,
@@ -74,6 +75,31 @@ describe('flashcardStore', () => {
     expect(Array.isArray(savedRecord.meanings)).toBe(true)
     expect(savedRecord.meanings).toEqual(['hi'])
     expect(savedRecord.meanings).not.toBe(reactiveWord.meanings)
+  })
+
+  it('merges duplicate words into one flashcard with combined meanings', async () => {
+    flashcardTable.bulkGet.mockResolvedValue([undefined])
+    flashcardTable.bulkPut.mockResolvedValue(undefined)
+
+    const cards = await getOrCreateCardsForWords('fra', [
+      { original: 'salut', meanings: ['hi'] },
+      { original: 'salut', meanings: ['hello'] },
+    ])
+
+    expect(cards).toHaveLength(1)
+    expect(cards[0]?.cardId).toBe('fra::salut')
+    expect(cards[0]?.meanings).toEqual(['hi', 'hello'])
+  })
+
+  it('creates a card only when explicitly requested', async () => {
+    flashcardTable.get.mockResolvedValue(undefined)
+    flashcardTable.put.mockResolvedValue(undefined)
+
+    const createdCard = await createCardForWord('fra', { original: 'salut', meanings: ['hi'] })
+
+    expect(createdCard.cardId).toBe('fra::salut')
+    expect(flashcardTable.put).toHaveBeenCalledTimes(1)
+    expect(flashcardTable.bulkPut).not.toHaveBeenCalled()
   })
 
   it('applies ratings and persists the updated card', async () => {

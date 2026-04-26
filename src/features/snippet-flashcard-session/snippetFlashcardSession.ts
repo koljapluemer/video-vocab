@@ -1,17 +1,8 @@
-import type { FlashcardWord } from '@/entities/flashcard/flashcard'
+import { mergeFlashcardWords, type FlashcardWord } from '@/entities/flashcard/flashcard'
 import { getWordsOfSnippet, type Snippet, type Word } from '@/entities/snippet/snippet'
 
 function deduplicateWords(words: Word[]): Word[] {
-  const uniqueWords = new Map<string, Word>()
-
-  for (const word of words) {
-    const key = `${word.original}::${word.meanings.join('|')}`
-    if (!uniqueWords.has(key)) {
-      uniqueWords.set(key, word)
-    }
-  }
-
-  return Array.from(uniqueWords.values())
+  return mergeFlashcardWords(words)
 }
 
 export function buildFlashcardWords(words: Word[]): FlashcardWord[] {

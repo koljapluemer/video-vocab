@@ -24,18 +24,24 @@
             />
           </figure>
           <div class="card-body gap-3">
-            <div class="card-actions flex-col items-stretch sm:flex-row">
+            <div class="card-actions flex-col items-stretch">
               <router-link
                 class="btn btn-outline flex-1"
                 :to="{ name: 'video-snippet-practice', params: { videoId: video.youtubeId } }"
               >
-                Practice Snippet by Snippet
+                Snippet by Snippet
               </router-link>
               <router-link
                 class="btn btn-outline flex-1"
                 :to="{ name: 'video-practice', params: { videoId: video.youtubeId, practiceMode: 'parallel' } }"
               >
-                Parallel Practice
+                Parallel
+              </router-link>
+              <router-link
+                class="btn btn-outline flex-1"
+                :to="{ name: 'video-vocab-practice', params: { videoId: video.youtubeId } }"
+              >
+                Practice Vocab
               </router-link>
             </div>
           </div>

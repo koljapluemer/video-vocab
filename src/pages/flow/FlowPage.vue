@@ -3,11 +3,11 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { Rating } from 'ts-fsrs'
 import { useRoute, useRouter } from 'vue-router'
 
+import VideoPracticeLayout from '@/dumb/VideoPracticeLayout.vue'
 import { getCourse, getVideoById, pickRandomVideo, type Course, type Video } from '@/entities/course/course'
 import type { Flashcard } from '@/entities/flashcard/flashcard'
 import { applyRating, getOrCreateCardsForWords } from '@/entities/flashcard/flashcardStore'
 import { getSnippetsOfVideo, type Snippet } from '@/entities/snippet/snippet'
-import { getVideoPracticeLabel } from '@/dumb/videoPracticeMode'
 import {
   recordFlashcardFlip,
   recordVideoWatchSlice,
@@ -46,10 +46,6 @@ let isPlayerActivelyPlaying = false
 const videoId = computed(() => route.params.videoId as string)
 const currentSnippet = computed(() => snippets.value[currentSnippetIndex.value] ?? null)
 const flashcardDeckKey = computed(() => `${flashcardDeckVersion.value}`)
-const alternatePracticeMode = computed(() => ({
-  mode: 'snippet' as const,
-  label: getVideoPracticeLabel('snippet'),
-}))
 
 async function setExerciseDeck(snippetIndex: number) {
   activeExerciseSnippetIndex.value = snippetIndex
@@ -247,7 +243,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="mx-auto w-full p-4">
+  <VideoPracticeLayout active-mode="parallel" :video-id="videoId">
     <div v-if="loadError" class="alert alert-error">
       <span>{{ loadError }}</span>
     </div>
@@ -286,14 +282,11 @@ onBeforeUnmount(() => {
         <router-link :to="{ name: 'video-list' }" class="btn">
           Back to Video Overview
         </router-link>
-        <router-link :to="{ name: 'video-snippet-practice', params: { videoId } }" class="btn">
-          {{ alternatePracticeMode.label }}
-        </router-link>
         <button type="button" class="btn" @click="openRandomNextVideo">
           Switch Video
         </button>
       </div>
 
     </div>
-  </div>
+  </VideoPracticeLayout>
 </template>

@@ -13,6 +13,7 @@ import { recordFlashcardFlip } from '@/features/device-stats/deviceStatsStorage'
 import FlashCardsWrapper from '@/features/flashcard-review/FlashCardsWrapper.vue'
 import { getFlashcardWordsForSnippet } from '@/features/snippet-flashcard-session/snippetFlashcardSession'
 import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
+import VideoVocabProgressBar from '@/features/video-vocab-progress/VideoVocabProgressBar.vue'
 
 import WatchSnippet from './WatchSnippet.vue'
 
@@ -25,6 +26,8 @@ const isLearnMode = ref(true)
 const isLoading = ref(true)
 const loadError = ref<string | null>(null)
 const snippetCount = ref(0)
+const snippets = ref<Snippet[]>([])
+const progressUpdatedAt = ref(0)
 
 const languageCode = getStoredTargetLanguage() ?? ''
 const videoId = computed(() => route.params.videoId as string)
@@ -58,9 +61,9 @@ onMounted(async () => {
       return
     }
 
-    const snippets = await getSnippetsOfVideo(languageCode, videoId.value)
-    snippetCount.value = snippets.length
-    if (snippetIndex.value >= snippets.length) {
+    snippets.value = await getSnippetsOfVideo(languageCode, videoId.value)
+    snippetCount.value = snippets.value.length
+    if (snippetIndex.value >= snippets.value.length) {
       loadError.value = 'This snippet could not be found.'
       return
     }
@@ -86,6 +89,7 @@ const handleAllFlashcardsCompleted = () => {
 async function handleSingleFlashcardRated(flashcard: Flashcard, rating: Rating) {
   const updatedFlashcard = await applyRating(flashcard.cardId, rating, new Date())
   Object.assign(flashcard, updatedFlashcard)
+  progressUpdatedAt.value = Date.now()
 }
 
 function handleFlashcardRevealed() {
@@ -110,7 +114,6 @@ async function openRandomNextVideo() {
     </div>
 
     <div v-if="snippet" class="space-y-4">
-
       <div v-if="isLearnMode && !isLoading">
         <FlashCardsWrapper :flashcards="flashcards" @all-flashcards-completed="handleAllFlashcardsCompleted"
           @flashcard-revealed="handleFlashcardRevealed" @single-flashcard-rated="handleSingleFlashcardRated" />
@@ -118,6 +121,12 @@ async function openRandomNextVideo() {
       <WatchSnippet v-else-if="!isLoading" :video-id="videoId" :start="snippet.start" :duration="snippet.duration"
         :current-index="snippetIndex" :has-next-snippet="hasNextSnippet" :next-snippet-query="nextSnippetQuery"
         @study-again="isLearnMode = true" />
+
+      <VideoVocabProgressBar
+        :language-code="languageCode"
+        :snippets="snippets"
+        :updated-at="progressUpdatedAt"
+      />
 
       <div class="flex justify-center gap-2">
 

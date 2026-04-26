@@ -105,6 +105,17 @@ export async function getOrCreateCardsForWords(
   return flashcards
 }
 
+export async function getSavedCardsForWords(
+  languageCode: string,
+  words: FlashcardWord[],
+): Promise<Flashcard[]> {
+  const uniqueWords = deduplicateWords(words)
+  const cardIds = uniqueWords.map((word) => buildFlashcardId(languageCode, word.original, word.meanings))
+  const savedCards = await learnerDb.flashcards.bulkGet(cardIds)
+
+  return savedCards.flatMap((savedCard) => (savedCard ? [toFlashcard(savedCard)] : []))
+}
+
 export async function applyRating(cardId: string, rating: Rating, reviewedAt: Date): Promise<Flashcard> {
   const savedCard = await learnerDb.flashcards.get(cardId)
   if (!savedCard) {

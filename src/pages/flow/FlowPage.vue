@@ -15,6 +15,7 @@ import {
 import FlashCardsWrapper from '@/features/flashcard-review/FlashCardsWrapper.vue'
 import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
 import { loadYoutubeIframeApi } from '@/features/video-embed/loadYoutubeIframeApi'
+import VideoVocabProgressBar from '@/features/video-vocab-progress/VideoVocabProgressBar.vue'
 
 import { buildFlowDeckWords } from './buildFlowDeck'
 import { getSnippetIndexForTime } from './getSnippetIndexForTime'
@@ -33,6 +34,7 @@ const loadError = ref('')
 const playerError = ref('')
 const currentFlashcards = ref<Flashcard[]>([])
 const flashcardDeckVersion = ref(0)
+const progressUpdatedAt = ref(0)
 const playerHostId = `flow-player-${Math.random().toString(36).slice(2)}`
 
 let player: YT.Player | null = null
@@ -221,6 +223,7 @@ function handleAllFlashcardsCompleted() {
 async function handleSingleFlashcardRated(flashcard: Flashcard, rating: Rating) {
   const updatedFlashcard = await applyRating(flashcard.cardId, rating, new Date())
   Object.assign(flashcard, updatedFlashcard)
+  progressUpdatedAt.value = Date.now()
 }
 
 function handleFlashcardRevealed() {
@@ -254,7 +257,6 @@ onBeforeUnmount(() => {
     </div>
 
     <div v-else-if="activeVideo && currentSnippet" class="space-y-6">
-
       <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
         <section>
           <FlashCardsWrapper :key="flashcardDeckKey" :flashcards="currentFlashcards"
@@ -272,6 +274,12 @@ onBeforeUnmount(() => {
           </div>
         </section>
       </div>
+
+      <VideoVocabProgressBar
+        :language-code="selectedLanguageCode"
+        :snippets="snippets"
+        :updated-at="progressUpdatedAt"
+      />
 
       <div class="flex justify-center gap-2">
 

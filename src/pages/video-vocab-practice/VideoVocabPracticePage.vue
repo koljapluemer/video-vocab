@@ -1,38 +1,29 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { type Rating } from 'ts-fsrs'
 
 import VideoPracticeLayout from '@/dumb/VideoPracticeLayout.vue'
 import IndexCard from '@/dumb/index-card/IndexCard.vue'
 import { getCourse, getVideoById, pickRandomVideo, type Course } from '@/entities/course/course'
+import { getSnippetsOfVideo, type Snippet } from '@/entities/snippet/snippet'
+import { buildVideoVocabEntries } from '@/entities/video/videoVocab'
 import { recordFlashcardFlip } from '@/features/device-stats/deviceStatsStorage'
-import FlashCard from '@/features/flashcard-review/FlashCard.vue'
 import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
 import VideoVocabProgressBar from '@/features/video-vocab-progress/VideoVocabProgressBar.vue'
-
-import { useVideoVocabPractice } from './useVideoVocabPractice'
-import VocabIntroductionCard from './VocabIntroductionCard.vue'
+import FlashcardPracticeSession from '@/meta/flashcard-practice-session/FlashcardPracticeSession.vue'
+import type { FlashcardPracticeEntry } from '@/meta/flashcard-practice-session/flashcardPracticeEntries'
 
 const route = useRoute()
 const router = useRouter()
 
 const languageCode = getStoredTargetLanguage() ?? ''
 const course = ref<Course | null>(null)
+const practiceEntries = ref<FlashcardPracticeEntry[]>([])
 const isLoading = ref(true)
 const loadError = ref<string | null>(null)
+const snippets = ref<Snippet[]>([])
+const progressUpdatedAt = ref(0)
 const videoId = computed(() => route.params.videoId as string)
-const {
-  currentIntroduction,
-  currentPracticeFlashcard,
-  currentPromptKey,
-  isSavingIntroduction,
-  load,
-  progressUpdatedAt,
-  rateFlashcard,
-  rememberCurrentIntroduction,
-  snippets,
-} = useVideoVocabPractice(languageCode)
 
 async function loadVideoVocabPractice() {
   if (!languageCode) {
@@ -50,7 +41,9 @@ async function loadVideoVocabPractice() {
       return
     }
 
-    await load(videoId.value)
+    const nextSnippets = await getSnippetsOfVideo(languageCode, videoId.value)
+    snippets.value = nextSnippets
+    practiceEntries.value = buildVideoVocabEntries(nextSnippets)
   } catch (error) {
     console.error('Failed to initialize vocab practice:', error)
     loadError.value = 'Unable to load vocab practice right now.'
@@ -61,14 +54,6 @@ async function loadVideoVocabPractice() {
 
 function handleFlashcardRevealed() {
   recordFlashcardFlip(languageCode, new Date())
-}
-
-async function handleFlashcardRated(rating: Rating) {
-  if (!currentPracticeFlashcard.value) {
-    return
-  }
-
-  await rateFlashcard(currentPracticeFlashcard.value, rating)
 }
 
 async function openRandomNextVideo() {
@@ -100,35 +85,25 @@ onMounted(() => {
 
     <div v-else class="flex flex-1 flex-col gap-6">
       <div class="flex flex-1 items-center">
-        <VocabIntroductionCard
-          v-if="currentIntroduction"
-          :word="currentIntroduction.word"
-          :occurrences="currentIntroduction.occurrences"
-          @remember="rememberCurrentIntroduction"
-        />
-
-        <div v-else-if="currentPracticeFlashcard" class="flex w-full flex-1">
-          <FlashCard
-            :key="currentPromptKey"
-            :flashcard="currentPracticeFlashcard"
-            @flashcard-revealed="handleFlashcardRevealed"
-            @single-flashcard-rated="handleFlashcardRated"
-          />
-        </div>
-
-        <div v-else class="mx-auto w-full max-w-2xl">
-          <IndexCard
-            :rows="[
-              { type: 'text', text: 'Done for now', size: 'auto' },
-              { type: 'divider' },
-              { type: 'text', text: 'No more flashcards to review.', size: 'normal' },
-            ]"
-          />
-        </div>
-      </div>
-
-      <div v-if="isSavingIntroduction" class="flex justify-center">
-        <span class="loading loading-spinner loading-md"></span>
+        <FlashcardPracticeSession
+          :entries="practiceEntries"
+          :language-code="languageCode"
+          :session-key="videoId"
+          @flashcard-revealed="handleFlashcardRevealed"
+          @progress-updated="progressUpdatedAt = $event"
+        >
+          <template #empty>
+            <div class="mx-auto w-full max-w-2xl">
+              <IndexCard
+                :rows="[
+                  { type: 'text', text: 'Done for now', size: 'auto' },
+                  { type: 'divider' },
+                  { type: 'text', text: 'No more flashcards to review.', size: 'normal' },
+                ]"
+              />
+            </div>
+          </template>
+        </FlashcardPracticeSession>
       </div>
 
       <VideoVocabProgressBar

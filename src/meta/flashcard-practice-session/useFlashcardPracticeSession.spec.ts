@@ -5,16 +5,10 @@ const {
   applyRating,
   createCardForWord,
   getSavedCardsForWords,
-  getSnippetsOfVideo,
 } = vi.hoisted(() => ({
   applyRating: vi.fn(),
   createCardForWord: vi.fn(),
   getSavedCardsForWords: vi.fn(),
-  getSnippetsOfVideo: vi.fn(),
-}))
-
-vi.mock('@/entities/snippet/snippet', () => ({
-  getSnippetsOfVideo,
 }))
 
 vi.mock('@/entities/flashcard/flashcardStore', () => ({
@@ -23,27 +17,16 @@ vi.mock('@/entities/flashcard/flashcardStore', () => ({
   getSavedCardsForWords,
 }))
 
-import { useVideoVocabPractice } from './useVideoVocabPractice'
+import { useFlashcardPracticeSession } from './useFlashcardPracticeSession'
 
-describe('useVideoVocabPractice', () => {
+describe('useFlashcardPracticeSession', () => {
   beforeEach(() => {
     applyRating.mockReset()
     createCardForWord.mockReset()
     getSavedCardsForWords.mockReset()
-    getSnippetsOfVideo.mockReset()
   })
 
   it('prioritizes due seen cards before any new introductions', async () => {
-    getSnippetsOfVideo.mockResolvedValue([
-      {
-        start: 0,
-        duration: 2,
-        words: [
-          { original: 'hallo', meanings: ['hello'] },
-          { original: 'welt', meanings: ['world'] },
-        ],
-      },
-    ])
     getSavedCardsForWords.mockResolvedValue([
       {
         cardId: 'deu::hallo',
@@ -62,31 +45,23 @@ describe('useVideoVocabPractice', () => {
       },
     ])
 
-    const practice = useVideoVocabPractice('deu')
-    await practice.load('abc123')
+    const practice = useFlashcardPracticeSession('deu')
+    await practice.load([
+      {
+        word: { original: 'hallo', meanings: ['hello'] },
+        occurrences: 1,
+      },
+      {
+        word: { original: 'welt', meanings: ['world'] },
+        occurrences: 1,
+      },
+    ])
 
     expect(practice.currentPracticeFlashcard.value?.original).toBe('hallo')
     expect(practice.currentIntroduction.value).toBeNull()
   })
 
   it('introduces the most frequent unseen word once no cards are due', async () => {
-    getSnippetsOfVideo.mockResolvedValue([
-      {
-        start: 0,
-        duration: 2,
-        words: [
-          { original: 'welt', meanings: ['world'] },
-          { original: 'hallo', meanings: ['hello'] },
-        ],
-      },
-      {
-        start: 2,
-        duration: 2,
-        words: [
-          { original: 'welt', meanings: ['earth'] },
-        ],
-      },
-    ])
     getSavedCardsForWords.mockResolvedValue([
       {
         cardId: 'deu::hallo',
@@ -105,31 +80,23 @@ describe('useVideoVocabPractice', () => {
       },
     ])
 
-    const practice = useVideoVocabPractice('deu')
-    await practice.load('abc123')
+    const practice = useFlashcardPracticeSession('deu')
+    await practice.load([
+      {
+        word: { original: 'welt', meanings: ['world', 'earth'] },
+        occurrences: 2,
+      },
+      {
+        word: { original: 'hallo', meanings: ['hello'] },
+        occurrences: 1,
+      },
+    ])
 
     expect(practice.currentIntroduction.value?.word.original).toBe('welt')
     expect(practice.currentPracticeFlashcard.value).toBeNull()
   })
 
   it('does not immediately practice the card that was just introduced', async () => {
-    getSnippetsOfVideo.mockResolvedValue([
-      {
-        start: 0,
-        duration: 2,
-        words: [
-          { original: 'welt', meanings: ['world'] },
-          { original: 'hallo', meanings: ['hello'] },
-        ],
-      },
-      {
-        start: 2,
-        duration: 2,
-        words: [
-          { original: 'welt', meanings: ['earth'] },
-        ],
-      },
-    ])
     getSavedCardsForWords.mockResolvedValue([])
     createCardForWord.mockResolvedValue({
       cardId: 'deu::welt',
@@ -147,8 +114,17 @@ describe('useVideoVocabPractice', () => {
       state: 0,
     })
 
-    const practice = useVideoVocabPractice('deu')
-    await practice.load('abc123')
+    const practice = useFlashcardPracticeSession('deu')
+    await practice.load([
+      {
+        word: { original: 'welt', meanings: ['world', 'earth'] },
+        occurrences: 2,
+      },
+      {
+        word: { original: 'hallo', meanings: ['hello'] },
+        occurrences: 1,
+      },
+    ])
     await practice.rememberCurrentIntroduction()
 
     expect(createCardForWord).toHaveBeenCalledWith('deu', {
@@ -160,16 +136,6 @@ describe('useVideoVocabPractice', () => {
   })
 
   it('updates progress and advances to the next introduction after rating the current card', async () => {
-    getSnippetsOfVideo.mockResolvedValue([
-      {
-        start: 0,
-        duration: 2,
-        words: [
-          { original: 'hallo', meanings: ['hello'] },
-          { original: 'welt', meanings: ['world'] },
-        ],
-      },
-    ])
     getSavedCardsForWords.mockResolvedValue([
       {
         cardId: 'deu::hallo',
@@ -188,8 +154,17 @@ describe('useVideoVocabPractice', () => {
       },
     ])
 
-    const practice = useVideoVocabPractice('deu')
-    await practice.load('abc123')
+    const practice = useFlashcardPracticeSession('deu')
+    await practice.load([
+      {
+        word: { original: 'hallo', meanings: ['hello'] },
+        occurrences: 1,
+      },
+      {
+        word: { original: 'welt', meanings: ['world'] },
+        occurrences: 1,
+      },
+    ])
 
     const flashcard = practice.currentPracticeFlashcard.value!
 
@@ -202,7 +177,11 @@ describe('useVideoVocabPractice', () => {
 
     await practice.rateFlashcard(flashcard, Rating.Good)
 
-    expect(applyRating).toHaveBeenCalledWith('deu::hallo', Rating.Good, expect.any(Date))
+    expect(applyRating).toHaveBeenCalledWith(
+      'deu::hallo',
+      Rating.Good,
+      expect.any(Date),
+    )
     expect(flashcard.reps).toBe(1)
     expect(practice.currentIntroduction.value?.word.original).toBe('welt')
     expect(practice.currentPracticeFlashcard.value).toBeNull()

@@ -3,8 +3,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const {
   getCourse,
-  getOrCreateCardsForWords,
-  getSavedCardsForWords,
   getVideoById,
   getSnippetsOfVideo,
   loadYoutubeIframeApi,
@@ -12,8 +10,6 @@ const {
   push,
 } = vi.hoisted(() => ({
   getCourse: vi.fn(),
-  getOrCreateCardsForWords: vi.fn(),
-  getSavedCardsForWords: vi.fn(),
   getVideoById: vi.fn(),
   getSnippetsOfVideo: vi.fn(),
   loadYoutubeIframeApi: vi.fn(),
@@ -34,6 +30,10 @@ vi.mock('vue-router', () => ({
     },
   }),
   useRouter: () => ({ push }),
+  RouterLink: {
+    props: ['to'],
+    template: '<a><slot /></a>',
+  },
 }))
 
 vi.mock('@/features/target-language-select/targetLanguageStorage', () => ({
@@ -48,12 +48,6 @@ vi.mock('@/entities/course/course', () => ({
 
 vi.mock('@/entities/snippet/snippet', () => ({
   getSnippetsOfVideo,
-}))
-
-vi.mock('@/entities/flashcard/flashcardStore', () => ({
-  getOrCreateCardsForWords,
-  getSavedCardsForWords,
-  applyRating: vi.fn(),
 }))
 
 vi.mock('@/features/video-embed/loadYoutubeIframeApi', () => ({
@@ -72,6 +66,13 @@ vi.mock('@/features/video-vocab-progress/VideoVocabProgressBar.vue', () => ({
   },
 }))
 
+vi.mock('@/meta/flashcard-practice-session/FlashcardPracticeSession.vue', () => ({
+  default: {
+    props: ['entries'],
+    template: '<div>Practice {{ entries.map((entry) => entry.word.original).join(\',\') }}</div>',
+  },
+}))
+
 import FlowPage from './FlowPage.vue'
 
 afterEach(() => {
@@ -81,8 +82,6 @@ afterEach(() => {
 describe('FlowPage', () => {
   beforeEach(() => {
     push.mockReset()
-    getOrCreateCardsForWords.mockReset()
-    getSavedCardsForWords.mockReset()
     getCourse.mockReset()
     getVideoById.mockReset()
     getSnippetsOfVideo.mockReset()
@@ -96,7 +95,6 @@ describe('FlowPage', () => {
       videos: [{ youtubeId: 'abc123', languageCode: 'deu' }],
     })
     getVideoById.mockResolvedValue({ youtubeId: 'abc123', languageCode: 'deu' })
-    getSavedCardsForWords.mockResolvedValue([])
     getSnippetsOfVideo.mockResolvedValue([
       {
         start: 0,
@@ -105,23 +103,6 @@ describe('FlowPage', () => {
           { original: 'hallo', meanings: ['hello'] },
           { original: 'welt', meanings: ['world'] },
         ],
-      },
-    ])
-    getOrCreateCardsForWords.mockResolvedValue([
-      {
-        cardId: 'deu::hallo',
-        languageCode: 'deu',
-        original: 'hallo',
-        meanings: ['hello'],
-        due: new Date('2026-04-24T10:00:00'),
-        stability: 0,
-        difficulty: 0,
-        elapsed_days: 0,
-        scheduled_days: 0,
-        learning_steps: 0,
-        reps: 0,
-        lapses: 0,
-        state: 0,
       },
     ])
     loadYoutubeIframeApi.mockResolvedValue(undefined)
@@ -143,16 +124,15 @@ describe('FlowPage', () => {
     } as unknown as typeof window.YT
   })
 
-  it('hydrates the parallel practice deck from persisted cards', async () => {
-    render(FlowPage)
+  it('builds the parallel practice deck from the active snippet window', async () => {
+    const { findByText } = render(FlowPage)
 
     await waitFor(() => {
       expect(getVideoById).toHaveBeenCalledWith('deu', 'abc123')
-      expect(getOrCreateCardsForWords).toHaveBeenCalledWith('deu', [
-        { original: 'hallo', meanings: ['hello'] },
-        { original: 'welt', meanings: ['world'] },
-      ])
+      expect(getSnippetsOfVideo).toHaveBeenCalledWith('deu', 'abc123')
     })
+
+    expect(await findByText('Practice hallo,welt')).toBeTruthy()
   })
 
   it('shows a missing-video error when the route video is not available', async () => {

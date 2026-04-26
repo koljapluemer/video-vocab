@@ -1,23 +1,23 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-import { Rating } from 'ts-fsrs'
 import { useRoute, useRouter } from 'vue-router'
 
 import VideoPracticeLayout from '@/dumb/VideoPracticeLayout.vue'
 import { getCourse, getVideoById, pickRandomVideo, type Course, type Video } from '@/entities/course/course'
-import type { Flashcard } from '@/entities/flashcard/flashcard'
-import { applyRating, getOrCreateCardsForWords } from '@/entities/flashcard/flashcardStore'
 import { getSnippetsOfVideo, type Snippet } from '@/entities/snippet/snippet'
 import {
   recordFlashcardFlip,
   recordVideoWatchSlice,
 } from '@/features/device-stats/deviceStatsStorage'
-import FlashCardsWrapper from '@/features/flashcard-review/FlashCardsWrapper.vue'
 import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
 import { loadYoutubeIframeApi } from '@/features/video-embed/loadYoutubeIframeApi'
 import VideoVocabProgressBar from '@/features/video-vocab-progress/VideoVocabProgressBar.vue'
+import FlashcardPracticeSession from '@/meta/flashcard-practice-session/FlashcardPracticeSession.vue'
+import {
+  buildFlashcardPracticeEntries,
+  type FlashcardPracticeEntry,
+} from '@/meta/flashcard-practice-session/flashcardPracticeEntries'
 
-import { buildFlowDeckWords } from './buildFlowDeck'
 import { getSnippetIndexForTime } from './getSnippetIndexForTime'
 
 const route = useRoute()
@@ -32,8 +32,8 @@ const activeExerciseSnippetIndex = ref(0)
 const isLoading = ref(true)
 const loadError = ref('')
 const playerError = ref('')
-const currentFlashcards = ref<Flashcard[]>([])
-const flashcardDeckVersion = ref(0)
+const currentPracticeEntries = ref<FlashcardPracticeEntry[]>([])
+const practiceSessionKey = ref(0)
 const progressUpdatedAt = ref(0)
 const playerHostId = `flow-player-${Math.random().toString(36).slice(2)}`
 
@@ -45,15 +45,14 @@ let isPlayerActivelyPlaying = false
 
 const videoId = computed(() => route.params.videoId as string)
 const currentSnippet = computed(() => snippets.value[currentSnippetIndex.value] ?? null)
-const flashcardDeckKey = computed(() => `${flashcardDeckVersion.value}`)
 
 async function setExerciseDeck(snippetIndex: number) {
   activeExerciseSnippetIndex.value = snippetIndex
-  currentFlashcards.value = await getOrCreateCardsForWords(
-    selectedLanguageCode,
-    buildFlowDeckWords(snippets.value, snippetIndex),
-  )
-  flashcardDeckVersion.value += 1
+  currentPracticeEntries.value = buildFlashcardPracticeEntries([
+    ...(snippets.value[snippetIndex]?.words ?? []),
+    ...(snippets.value[snippetIndex + 1]?.words ?? []),
+  ])
+  practiceSessionKey.value += 1
 }
 
 function clearSnippetTimer() {
@@ -216,12 +215,6 @@ function handleAllFlashcardsCompleted() {
   void setExerciseDeck(nextExerciseSnippetIndex)
 }
 
-async function handleSingleFlashcardRated(flashcard: Flashcard, rating: Rating) {
-  const updatedFlashcard = await applyRating(flashcard.cardId, rating, new Date())
-  Object.assign(flashcard, updatedFlashcard)
-  progressUpdatedAt.value = Date.now()
-}
-
 function handleFlashcardRevealed() {
   recordFlashcardFlip(selectedLanguageCode, new Date())
 }
@@ -255,9 +248,14 @@ onBeforeUnmount(() => {
     <div v-else-if="activeVideo && currentSnippet" class="space-y-6">
       <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
         <section>
-          <FlashCardsWrapper :key="flashcardDeckKey" :flashcards="currentFlashcards"
-            @all-flashcards-completed="handleAllFlashcardsCompleted" @flashcard-revealed="handleFlashcardRevealed"
-            @single-flashcard-rated="handleSingleFlashcardRated" />
+          <FlashcardPracticeSession
+            :entries="currentPracticeEntries"
+            :language-code="selectedLanguageCode"
+            :session-key="practiceSessionKey"
+            @all-flashcards-completed="handleAllFlashcardsCompleted"
+            @flashcard-revealed="handleFlashcardRevealed"
+            @progress-updated="progressUpdatedAt = $event"
+          />
         </section>
 
         <section class="space-y-4">

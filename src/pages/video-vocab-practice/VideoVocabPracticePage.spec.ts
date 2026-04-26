@@ -1,22 +1,17 @@
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/vue'
-import { ref } from 'vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const {
   getCourse,
+  getSnippetsOfVideo,
   getVideoById,
-  load,
   pickRandomVideo,
-  rateFlashcard,
-  rememberCurrentIntroduction,
   push,
 } = vi.hoisted(() => ({
   getCourse: vi.fn(),
+  getSnippetsOfVideo: vi.fn(),
   getVideoById: vi.fn(),
-  load: vi.fn(),
   pickRandomVideo: vi.fn(),
-  rateFlashcard: vi.fn(),
-  rememberCurrentIntroduction: vi.fn(),
   push: vi.fn(),
 }))
 
@@ -43,18 +38,8 @@ vi.mock('@/entities/course/course', () => ({
   pickRandomVideo,
 }))
 
-vi.mock('./useVideoVocabPractice', () => ({
-  useVideoVocabPractice: () => ({
-    currentIntroduction: ref(null),
-    currentPracticeFlashcard: ref(null),
-    currentPromptKey: ref('1'),
-    isSavingIntroduction: ref(false),
-    load,
-    progressUpdatedAt: ref(0),
-    rateFlashcard,
-    rememberCurrentIntroduction,
-    snippets: ref([]),
-  }),
+vi.mock('@/entities/snippet/snippet', () => ({
+  getSnippetsOfVideo,
 }))
 
 vi.mock('@/features/device-stats/deviceStatsStorage', () => ({
@@ -73,19 +58,10 @@ vi.mock('@/features/video-vocab-progress/VideoVocabProgressBar.vue', () => ({
   },
 }))
 
-vi.mock('@/features/flashcard-review/FlashCard.vue', () => ({
+vi.mock('@/meta/flashcard-practice-session/FlashcardPracticeSession.vue', () => ({
   default: {
-    props: ['flashcard'],
-    template: '<div>Practice {{ flashcard.original }}</div>',
-  },
-}))
-
-vi.mock('./VocabIntroductionCard.vue', () => ({
-  default: {
-    props: ['word', 'occurrences'],
-    emits: ['remember'],
-    template:
-      '<button type="button" @click="$emit(\'remember\')">Introduce {{ word.original }} {{ occurrences }}</button>',
+    props: ['entries'],
+    template: '<div>Practice Session {{ entries.length }}</div>',
   },
 }))
 
@@ -98,11 +74,9 @@ afterEach(() => {
 describe('VideoVocabPracticePage', () => {
   beforeEach(() => {
     getCourse.mockReset()
+    getSnippetsOfVideo.mockReset()
     getVideoById.mockReset()
-    load.mockReset()
     pickRandomVideo.mockReset()
-    rateFlashcard.mockReset()
-    rememberCurrentIntroduction.mockReset()
     push.mockReset()
 
     getCourse.mockResolvedValue({
@@ -111,17 +85,25 @@ describe('VideoVocabPracticePage', () => {
       videos: [{ youtubeId: 'abc123', languageCode: 'deu' }],
     })
     getVideoById.mockResolvedValue({ youtubeId: 'abc123', languageCode: 'deu' })
+    getSnippetsOfVideo.mockResolvedValue([
+      {
+        start: 0,
+        duration: 4,
+        words: [{ original: 'hallo', meanings: ['hello'] }],
+      },
+    ])
     pickRandomVideo.mockReturnValue({ youtubeId: 'def456', languageCode: 'deu' })
-    load.mockResolvedValue(undefined)
   })
 
-  it('loads the vocab practice session for the route video', async () => {
-    render(VideoVocabPracticePage)
+  it('loads practice entries for the route video', async () => {
+    const { findByText } = render(VideoVocabPracticePage)
 
     await waitFor(() => {
       expect(getVideoById).toHaveBeenCalledWith('deu', 'abc123')
-      expect(load).toHaveBeenCalledWith('abc123')
+      expect(getSnippetsOfVideo).toHaveBeenCalledWith('deu', 'abc123')
     })
+
+    expect(await findByText('Practice Session 1')).toBeTruthy()
   })
 
   it('opens a random next video in vocab mode', async () => {
@@ -137,7 +119,7 @@ describe('VideoVocabPracticePage', () => {
     const { getByRole } = render(VideoVocabPracticePage)
 
     await waitFor(() => {
-      expect(load).toHaveBeenCalledWith('abc123')
+      expect(getSnippetsOfVideo).toHaveBeenCalledWith('deu', 'abc123')
     })
 
     await fireEvent.click(getByRole('button', { name: 'Switch Video' }))

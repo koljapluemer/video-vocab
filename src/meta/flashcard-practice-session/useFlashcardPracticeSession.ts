@@ -2,22 +2,22 @@ import { computed, ref } from 'vue'
 import { type Rating } from 'ts-fsrs'
 
 import { buildFlashcardId, type Flashcard } from '@/entities/flashcard/flashcard'
-import { applyRating, createCardForWord, getSavedCardsForWords } from '@/entities/flashcard/flashcardStore'
-import { getSnippetsOfVideo, type Snippet } from '@/entities/snippet/snippet'
 import {
-  buildVideoVocabEntries,
-  type VideoVocabEntry,
-} from '@/entities/video/videoVocab'
+  applyRating,
+  createCardForWord,
+  getSavedCardsForWords,
+} from '@/entities/flashcard/flashcardStore'
 
-export function useVideoVocabPractice(languageCode: string) {
-  const snippets = ref<Snippet[]>([])
-  const videoVocabEntries = ref<VideoVocabEntry[]>([])
+import type { FlashcardPracticeEntry } from './flashcardPracticeEntries'
+
+export function useFlashcardPracticeSession(languageCode: string) {
+  const entries = ref<FlashcardPracticeEntry[]>([])
   const reviewFlashcards = ref<Flashcard[]>([])
-  const currentIntroduction = ref<VideoVocabEntry | null>(null)
+  const currentIntroduction = ref<FlashcardPracticeEntry | null>(null)
   const currentPracticeFlashcard = ref<Flashcard | null>(null)
+  const currentPromptVersion = ref(0)
   const isSavingIntroduction = ref(false)
   const progressUpdatedAt = ref(0)
-  const currentPromptVersion = ref(0)
   const lastSeenCardId = ref<string | null>(null)
 
   const currentPromptKey = computed(() => `${currentPromptVersion.value}`)
@@ -30,11 +30,14 @@ export function useVideoVocabPractice(languageCode: string) {
     )
   }
 
-  function getNextIntroduction(): VideoVocabEntry | null {
-    const savedCardIds = new Set(reviewFlashcards.value.map((flashcard) => flashcard.cardId))
+  function getNextIntroduction(): FlashcardPracticeEntry | null {
+    const savedCardIds = new Set(
+      reviewFlashcards.value.map((flashcard) => flashcard.cardId),
+    )
 
-    return videoVocabEntries.value.find(
-      (entry) => !savedCardIds.has(buildFlashcardId(languageCode, entry.word.original)),
+    return entries.value.find(
+      (entry) =>
+        !savedCardIds.has(buildFlashcardId(languageCode, entry.word.original)),
     ) ?? null
   }
 
@@ -43,8 +46,11 @@ export function useVideoVocabPractice(languageCode: string) {
       getDueFlashcards(excludedCardId).map((flashcard) => [flashcard.cardId, flashcard] as const),
     )
 
-    for (const entry of videoVocabEntries.value) {
-      const flashcard = dueFlashcardsById.get(buildFlashcardId(languageCode, entry.word.original))
+    for (const entry of entries.value) {
+      const flashcard = dueFlashcardsById.get(
+        buildFlashcardId(languageCode, entry.word.original),
+      )
+
       if (flashcard) {
         return flashcard
       }
@@ -83,16 +89,13 @@ export function useVideoVocabPractice(languageCode: string) {
     reviewFlashcards.value = nextReviewFlashcards
   }
 
-  async function load(videoId: string) {
-    const nextSnippets = await getSnippetsOfVideo(languageCode, videoId)
-    const nextVideoVocabEntries = buildVideoVocabEntries(nextSnippets)
+  async function load(nextEntries: FlashcardPracticeEntry[]) {
     const savedCards = await getSavedCardsForWords(
       languageCode,
-      nextVideoVocabEntries.map((entry) => entry.word),
+      nextEntries.map((entry) => entry.word),
     )
 
-    snippets.value = nextSnippets
-    videoVocabEntries.value = nextVideoVocabEntries
+    entries.value = nextEntries
     reviewFlashcards.value = savedCards
     currentIntroduction.value = null
     currentPracticeFlashcard.value = null
@@ -101,15 +104,15 @@ export function useVideoVocabPractice(languageCode: string) {
   }
 
   async function rememberCurrentIntroduction() {
-    const currentEntry = currentIntroduction.value
-    if (!currentEntry || isSavingIntroduction.value) {
+    const entry = currentIntroduction.value
+    if (!entry || isSavingIntroduction.value) {
       return
     }
 
     isSavingIntroduction.value = true
 
     try {
-      const createdCard = await createCardForWord(languageCode, currentEntry.word)
+      const createdCard = await createCardForWord(languageCode, entry.word)
       upsertReviewFlashcard(createdCard)
       lastSeenCardId.value = createdCard.cardId
       progressUpdatedAt.value = Date.now()
@@ -137,6 +140,5 @@ export function useVideoVocabPractice(languageCode: string) {
     progressUpdatedAt,
     rateFlashcard,
     rememberCurrentIntroduction,
-    snippets,
   }
 }

@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
-import { Rating } from 'ts-fsrs'
 import { useRoute, useRouter } from 'vue-router'
 
 import VideoPracticeLayout from '@/dumb/VideoPracticeLayout.vue'
 import { getCourse, getVideoById } from '@/entities/course/course'
 import { pickRandomVideo } from '@/entities/course/course'
-import type { Flashcard } from '@/entities/flashcard/flashcard'
-import { applyRating, getOrCreateCardsForWords } from '@/entities/flashcard/flashcardStore'
 import { getSnippet, getSnippetsOfVideo, type Snippet } from '@/entities/snippet/snippet'
 import { recordFlashcardFlip } from '@/features/device-stats/deviceStatsStorage'
-import FlashCardsWrapper from '@/features/flashcard-review/FlashCardsWrapper.vue'
-import { getFlashcardWordsForSnippet } from '@/features/snippet-flashcard-session/snippetFlashcardSession'
 import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
 import VideoVocabProgressBar from '@/features/video-vocab-progress/VideoVocabProgressBar.vue'
+import FlashcardPracticeSession from '@/meta/flashcard-practice-session/FlashcardPracticeSession.vue'
+import {
+  buildFlashcardPracticeEntries,
+  type FlashcardPracticeEntry,
+} from '@/meta/flashcard-practice-session/flashcardPracticeEntries'
 
 import WatchSnippet from './WatchSnippet.vue'
 
@@ -21,7 +21,7 @@ const route = useRoute()
 const router = useRouter()
 
 const snippet = ref<Snippet | null>(null)
-const flashcards = ref<Flashcard[]>([])
+const practiceEntries = ref<FlashcardPracticeEntry[]>([])
 const isLearnMode = ref(true)
 const isLoading = ref(true)
 const loadError = ref<string | null>(null)
@@ -65,9 +65,8 @@ onMounted(async () => {
     }
 
     snippet.value = await getSnippet(languageCode, videoId.value, snippetIndex.value)
-    flashcards.value = await getOrCreateCardsForWords(
-      languageCode,
-      await getFlashcardWordsForSnippet(languageCode, videoId.value, snippetIndex.value),
+    practiceEntries.value = buildFlashcardPracticeEntries(
+      snippet.value?.words ?? [],
     )
     isLearnMode.value = true
   } catch (error) {
@@ -80,12 +79,6 @@ onMounted(async () => {
 
 const handleAllFlashcardsCompleted = () => {
   isLearnMode.value = false
-}
-
-async function handleSingleFlashcardRated(flashcard: Flashcard, rating: Rating) {
-  const updatedFlashcard = await applyRating(flashcard.cardId, rating, new Date())
-  Object.assign(flashcard, updatedFlashcard)
-  progressUpdatedAt.value = Date.now()
 }
 
 function handleFlashcardRevealed() {
@@ -111,8 +104,14 @@ async function openRandomNextVideo() {
 
     <div v-if="snippet" class="space-y-4">
       <div v-if="isLearnMode && !isLoading">
-        <FlashCardsWrapper :flashcards="flashcards" @all-flashcards-completed="handleAllFlashcardsCompleted"
-          @flashcard-revealed="handleFlashcardRevealed" @single-flashcard-rated="handleSingleFlashcardRated" />
+        <FlashcardPracticeSession
+          :entries="practiceEntries"
+          :language-code="languageCode"
+          :session-key="`${videoId}:${snippetIndex}`"
+          @all-flashcards-completed="handleAllFlashcardsCompleted"
+          @flashcard-revealed="handleFlashcardRevealed"
+          @progress-updated="progressUpdatedAt = $event"
+        />
       </div>
       <WatchSnippet v-else-if="!isLoading" :video-id="videoId" :start="snippet.start" :duration="snippet.duration"
         :current-index="snippetIndex" :has-next-snippet="hasNextSnippet" :next-snippet-query="nextSnippetQuery"

@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import IndexCard from '@/dumb/index-card/IndexCard.vue'
 import type { FlashcardWord } from '@/entities/flashcard/flashcard'
-import ActionButtonRow, {
-  type FlashcardAction,
-} from '@/features/flashcard-review/ActionButtonRow.vue'
+
+import ActionButtonRow, { type FlashcardAction } from './ActionButtonRow.vue'
 
 defineProps<{
   word: FlashcardWord
-  occurrences: number
 }>()
 
 defineEmits<{

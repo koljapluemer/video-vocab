@@ -31,6 +31,13 @@ vi.mock('@/features/device-stats/deviceStatsStorage', () => ({
         spa: index === 13 ? 4 : 0,
       },
     })),
+    minutesVideoWatchedByDay: Array.from({ length: 14 }, (_, index) => ({
+      date: `2026-04-${String(index + 11).padStart(2, '0')}`,
+      values: {
+        deu: index === 13 ? 42 : 0,
+        spa: index === 13 ? 8 : 0,
+      },
+    })),
     minutesInteractedByDay: Array.from({ length: 14 }, (_, index) => ({
       date: `2026-04-${String(index + 11).padStart(2, '0')}`,
       values: {
@@ -93,6 +100,6 @@ describe('StatsPage', () => {
     expect(getByText('Minutes video watched')).toBeTruthy()
     expect(getByText('50')).toBeTruthy()
     expect(getByText('Cards flipped per day')).toBeTruthy()
-    expect(getByText('Minutes interacted per day')).toBeTruthy()
+    expect(getByText('Minutes watched per day')).toBeTruthy()
   })
 })

@@ -7,9 +7,8 @@ const {
   createCardForWord,
   getCourse,
   getSavedCardsForWords,
-  getVideoById,
   getSnippetsOfVideo,
-  loadYoutubeIframeApi,
+  getVideoById,
   pickRandomVideo,
   push,
 } = vi.hoisted(() => ({
@@ -17,23 +16,19 @@ const {
   createCardForWord: vi.fn(),
   getCourse: vi.fn(),
   getSavedCardsForWords: vi.fn(),
-  getVideoById: vi.fn(),
   getSnippetsOfVideo: vi.fn(),
-  loadYoutubeIframeApi: vi.fn(),
+  getVideoById: vi.fn(),
   pickRandomVideo: vi.fn(),
   push: vi.fn(),
-}))
-
-const { loadVideoByIdMock, destroyMock } = vi.hoisted(() => ({
-  loadVideoByIdMock: vi.fn(),
-  destroyMock: vi.fn(),
 }))
 
 vi.mock('vue-router', () => ({
   useRoute: () => ({
     params: {
       videoId: 'abc123',
-      practiceMode: 'parallel',
+    },
+    query: {
+      snippet: '0',
     },
   }),
   useRouter: () => ({ push }),
@@ -53,18 +48,18 @@ vi.mock('@/entities/course/course', () => ({
   pickRandomVideo,
 }))
 
-vi.mock('@/entities/snippet/snippet', () => ({
-  getSnippetsOfVideo,
-}))
-
 vi.mock('@/entities/flashcard/flashcardStore', () => ({
   applyRating,
   createCardForWord,
   getSavedCardsForWords,
 }))
 
-vi.mock('@/features/video-embed/loadYoutubeIframeApi', () => ({
-  loadYoutubeIframeApi,
+vi.mock('@/entities/snippet/snippet', () => ({
+  getSnippetsOfVideo,
+}))
+
+vi.mock('@/features/device-stats/deviceStatsStorage', () => ({
+  recordFlashcardFlip: vi.fn(),
 }))
 
 vi.mock('@/dumb/VideoPracticeLayout.vue', () => ({
@@ -98,64 +93,48 @@ vi.mock('@/features/flashcard-review/FlashCard.vue', () => ({
   },
 }))
 
-import FlowPage from './FlowPage.vue'
+vi.mock('./WatchSnippet.vue', () => ({
+  default: {
+    template: '<button type="button" @click="$emit(\'study-again\')">Watch the Snippet</button>',
+  },
+}))
+
+import SnippetPracticePage from './SnippetPracticePage.vue'
 
 afterEach(() => {
   cleanup()
 })
 
-describe('FlowPage', () => {
+describe('SnippetPracticePage', () => {
   beforeEach(() => {
     applyRating.mockReset()
     createCardForWord.mockReset()
-    push.mockReset()
     getCourse.mockReset()
     getSavedCardsForWords.mockReset()
-    getVideoById.mockReset()
     getSnippetsOfVideo.mockReset()
-    loadYoutubeIframeApi.mockReset()
+    getVideoById.mockReset()
     pickRandomVideo.mockReset()
-    loadVideoByIdMock.mockReset()
-    destroyMock.mockReset()
+    push.mockReset()
+
     getCourse.mockResolvedValue({
       languageCode: 'deu',
       label: 'German',
       videos: [{ youtubeId: 'abc123', languageCode: 'deu' }],
     })
-    getSavedCardsForWords.mockResolvedValue([])
     getVideoById.mockResolvedValue({ youtubeId: 'abc123', languageCode: 'deu' })
+    getSavedCardsForWords.mockResolvedValue([])
     getSnippetsOfVideo.mockResolvedValue([
       {
         start: 0,
         duration: 4,
-        words: [
-          { original: 'hallo', meanings: ['hello'] },
-          { original: 'welt', meanings: ['world'] },
-        ],
+        words: [{ original: 'hallo', meanings: ['hello'] }],
       },
     ])
-    loadYoutubeIframeApi.mockResolvedValue(undefined)
-    window.YT = {
-      PlayerState: {
-        PLAYING: 1,
-        PAUSED: 2,
-        ENDED: 0,
-      },
-      Player: class {
-        loadVideoById(...args: unknown[]) {
-          loadVideoByIdMock(...args)
-        }
-
-        destroy() {
-          destroyMock()
-        }
-      },
-    } as unknown as typeof window.YT
+    pickRandomVideo.mockReturnValue({ youtubeId: 'def456', languageCode: 'deu' })
   })
 
-  it('shows the first introduction from the active snippet window', async () => {
-    const randomSpy = vi.spyOn(Math, 'random').mockReturnValue(0)
-    const { findByText } = render(FlowPage)
+  it('shows an introduction for an unseen snippet word', async () => {
+    const { findByText } = render(SnippetPracticePage)
 
     await waitFor(() => {
       expect(getVideoById).toHaveBeenCalledWith('deu', 'abc123')
@@ -163,11 +142,9 @@ describe('FlowPage', () => {
     })
 
     expect(await findByText('Intro hallo')).toBeTruthy()
-    randomSpy.mockRestore()
   })
 
-  it('can show an eligible due saved card from the active snippet window', async () => {
-    const randomSpy = vi.spyOn(Math, 'random').mockReturnValue(0)
+  it('shows a due seen card from the snippet', async () => {
     getSavedCardsForWords.mockResolvedValue([
       {
         cardId: 'deu::hallo',
@@ -186,19 +163,42 @@ describe('FlowPage', () => {
       },
     ])
 
-    const { findByText } = render(FlowPage)
+    const { findByText } = render(SnippetPracticePage)
 
     expect(await findByText('Review hallo')).toBeTruthy()
-    randomSpy.mockRestore()
   })
 
-  it('recomputes the next card immediately after remembering an introduction', async () => {
+  it('switches to watch mode when no snippet card is eligible', async () => {
+    getSavedCardsForWords.mockResolvedValue([
+      {
+        cardId: 'deu::hallo',
+        languageCode: 'deu',
+        original: 'hallo',
+        meanings: ['hello'],
+        due: new Date('2026-05-20T12:00:00'),
+        stability: 0,
+        difficulty: 0,
+        elapsed_days: 0,
+        scheduled_days: 0,
+        learning_steps: 0,
+        reps: 1,
+        lapses: 0,
+        state: 2,
+      },
+    ])
+
+    const { findByText } = render(SnippetPracticePage)
+
+    expect(await findByText('Watch the Snippet')).toBeTruthy()
+  })
+
+  it('shows an introduced card as a normal review card when practice resumes', async () => {
     createCardForWord.mockResolvedValue({
       cardId: 'deu::hallo',
       languageCode: 'deu',
       original: 'hallo',
       meanings: ['hello'],
-      due: new Date('2026-04-27T10:00:00'),
+      due: new Date('2026-04-20T12:00:00'),
       stability: 0,
       difficulty: 0,
       elapsed_days: 0,
@@ -216,7 +216,24 @@ describe('FlowPage', () => {
           languageCode: 'deu',
           original: 'hallo',
           meanings: ['hello'],
-          due: new Date('2026-04-27T10:00:00'),
+          due: new Date('2026-04-20T12:00:00'),
+          stability: 0,
+          difficulty: 0,
+          elapsed_days: 0,
+          scheduled_days: 0,
+          learning_steps: 0,
+          reps: 0,
+          lapses: 0,
+          state: 0,
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          cardId: 'deu::hallo',
+          languageCode: 'deu',
+          original: 'hallo',
+          meanings: ['hello'],
+          due: new Date('2026-04-20T12:00:00'),
           stability: 0,
           difficulty: 0,
           elapsed_days: 0,
@@ -228,50 +245,14 @@ describe('FlowPage', () => {
         },
       ])
 
-    const { findByText, getByRole } = render(FlowPage)
+    const { findByText, getByRole } = render(SnippetPracticePage)
 
     expect(await findByText('Intro hallo')).toBeTruthy()
 
     await fireEvent.click(getByRole('button', { name: 'Intro hallo' }))
+    expect(await findByText('Watch the Snippet')).toBeTruthy()
 
-    expect(await findByText('Intro welt')).toBeTruthy()
-  })
-
-  it('shows a missing-video error when the route video is not available', async () => {
-    getVideoById.mockResolvedValue(undefined)
-
-    const { findByText } = render(FlowPage)
-
-    expect(await findByText('This video could not be found.')).toBeTruthy()
-  })
-
-  it('opens a random next video in the same practice mode', async () => {
-    getCourse.mockResolvedValue({
-      languageCode: 'deu',
-      label: 'German',
-      videos: [
-        { youtubeId: 'abc123', languageCode: 'deu' },
-        { youtubeId: 'def456', languageCode: 'deu' },
-      ],
-    })
-    pickRandomVideo.mockReturnValue({ youtubeId: 'def456', languageCode: 'deu' })
-    const randomSpy = vi.spyOn(Math, 'random').mockReturnValue(0)
-
-    const { getByRole } = render(FlowPage)
-
-    await waitFor(() => {
-      expect(getSnippetsOfVideo).toHaveBeenCalledWith('deu', 'abc123')
-    })
-
-    await fireEvent.click(getByRole('button', { name: 'Switch Video' }))
-
-    await waitFor(() => {
-      expect(push).toHaveBeenCalledWith({
-        name: 'video-practice',
-        params: { videoId: 'def456', practiceMode: 'parallel' },
-      })
-    })
-
-    randomSpy.mockRestore()
+    await fireEvent.click(getByRole('button', { name: 'Watch the Snippet' }))
+    expect(await findByText('Review hallo')).toBeTruthy()
   })
 })

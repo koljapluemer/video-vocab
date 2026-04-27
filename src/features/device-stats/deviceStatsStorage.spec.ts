@@ -62,6 +62,13 @@ describe('deviceStatsStorage', () => {
         spa: 0,
       },
     })
+    expect(snapshot.minutesVideoWatchedByDay[snapshot.minutesVideoWatchedByDay.length - 1]).toEqual({
+      date: '2026-04-24',
+      values: {
+        deu: 12,
+        spa: 0,
+      },
+    })
   })
 
   it('keeps only the last 14 days and zero-fills missing dates', () => {
@@ -76,6 +83,9 @@ describe('deviceStatsStorage', () => {
           cardsFlippedByDay: {
             '2026-04-01': 9,
             '2026-04-20': 3,
+          },
+          minutesVideoWatchedByDay: {
+            '2026-04-19': 4.25,
           },
           minutesInteractedByDay: {
             '2026-04-18': 7.5,
@@ -93,6 +103,8 @@ describe('deviceStatsStorage', () => {
     expect(snapshot.cardsFlippedByDay[0]?.values.deu).toBe(0)
     expect(snapshot.cardsFlippedByDay[9]?.date).toBe('2026-04-20')
     expect(snapshot.cardsFlippedByDay[9]?.values.deu).toBe(3)
+    expect(snapshot.minutesVideoWatchedByDay[8]?.date).toBe('2026-04-19')
+    expect(snapshot.minutesVideoWatchedByDay[8]?.values.deu).toBe(4.25)
     expect(snapshot.minutesInteractedByDay[7]?.date).toBe('2026-04-18')
     expect(snapshot.minutesInteractedByDay[7]?.values.deu).toBe(7.5)
   })

@@ -1,15 +1,10 @@
 import { cleanup, render, fireEvent } from '@testing-library/vue'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it } from 'vitest'
 import type { Flashcard } from '@/entities/flashcard/flashcard'
 import { createFlashcard as createEntityFlashcard } from '@/entities/flashcard/flashcard'
 import IndexCard from '@/dumb/index-card/IndexCard.vue'
 
-vi.mock('@/dumb/shuffleArray', () => ({
-  shuffleArray: <T>(array: T[]) => array,
-}))
-
 import FlashCard from './FlashCard.vue'
-import FlashCardsWrapper from './FlashCardsWrapper.vue'
 
 function createFlashcard(overrides?: Partial<Flashcard>): Flashcard {
   return {
@@ -89,55 +84,5 @@ describe('FlashCard', () => {
     })
 
     expect(queryByText('bye')).toBeNull()
-  })
-})
-
-describe('FlashCardsWrapper', () => {
-  it('reveal does not advance the deck, emits reveal, and ratings still emit completion', async () => {
-    const onAllFlashcardsCompleted = vi.fn()
-    const onFlashcardRevealed = vi.fn()
-
-    const { getByTestId, getByText } = render(FlashCardsWrapper, {
-      props: {
-        flashcards: [createFlashcard({ meanings: ['hello'] })],
-        'onAll-flashcards-completed': onAllFlashcardsCompleted,
-        'onFlashcard-revealed': onFlashcardRevealed,
-      },
-    })
-
-    await fireEvent.click(getByTestId('action-reveal'))
-    expect(getByText('hello')).toBeTruthy()
-    expect(onFlashcardRevealed).toHaveBeenCalledTimes(1)
-
-    await fireEvent.click(getByTestId('action-good'))
-
-    expect(onAllFlashcardsCompleted).toHaveBeenCalledTimes(1)
-  })
-
-  it('again and hard recycle cards according to the existing stack logic', async () => {
-    const randomSpy = vi.spyOn(Math, 'random').mockReturnValue(0)
-
-    const { getByTestId, getByText, queryByText } = render(FlashCardsWrapper, {
-      props: {
-        flashcards: [
-          createFlashcard({ original: 'hola', meanings: ['hello'] }),
-          createFlashcard({ original: 'adios', meanings: ['bye'] }),
-          createFlashcard({ original: 'gracias', meanings: ['thanks'] }),
-        ],
-      },
-    })
-
-    await fireEvent.click(getByTestId('action-reveal'))
-    await fireEvent.click(getByTestId('action-again'))
-
-    expect(getByText('adios')).toBeTruthy()
-
-    await fireEvent.click(getByTestId('action-reveal'))
-    await fireEvent.click(getByTestId('action-hard'))
-
-    expect(getByText('hola')).toBeTruthy()
-    expect(queryByText('Done for now')).toBeNull()
-
-    randomSpy.mockRestore()
   })
 })

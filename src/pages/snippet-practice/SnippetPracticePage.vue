@@ -1,19 +1,27 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, shallowRef } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { type Rating } from 'ts-fsrs'
 
 import VideoPracticeLayout from '@/dumb/VideoPracticeLayout.vue'
 import { getCourse, getVideoById } from '@/entities/course/course'
 import { pickRandomVideo } from '@/entities/course/course'
-import { getSnippet, getSnippetsOfVideo, type Snippet } from '@/entities/snippet/snippet'
+import {
+  buildFlashcardPromptEntries,
+  type FlashcardPromptEntry,
+} from '@/entities/flashcard/flashcardPromptEntry'
+import {
+  applyRating,
+  createCardForWord,
+  getSavedCardsForWords,
+} from '@/entities/flashcard/flashcardStore'
+import { buildFlashcardId, type Flashcard } from '@/entities/flashcard/flashcard'
+import { getSnippetsOfVideo, type Snippet } from '@/entities/snippet/snippet'
 import { recordFlashcardFlip } from '@/features/device-stats/deviceStatsStorage'
+import FlashCard from '@/features/flashcard-review/FlashCard.vue'
+import FlashcardIntroductionCard from '@/features/flashcard-review/FlashcardIntroductionCard.vue'
 import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
 import VideoVocabProgressBar from '@/features/video-vocab-progress/VideoVocabProgressBar.vue'
-import FlashcardPracticeSession from '@/meta/flashcard-practice-session/FlashcardPracticeSession.vue'
-import {
-  buildFlashcardPracticeEntries,
-  type FlashcardPracticeEntry,
-} from '@/meta/flashcard-practice-session/flashcardPracticeEntries'
 
 import WatchSnippet from './WatchSnippet.vue'
 
@@ -21,13 +29,18 @@ const route = useRoute()
 const router = useRouter()
 
 const snippet = ref<Snippet | null>(null)
-const practiceEntries = ref<FlashcardPracticeEntry[]>([])
-const isLearnMode = ref(true)
+const currentPrompt = ref<
+  | { kind: 'introduction'; entry: FlashcardPromptEntry }
+  | { kind: 'flashcard'; flashcard: Flashcard }
+  | null
+>(null)
 const isLoading = ref(true)
+const isResolvingPrompt = ref(false)
 const loadError = ref<string | null>(null)
 const snippetCount = ref(0)
-const snippets = ref<Snippet[]>([])
+const snippets = shallowRef<Snippet[]>([])
 const progressUpdatedAt = ref(0)
+const lastShownCardId = ref<string | null>(null)
 
 const languageCode = getStoredTargetLanguage() ?? ''
 const videoId = computed(() => route.params.videoId as string)
@@ -43,7 +56,62 @@ const snippetIndex = computed(() => {
 const hasNextSnippet = computed(() => snippetIndex.value < snippetCount.value - 1)
 const nextSnippetQuery = computed(() => ({ snippet: String(snippetIndex.value + 1) }))
 
-onMounted(async () => {
+function pickRandomPrompt(
+  prompts: Array<
+    | { kind: 'introduction'; entry: FlashcardPromptEntry }
+    | { kind: 'flashcard'; flashcard: Flashcard }
+  >,
+) {
+  return prompts[Math.floor(Math.random() * prompts.length)]!
+}
+
+async function resolveCurrentPrompt() {
+  if (!snippet.value) {
+    currentPrompt.value = null
+    return
+  }
+
+  isResolvingPrompt.value = true
+
+  try {
+    const candidateEntries = buildFlashcardPromptEntries(snippet.value.words)
+    const savedCards = await getSavedCardsForWords(
+      languageCode,
+      candidateEntries.map((entry) => entry.word),
+    )
+    const savedCardsById = new Map(
+      savedCards.map((flashcard) => [flashcard.cardId, flashcard] as const),
+    )
+    const now = new Date()
+    const eligiblePrompts: Array<
+      | { kind: 'introduction'; entry: FlashcardPromptEntry }
+      | { kind: 'flashcard'; flashcard: Flashcard }
+    > = []
+
+    for (const entry of candidateEntries) {
+      const cardId = buildFlashcardId(languageCode, entry.word.original)
+      if (cardId === lastShownCardId.value) {
+        continue
+      }
+
+      const savedCard = savedCardsById.get(cardId)
+      if (!savedCard) {
+        eligiblePrompts.push({ kind: 'introduction', entry })
+        continue
+      }
+
+      if (savedCard.due <= now) {
+        eligiblePrompts.push({ kind: 'flashcard', flashcard: savedCard })
+      }
+    }
+
+    currentPrompt.value = eligiblePrompts.length > 0 ? pickRandomPrompt(eligiblePrompts) : null
+  } finally {
+    isResolvingPrompt.value = false
+  }
+}
+
+async function loadSnippetPractice() {
   if (!languageCode) {
     loadError.value = 'Choose a target language first.'
     isLoading.value = false
@@ -64,25 +132,46 @@ onMounted(async () => {
       return
     }
 
-    snippet.value = await getSnippet(languageCode, videoId.value, snippetIndex.value)
-    practiceEntries.value = buildFlashcardPracticeEntries(
-      snippet.value?.words ?? [],
-    )
-    isLearnMode.value = true
+    snippet.value = snippets.value[snippetIndex.value] ?? null
+    lastShownCardId.value = null
+    await resolveCurrentPrompt()
   } catch (error) {
     console.error('Failed to load snippet:', error)
     loadError.value = 'Unable to load this snippet right now.'
   } finally {
     isLoading.value = false
   }
-})
+}
 
-const handleAllFlashcardsCompleted = () => {
-  isLearnMode.value = false
+async function handleRememberIntroduction() {
+  if (currentPrompt.value?.kind !== 'introduction') {
+    return
+  }
+
+  const createdCard = await createCardForWord(languageCode, currentPrompt.value.entry.word)
+  lastShownCardId.value = createdCard.cardId
+  progressUpdatedAt.value = Date.now()
+  await resolveCurrentPrompt()
+}
+
+async function handleFlashcardRated(rating: Rating) {
+  if (currentPrompt.value?.kind !== 'flashcard') {
+    return
+  }
+
+  const updatedCard = await applyRating(currentPrompt.value.flashcard.cardId, rating, new Date())
+  lastShownCardId.value = updatedCard.cardId
+  progressUpdatedAt.value = Date.now()
+  await resolveCurrentPrompt()
 }
 
 function handleFlashcardRevealed() {
   recordFlashcardFlip(languageCode, new Date())
+}
+
+function handleStudyAgain() {
+  lastShownCardId.value = null
+  void resolveCurrentPrompt()
 }
 
 async function openRandomNextVideo() {
@@ -94,6 +183,10 @@ async function openRandomNextVideo() {
     params: { videoId: nextVideo.youtubeId },
   })
 }
+
+onMounted(() => {
+  void loadSnippetPractice()
+})
 </script>
 
 <template>
@@ -103,19 +196,34 @@ async function openRandomNextVideo() {
     </div>
 
     <div v-if="snippet" class="space-y-4">
-      <div v-if="isLearnMode && !isLoading">
-        <FlashcardPracticeSession
-          :entries="practiceEntries"
-          :language-code="languageCode"
-          :session-key="`${videoId}:${snippetIndex}`"
-          @all-flashcards-completed="handleAllFlashcardsCompleted"
-          @flashcard-revealed="handleFlashcardRevealed"
-          @progress-updated="progressUpdatedAt = $event"
-        />
+      <div v-if="currentPrompt || isResolvingPrompt" class="flex min-h-[32rem] items-center">
+        <div class="flex w-full flex-col items-center justify-center gap-6">
+          <span v-if="isResolvingPrompt" class="loading loading-spinner loading-lg"></span>
+
+          <FlashcardIntroductionCard
+            v-else-if="currentPrompt?.kind === 'introduction'"
+            :word="currentPrompt.entry.word"
+            @remember="handleRememberIntroduction"
+          />
+
+          <FlashCard
+            v-else-if="currentPrompt?.kind === 'flashcard'"
+            :flashcard="currentPrompt.flashcard"
+            @flashcard-revealed="handleFlashcardRevealed"
+            @single-flashcard-rated="handleFlashcardRated"
+          />
+        </div>
       </div>
-      <WatchSnippet v-else-if="!isLoading" :video-id="videoId" :start="snippet.start" :duration="snippet.duration"
-        :current-index="snippetIndex" :has-next-snippet="hasNextSnippet" :next-snippet-query="nextSnippetQuery"
-        @study-again="isLearnMode = true" />
+      <WatchSnippet
+        v-else-if="!isLoading"
+        :video-id="videoId"
+        :start="snippet.start"
+        :duration="snippet.duration"
+        :current-index="snippetIndex"
+        :has-next-snippet="hasNextSnippet"
+        :next-snippet-query="nextSnippetQuery"
+        @study-again="handleStudyAgain"
+      />
 
       <VideoVocabProgressBar
         :language-code="languageCode"

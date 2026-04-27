@@ -17,6 +17,7 @@ import StackedDailyBarChart from './StackedDailyBarChart.vue'
 const stats = ref<DeviceStatsSnapshot>({
   languages: [],
   cardsFlippedByDay: [],
+  minutesVideoWatchedByDay: [],
   minutesInteractedByDay: [],
 })
 const wordStats = ref<LanguageWordStats[]>([])
@@ -108,8 +109,8 @@ onMounted(async () => {
         :language-labels="languageLabels"
       />
       <StackedDailyBarChart
-        title="Minutes interacted per day"
-        :points="stats.minutesInteractedByDay"
+        title="Minutes watched per day"
+        :points="stats.minutesVideoWatchedByDay"
         value-label="min"
         :language-labels="languageLabels"
       />

@@ -95,48 +95,6 @@ export async function createCardForWord(
   return freshCard
 }
 
-export async function getOrCreateCardsForWords(
-  languageCode: string,
-  words: FlashcardWord[],
-): Promise<Flashcard[]> {
-  const uniqueWords = deduplicateWords(words)
-  const cardIds = uniqueWords.map((word) => buildFlashcardId(languageCode, word.original))
-  const savedCards = await learnerDb.flashcards.bulkGet(cardIds)
-  const flashcards: Flashcard[] = []
-  const recordsToCreate: SavedFlashcardRecord[] = []
-  const recordsToUpdate: SavedFlashcardRecord[] = []
-
-  uniqueWords.forEach((word, index) => {
-    const savedCard = savedCards[index]
-    if (savedCard) {
-      const mergedMeanings = toPlainMeanings([...savedCard.meanings, ...word.meanings])
-      if (mergedMeanings.join('|') !== savedCard.meanings.join('|')) {
-        const updatedRecord = {
-          ...savedCard,
-          meanings: mergedMeanings,
-        }
-        flashcards.push(toFlashcard(updatedRecord))
-        recordsToUpdate.push(updatedRecord)
-        return
-      }
-
-      flashcards.push(toFlashcard(savedCard))
-      return
-    }
-
-    const freshCard = createPersistedFlashcard(languageCode, word)
-    flashcards.push(freshCard)
-    recordsToCreate.push(toSavedFlashcardRecord(freshCard))
-  })
-
-  const recordsToPersist = [...recordsToCreate, ...recordsToUpdate]
-  if (recordsToPersist.length > 0) {
-    await learnerDb.flashcards.bulkPut(recordsToPersist)
-  }
-
-  return flashcards
-}
-
 export async function getSavedCardsForWords(
   languageCode: string,
   words: FlashcardWord[],

@@ -44,36 +44,7 @@ function toSnippet(snippet: SavedVideoData['snippets'][number]): Snippet {
   }
 }
 
-export async function getNumberOfSnippetsOfVideo(languageCode: string, videoId: string): Promise<number> {
-  const videoData = await fetchVideoData(languageCode, videoId)
-  return videoData.snippets.length
-}
-
 export async function getSnippetsOfVideo(languageCode: string, videoId: string): Promise<Snippet[]> {
   const videoData = await fetchVideoData(languageCode, videoId)
   return videoData.snippets.map(toSnippet)
-}
-
-export async function getWordsOfSnippet(
-  languageCode: string,
-  videoId: string,
-  snippetIndex: number,
-): Promise<Word[]> {
-  const videoData = await fetchVideoData(languageCode, videoId)
-  const snippet = videoData.snippets[snippetIndex]
-  if (!snippet) {
-    throw new Error(`Snippet '${snippetIndex}' was not found for '${languageCode}/${videoId}'`)
-  }
-
-  return snippet.words.map(toWord)
-}
-
-export async function getSnippet(languageCode: string, videoId: string, snippetIndex: number): Promise<Snippet> {
-  const videoData = await fetchVideoData(languageCode, videoId)
-  const snippet = videoData.snippets[snippetIndex]
-  if (!snippet) {
-    throw new Error(`Snippet '${snippetIndex}' was not found for '${languageCode}/${videoId}'`)
-  }
-
-  return toSnippet(snippet)
 }

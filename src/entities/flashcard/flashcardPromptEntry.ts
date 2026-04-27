@@ -1,17 +1,12 @@
-import {
-  normalizeMeanings,
-  type FlashcardWord,
-} from '@/entities/flashcard/flashcard'
+import { normalizeMeanings, type FlashcardWord } from './flashcard'
 
-export interface FlashcardPracticeEntry {
+export interface FlashcardPromptEntry {
   word: FlashcardWord
   occurrences: number
 }
 
-export function buildFlashcardPracticeEntries(
-  words: FlashcardWord[],
-): FlashcardPracticeEntry[] {
-  const entries = new Map<string, FlashcardPracticeEntry>()
+export function buildFlashcardPromptEntries(words: FlashcardWord[]): FlashcardPromptEntry[] {
+  const entries = new Map<string, FlashcardPromptEntry>()
 
   for (const word of words) {
     const existingEntry = entries.get(word.original)

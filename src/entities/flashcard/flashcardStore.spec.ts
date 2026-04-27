@@ -25,7 +25,6 @@ import {
   createCardForWord,
   flashcardStoreInternals,
   getCardStateCounts,
-  getOrCreateCardsForWords,
 } from './flashcardStore'
 
 describe('flashcardStore', () => {
@@ -37,58 +36,18 @@ describe('flashcardStore', () => {
     flashcardTable.toArray.mockReset()
   })
 
-  it('creates empty cards when none are persisted yet', async () => {
-    flashcardTable.bulkGet.mockResolvedValue([undefined])
-    flashcardTable.bulkPut.mockResolvedValue(undefined)
-
-    const cards = await getOrCreateCardsForWords('deu', [{ original: 'hallo', meanings: ['hello'] }])
-
-    expect(cards).toHaveLength(1)
-    expect(cards[0]?.original).toBe('hallo')
-    expect(cards[0]?.languageCode).toBe('deu')
-    expect(cards[0]?.state).toBe(State.New)
-    expect(flashcardTable.bulkPut).toHaveBeenCalledTimes(1)
-  })
-
-  it('reuses persisted cards when they exist', async () => {
-    const savedCard = flashcardStoreInternals.toSavedFlashcardRecord(
-      createFlashcard('ciao', ['hello'], 'ita'),
-    )
-    savedCard.reps = 4
-    flashcardTable.bulkGet.mockResolvedValue([savedCard])
-
-    const cards = await getOrCreateCardsForWords('ita', [{ original: 'ciao', meanings: ['hello'] }])
-
-    expect(cards[0]?.reps).toBe(4)
-    expect(flashcardTable.bulkPut).not.toHaveBeenCalled()
-  })
-
   it('strips Vue proxies before persisting new cards', async () => {
-    flashcardTable.bulkGet.mockResolvedValue([undefined])
-    flashcardTable.bulkPut.mockResolvedValue(undefined)
+    flashcardTable.get.mockResolvedValue(undefined)
+    flashcardTable.put.mockResolvedValue(undefined)
 
     const reactiveWord = reactive({ original: 'salut', meanings: ['hi'] })
 
-    await getOrCreateCardsForWords('fra', [reactiveWord])
+    await createCardForWord('fra', reactiveWord)
 
-    const savedRecord = flashcardTable.bulkPut.mock.calls[0]?.[0]?.[0]
+    const savedRecord = flashcardTable.put.mock.calls[0]?.[0]
     expect(Array.isArray(savedRecord.meanings)).toBe(true)
     expect(savedRecord.meanings).toEqual(['hi'])
     expect(savedRecord.meanings).not.toBe(reactiveWord.meanings)
-  })
-
-  it('merges duplicate words into one flashcard with combined meanings', async () => {
-    flashcardTable.bulkGet.mockResolvedValue([undefined])
-    flashcardTable.bulkPut.mockResolvedValue(undefined)
-
-    const cards = await getOrCreateCardsForWords('fra', [
-      { original: 'salut', meanings: ['hi'] },
-      { original: 'salut', meanings: ['hello'] },
-    ])
-
-    expect(cards).toHaveLength(1)
-    expect(cards[0]?.cardId).toBe('fra::salut')
-    expect(cards[0]?.meanings).toEqual(['hi', 'hello'])
   })
 
   it('creates a card only when explicitly requested', async () => {

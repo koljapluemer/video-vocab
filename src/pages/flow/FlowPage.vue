@@ -1,22 +1,31 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, shallowRef } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { type Rating } from 'ts-fsrs'
 
 import VideoPracticeLayout from '@/dumb/VideoPracticeLayout.vue'
+import IndexCard from '@/dumb/index-card/IndexCard.vue'
 import { getCourse, getVideoById, pickRandomVideo, type Course, type Video } from '@/entities/course/course'
+import {
+  buildFlashcardPromptEntries,
+  type FlashcardPromptEntry,
+} from '@/entities/flashcard/flashcardPromptEntry'
+import {
+  applyRating,
+  createCardForWord,
+  getSavedCardsForWords,
+} from '@/entities/flashcard/flashcardStore'
+import { buildFlashcardId, type Flashcard } from '@/entities/flashcard/flashcard'
 import { getSnippetsOfVideo, type Snippet } from '@/entities/snippet/snippet'
 import {
   recordFlashcardFlip,
   recordVideoWatchSlice,
 } from '@/features/device-stats/deviceStatsStorage'
+import FlashcardIntroductionCard from '@/features/flashcard-review/FlashcardIntroductionCard.vue'
+import FlashCard from '@/features/flashcard-review/FlashCard.vue'
 import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
 import { loadYoutubeIframeApi } from '@/features/video-embed/loadYoutubeIframeApi'
 import VideoVocabProgressBar from '@/features/video-vocab-progress/VideoVocabProgressBar.vue'
-import FlashcardPracticeSession from '@/meta/flashcard-practice-session/FlashcardPracticeSession.vue'
-import {
-  buildFlashcardPracticeEntries,
-  type FlashcardPracticeEntry,
-} from '@/meta/flashcard-practice-session/flashcardPracticeEntries'
 
 import { getSnippetIndexForTime } from './getSnippetIndexForTime'
 
@@ -26,41 +35,28 @@ const router = useRouter()
 const selectedLanguageCode = getStoredTargetLanguage() ?? ''
 const course = ref<Course | null>(null)
 const activeVideo = ref<Video | null>(null)
-const snippets = ref<Snippet[]>([])
-const currentSnippetIndex = ref(0)
-const activeExerciseSnippetIndex = ref(0)
+const snippets = shallowRef<Snippet[]>([])
 const isLoading = ref(true)
 const loadError = ref('')
 const playerError = ref('')
-const currentPracticeEntries = ref<FlashcardPracticeEntry[]>([])
-const practiceSessionKey = ref(0)
+const isResolvingPrompt = ref(false)
 const progressUpdatedAt = ref(0)
 const playerHostId = `flow-player-${Math.random().toString(36).slice(2)}`
 
+type ParallelPracticePrompt =
+  | { kind: 'introduction'; entry: FlashcardPromptEntry }
+  | { kind: 'flashcard'; flashcard: Flashcard }
+  | { kind: 'waiting' }
+
+const currentPrompt = ref<ParallelPracticePrompt | null>(null)
+const lastShownCardId = ref<string | null>(null)
+
 let player: YT.Player | null = null
-let snippetTimer: number | null = null
 let videoWatchTimer: number | null = null
 let lastVideoWatchTickAt = Date.now()
 let isPlayerActivelyPlaying = false
 
 const videoId = computed(() => route.params.videoId as string)
-const currentSnippet = computed(() => snippets.value[currentSnippetIndex.value] ?? null)
-
-async function setExerciseDeck(snippetIndex: number) {
-  activeExerciseSnippetIndex.value = snippetIndex
-  currentPracticeEntries.value = buildFlashcardPracticeEntries([
-    ...(snippets.value[snippetIndex]?.words ?? []),
-    ...(snippets.value[snippetIndex + 1]?.words ?? []),
-  ])
-  practiceSessionKey.value += 1
-}
-
-function clearSnippetTimer() {
-  if (snippetTimer !== null) {
-    window.clearInterval(snippetTimer)
-    snippetTimer = null
-  }
-}
 
 function clearVideoWatchTimer() {
   if (videoWatchTimer !== null) {
@@ -90,19 +86,66 @@ function startVideoWatchTracking() {
   }, 5_000)
 }
 
-function startTrackingPlayback() {
-  clearSnippetTimer()
+function getCurrentPlaybackSnippetIndex() {
+  const currentTimeSeconds =
+    player && typeof player.getCurrentTime === 'function'
+      ? player.getCurrentTime()
+      : 0
+  return getSnippetIndexForTime(snippets.value, currentTimeSeconds)
+}
 
-  snippetTimer = window.setInterval(() => {
-    if (!player) {
-      return
+function pickRandomPrompt(promptEntries: ParallelPracticePrompt[]): ParallelPracticePrompt {
+  return promptEntries[Math.floor(Math.random() * promptEntries.length)]!
+}
+
+async function resolveCurrentPrompt() {
+  if (snippets.value.length === 0) {
+    currentPrompt.value = { kind: 'waiting' }
+    return
+  }
+
+  isResolvingPrompt.value = true
+
+  try {
+    const snippetIndex = getCurrentPlaybackSnippetIndex()
+    const candidateEntries = buildFlashcardPromptEntries([
+      ...(snippets.value[snippetIndex]?.words ?? []),
+      ...(snippets.value[snippetIndex + 1]?.words ?? []),
+    ])
+    const savedCards = await getSavedCardsForWords(
+      selectedLanguageCode,
+      candidateEntries.map((entry) => entry.word),
+    )
+    const savedCardsById = new Map(
+      savedCards.map((flashcard) => [flashcard.cardId, flashcard] as const),
+    )
+    const now = new Date()
+    const eligiblePrompts: ParallelPracticePrompt[] = []
+
+    for (const entry of candidateEntries) {
+      const cardId = buildFlashcardId(selectedLanguageCode, entry.word.original)
+      if (cardId === lastShownCardId.value) {
+        continue
+      }
+
+      const savedCard = savedCardsById.get(cardId)
+      if (!savedCard) {
+        eligiblePrompts.push({ kind: 'introduction', entry })
+        continue
+      }
+
+      if (savedCard.due <= now) {
+        eligiblePrompts.push({ kind: 'flashcard', flashcard: savedCard })
+      }
     }
 
-    const nextIndex = getSnippetIndexForTime(snippets.value, player.getCurrentTime())
-    if (nextIndex !== currentSnippetIndex.value) {
-      currentSnippetIndex.value = nextIndex
-    }
-  }, 250)
+    currentPrompt.value =
+      eligiblePrompts.length > 0
+        ? pickRandomPrompt(eligiblePrompts)
+        : { kind: 'waiting' }
+  } finally {
+    isResolvingPrompt.value = false
+  }
 }
 
 async function loadSpecificVideo(courseVideo: Video) {
@@ -110,9 +153,10 @@ async function loadSpecificVideo(courseVideo: Video) {
 
   activeVideo.value = courseVideo
   snippets.value = nextSnippets
-  currentSnippetIndex.value = 0
   playerError.value = ''
-  await setExerciseDeck(0)
+  lastShownCardId.value = null
+  currentPrompt.value = null
+  await resolveCurrentPrompt()
 }
 
 function playActiveVideo() {
@@ -124,7 +168,6 @@ function playActiveVideo() {
     videoId: activeVideo.value.youtubeId,
     startSeconds: 0,
   })
-  startTrackingPlayback()
 }
 
 async function openRandomNextVideo() {
@@ -202,17 +245,26 @@ async function initializePlayer() {
   }
 }
 
-function handleAllFlashcardsCompleted() {
-  if (snippets.value.length === 0) {
+async function handleRememberIntroduction() {
+  if (currentPrompt.value?.kind !== 'introduction') {
     return
   }
 
-  const nextExerciseSnippetIndex = Math.min(
-    snippets.value.length - 1,
-    Math.max(currentSnippetIndex.value, activeExerciseSnippetIndex.value + 1),
-  )
+  const createdCard = await createCardForWord(selectedLanguageCode, currentPrompt.value.entry.word)
+  lastShownCardId.value = createdCard.cardId
+  progressUpdatedAt.value = Date.now()
+  await resolveCurrentPrompt()
+}
 
-  void setExerciseDeck(nextExerciseSnippetIndex)
+async function handleFlashcardRated(rating: Rating) {
+  if (currentPrompt.value?.kind !== 'flashcard') {
+    return
+  }
+
+  const updatedCard = await applyRating(currentPrompt.value.flashcard.cardId, rating, new Date())
+  lastShownCardId.value = updatedCard.cardId
+  progressUpdatedAt.value = Date.now()
+  await resolveCurrentPrompt()
 }
 
 function handleFlashcardRevealed() {
@@ -222,13 +274,12 @@ function handleFlashcardRevealed() {
 onMounted(async () => {
   await loadCurrentParallelPractice()
 
-  if (activeVideo.value && currentSnippet.value) {
+  if (activeVideo.value && currentPrompt.value) {
     await initializePlayer()
   }
 })
 
 onBeforeUnmount(() => {
-  clearSnippetTimer()
   stopVideoWatchTracking()
   player?.destroy()
   player = null
@@ -245,17 +296,42 @@ onBeforeUnmount(() => {
       <span class="loading loading-spinner loading-lg"></span>
     </div>
 
-    <div v-else-if="activeVideo && currentSnippet" class="space-y-6">
+    <div v-else-if="activeVideo && currentPrompt" class="space-y-6">
       <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
         <section>
-          <FlashcardPracticeSession
-            :entries="currentPracticeEntries"
-            :language-code="selectedLanguageCode"
-            :session-key="practiceSessionKey"
-            @all-flashcards-completed="handleAllFlashcardsCompleted"
-            @flashcard-revealed="handleFlashcardRevealed"
-            @progress-updated="progressUpdatedAt = $event"
-          />
+          <div class="flex min-h-[32rem] w-full flex-col items-center justify-center gap-6">
+            <span v-if="isResolvingPrompt" class="loading loading-spinner loading-lg"></span>
+
+            <FlashcardIntroductionCard
+              v-else-if="currentPrompt.kind === 'introduction'"
+              :word="currentPrompt.entry.word"
+              @remember="handleRememberIntroduction"
+            />
+
+            <FlashCard
+              v-else-if="currentPrompt.kind === 'flashcard'"
+              :flashcard="currentPrompt.flashcard"
+              @flashcard-revealed="handleFlashcardRevealed"
+              @single-flashcard-rated="handleFlashcardRated"
+            />
+
+            <div v-else class="mx-auto w-full max-w-2xl space-y-6">
+              <IndexCard
+                :rows="[
+                  { type: 'text', text: 'Keep watching', size: 'auto' },
+                  { type: 'divider' },
+                  { type: 'text', text: 'No eligible card in the current snippet window.', size: 'normal' },
+                ]"
+                fill
+              />
+
+              <div class="flex justify-center">
+                <button type="button" class="btn" @click="resolveCurrentPrompt()">
+                  Check Current Moment
+                </button>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="space-y-4">

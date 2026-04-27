@@ -3,11 +3,6 @@ export interface VideoVocabWord {
   meanings: string[]
 }
 
-export interface VideoVocabEntry {
-  word: VideoVocabWord
-  occurrences: number
-}
-
 interface VideoVocabSourceSnippet {
   words: VideoVocabWord[]
 }
@@ -55,42 +50,4 @@ export function getUniqueVideoVocabWords(snippets: VideoVocabSourceSnippet[]): V
       })),
     ),
   )
-}
-
-export function buildVideoVocabEntries(snippets: VideoVocabSourceSnippet[]): VideoVocabEntry[] {
-  const entries = new Map<string, VideoVocabEntry>()
-
-  for (const snippet of snippets) {
-    for (const snippetWord of snippet.words) {
-      const existingEntry = entries.get(snippetWord.original)
-
-      if (existingEntry) {
-        existingEntry.occurrences += 1
-        existingEntry.word.meanings = mergeWords([
-          existingEntry.word,
-          {
-            original: snippetWord.original,
-            meanings: [...snippetWord.meanings],
-          },
-        ])[0]!.meanings
-        continue
-      }
-
-      entries.set(snippetWord.original, {
-        word: {
-          original: snippetWord.original,
-          meanings: normalizeMeanings(snippetWord.meanings),
-        },
-        occurrences: 1,
-      })
-    }
-  }
-
-  return Array.from(entries.values()).sort((left, right) => {
-    if (right.occurrences !== left.occurrences) {
-      return right.occurrences - left.occurrences
-    }
-
-    return left.word.original.localeCompare(right.word.original)
-  })
 }

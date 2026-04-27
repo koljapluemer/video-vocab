@@ -7,6 +7,7 @@ interface StoredLanguageStats {
   minutesAppInteracted: number
   flashcardsFlipped: number
   cardsFlippedByDay: Record<string, number>
+  minutesVideoWatchedByDay: Record<string, number>
   minutesInteractedByDay: Record<string, number>
 }
 
@@ -29,6 +30,7 @@ export interface LanguageStatsSnapshot {
 export interface DeviceStatsSnapshot {
   languages: LanguageStatsSnapshot[]
   cardsFlippedByDay: DailyStatPoint[]
+  minutesVideoWatchedByDay: DailyStatPoint[]
   minutesInteractedByDay: DailyStatPoint[]
 }
 
@@ -38,6 +40,7 @@ function createEmptyStoredLanguageStats(): StoredLanguageStats {
     minutesAppInteracted: 0,
     flashcardsFlipped: 0,
     cardsFlippedByDay: {},
+    minutesVideoWatchedByDay: {},
     minutesInteractedByDay: {},
   }
 }
@@ -93,6 +96,7 @@ function normalizeLanguageStats(
     minutesAppInteracted: roundMinutes(stats?.minutesAppInteracted ?? 0),
     flashcardsFlipped: stats?.flashcardsFlipped ?? 0,
     cardsFlippedByDay: normalizeDayMap(stats?.cardsFlippedByDay, referenceDate),
+    minutesVideoWatchedByDay: normalizeDayMap(stats?.minutesVideoWatchedByDay, referenceDate),
     minutesInteractedByDay: normalizeDayMap(stats?.minutesInteractedByDay, referenceDate),
   }
 }
@@ -210,6 +214,7 @@ export function recordVideoWatchSlice(languageCode: string, start: Date, end: Da
   }
 
   updateStoredStats((stats) => {
+    const dayKey = getLocalDateKey(end)
     const languageStats = getStoredLanguageStats(stats, languageCode)
 
     return {
@@ -218,6 +223,10 @@ export function recordVideoWatchSlice(languageCode: string, start: Date, end: Da
         [languageCode]: {
           ...languageStats,
           minutesVideoWatched: roundMinutes(languageStats.minutesVideoWatched + minutes),
+          minutesVideoWatchedByDay: {
+            ...languageStats.minutesVideoWatchedByDay,
+            [dayKey]: roundMinutes((languageStats.minutesVideoWatchedByDay[dayKey] ?? 0) + minutes),
+          },
         },
       },
     }
@@ -239,6 +248,11 @@ export function getStatsSnapshot(referenceDate = new Date()): DeviceStatsSnapsho
   return {
     languages,
     cardsFlippedByDay: buildSeries(dayKeys, stats.languages, (languageStats) => languageStats.cardsFlippedByDay),
+    minutesVideoWatchedByDay: buildSeries(
+      dayKeys,
+      stats.languages,
+      (languageStats) => languageStats.minutesVideoWatchedByDay,
+    ),
     minutesInteractedByDay: buildSeries(
       dayKeys,
       stats.languages,

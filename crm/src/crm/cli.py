@@ -14,7 +14,23 @@ def build_parser() -> argparse.ArgumentParser:
 
     generate_parser = subparsers.add_parser("generate-data")
     generate_parser.add_argument("--course", required=True)
-    generate_parser.set_defaults(handler=lambda args: generate_data.run(args.course))
+    generate_parser.add_argument(
+        "--local-translation",
+        action="store_true",
+        help="Prefer local Argos translation to English when the subtitle language is supported.",
+    )
+    generate_parser.add_argument(
+        "--one-new",
+        action="store_true",
+        help="Stop after generating data for the first unprocessed video.",
+    )
+    generate_parser.set_defaults(
+        handler=lambda args: generate_data.run(
+            args.course,
+            use_local_translation=args.local_translation,
+            stop_after_one_new=args.one_new,
+        )
+    )
 
     subtitles_parser = subparsers.add_parser("extract-subtitles")
     subtitles_parser.add_argument("--course", required=True)

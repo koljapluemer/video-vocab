@@ -14,37 +14,37 @@
         <article
           v-for="video in course.videos"
           :key="`${course.languageCode}-${video.youtubeId}`"
-          class="card bg-base-100 shadow-md"
+          class="card overflow-hidden bg-base-100 shadow-md transition-shadow hover:shadow-xl"
         >
-          <figure>
+          <figure class="relative">
             <img
               :src="`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`"
               :alt="`Thumbnail for a ${course.label} video`"
               class="h-48 w-full object-cover"
             />
-          </figure>
-          <div class="card-body gap-3">
-            <div class="card-actions flex-col items-stretch">
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-base-300/95 via-base-300/35 to-transparent" />
+            <div class="absolute inset-x-3 bottom-3 flex flex-col gap-1 w-54">
+              <h3 class="font-bold">Practice</h3>
               <router-link
-                class="btn btn-outline flex-1"
+                class="btn"
                 :to="{ name: 'video-snippet-practice', params: { videoId: video.youtubeId } }"
               >
                 Snippet by Snippet
               </router-link>
               <router-link
-                class="btn btn-outline flex-1"
+                class="btn"
                 :to="{ name: 'video-practice', params: { videoId: video.youtubeId, practiceMode: 'parallel' } }"
               >
                 Parallel
               </router-link>
               <router-link
-                class="btn btn-outline flex-1"
+                class="btn"
                 :to="{ name: 'video-vocab-practice', params: { videoId: video.youtubeId } }"
               >
-                Practice Vocab
+                Vocab
               </router-link>
             </div>
-          </div>
+          </figure>
         </article>
       </div>
     </section>

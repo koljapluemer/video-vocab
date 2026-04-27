@@ -1,7 +1,10 @@
 import { createRouter, createWebHistory, type RouteLocationNormalized } from 'vue-router'
 
 import { isVideoPracticeMode } from '@/dumb/videoPracticeMode'
-import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
+import {
+  getStoredTargetLanguage,
+  setStoredTargetLanguage,
+} from '@/features/target-language-select/targetLanguageStorage'
 import FlowPage from '@/pages/flow/FlowPage.vue'
 import SnippetPracticePage from '@/pages/snippet-practice/SnippetPracticePage.vue'
 import StatsPage from '@/pages/stats/StatsPage.vue'
@@ -26,6 +29,19 @@ const routes = [
     path: '/target-language',
     name: 'target-language',
     component: TargetLanguagePage,
+  },
+  {
+    path: '/target-language/:languageCode',
+    name: 'set-target-language',
+    beforeEnter: (to: RouteLocationNormalized) => {
+      const languageCode = String(to.params.languageCode ?? '').trim()
+      if (!languageCode) {
+        return { name: 'target-language' }
+      }
+
+      setStoredTargetLanguage(languageCode)
+      return { name: 'video-list' }
+    },
   },
   {
     path: '/stats',

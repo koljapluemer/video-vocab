@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, shallowRef } from 'vue'
+import { computed, ref, shallowRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { type Rating } from 'ts-fsrs'
 
@@ -41,6 +41,7 @@ const snippetCount = ref(0)
 const snippets = shallowRef<Snippet[]>([])
 const progressUpdatedAt = ref(0)
 const lastShownCardId = ref<string | null>(null)
+let latestLoadRequestId = 0
 
 const languageCode = getStoredTargetLanguage() ?? ''
 const videoId = computed(() => route.params.videoId as string)
@@ -65,8 +66,12 @@ function pickRandomPrompt(
   return prompts[Math.floor(Math.random() * prompts.length)]!
 }
 
-async function resolveCurrentPrompt() {
-  if (!snippet.value) {
+async function resolveCurrentPrompt(
+  activeSnippet: Snippet | null = snippet.value,
+  excludedCardId: string | null = lastShownCardId.value,
+  loadRequestId?: number,
+) {
+  if (!activeSnippet) {
     currentPrompt.value = null
     return
   }
@@ -74,7 +79,7 @@ async function resolveCurrentPrompt() {
   isResolvingPrompt.value = true
 
   try {
-    const candidateEntries = buildFlashcardPromptEntries(snippet.value.words)
+    const candidateEntries = buildFlashcardPromptEntries(activeSnippet.words)
     const savedCards = await getSavedCardsForWords(
       languageCode,
       candidateEntries.map((entry) => entry.word),
@@ -90,7 +95,7 @@ async function resolveCurrentPrompt() {
 
     for (const entry of candidateEntries) {
       const cardId = buildFlashcardId(languageCode, entry.word.original)
-      if (cardId === lastShownCardId.value) {
+      if (cardId === excludedCardId) {
         continue
       }
 
@@ -105,6 +110,10 @@ async function resolveCurrentPrompt() {
       }
     }
 
+    if (loadRequestId !== undefined && loadRequestId !== latestLoadRequestId) {
+      return
+    }
+
     currentPrompt.value = eligiblePrompts.length > 0 ? pickRandomPrompt(eligiblePrompts) : null
   } finally {
     isResolvingPrompt.value = false
@@ -112,6 +121,8 @@ async function resolveCurrentPrompt() {
 }
 
 async function loadSnippetPractice() {
+  const loadRequestId = ++latestLoadRequestId
+
   if (!languageCode) {
     loadError.value = 'Choose a target language first.'
     isLoading.value = false
@@ -119,27 +130,49 @@ async function loadSnippetPractice() {
   }
 
   try {
+    isLoading.value = true
+    loadError.value = null
+    snippet.value = null
+    currentPrompt.value = null
+    snippetCount.value = 0
+
     const video = await getVideoById(languageCode, videoId.value)
+    if (loadRequestId !== latestLoadRequestId) {
+      return
+    }
+
     if (!video) {
       loadError.value = 'This video could not be found.'
       return
     }
 
-    snippets.value = await getSnippetsOfVideo(languageCode, videoId.value)
-    snippetCount.value = snippets.value.length
-    if (snippetIndex.value >= snippets.value.length) {
+    const nextSnippets = await getSnippetsOfVideo(languageCode, videoId.value)
+    if (loadRequestId !== latestLoadRequestId) {
+      return
+    }
+
+    snippets.value = nextSnippets
+    snippetCount.value = nextSnippets.length
+    if (snippetIndex.value >= nextSnippets.length) {
       loadError.value = 'This snippet could not be found.'
       return
     }
 
-    snippet.value = snippets.value[snippetIndex.value] ?? null
+    const activeSnippet = nextSnippets[snippetIndex.value] ?? null
+    snippet.value = activeSnippet
     lastShownCardId.value = null
-    await resolveCurrentPrompt()
+    await resolveCurrentPrompt(activeSnippet, null, loadRequestId)
   } catch (error) {
+    if (loadRequestId !== latestLoadRequestId) {
+      return
+    }
+
     console.error('Failed to load snippet:', error)
     loadError.value = 'Unable to load this snippet right now.'
   } finally {
-    isLoading.value = false
+    if (loadRequestId === latestLoadRequestId) {
+      isLoading.value = false
+    }
   }
 }
 
@@ -184,9 +217,13 @@ async function openRandomNextVideo() {
   })
 }
 
-onMounted(() => {
-  void loadSnippetPractice()
-})
+watch(
+  () => [videoId.value, snippetIndex.value] as const,
+  () => {
+    void loadSnippetPractice()
+  },
+  { immediate: true },
+)
 </script>
 
 <template>
@@ -219,7 +256,6 @@ onMounted(() => {
         :video-id="videoId"
         :start="snippet.start"
         :duration="snippet.duration"
-        :current-index="snippetIndex"
         :has-next-snippet="hasNextSnippet"
         :next-snippet-query="nextSnippetQuery"
         @study-again="handleStudyAgain"

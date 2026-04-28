@@ -22,21 +22,36 @@ const {
   push: vi.fn(),
 }))
 
-vi.mock('vue-router', () => ({
-  useRoute: () => ({
+const { routeHolder } = vi.hoisted(() => ({
+  routeHolder: {
+    current: null as null | {
+      params: { videoId: string }
+      query: { snippet: string }
+    },
+  },
+}))
+
+vi.mock('vue-router', async () => {
+  const { reactive } = await import('vue')
+
+  routeHolder.current = reactive({
     params: {
       videoId: 'abc123',
     },
     query: {
       snippet: '0',
     },
-  }),
-  useRouter: () => ({ push }),
-  RouterLink: {
-    props: ['to'],
-    template: '<a><slot /></a>',
-  },
-}))
+  })
+
+  return {
+    useRoute: () => routeHolder.current,
+    useRouter: () => ({ push }),
+    RouterLink: {
+      props: ['to'],
+      template: '<a><slot /></a>',
+    },
+  }
+})
 
 vi.mock('@/features/target-language-select/targetLanguageStorage', () => ({
   getStoredTargetLanguage: () => 'deu',
@@ -95,11 +110,25 @@ vi.mock('@/features/flashcard-review/FlashCard.vue', () => ({
 
 vi.mock('./WatchSnippet.vue', () => ({
   default: {
-    template: '<button type="button" @click="$emit(\'study-again\')">Watch the Snippet</button>',
+    props: ['start'],
+    template:
+      '<button type="button" @click="$emit(\'study-again\')">Watch the Snippet {{ start }}</button>',
   },
 }))
 
 import SnippetPracticePage from './SnippetPracticePage.vue'
+
+function renderSnippetPracticePage() {
+  return render(SnippetPracticePage, {
+    global: {
+      stubs: {
+        RouterLink: {
+          template: '<a><slot /></a>',
+        },
+      },
+    },
+  })
+}
 
 afterEach(() => {
   cleanup()
@@ -115,6 +144,8 @@ describe('SnippetPracticePage', () => {
     getVideoById.mockReset()
     pickRandomVideo.mockReset()
     push.mockReset()
+    routeHolder.current!.params.videoId = 'abc123'
+    routeHolder.current!.query.snippet = '0'
 
     getCourse.mockResolvedValue({
       languageCode: 'deu',
@@ -134,7 +165,7 @@ describe('SnippetPracticePage', () => {
   })
 
   it('shows an introduction for an unseen snippet word', async () => {
-    const { findByText } = render(SnippetPracticePage)
+    const { findByText } = renderSnippetPracticePage()
 
     await waitFor(() => {
       expect(getVideoById).toHaveBeenCalledWith('deu', 'abc123')
@@ -163,7 +194,7 @@ describe('SnippetPracticePage', () => {
       },
     ])
 
-    const { findByText } = render(SnippetPracticePage)
+    const { findByText } = renderSnippetPracticePage()
 
     expect(await findByText('Review hallo')).toBeTruthy()
   })
@@ -187,9 +218,9 @@ describe('SnippetPracticePage', () => {
       },
     ])
 
-    const { findByText } = render(SnippetPracticePage)
+    const { findByText } = renderSnippetPracticePage()
 
-    expect(await findByText('Watch the Snippet')).toBeTruthy()
+    expect(await findByText('Watch the Snippet 0')).toBeTruthy()
   })
 
   it('shows an introduced card as a normal review card when practice resumes', async () => {
@@ -245,14 +276,77 @@ describe('SnippetPracticePage', () => {
         },
       ])
 
-    const { findByText, getByRole } = render(SnippetPracticePage)
+    const { findByText, getByRole } = renderSnippetPracticePage()
 
     expect(await findByText('Intro hallo')).toBeTruthy()
 
     await fireEvent.click(getByRole('button', { name: 'Intro hallo' }))
-    expect(await findByText('Watch the Snippet')).toBeTruthy()
+    expect(await findByText('Watch the Snippet 0')).toBeTruthy()
 
-    await fireEvent.click(getByRole('button', { name: 'Watch the Snippet' }))
+    await fireEvent.click(getByRole('button', { name: 'Watch the Snippet 0' }))
     expect(await findByText('Review hallo')).toBeTruthy()
+  })
+
+  it('reloads the active snippet when the snippet query changes', async () => {
+    getSavedCardsForWords.mockResolvedValue([
+      {
+        cardId: 'deu::hallo',
+        languageCode: 'deu',
+        original: 'hallo',
+        meanings: ['hello'],
+        due: new Date('2026-05-20T12:00:00'),
+        stability: 0,
+        difficulty: 0,
+        elapsed_days: 0,
+        scheduled_days: 0,
+        learning_steps: 0,
+        reps: 1,
+        lapses: 0,
+        state: 2,
+      },
+      {
+        cardId: 'deu::welt',
+        languageCode: 'deu',
+        original: 'welt',
+        meanings: ['world'],
+        due: new Date('2026-05-20T12:00:00'),
+        stability: 0,
+        difficulty: 0,
+        elapsed_days: 0,
+        scheduled_days: 0,
+        learning_steps: 0,
+        reps: 1,
+        lapses: 0,
+        state: 2,
+      },
+    ])
+    getSnippetsOfVideo.mockResolvedValue([
+      {
+        start: 0,
+        duration: 4,
+        words: [{ original: 'hallo', meanings: ['hello'] }],
+      },
+      {
+        start: 5,
+        duration: 3,
+        words: [{ original: 'welt', meanings: ['world'] }],
+      },
+    ])
+
+    const { findByText } = renderSnippetPracticePage()
+
+    expect(await findByText('Watch the Snippet 0')).toBeTruthy()
+
+    routeHolder.current!.query.snippet = '1'
+
+    expect(await findByText('Watch the Snippet 5')).toBeTruthy()
+    await waitFor(() => {
+      expect(getSavedCardsForWords).toHaveBeenLastCalledWith('deu', [
+        {
+          meanings: ['world'],
+          original: 'welt',
+        },
+      ])
+    })
   })
 })

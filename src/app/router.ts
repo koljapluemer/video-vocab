@@ -1,4 +1,9 @@
-import { createRouter, createWebHistory, type RouteLocationNormalized } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory,
+  type RouteLocationNormalized,
+  type RouteRecordRaw,
+} from 'vue-router'
 
 import { isVideoPracticeMode } from '@/dumb/videoPracticeMode'
 import {
@@ -12,7 +17,7 @@ import TargetLanguagePage from '@/pages/target-language/TargetLanguagePage.vue'
 import VideoListPage from '@/pages/video-list/VideoListPage.vue'
 import VideoVocabPracticePage from '@/pages/video-vocab-practice/VideoVocabPracticePage.vue'
 
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'video-list',
@@ -33,7 +38,7 @@ const routes = [
   {
     path: '/target-language/:languageCode',
     name: 'set-target-language',
-    beforeEnter: (to: RouteLocationNormalized) => {
+    redirect: (to) => {
       const languageCode = String(to.params.languageCode ?? '').trim()
       if (!languageCode) {
         return { name: 'target-language' }

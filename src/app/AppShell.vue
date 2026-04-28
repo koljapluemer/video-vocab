@@ -15,6 +15,38 @@
           Change Language
         </router-link>
       </div>
+      <div class="text-sm">
+      <p>
+        Made by
+        <a
+          class="link"
+          href="https://koljasam.com/"
+          target="_blank"
+        >Kolja Sam</a>.
+      </p>
+
+      <p>
+        All data stays on your device. <a
+          href="https://github.com/koljapluemer/video-vocab"
+          class="link"
+        >Open Source</a>, no ads, no sign-up, no BS. I track page views with the privacy-friendly <a
+          href="https://www.goatcounter.com/"
+          class="underline"
+          target="_blank"
+        >goatcounter</a>, and nothing else.
+      </p>
+
+      <p>
+        If you want to enable me to build more tool like this in the future, you can <a
+          href="https://ko-fi.com/S6S81CWUVD"
+          target="_blank"
+          rel="noopener"
+          class="underline"
+        >
+          support me on ko-fi
+        </a>.
+      </p>
+    </div>
     </footer>
   </div>
 </template>

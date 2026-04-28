@@ -15,7 +15,11 @@ import {
   createCardForWord,
   getSavedCardsForWords,
 } from '@/entities/flashcard/flashcardStore'
-import { buildFlashcardId, type Flashcard } from '@/entities/flashcard/flashcard'
+import {
+  buildFlashcardId,
+  flashcardWasNeverSeenBefore,
+  type Flashcard,
+} from '@/entities/flashcard/flashcard'
 import { getSnippetsOfVideo, type Snippet } from '@/entities/snippet/snippet'
 import {
   recordFlashcardFlip,
@@ -42,6 +46,7 @@ const playerError = ref('')
 const isResolvingPrompt = ref(false)
 const progressUpdatedAt = ref(0)
 const playerHostId = `flow-player-${Math.random().toString(36).slice(2)}`
+const WHOLE_VIDEO_DUE_SEEN_PROMPT_CHANCE = 0.2
 
 type ParallelPracticePrompt =
   | { kind: 'introduction'; entry: FlashcardPromptEntry }
@@ -98,6 +103,26 @@ function pickRandomPrompt(promptEntries: ParallelPracticePrompt[]): ParallelPrac
   return promptEntries[Math.floor(Math.random() * promptEntries.length)]!
 }
 
+async function pickWholeVideoDueSeenPrompt(now: Date): Promise<ParallelPracticePrompt | null> {
+  const videoPromptEntries = buildFlashcardPromptEntries(
+    snippets.value.flatMap((snippet) => snippet.words),
+  )
+  const savedCards = await getSavedCardsForWords(
+    selectedLanguageCode,
+    videoPromptEntries.map((entry) => entry.word),
+  )
+  const eligiblePrompts = savedCards
+    .filter(
+      (flashcard) =>
+        flashcard.cardId !== lastShownCardId.value &&
+        !flashcardWasNeverSeenBefore(flashcard) &&
+        flashcard.due <= now,
+    )
+    .map((flashcard) => ({ kind: 'flashcard', flashcard }) satisfies ParallelPracticePrompt)
+
+  return eligiblePrompts.length > 0 ? pickRandomPrompt(eligiblePrompts) : null
+}
+
 async function resolveCurrentPrompt() {
   if (snippets.value.length === 0) {
     currentPrompt.value = { kind: 'waiting' }
@@ -107,6 +132,16 @@ async function resolveCurrentPrompt() {
   isResolvingPrompt.value = true
 
   try {
+    const now = new Date()
+
+    if (Math.random() < WHOLE_VIDEO_DUE_SEEN_PROMPT_CHANCE) {
+      const wholeVideoPrompt = await pickWholeVideoDueSeenPrompt(now)
+      if (wholeVideoPrompt) {
+        currentPrompt.value = wholeVideoPrompt
+        return
+      }
+    }
+
     const snippetIndex = getCurrentPlaybackSnippetIndex()
     const candidateEntries = buildFlashcardPromptEntries([
       ...(snippets.value[snippetIndex]?.words ?? []),
@@ -119,7 +154,6 @@ async function resolveCurrentPrompt() {
     const savedCardsById = new Map(
       savedCards.map((flashcard) => [flashcard.cardId, flashcard] as const),
     )
-    const now = new Date()
     const eligiblePrompts: ParallelPracticePrompt[] = []
 
     for (const entry of candidateEntries) {

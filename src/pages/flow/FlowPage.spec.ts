@@ -192,7 +192,52 @@ describe('FlowPage', () => {
     randomSpy.mockRestore()
   })
 
+  it('can prefer a due seen card from elsewhere in the video', async () => {
+    const randomSpy = vi.spyOn(Math, 'random').mockReturnValue(0)
+    getSnippetsOfVideo.mockResolvedValue([
+      {
+        start: 0,
+        duration: 4,
+        words: [{ original: 'hallo', meanings: ['hello'] }],
+      },
+      {
+        start: 4,
+        duration: 4,
+        words: [{ original: 'welt', meanings: ['world'] }],
+      },
+      {
+        start: 8,
+        duration: 4,
+        words: [{ original: 'tschuss', meanings: ['bye'] }],
+      },
+    ])
+    getSavedCardsForWords.mockResolvedValue([
+      {
+        cardId: 'deu::tschuss',
+        languageCode: 'deu',
+        original: 'tschuss',
+        meanings: ['bye'],
+        due: new Date('2026-04-20T12:00:00'),
+        stability: 0,
+        difficulty: 0,
+        elapsed_days: 0,
+        scheduled_days: 0,
+        learning_steps: 0,
+        reps: 1,
+        lapses: 0,
+        state: 2,
+      },
+    ])
+
+    const { findByText } = render(FlowPage)
+
+    expect(await findByText('Review tschuss')).toBeTruthy()
+    randomSpy.mockRestore()
+  })
+
   it('recomputes the next card immediately after remembering an introduction', async () => {
+    const randomValues = [0, 0.9, 0, 0.9, 0]
+    const randomSpy = vi.spyOn(Math, 'random').mockImplementation(() => randomValues.shift() ?? 0)
     createCardForWord.mockResolvedValue({
       cardId: 'deu::hallo',
       languageCode: 'deu',
@@ -235,6 +280,7 @@ describe('FlowPage', () => {
     await fireEvent.click(getByRole('button', { name: 'Intro hallo' }))
 
     expect(await findByText('Intro welt')).toBeTruthy()
+    randomSpy.mockRestore()
   })
 
   it('shows a missing-video error when the route video is not available', async () => {

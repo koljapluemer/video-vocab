@@ -1,37 +1,38 @@
 <template>
-  <div class="card bg-base-100 shadow-xl">
-    <div class="card-body">
-      <h2 class="card-title">Watch the Snippet</h2>
-      <div class="max-w-full">
-        <div class="mb-4 relative aspect-video">
-          <div :id="playerHostId" class="h-full w-full"></div>
-        </div>
+  <section class="space-y-4">
+    <h2 class="text-lg font-semibold">Watch the Snippet</h2>
+
+    <div class="overflow-hidden rounded-box border border-base-300 bg-base-100 shadow-sm">
+      <div class="relative aspect-video bg-base-200">
+        <div :id="playerHostId" class="h-full w-full"></div>
+      </div>
+
+      <div class="border-t border-base-300 p-4">
         <div v-if="playerError" class="alert alert-error mb-4">
           <span>{{ playerError }}</span>
         </div>
-      </div>
-      <div class="flex flex-col items-center space-y-4">
-        <button type="button" @click="replaySnippet" class="btn btn-primary">
-          Replay Snippet
-        </button>
-        <div class="btn-group gap-2">
-          <button type="button" @click="onStudyAgain" class="btn btn-warning">
+
+        <div class="flex flex-wrap justify-center gap-2">
+          <button type="button" class="btn" @click="replaySnippet">
+            Replay Snippet
+          </button>
+          <button type="button" class="btn" @click="onStudyAgain">
             Study Again
           </button>
           <router-link
             v-if="hasNextSnippet"
             :to="{ name: 'video-snippet-practice', params: { videoId }, query: nextSnippetQuery }"
-            class="btn btn-success"
+            class="btn"
           >
             Next Snippet
           </router-link>
-          <button v-else type="button" class="btn btn-success" disabled>
+          <button v-else type="button" class="btn" disabled>
             Next Snippet
           </button>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -69,14 +70,14 @@ function clearSnippetBoundaryMonitor() {
   }
 }
 
-function pauseAtSnippetEnd() {
+function resetSnippetPlayback() {
   if (!player) {
     return
   }
 
   clearSnippetBoundaryMonitor()
   player.pauseVideo()
-  player.seekTo(snippetWindow.value.endSeconds, true)
+  player.seekTo(snippetWindow.value.startSeconds, true)
 }
 
 function startSnippetBoundaryMonitor() {
@@ -91,7 +92,7 @@ function startSnippetBoundaryMonitor() {
     }
 
     if (player.getCurrentTime() >= snippetWindow.value.endSeconds) {
-      pauseAtSnippetEnd()
+      resetSnippetPlayback()
     }
   }, 200)
 }
@@ -111,7 +112,14 @@ function loadActiveSnippet() {
 }
 
 function replaySnippet() {
-  loadActiveSnippet()
+  if (!player || !isPlayerReady.value) {
+    return
+  }
+
+  playerError.value = ''
+  clearSnippetBoundaryMonitor()
+  player.seekTo(snippetWindow.value.startSeconds, true)
+  player.playVideo()
 }
 
 function onStudyAgain() {
@@ -143,7 +151,7 @@ async function initializePlayer() {
           clearSnippetBoundaryMonitor()
 
           if (event.data === window.YT!.PlayerState.ENDED) {
-            pauseAtSnippetEnd()
+            resetSnippetPlayback()
           }
         },
         onError: () => {

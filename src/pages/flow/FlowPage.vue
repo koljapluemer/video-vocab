@@ -324,6 +324,7 @@ async function initializePlayer() {
       playerVars: {
         autoplay: 1,
         controls: 1,
+        fs: isCustomMode.value ? 0 : 1,
         rel: 0,
         playsinline: 1,
       },

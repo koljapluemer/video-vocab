@@ -39,8 +39,8 @@ function getWord(prompt: EligibleFlowPracticePrompt): string {
 </script>
 
 <template>
-  <div class="pointer-events-none absolute inset-0 flex items-start p-3 sm:p-4">
-    <TransitionGroup name="custom-queue" tag="div" class="custom-queue flex flex-col gap-2">
+  <div class="pointer-events-none absolute inset-0 flex items-start p-3   sm:p-4">
+    <TransitionGroup name="custom-queue" tag="div" class="custom-queue pt-20 flex flex-col gap-2">
       <div
         v-for="row in rows"
         :key="row.queueId"
@@ -64,50 +64,52 @@ function getWord(prompt: EligibleFlowPracticePrompt): string {
           </div>
         </Transition>
 
-        <button
-          v-if="!row.revealed"
-          type="button"
-          class="btn btn-circle btn-sm border-base-300 bg-base-100/92 shadow-sm backdrop-blur"
-          :disabled="row.isSubmitting"
-          aria-label="Reveal translation"
-          @click="emit('reveal', row.queueId)"
-        >
-          <Eye class="h-4 w-4" />
-        </button>
-
-        <template v-else>
+        <div class="flex w-[2.5rem] shrink-0 justify-end">
           <button
-            v-if="row.prompt.kind === 'introduction'"
+            v-if="!row.revealed"
             type="button"
-            class="btn btn-circle btn-sm border-emerald-300 bg-emerald-50 text-emerald-900 shadow-sm transition hover:bg-emerald-100"
+            class="btn btn-circle btn-sm border-base-300 bg-base-100/92 shadow-sm backdrop-blur transition-colors duration-100 hover:bg-base-100 active:scale-[0.98]"
             :disabled="row.isSubmitting"
-            aria-label="I will remember"
-            @click="emit('remember', row.queueId)"
+            aria-label="Reveal translation"
+            @click="emit('reveal', row.queueId)"
           >
-            <Check class="h-4 w-4" />
+            <Eye class="h-4 w-4" />
           </button>
 
           <template v-else>
             <button
+              v-if="row.prompt.kind === 'introduction'"
               type="button"
               class="btn btn-circle btn-sm border-emerald-300 bg-emerald-50 text-emerald-900 shadow-sm transition hover:bg-emerald-100"
               :disabled="row.isSubmitting"
-              aria-label="Correct"
-              @click="emit('correct', row.queueId)"
+              aria-label="I will remember"
+              @click="emit('remember', row.queueId)"
             >
-              <CircleCheckBig class="h-4 w-4" />
+              <Check class="h-4 w-4" />
             </button>
-            <button
-              type="button"
-              class="btn btn-circle btn-sm border-rose-300 bg-rose-50 text-rose-900 shadow-sm transition hover:bg-rose-100"
-              :disabled="row.isSubmitting"
-              aria-label="Incorrect"
-              @click="emit('incorrect', row.queueId)"
-            >
-              <CircleX class="h-4 w-4" />
-            </button>
+
+            <div v-else class="flex items-center gap-1">
+              <button
+                type="button"
+                class="btn btn-circle btn-sm border-emerald-300 bg-emerald-50 text-emerald-900 shadow-sm transition-colors duration-100 hover:bg-emerald-100 active:scale-[0.98]"
+                :disabled="row.isSubmitting"
+                aria-label="Correct"
+                @click="emit('correct', row.queueId)"
+              >
+                <CircleCheckBig class="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                class="btn btn-circle btn-sm border-rose-300 bg-rose-50 text-rose-900 shadow-sm transition-colors duration-100 hover:bg-rose-100 active:scale-[0.98]"
+                :disabled="row.isSubmitting"
+                aria-label="Incorrect"
+                @click="emit('incorrect', row.queueId)"
+              >
+                <CircleX class="h-4 w-4" />
+              </button>
+            </div>
           </template>
-        </template>
+        </div>
       </div>
     </TransitionGroup>
   </div>
@@ -123,14 +125,14 @@ function getWord(prompt: EligibleFlowPracticePrompt): string {
 .custom-queue-leave-active,
 .custom-queue-move {
   transition:
-    opacity 180ms ease,
-    transform 220ms ease;
+    opacity 140ms ease-out,
+    transform 140ms ease-out;
 }
 
 .custom-queue-enter-from,
 .custom-queue-leave-to {
   opacity: 0;
-  transform: translateX(-10px) translateY(6px);
+  transform: translateY(1px);
 }
 
 .custom-queue-leave-active {
@@ -140,13 +142,30 @@ function getWord(prompt: EligibleFlowPracticePrompt): string {
 .custom-translation-enter-active,
 .custom-translation-leave-active {
   transition:
-    opacity 160ms ease,
-    transform 180ms ease;
+    opacity 130ms ease-out,
+    transform 130ms ease-out;
 }
 
 .custom-translation-enter-from,
 .custom-translation-leave-to {
   opacity: 0;
-  transform: translateX(-6px) scale(0.98);
+  transform: translateX(1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-queue-enter-active,
+  .custom-queue-leave-active,
+  .custom-queue-move,
+  .custom-translation-enter-active,
+  .custom-translation-leave-active {
+    transition-duration: 1ms !important;
+  }
+
+  .custom-queue-enter-from,
+  .custom-queue-leave-to,
+  .custom-translation-enter-from,
+  .custom-translation-leave-to {
+    transform: none;
+  }
 }
 </style>

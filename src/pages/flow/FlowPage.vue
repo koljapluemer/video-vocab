@@ -329,6 +329,12 @@ async function initializePlayer() {
       },
       events: {
         onReady: () => {
+          const iframe = document.getElementById(playerHostId)?.querySelector('iframe')
+          if (iframe instanceof HTMLIFrameElement) {
+            iframe.style.width = '100%'
+            iframe.style.height = '100%'
+            iframe.style.display = 'block'
+          }
           playActiveVideo()
         },
         onStateChange: (event) => {
@@ -479,15 +485,17 @@ onBeforeUnmount(() => {
             <span>{{ playerError }}</span>
           </div>
 
-          <section class="relative overflow-hidden rounded-xl bg-black shadow-xl">
-            <div class="aspect-video w-full" :id="playerHostId"></div>
-            <CustomPracticeOverlay
-              :rows="customQueue"
-              @reveal="handleCustomReveal"
-              @remember="handleCustomRemember"
-              @correct="handleCustomRated($event, Rating.Good)"
-              @incorrect="handleCustomRated($event, Rating.Again)"
-            />
+          <section class="overflow-hidden rounded-xl bg-black shadow-xl">
+            <div class="relative aspect-video w-full bg-black">
+              <div :id="playerHostId" class="h-full w-full"></div>
+              <CustomPracticeOverlay
+                :rows="customQueue"
+                @reveal="handleCustomReveal"
+                @remember="handleCustomRemember"
+                @correct="handleCustomRated($event, Rating.Good)"
+                @incorrect="handleCustomRated($event, Rating.Again)"
+              />
+            </div>
           </section>
         </div>
       </template>
@@ -536,7 +544,9 @@ onBeforeUnmount(() => {
             </div>
 
             <div class="overflow-hidden rounded-xl bg-black">
-              <div class="aspect-video w-full" :id="playerHostId"></div>
+              <div class="relative aspect-video w-full bg-black">
+                <div :id="playerHostId" class="h-full w-full"></div>
+              </div>
             </div>
           </section>
         </div>

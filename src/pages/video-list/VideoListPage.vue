@@ -39,6 +39,12 @@
               </router-link>
               <router-link
                 class="btn"
+                :to="{ name: 'video-practice', params: { videoId: video.youtubeId, practiceMode: 'custom' } }"
+              >
+                Custom
+              </router-link>
+              <router-link
+                class="btn"
                 :to="{ name: 'video-vocab-practice', params: { videoId: video.youtubeId } }"
               >
                 Vocab

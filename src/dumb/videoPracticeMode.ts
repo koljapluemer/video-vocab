@@ -1,4 +1,4 @@
-export const VIDEO_PRACTICE_MODES = ['snippet', 'parallel', 'vocab'] as const
+export const VIDEO_PRACTICE_MODES = ['snippet', 'parallel', 'custom', 'vocab'] as const
 
 export type VideoPracticeMode = (typeof VIDEO_PRACTICE_MODES)[number]
 
@@ -13,6 +13,10 @@ export function getVideoPracticeTabLabel(mode: VideoPracticeMode): string {
 
   if (mode === 'parallel') {
     return 'Parallel'
+  }
+
+  if (mode === 'custom') {
+    return 'Custom'
   }
 
   return 'Practice Vocab'

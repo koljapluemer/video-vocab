@@ -17,6 +17,16 @@ export interface SavedFlashcardRecord {
   lastReview: number | null
 }
 
+export interface SavedComprehensionAnswerRecord {
+  answerId: string
+  languageCode: string
+  videoId: string
+  segmentStartMs: number
+  segmentEndMs: number
+  answerText: string
+  updatedAt: number
+}
+
 function normalizeMeanings(meanings: string[]): string[] {
   const normalizedMeanings: string[] = []
 
@@ -87,6 +97,7 @@ function mergeDuplicateFlashcards(records: SavedFlashcardRecord[]): SavedFlashca
 
 class LearnerDb extends Dexie {
   flashcards!: Table<SavedFlashcardRecord, string>
+  comprehensionAnswers!: Table<SavedComprehensionAnswerRecord, string>
 
   constructor() {
     super('videoVocabLearnerDb')
@@ -107,6 +118,11 @@ class LearnerDb extends Dexie {
         await flashcardsTable.clear()
         await flashcardsTable.bulkPut(mergedRecords)
       })
+
+    this.version(3).stores({
+      flashcards: '&cardId, languageCode, state, due',
+      comprehensionAnswers: '&answerId, languageCode, videoId, [languageCode+videoId], updatedAt',
+    })
   }
 }
 

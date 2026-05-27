@@ -22,6 +22,13 @@ function getPracticeRoute(mode: VideoPracticeMode) {
     }
   }
 
+  if (mode === 'comprehension') {
+    return {
+      name: 'video-comprehension-practice' as const,
+      params: { videoId: props.videoId },
+    }
+  }
+
   return {
     name: 'video-practice' as const,
     params: { videoId: props.videoId, practiceMode: mode },

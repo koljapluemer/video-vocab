@@ -9,12 +9,11 @@
     </div>
 
     <section v-else-if="course" class="space-y-4">
-
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <article
           v-for="video in course.videos"
           :key="`${course.languageCode}-${video.youtubeId}`"
-          class="card overflow-hidden bg-base-100 shadow-md transition-shadow hover:shadow-xl"
+          class="card overflow-hidden border border-base-300 bg-base-100 shadow-sm transition-shadow hover:shadow-lg"
         >
           <figure class="relative">
             <img
@@ -22,9 +21,11 @@
               :alt="`Thumbnail for a ${course.label} video`"
               class="h-48 w-full object-cover"
             />
-            <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-base-300/95 via-base-300/35 to-transparent" />
-            <div class="absolute inset-x-3 bottom-3 flex flex-col gap-1 w-54">
-              <h3 class="font-bold">Practice</h3>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-base-300/80 to-transparent" />
+          </figure>
+
+          <div class="card-body gap-4">
+            <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
               <router-link
                 class="btn"
                 :to="{ name: 'video-snippet-practice', params: { videoId: video.youtubeId } }"
@@ -45,12 +46,18 @@
               </router-link>
               <router-link
                 class="btn"
+                :to="{ name: 'video-comprehension-practice', params: { videoId: video.youtubeId } }"
+              >
+                Comprehension
+              </router-link>
+              <router-link
+                class="btn"
                 :to="{ name: 'video-vocab-practice', params: { videoId: video.youtubeId } }"
               >
                 Vocab
               </router-link>
             </div>
-          </figure>
+          </div>
         </article>
       </div>
     </section>

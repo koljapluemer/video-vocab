@@ -14,6 +14,7 @@ import FlowPage from '@/pages/flow/FlowPage.vue'
 import SnippetPracticePage from '@/pages/snippet-practice/SnippetPracticePage.vue'
 import StatsPage from '@/pages/stats/StatsPage.vue'
 import TargetLanguagePage from '@/pages/target-language/TargetLanguagePage.vue'
+import VideoComprehensionPracticePage from '@/pages/video-comprehension-practice/VideoComprehensionPracticePage.vue'
 import VideoListPage from '@/pages/video-list/VideoListPage.vue'
 import VideoVocabPracticePage from '@/pages/video-vocab-practice/VideoVocabPracticePage.vue'
 
@@ -78,6 +79,18 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/video/:videoId/comprehension',
+    name: 'video-comprehension-practice',
+    component: VideoComprehensionPracticePage,
+    beforeEnter: () => {
+      if (!getStoredTargetLanguage()) {
+        return { name: 'target-language' }
+      }
+
+      return true
+    },
+  },
+  {
     path: '/video/:videoId/:practiceMode',
     name: 'video-practice',
     component: FlowPage,
@@ -89,6 +102,7 @@ const routes: RouteRecordRaw[] = [
       if (
         !isVideoPracticeMode(to.params.practiceMode) ||
         to.params.practiceMode === 'snippet' ||
+        to.params.practiceMode === 'comprehension' ||
         to.params.practiceMode === 'vocab'
       ) {
         return { name: 'video-list' }

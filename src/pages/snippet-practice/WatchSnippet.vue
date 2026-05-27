@@ -38,9 +38,8 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
+import { getVideoSegmentPlaybackWindow } from '@/dumb/getVideoSegmentPlaybackWindow'
 import { loadYoutubeIframeApi } from '@/features/video-embed/loadYoutubeIframeApi'
-
-import { getSnippetPlaybackWindow } from './getSnippetPlaybackWindow'
 
 const props = defineProps<{
   videoId: string
@@ -61,7 +60,7 @@ const playerHostId = `watch-snippet-player-${Math.random().toString(36).slice(2)
 let player: YT.Player | null = null
 let snippetBoundaryMonitor: number | null = null
 
-const snippetWindow = computed(() => getSnippetPlaybackWindow(props.start, props.duration))
+const snippetWindow = computed(() => getVideoSegmentPlaybackWindow(props.start, props.duration))
 
 function clearSnippetBoundaryMonitor() {
   if (snippetBoundaryMonitor !== null) {

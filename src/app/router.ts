@@ -55,6 +55,11 @@ const routes: RouteRecordRaw[] = [
     component: StatsPage,
   },
   {
+    path: '/demo',
+    name: 'demo',
+    redirect: '/video/htXj-DdNXBA/parallel',
+  },
+  {
     path: '/video/:videoId/snippet',
     name: 'video-snippet-practice',
     component: SnippetPracticePage,

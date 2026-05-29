@@ -24,7 +24,6 @@ Do not use `index.ts` file reexporting components, simply export directly.
 ## Guidelines
 
 - Keep design lean. Use cards, wrapper divs and containers ONLY when necessary
-- Keep style consistent across the code base
 - Setup eslint and ensure green linter (not by disabling it, but by writing clean code)
 - Keep files, functions and classes short, with a single purpose, on one abstraction layer. Split complex functionality when called for.
 - Do not hallucinate features I did not ask for

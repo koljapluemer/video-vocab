@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onMounted, shallowRef } from 'vue'
+import { shallowRef, watch } from 'vue'
 
-import { getStoredTargetLanguage } from '@/features/target-language-select/targetLanguageStorage'
+import { recordCompletedContextRound } from '@/features/context-stats/contextStatsStore'
 
 import ContextSegmentPlayer from './ContextSegmentPlayer.vue'
 import {
@@ -10,36 +10,51 @@ import {
 } from './loadRandomContextRound'
 
 type PracticeState =
+  | { kind: 'idle' }
   | { kind: 'loading' }
   | { kind: 'error'; message: string }
   | { kind: 'prompt'; round: ContextRound }
   | { kind: 'watch'; round: ContextRound }
-  | { kind: 'reflect'; notes: string; round: ContextRound; understoodPercent: number }
+  | { kind: 'reflect'; isSaving: boolean; notes: string; round: ContextRound; understoodPercent: number }
 
 const DEFAULT_UNDERSTOOD_PERCENT = 50
 
-const state = shallowRef<PracticeState>({ kind: 'loading' })
+const props = defineProps<{
+  languageCode: string | null
+  refreshToken: number
+}>()
+
+const emit = defineEmits<{
+  (event: 'open-language-picker'): void
+  (event: 'round-completed'): void
+}>()
+
+const state = shallowRef<PracticeState>({ kind: 'idle' })
+let loadRequestId = 0
 
 async function loadNextRound() {
-  const languageCode = getStoredTargetLanguage()
-  if (!languageCode) {
-    state.value = {
-      kind: 'error',
-      message: 'Choose a target language first.',
-    }
+  if (!props.languageCode) {
+    state.value = { kind: 'idle' }
     return
   }
 
+  const requestId = ++loadRequestId
   state.value = { kind: 'loading' }
 
   try {
-    const round = await loadRandomContextRound(languageCode)
+    const round = await loadRandomContextRound(props.languageCode)
+    if (requestId !== loadRequestId) {
+      return
+    }
     state.value = { kind: 'prompt', round }
   } catch (error) {
     console.error('Failed to load context practice round:', error)
+    if (requestId !== loadRequestId) {
+      return
+    }
     state.value = {
       kind: 'error',
-      message: 'Unable to load a practice round right now.',
+      message: 'Unable to load a clip.',
     }
   }
 }
@@ -62,6 +77,7 @@ function goToReflect() {
 
   state.value = {
     kind: 'reflect',
+    isSaving: false,
     notes: '',
     round: state.value.round,
     understoodPercent: DEFAULT_UNDERSTOOD_PERCENT,
@@ -108,64 +124,111 @@ function handleNotesInput(event: Event) {
   updateNotes(target.value)
 }
 
-onMounted(() => {
-  void loadNextRound()
-})
+async function completeRound() {
+  if (state.value.kind !== 'reflect') {
+    return
+  }
+
+  const nextState = {
+    ...state.value,
+    isSaving: true,
+  }
+  state.value = nextState
+
+  try {
+    await recordCompletedContextRound({
+      completedAt: new Date(),
+      durationSeconds: nextState.round.durationSeconds,
+      languageCode: nextState.round.languageCode,
+      notes: nextState.notes,
+      segmentIndex: nextState.round.segmentIndex,
+      understoodPercent: nextState.understoodPercent,
+      videoId: nextState.round.videoId,
+    })
+    emit('round-completed')
+    await loadNextRound()
+  } catch (error) {
+    console.error('Failed to save context round:', error)
+    state.value = {
+      kind: 'error',
+      message: 'Unable to save this round.',
+    }
+  }
+}
+
+watch(
+  () => [props.languageCode, props.refreshToken] as const,
+  () => {
+    void loadNextRound()
+  },
+  { immediate: true },
+)
 </script>
 
 <template>
   <div
-    v-if="state.kind === 'loading'"
-    class="flex min-h-[70vh] items-center justify-center px-4"
+    v-if="state.kind === 'idle'"
+    class="flex min-h-[calc(100vh-65px)] items-center justify-center px-4"
+  >
+    <button type="button" class="btn" @click="emit('open-language-picker')">
+      Pick language
+    </button>
+  </div>
+
+  <div
+    v-else-if="state.kind === 'loading'"
+    class="flex min-h-[calc(100vh-65px)] items-center justify-center px-4"
   >
     <span class="loading loading-spinner loading-lg"></span>
   </div>
 
   <div
     v-else-if="state.kind === 'error'"
-    class="mx-auto flex min-h-[70vh] max-w-xl items-center px-4"
+    class="mx-auto flex min-h-[calc(100vh-65px)] max-w-xl items-center px-4"
   >
     <div class="w-full space-y-4">
       <div class="alert alert-error">
         <span>{{ state.message }}</span>
       </div>
-      <button type="button" class="btn" @click="loadNextRound">
-        Retry
-      </button>
+      <div class="flex gap-2">
+        <button type="button" class="btn" @click="loadNextRound">
+          Retry
+        </button>
+        <button type="button" class="btn btn-ghost" @click="emit('open-language-picker')">
+          Language
+        </button>
+      </div>
     </div>
   </div>
 
   <div
     v-else-if="state.kind === 'prompt'"
-    class="mx-auto flex min-h-[70vh] max-w-4xl flex-col items-center justify-center gap-10 px-6 text-center"
+    class="mx-auto flex min-h-[calc(100vh-65px)] max-w-4xl flex-col items-center justify-center gap-8 px-4 py-10 text-center"
   >
-    <p class="max-w-2xl text-2xl font-medium leading-tight md:text-4xl">
-      Try to find how the following words are used
-    </p>
-
     <ul class="grid w-full max-w-3xl gap-3 md:grid-cols-3">
       <li
         v-for="entry in state.round.words"
         :key="entry.word"
-        class="rounded-box border border-base-300 px-5 py-4 text-left"
+        class="rounded-box border border-base-300 px-4 py-5 text-left"
       >
-        <p class="text-xl md:text-2xl">{{ entry.word }}</p>
+        <p class="text-xl font-medium md:text-2xl">{{ entry.word }}</p>
         <p class="mt-1 text-sm text-base-content/70 md:text-base">{{ entry.translation }}</p>
       </li>
     </ul>
 
     <button type="button" class="btn btn-primary btn-lg min-w-40" @click="goToWatch">
-      Go
+      Start
     </button>
   </div>
 
   <div
     v-else-if="state.kind === 'watch'"
-    class="mx-auto flex min-h-[70vh] max-w-5xl flex-col justify-center px-4"
+    class="mx-auto flex min-h-[calc(100vh-65px)] max-w-5xl flex-col justify-center px-4 py-10"
   >
     <ContextSegmentPlayer
       :key="`${state.round.videoId}-${state.round.segmentIndex}`"
       :duration-seconds="state.round.durationSeconds"
+      :language-code="state.round.languageCode"
       :start-seconds="state.round.startSeconds"
       :video-id="state.round.videoId"
       @finished="goToReflect"
@@ -174,52 +237,47 @@ onMounted(() => {
 
   <div
     v-else
-    class="mx-auto flex min-h-[70vh] max-w-3xl flex-col justify-center gap-6 px-4"
+    class="mx-auto flex min-h-[calc(100vh-65px)] max-w-3xl flex-col justify-center gap-6 px-4 py-10"
   >
-    <div class="w-full space-y-3">
+    <div class="space-y-3">
       <div class="flex items-end justify-between gap-4">
-        <span class="block text-lg font-medium">How much did you understand?</span>
+        <span class="text-lg font-medium">Understood</span>
         <span class="text-sm text-base-content/70">{{ state.understoodPercent }}%</span>
       </div>
-      <div class="w-full">
-        <input
-          class="range range-primary range-lg w-full"
-          type="range"
-          min="0"
-          max="100"
-          step="5"
-          :value="state.understoodPercent"
-          @input="handleUnderstoodPercentInput"
-        >
-        <div class="mt-2 flex justify-between px-2.5 text-xs text-base-content/50">
-          <span>|</span>
-          <span>|</span>
-          <span>|</span>
-          <span>|</span>
-          <span>|</span>
-        </div>
-        <div class="mt-1 flex justify-between px-1 text-sm text-base-content/70">
-          <span>0</span>
-          <span>25</span>
-          <span>50</span>
-          <span>75</span>
-          <span>100</span>
-        </div>
+      <input
+        class="range range-primary range-lg w-full"
+        type="range"
+        min="0"
+        max="100"
+        step="5"
+        :value="state.understoodPercent"
+        @input="handleUnderstoodPercentInput"
+      >
+      <div class="flex justify-between text-xs text-base-content/50">
+        <span>0</span>
+        <span>25</span>
+        <span>50</span>
+        <span>75</span>
+        <span>100</span>
       </div>
     </div>
 
-    <label class="block space-y-3">
-      <span class="block text-lg font-medium">What did you understand?</span>
+    <label class="space-y-3">
+      <span class="block text-lg font-medium">Notes</span>
       <textarea
         class="textarea textarea-bordered min-h-48 w-full"
-        placeholder="Write anything you caught."
         :value="state.notes"
         @input="handleNotesInput"
       ></textarea>
     </label>
 
     <div class="flex justify-end">
-      <button type="button" class="btn btn-primary btn-lg" @click="loadNextRound">
+      <button
+        type="button"
+        class="btn btn-primary btn-lg min-w-32"
+        :disabled="state.isSaving"
+        @click="completeRound"
+      >
         Next
       </button>
     </div>

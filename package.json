@@ -6,20 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "chart.js": "^4.5.1",
+    "daisyui": "^5.5.18",
     "dexie": "^4.3.0",
     "lucide-vue-next": "^1.0.0",
-    "ts-fsrs": "^5.2.3",
     "vue": "^3.5.27",
-    "vue-chartjs": "^5.3.3",
-    "vue-lite-youtube-embed": "^1.2.4",
-    "vue-router": "^5.0.2",
-    "vue-youtube-embed": "^2.2.2",
-    "vue3-youtube": "^0.1.9"
+    "vue-chartjs": "^5.3.3"
   },
   "devDependencies": {
     "@types/node": "^25.2.1",
@@ -27,7 +24,6 @@
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.6.0",
     "autoprefixer": "^10.4.24",
-    "daisyui": "^5.5.18",
     "eslint": "^9.39.1",
     "eslint-plugin-vue": "^10.5.1",
     "jsdom": "^29.0.2",

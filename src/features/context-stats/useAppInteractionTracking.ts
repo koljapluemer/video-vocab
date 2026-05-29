@@ -1,6 +1,6 @@
 import { onBeforeUnmount, onMounted } from 'vue'
 
-import { recordInteractionSlice } from './deviceStatsStorage'
+import { recordContextInteractionSlice } from './contextStatsStore'
 
 const INTERACTION_IDLE_TIMEOUT_MS = 30_000
 const INTERACTION_TICK_MS = 5_000
@@ -26,7 +26,7 @@ export function useAppInteractionTracking(getLanguageCode: () => string | null) 
 
     const languageCode = getLanguageCode()
     if (languageCode) {
-      recordInteractionSlice(languageCode, new Date(lastTickAt), new Date(now))
+      void recordContextInteractionSlice(languageCode, new Date(lastTickAt), new Date(now))
     }
     lastTickAt = now
   }

@@ -1,29 +1,21 @@
-<template>
-  <div class="overflow-hidden rounded-box bg-black">
-    <div class="relative aspect-video">
-      <div :id="playerHostId" class="h-full w-full"></div>
-    </div>
-  </div>
-
-  <div v-if="playerError" class="alert alert-error mt-4">
-    <span>{{ playerError }}</span>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 import { getVideoSegmentPlaybackWindow } from '@/dumb/getVideoSegmentPlaybackWindow'
+import { recordContextWatchSlice } from '@/features/context-stats/contextStatsStore'
 import { loadYoutubeIframeApi } from '@/features/video-embed/loadYoutubeIframeApi'
+
+const WATCH_TICK_MS = 5_000
 
 const props = defineProps<{
   durationSeconds: number
+  languageCode: string
   startSeconds: number
   videoId: string
 }>()
 
 const emit = defineEmits<{
-  (e: 'finished'): void
+  (event: 'finished'): void
 }>()
 
 const playerError = ref('')
@@ -32,7 +24,10 @@ const playerHostId = `context-player-${Math.random().toString(36).slice(2)}`
 
 let player: YT.Player | null = null
 let playbackBoundaryMonitor: number | null = null
+let watchTimer: number | null = null
 let playbackFinished = false
+let isPlayerActivelyPlaying = false
+let lastWatchTickAt = Date.now()
 
 const playbackWindow = computed(() =>
   getVideoSegmentPlaybackWindow(props.startSeconds, props.durationSeconds),
@@ -45,6 +40,42 @@ function clearPlaybackBoundaryMonitor() {
   }
 }
 
+function clearWatchTimer() {
+  if (watchTimer !== null) {
+    window.clearInterval(watchTimer)
+    watchTimer = null
+  }
+}
+
+function flushWatchSlice(now: number) {
+  if (!isPlayerActivelyPlaying || document.hidden) {
+    lastWatchTickAt = now
+    return
+  }
+
+  void recordContextWatchSlice(props.languageCode, new Date(lastWatchTickAt), new Date(now))
+  lastWatchTickAt = now
+}
+
+function stopWatchTracking() {
+  flushWatchSlice(Date.now())
+  isPlayerActivelyPlaying = false
+  clearWatchTimer()
+}
+
+function startWatchTracking() {
+  isPlayerActivelyPlaying = true
+  lastWatchTickAt = Date.now()
+
+  if (watchTimer !== null) {
+    return
+  }
+
+  watchTimer = window.setInterval(() => {
+    flushWatchSlice(Date.now())
+  }, WATCH_TICK_MS)
+}
+
 function finishPlayback() {
   if (!player || playbackFinished) {
     return
@@ -52,6 +83,7 @@ function finishPlayback() {
 
   playbackFinished = true
   clearPlaybackBoundaryMonitor()
+  stopWatchTracking()
   player.pauseVideo()
   emit('finished')
 }
@@ -81,11 +113,16 @@ function playSegment() {
   playbackFinished = false
   playerError.value = ''
   clearPlaybackBoundaryMonitor()
+  stopWatchTracking()
   player.loadVideoById({
     videoId: props.videoId,
     startSeconds: playbackWindow.value.startSeconds,
     endSeconds: playbackWindow.value.endSeconds,
   })
+}
+
+function handleVisibilityChange() {
+  flushWatchSlice(Date.now())
 }
 
 async function initializePlayer() {
@@ -98,9 +135,9 @@ async function initializePlayer() {
         disablekb: 1,
         fs: 0,
         iv_load_policy: 3,
+        origin: window.location.origin,
         playsinline: 1,
         rel: 0,
-        origin: window.location.origin,
       },
       events: {
         onReady: () => {
@@ -110,10 +147,12 @@ async function initializePlayer() {
         onStateChange: (event) => {
           if (event.data === window.YT!.PlayerState.PLAYING) {
             startPlaybackBoundaryMonitor()
+            startWatchTracking()
             return
           }
 
           clearPlaybackBoundaryMonitor()
+          stopWatchTracking()
 
           if (event.data === window.YT!.PlayerState.ENDED) {
             finishPlayback()
@@ -121,13 +160,14 @@ async function initializePlayer() {
         },
         onError: () => {
           clearPlaybackBoundaryMonitor()
-          playerError.value = 'Unable to play this segment right now.'
+          stopWatchTracking()
+          playerError.value = 'Player failed.'
         },
       },
     })
   } catch (error) {
     console.error('Failed to initialize context player:', error)
-    playerError.value = 'Unable to load the player right now.'
+    playerError.value = 'Player unavailable.'
   }
 }
 
@@ -139,12 +179,27 @@ watch(
 )
 
 onMounted(() => {
+  document.addEventListener('visibilitychange', handleVisibilityChange)
   void initializePlayer()
 })
 
 onBeforeUnmount(() => {
+  document.removeEventListener('visibilitychange', handleVisibilityChange)
   clearPlaybackBoundaryMonitor()
+  stopWatchTracking()
   player?.destroy()
   player = null
 })
 </script>
+
+<template>
+  <div class="overflow-hidden rounded-box bg-black">
+    <div class="relative aspect-video">
+      <div :id="playerHostId" class="h-full w-full"></div>
+    </div>
+  </div>
+
+  <div v-if="playerError" class="alert alert-error mt-4">
+    <span>{{ playerError }}</span>
+  </div>
+</template>

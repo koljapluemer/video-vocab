@@ -13,19 +13,18 @@ interface ExportVideoFile {
 export interface ContextRound {
   durationSeconds: number
   languageCode: string
-  languageLabel: string
   segmentIndex: number
   startSeconds: number
   videoId: string
   words: ContextRoundWord[]
 }
 
-const RANDOM_WORD_COUNT = 3
-
 export interface ContextRoundWord {
   translation: string
   word: string
 }
+
+const RANDOM_WORD_COUNT = 3
 
 async function fetchJson<T>(path: string): Promise<T> {
   const response = await fetch(path)
@@ -45,7 +44,7 @@ async function fetchText(path: string): Promise<string> {
   return await response.text()
 }
 
-function parseTimestampToSeconds(timestamp: string): number {
+function parseTimestampToSeconds(timestamp: string) {
   const [hoursPart, minutesPart, secondsPart] = timestamp.split(':')
   const hours = Number(hoursPart)
   const minutes = Number(minutesPart)
@@ -62,7 +61,7 @@ function pickRandomItem<T>(items: T[]): T {
   return items[Math.floor(Math.random() * items.length)]
 }
 
-function shuffle<T>(items: T[]): T[] {
+function shuffle<T>(items: T[]) {
   const nextItems = [...items]
 
   for (let index = nextItems.length - 1; index > 0; index -= 1) {
@@ -78,15 +77,15 @@ function shuffle<T>(items: T[]): T[] {
 function getRandomWords(vocab: Record<string, string>): ContextRoundWord[] {
   return shuffle(
     Object.entries(vocab)
-      .filter(([word, translation]) => word.trim().length > 0 && translation.trim().length > 0)
+      .filter(([word, translation]) => word.trim() && translation.trim())
       .map(([word, translation]) => ({
-        translation,
         word,
+        translation,
       })),
   ).slice(0, RANDOM_WORD_COUNT)
 }
 
-function getUsableSegments(videoFile: ExportVideoFile): ExportSegment[] {
+function getUsableSegments(videoFile: ExportVideoFile) {
   return videoFile.segments.filter((segment) => {
     const words = getRandomWords(segment.vocab)
     const startSeconds = parseTimestampToSeconds(segment.startTimestamp)
@@ -97,22 +96,13 @@ function getUsableSegments(videoFile: ExportVideoFile): ExportSegment[] {
 }
 
 export async function loadRandomContextRound(languageCode: string): Promise<ContextRound> {
-  const availableLanguages = await fetchJson<Record<string, string>>(
-    '/vv-data/2_export/available_languages.json',
-  )
-  const languageLabel = availableLanguages[languageCode]
-
-  if (!languageLabel) {
-    throw new Error('The selected language is not available in vv-data.')
-  }
-
   const videoIds = (await fetchText(`/vv-data/2_export/${languageCode}/_index.txt`))
     .split('\n')
     .map((line) => line.trim())
-    .filter((line) => line.length > 0)
+    .filter(Boolean)
 
   if (videoIds.length === 0) {
-    throw new Error('No videos are available for this language yet.')
+    throw new Error('No clips.')
   }
 
   for (const videoId of shuffle(videoIds)) {
@@ -131,16 +121,15 @@ export async function loadRandomContextRound(languageCode: string): Promise<Cont
       return {
         durationSeconds: endSeconds - startSeconds,
         languageCode,
-        languageLabel,
         segmentIndex: segment.index,
         startSeconds,
         videoId: videoFile.videoId,
         words: getRandomWords(segment.vocab),
       }
     } catch (error) {
-      console.error(`Failed to load practice round for video '${videoId}':`, error)
+      console.error(`Failed to load practice round for '${videoId}':`, error)
     }
   }
 
-  throw new Error('Unable to find a usable segment right now.')
+  throw new Error('No clip available.')
 }

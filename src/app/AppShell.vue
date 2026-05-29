@@ -3,6 +3,7 @@
     <header class="py-4">
       <nav class="m-auto flex flex-row justify-center gap-2">
         <router-link class="btn" to="/">Videos</router-link>
+        <router-link class="btn" :to="{ name: 'context-practice' }">Context</router-link>
         <router-link class="btn" :to="{ name: 'stats' }">Stats</router-link>
       </nav>
     </header>

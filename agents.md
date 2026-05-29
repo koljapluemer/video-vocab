@@ -29,7 +29,7 @@ Do not use `index.ts` file reexporting components, simply export directly.
 - Keep files, functions and classes short, with a single purpose, on one abstraction layer. Split complex functionality when called for.
 - Do not hallucinate features I did not ask for
 - Keep copy and micro-copy short and to the point. Avoid waffling, avoid marketing speak, and avoid labelling everything with triple redundancy.
-- make sure UI looks neat. Always put a form input BELOW the label in a new line. Responsive design.
+- Do not EVER!!!! double lable UI or explain something that is already apparent.
 - KEEP. IT. SIMPLE.
 - always run `npm run build` and `npm run lint:fix` to ensure everything is well done. Fix problems by writing clean code, not by disabling the linter.
 - save inputs on blur, avoid using "Save" buttons

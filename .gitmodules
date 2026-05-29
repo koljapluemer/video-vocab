@@ -1,0 +1,3 @@
+[submodule "public/vv-data"]
+	path = public/vv-data
+	url = git@github.com:koljapluemer/vv-data.git

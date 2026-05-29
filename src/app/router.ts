@@ -11,6 +11,7 @@ import {
   setStoredTargetLanguage,
 } from '@/features/target-language-select/targetLanguageStorage'
 import FlowPage from '@/pages/flow/FlowPage.vue'
+import ContextPracticePage from '@/pages/context-practice/ContextPracticePage.vue'
 import SnippetPracticePage from '@/pages/snippet-practice/SnippetPracticePage.vue'
 import StatsPage from '@/pages/stats/StatsPage.vue'
 import TargetLanguagePage from '@/pages/target-language/TargetLanguagePage.vue'
@@ -53,6 +54,18 @@ const routes: RouteRecordRaw[] = [
     path: '/stats',
     name: 'stats',
     component: StatsPage,
+  },
+  {
+    path: '/context',
+    name: 'context-practice',
+    component: ContextPracticePage,
+    beforeEnter: () => {
+      if (!getStoredTargetLanguage()) {
+        return { name: 'target-language' }
+      }
+
+      return true
+    },
   },
   {
     path: '/demo',

@@ -11,57 +11,77 @@ export interface Course {
   videos: Video[]
 }
 
-interface CourseJson {
-  languageCode: string
-  label: string
-  subtitleLanguage: string
-  direction: 'ltr' | 'rtl'
-  videos: Array<{ id: string }>
-}
+type AvailableLanguagesJson = Record<string, string>
 
-interface CourseIndexJson {
-  courses: string[]
-}
+const EXPORT_ROOT = '/vv-data/2_export'
+const RTL_LANGUAGE_CODES = new Set(['arz', 'ara', 'fas', 'heb', 'urd'])
 
-async function fetchCourseFile(languageCode: string): Promise<CourseJson> {
-  const response = await fetch(`/data/${languageCode}/course.json`)
+async function fetchJson<T>(path: string): Promise<T> {
+  const response = await fetch(path)
   if (!response.ok) {
-    throw new Error(`Failed to load course '${languageCode}'`)
+    throw new Error(`Failed to load '${path}'`)
   }
 
-  return (await response.json()) as CourseJson
+  return (await response.json()) as T
 }
 
-function toCourse(data: CourseJson): Course {
+async function fetchText(path: string): Promise<string> {
+  const response = await fetch(path)
+  if (!response.ok) {
+    throw new Error(`Failed to load '${path}'`)
+  }
+
+  return await response.text()
+}
+
+async function getAvailableLanguages(): Promise<AvailableLanguagesJson> {
+  return fetchJson<AvailableLanguagesJson>(`${EXPORT_ROOT}/available_languages.json`)
+}
+
+async function getVideoIds(languageCode: string): Promise<string[]> {
+  return (await fetchText(`${EXPORT_ROOT}/${languageCode}/_index.txt`))
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
+}
+
+function toCourse(languageCode: string, label: string, videoIds: string[]): Course {
   return {
-    languageCode: data.languageCode,
-    label: data.label,
-    subtitleLanguage: data.subtitleLanguage,
-    direction: data.direction,
-    videos: data.videos.map((video) => ({
-      youtubeId: video.id,
-      languageCode: data.languageCode,
+    languageCode,
+    label,
+    subtitleLanguage: 'en',
+    direction: RTL_LANGUAGE_CODES.has(languageCode) ? 'rtl' : 'ltr',
+    videos: videoIds.map((videoId) => ({
+      youtubeId: videoId,
+      languageCode,
     })),
   }
 }
 
 export async function getAvailableCourseCodes(): Promise<string[]> {
-  const response = await fetch('/data/index.json')
-  if (!response.ok) {
-    throw new Error('Failed to load course index')
-  }
-
-  const data = (await response.json()) as CourseIndexJson
-  return data.courses
+  return Object.keys(await getAvailableLanguages())
 }
 
 export async function getCourse(languageCode: string): Promise<Course> {
-  return toCourse(await fetchCourseFile(languageCode))
+  const availableLanguages = await getAvailableLanguages()
+  const label = availableLanguages[languageCode]
+
+  if (!label) {
+    throw new Error(`Unknown language '${languageCode}'`)
+  }
+
+  return toCourse(languageCode, label, await getVideoIds(languageCode))
 }
 
 export async function getAllCourses(): Promise<Course[]> {
-  const courseCodes = await getAvailableCourseCodes()
-  return Promise.all(courseCodes.map((languageCode) => getCourse(languageCode)))
+  const availableLanguages = await getAvailableLanguages()
+  const courseCodes = Object.keys(availableLanguages)
+
+  return Promise.all(
+    courseCodes.map(async (languageCode) =>
+      toCourse(languageCode, availableLanguages[languageCode], await getVideoIds(languageCode)),
+    ),
+  )
 }
 
 export async function getAllVideosWithLanguageCode(languageCode: string): Promise<Video[]> {

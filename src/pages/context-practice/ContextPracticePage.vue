@@ -15,9 +15,7 @@ type PracticeState =
   | { kind: 'error'; message: string }
   | { kind: 'prompt'; round: ContextRound }
   | { kind: 'watch'; round: ContextRound }
-  | { kind: 'reflect'; isSaving: boolean; notes: string; round: ContextRound; understoodPercent: number }
-
-const DEFAULT_UNDERSTOOD_PERCENT = 50
+  | { kind: 'reflect'; isSaving: boolean; notes: string; round: ContextRound }
 
 const props = defineProps<{
   languageCode: string | null
@@ -80,18 +78,6 @@ function goToReflect() {
     isSaving: false,
     notes: '',
     round: state.value.round,
-    understoodPercent: DEFAULT_UNDERSTOOD_PERCENT,
-  }
-}
-
-function updateUnderstoodPercent(nextValue: number) {
-  if (state.value.kind !== 'reflect') {
-    return
-  }
-
-  state.value = {
-    ...state.value,
-    understoodPercent: nextValue,
   }
 }
 
@@ -104,15 +90,6 @@ function updateNotes(nextValue: string) {
     ...state.value,
     notes: nextValue,
   }
-}
-
-function handleUnderstoodPercentInput(event: Event) {
-  const target = event.target
-  if (!(target instanceof HTMLInputElement)) {
-    return
-  }
-
-  updateUnderstoodPercent(Number(target.value))
 }
 
 function handleNotesInput(event: Event) {
@@ -142,7 +119,6 @@ async function completeRound() {
       languageCode: nextState.round.languageCode,
       notes: nextState.notes,
       segmentIndex: nextState.round.segmentIndex,
-      understoodPercent: nextState.understoodPercent,
       videoId: nextState.round.videoId,
     })
     emit('round-completed')
@@ -239,29 +215,6 @@ watch(
     v-else
     class="mx-auto flex min-h-[calc(100vh-65px)] max-w-3xl flex-col justify-center gap-6 px-4 py-10"
   >
-    <div class="space-y-3">
-      <div class="flex items-end justify-between gap-4">
-        <span class="text-lg font-medium">Understood</span>
-        <span class="text-sm text-base-content/70">{{ state.understoodPercent }}%</span>
-      </div>
-      <input
-        class="range range-primary range-lg w-full"
-        type="range"
-        min="0"
-        max="100"
-        step="5"
-        :value="state.understoodPercent"
-        @input="handleUnderstoodPercentInput"
-      >
-      <div class="flex justify-between text-xs text-base-content/50">
-        <span>0</span>
-        <span>25</span>
-        <span>50</span>
-        <span>75</span>
-        <span>100</span>
-      </div>
-    </div>
-
     <label class="space-y-3">
       <span class="block text-lg font-medium">Notes</span>
       <textarea

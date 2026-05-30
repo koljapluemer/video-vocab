@@ -11,7 +11,6 @@ export interface ContextRoundRecord {
   videoId: string
   segmentIndex: number
   durationSeconds: number
-  understoodPercent: number
   notes: string
   completedAt: number
 }
@@ -23,8 +22,6 @@ export interface DailyContextStatsRecord {
   roundsCompleted: number
   minutesVideoWatched: number
   minutesAppInteracted: number
-  understandingTotal: number
-  understandingCount: number
 }
 
 class ContextPracticeDb extends Dexie {

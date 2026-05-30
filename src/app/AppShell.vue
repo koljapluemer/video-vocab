@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Menu } from 'lucide-vue-next'
+import { ChartColumn, Info, Languages } from 'lucide-vue-next'
 import { computed, onMounted, ref } from 'vue'
 
 import type { Course } from '@/entities/course/course'
@@ -11,15 +11,15 @@ import {
   setStoredTargetLanguage,
 } from '@/features/target-language-select/targetLanguageStore'
 import ContextPracticePage from '@/pages/context-practice/ContextPracticePage.vue'
+import ContextStatsPanel from '@/pages/context-practice/ContextStatsPanel.vue'
 
-import AppAuxDrawer from './AppAuxDrawer.vue'
+import AppAuxModal from './AppAuxModal.vue'
 
-type DrawerSection = 'info' | 'language' | 'stats'
+type AuxModal = 'info' | 'language' | 'stats'
 
 const courses = ref<Course[]>([])
 const currentLanguageCode = ref<string | null>(null)
-const isDrawerOpen = ref(false)
-const activeSection = ref<DrawerSection>('language')
+const activeModal = ref<AuxModal | null>(null)
 const loadError = ref('')
 const isLoading = ref(true)
 const statsRefreshToken = ref(0)
@@ -35,20 +35,35 @@ const languageLabel = computed(() => {
   )
 })
 
-function openDrawer(section: DrawerSection) {
-  activeSection.value = section
-  isDrawerOpen.value = true
+const modalTitle = computed(() => {
+  if (activeModal.value === 'language') {
+    return 'Language'
+  }
+
+  if (activeModal.value === 'stats') {
+    return 'Stats'
+  }
+
+  if (activeModal.value === 'info') {
+    return 'Info'
+  }
+
+  return ''
+})
+
+function openModal(modal: AuxModal) {
+  activeModal.value = modal
 }
 
-function closeDrawer() {
-  isDrawerOpen.value = false
+function closeModal() {
+  activeModal.value = null
 }
 
 async function selectLanguage(languageCode: string) {
   await setStoredTargetLanguage(languageCode)
   currentLanguageCode.value = languageCode
   statsRefreshToken.value += 1
-  closeDrawer()
+  closeModal()
 }
 
 function handleContextRoundCompleted() {
@@ -69,12 +84,12 @@ onMounted(async () => {
     currentLanguageCode.value = storedLanguageCode
 
     if (!storedLanguageCode) {
-      openDrawer('language')
+      openModal('language')
     }
   } catch (error) {
     console.error('Failed to load app shell:', error)
     loadError.value = 'Unable to load languages.'
-    openDrawer('language')
+    openModal('language')
   } finally {
     isLoading.value = false
   }
@@ -82,52 +97,113 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="drawer drawer-end" :class="{ 'drawer-open': isDrawerOpen }">
-    <input class="drawer-toggle" type="checkbox" :checked="isDrawerOpen">
+  <div class="min-h-screen bg-base-100">
+    <header class="border-b border-base-300">
+      <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3">
+        <div class="min-w-0">
+          <p class="truncate text-lg font-semibold">Video Vocab</p>
+          <p class="truncate text-sm text-base-content/70">{{ languageLabel }}</p>
+        </div>
 
-    <div class="drawer-content min-h-screen bg-base-100">
-      <header class="border-b border-base-300">
-        <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3">
-          <div class="min-w-0">
-            <p class="truncate text-lg font-semibold">Video Vocab</p>
-            <p class="truncate text-sm text-base-content/70">{{ languageLabel }}</p>
-          </div>
-
-          <button type="button" class="btn btn-ghost gap-2" @click="openDrawer('language')">
-            <Menu class="size-5" />
-            <span class="hidden md:inline">Menu</span>
+        <div class="flex items-center gap-2">
+          <button type="button" class="btn btn-ghost gap-2" @click="openModal('language')">
+            <Languages class="size-5" />
+            <span class="hidden md:inline">Language</span>
+          </button>
+          <button type="button" class="btn btn-ghost gap-2" @click="openModal('stats')">
+            <ChartColumn class="size-5" />
+            <span class="hidden md:inline">Stats</span>
+          </button>
+          <button type="button" class="btn btn-ghost gap-2" @click="openModal('info')">
+            <Info class="size-5" />
+            <span class="hidden md:inline">Info</span>
           </button>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <main>
-        <div
-          v-if="isLoading"
-          class="flex min-h-[calc(100vh-65px)] items-center justify-center px-4"
-        >
-          <span class="loading loading-spinner loading-lg"></span>
+    <main>
+      <div
+        v-if="isLoading"
+        class="flex min-h-[calc(100vh-65px)] items-center justify-center px-4"
+      >
+        <span class="loading loading-spinner loading-lg"></span>
+      </div>
+
+      <ContextPracticePage
+        v-else
+        :language-code="currentLanguageCode"
+        :refresh-token="statsRefreshToken"
+        @open-language-picker="openModal('language')"
+        @round-completed="handleContextRoundCompleted"
+      />
+    </main>
+
+    <AppAuxModal :is-open="activeModal !== null" :title="modalTitle" @close="closeModal">
+      <div v-if="activeModal === 'language'" class="space-y-3">
+        <div v-if="loadError" class="alert alert-error">
+          <span>{{ loadError }}</span>
         </div>
 
-        <ContextPracticePage
-          v-else
-          :language-code="currentLanguageCode"
-          :refresh-token="statsRefreshToken"
-          @open-language-picker="openDrawer('language')"
-          @round-completed="handleContextRoundCompleted"
-        />
-      </main>
-    </div>
+        <div v-else class="grid gap-2">
+          <button
+            v-for="course in courses"
+            :key="course.languageCode"
+            type="button"
+            class="btn justify-between"
+            :class="course.languageCode === currentLanguageCode ? 'btn-primary' : 'btn-ghost border border-base-300'"
+            @click="selectLanguage(course.languageCode)"
+          >
+            <span>{{ course.label }}</span>
+            <span class="text-xs opacity-70">{{ course.languageCode.toUpperCase() }}</span>
+          </button>
+        </div>
+      </div>
 
-    <AppAuxDrawer
-      :active-section="activeSection"
-      :courses="courses"
-      :language-code="currentLanguageCode"
-      :language-label="languageLabel"
-      :load-error="loadError"
-      :stats-refresh-token="statsRefreshToken"
-      @close="closeDrawer"
-      @open-section="openDrawer"
-      @select-language="selectLanguage"
-    />
+      <ContextStatsPanel
+        v-else-if="activeModal === 'stats'"
+        :language-code="currentLanguageCode"
+        :language-label="languageLabel"
+        :refresh-token="statsRefreshToken"
+      />
+
+      <div v-else-if="activeModal === 'info'" class="space-y-4 text-sm leading-6">
+        <p>
+          Made by
+          <a
+            class="link"
+            href="https://koljasam.com/"
+            rel="noopener"
+            target="_blank"
+          >Kolja Sam</a>.
+        </p>
+        <p>
+          All data stays on your device.
+          <a
+            class="link"
+            href="https://github.com/koljapluemer/video-vocab"
+            rel="noopener"
+            target="_blank"
+          >Open source</a>.
+        </p>
+        <p>
+          Page views only via
+          <a
+            class="link"
+            href="https://www.goatcounter.com/"
+            rel="noopener"
+            target="_blank"
+          >GoatCounter</a>.
+        </p>
+        <p>
+          <a
+            class="link"
+            href="https://ko-fi.com/S6S81CWUVD"
+            rel="noopener"
+            target="_blank"
+          >Ko-fi</a>
+        </p>
+      </div>
+    </AppAuxModal>
   </div>
 </template>

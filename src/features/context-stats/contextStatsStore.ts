@@ -13,7 +13,6 @@ export interface DailyStatPoint {
 }
 
 export interface ContextStatsSnapshot {
-  averageUnderstoodPercent: number
   minutesAppInteracted: number
   minutesVideoWatched: number
   roundsCompleted: number
@@ -26,8 +25,6 @@ interface DailyContextStatsDelta {
   minutesAppInteracted?: number
   minutesVideoWatched?: number
   roundsCompleted?: number
-  understandingCount?: number
-  understandingTotal?: number
 }
 
 interface CompletedContextRoundInput {
@@ -36,7 +33,6 @@ interface CompletedContextRoundInput {
   languageCode: string
   notes: string
   segmentIndex: number
-  understoodPercent: number
   videoId: string
 }
 
@@ -69,8 +65,6 @@ function buildEmptyDailyStatsRecord(languageCode: string, dayKey: string): Daily
     roundsCompleted: 0,
     minutesVideoWatched: 0,
     minutesAppInteracted: 0,
-    understandingTotal: 0,
-    understandingCount: 0,
   }
 }
 
@@ -83,7 +77,6 @@ function buildContextRoundRecord(input: CompletedContextRoundInput): ContextRoun
     videoId: input.videoId,
     segmentIndex: input.segmentIndex,
     durationSeconds: input.durationSeconds,
-    understoodPercent: input.understoodPercent,
     notes: input.notes.trim(),
     completedAt,
   }
@@ -108,8 +101,6 @@ async function applyDailyStatsDeltaInCurrentTransaction(
     minutesAppInteracted: roundMinutes(
       existingRecord.minutesAppInteracted + (delta.minutesAppInteracted ?? 0),
     ),
-    understandingTotal: existingRecord.understandingTotal + (delta.understandingTotal ?? 0),
-    understandingCount: existingRecord.understandingCount + (delta.understandingCount ?? 0),
   })
 }
 
@@ -174,8 +165,6 @@ export async function recordCompletedContextRound(input: CompletedContextRoundIn
       await contextPracticeDb.contextRounds.put(roundRecord)
       await applyDailyStatsDeltaInCurrentTransaction(input.languageCode, dayKey, {
         roundsCompleted: 1,
-        understandingTotal: input.understoodPercent,
-        understandingCount: 1,
       })
     },
   )
@@ -204,24 +193,16 @@ export async function getContextStatsSnapshot(
       minutesAppInteracted: roundMinutes(
         accumulator.minutesAppInteracted + record.minutesAppInteracted,
       ),
-      understandingTotal: accumulator.understandingTotal + record.understandingTotal,
-      understandingCount: accumulator.understandingCount + record.understandingCount,
     }),
     {
       roundsCompleted: 0,
       minutesVideoWatched: 0,
       minutesAppInteracted: 0,
-      understandingTotal: 0,
-      understandingCount: 0,
     },
   )
 
   return {
     roundsCompleted: summary.roundsCompleted,
-    averageUnderstoodPercent:
-      summary.understandingCount > 0
-        ? Math.round((summary.understandingTotal / summary.understandingCount) * 10) / 10
-        : 0,
     minutesVideoWatched: summary.minutesVideoWatched,
     minutesAppInteracted: summary.minutesAppInteracted,
     roundsPerDay: buildDailyPoints(dayKeys, rangeRecords, (record) => record.roundsCompleted),

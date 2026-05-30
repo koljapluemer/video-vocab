@@ -17,7 +17,6 @@ const props = defineProps<{
 const isLoading = ref(false)
 const loadError = ref('')
 const stats = ref<ContextStatsSnapshot>({
-  averageUnderstoodPercent: 0,
   minutesAppInteracted: 0,
   minutesVideoWatched: 0,
   roundsCompleted: 0,
@@ -29,7 +28,6 @@ let loadRequestId = 0
 
 const summaryStats = computed(() => [
   { label: 'Rounds', value: formatValue(stats.value.roundsCompleted) },
-  { label: 'Understood', value: `${formatValue(stats.value.averageUnderstoodPercent)}%` },
   { label: 'Watched', value: `${formatValue(stats.value.minutesVideoWatched)} min` },
   { label: 'Active', value: `${formatValue(stats.value.minutesAppInteracted)} min` },
 ])
@@ -42,7 +40,6 @@ async function loadStats() {
   if (!props.languageCode) {
     loadError.value = ''
     stats.value = {
-      averageUnderstoodPercent: 0,
       minutesAppInteracted: 0,
       minutesVideoWatched: 0,
       roundsCompleted: 0,

@@ -13,16 +13,13 @@ export interface DailyStatPoint {
 }
 
 export interface ContextStatsSnapshot {
-  minutesAppInteracted: number
   minutesVideoWatched: number
   roundsCompleted: number
   roundsPerDay: DailyStatPoint[]
   minutesVideoWatchedPerDay: DailyStatPoint[]
-  minutesAppInteractedPerDay: DailyStatPoint[]
 }
 
 interface DailyContextStatsDelta {
-  minutesAppInteracted?: number
   minutesVideoWatched?: number
   roundsCompleted?: number
 }
@@ -63,7 +60,6 @@ function buildEmptyDailyStatsRecord(languageCode: string, dayKey: string): Daily
     dayKey,
     roundsCompleted: 0,
     minutesVideoWatched: 0,
-    minutesAppInteracted: 0,
   }
 }
 
@@ -96,9 +92,6 @@ async function applyDailyStatsDeltaInCurrentTransaction(
     minutesVideoWatched: roundMinutes(
       existingRecord.minutesVideoWatched + (delta.minutesVideoWatched ?? 0),
     ),
-    minutesAppInteracted: roundMinutes(
-      existingRecord.minutesAppInteracted + (delta.minutesAppInteracted ?? 0),
-    ),
   })
 }
 
@@ -123,21 +116,6 @@ function buildDailyPoints(
     date: dayKey,
     value: roundMinutes(selectValue(recordsByDay.get(dayKey) ?? buildEmptyDailyStatsRecord('', dayKey))),
   }))
-}
-
-export async function recordContextInteractionSlice(
-  languageCode: string,
-  start: Date,
-  end: Date,
-) {
-  const minutes = Math.max(0, end.getTime() - start.getTime()) / MINUTE_IN_MS
-  if (minutes <= 0) {
-    return
-  }
-
-  await applyDailyStatsDelta(languageCode, getLocalDateKey(end), {
-    minutesAppInteracted: minutes,
-  })
 }
 
 export async function recordContextWatchSlice(languageCode: string, start: Date, end: Date) {
@@ -188,31 +166,21 @@ export async function getContextStatsSnapshot(
     (accumulator, record) => ({
       roundsCompleted: accumulator.roundsCompleted + record.roundsCompleted,
       minutesVideoWatched: roundMinutes(accumulator.minutesVideoWatched + record.minutesVideoWatched),
-      minutesAppInteracted: roundMinutes(
-        accumulator.minutesAppInteracted + record.minutesAppInteracted,
-      ),
     }),
     {
       roundsCompleted: 0,
       minutesVideoWatched: 0,
-      minutesAppInteracted: 0,
     },
   )
 
   return {
     roundsCompleted: summary.roundsCompleted,
     minutesVideoWatched: summary.minutesVideoWatched,
-    minutesAppInteracted: summary.minutesAppInteracted,
     roundsPerDay: buildDailyPoints(dayKeys, rangeRecords, (record) => record.roundsCompleted),
     minutesVideoWatchedPerDay: buildDailyPoints(
       dayKeys,
       rangeRecords,
       (record) => record.minutesVideoWatched,
-    ),
-    minutesAppInteractedPerDay: buildDailyPoints(
-      dayKeys,
-      rangeRecords,
-      (record) => record.minutesAppInteracted,
     ),
   }
 }

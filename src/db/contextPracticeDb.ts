@@ -20,7 +20,6 @@ export interface DailyContextStatsRecord {
   dayKey: string
   roundsCompleted: number
   minutesVideoWatched: number
-  minutesAppInteracted: number
 }
 
 class ContextPracticeDb extends Dexie {

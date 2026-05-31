@@ -4,7 +4,6 @@ import { computed, onMounted, ref } from 'vue'
 
 import type { Course } from '@/entities/course/course'
 import { getAllCourses } from '@/entities/course/course'
-import { useAppInteractionTracking } from '@/features/context-stats/useAppInteractionTracking'
 import {
   bootstrapLegacyTargetLanguage,
   getStoredTargetLanguage,
@@ -69,8 +68,6 @@ async function selectLanguage(languageCode: string) {
 function handleContextRoundCompleted() {
   statsRefreshToken.value += 1
 }
-
-useAppInteractionTracking(() => currentLanguageCode.value)
 
 onMounted(async () => {
   try {

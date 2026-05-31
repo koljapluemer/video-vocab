@@ -17,19 +17,16 @@ const props = defineProps<{
 const isLoading = ref(false)
 const loadError = ref('')
 const stats = ref<ContextStatsSnapshot>({
-  minutesAppInteracted: 0,
   minutesVideoWatched: 0,
   roundsCompleted: 0,
   roundsPerDay: [],
   minutesVideoWatchedPerDay: [],
-  minutesAppInteractedPerDay: [],
 })
 let loadRequestId = 0
 
 const summaryStats = computed(() => [
   { label: 'Rounds', value: formatValue(stats.value.roundsCompleted) },
   { label: 'Watched', value: `${formatValue(stats.value.minutesVideoWatched)} min` },
-  { label: 'Active', value: `${formatValue(stats.value.minutesAppInteracted)} min` },
 ])
 
 function formatValue(value: number) {
@@ -40,12 +37,10 @@ async function loadStats() {
   if (!props.languageCode) {
     loadError.value = ''
     stats.value = {
-      minutesAppInteracted: 0,
       minutesVideoWatched: 0,
       roundsCompleted: 0,
       roundsPerDay: [],
       minutesVideoWatchedPerDay: [],
-      minutesAppInteractedPerDay: [],
     }
     return
   }
@@ -122,12 +117,6 @@ watch(
         color="#ea580c"
         :points="stats.minutesVideoWatchedPerDay"
         title="Watched / day"
-        value-label="min"
-      />
-      <ContextDailyBarChart
-        color="#16a34a"
-        :points="stats.minutesAppInteractedPerDay"
-        title="Active / day"
         value-label="min"
       />
     </div>

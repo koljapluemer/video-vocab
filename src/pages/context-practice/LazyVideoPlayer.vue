@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
+import { recordContextWatchSlice } from '@/features/context-stats/contextStatsStore'
 import { loadYoutubeIframeApi } from '@/features/video-embed/loadYoutubeIframeApi'
 
 import LazyVocabCard from './LazyVocabCard.vue'
@@ -8,6 +9,7 @@ import type { LazyVideo } from './loadRandomLazyVideo'
 
 const props = defineProps<{
   video: LazyVideo
+  languageCode: string
 }>()
 
 const emit = defineEmits<{
@@ -24,11 +26,41 @@ interface ActiveCard {
   timeoutId: number
 }
 
+const WATCH_TICK_MS = 5_000
+
 let player: YT.Player | null = null
 let pollInterval: number | null = null
+let watchTimer: number | null = null
+let isPlayerActivelyPlaying = false
+let lastWatchTickAt = Date.now()
 let nextCardAt = 1 + Math.random() * 2
 const activeCards = ref<ActiveCard[]>([])
 let nextCardId = 0
+
+function flushWatchSlice(now: number) {
+  if (!isPlayerActivelyPlaying || document.hidden) {
+    lastWatchTickAt = now
+    return
+  }
+  void recordContextWatchSlice(props.languageCode, new Date(lastWatchTickAt), new Date(now))
+  lastWatchTickAt = now
+}
+
+function stopWatchTracking() {
+  flushWatchSlice(Date.now())
+  isPlayerActivelyPlaying = false
+  if (watchTimer !== null) {
+    window.clearInterval(watchTimer)
+    watchTimer = null
+  }
+}
+
+function startWatchTracking() {
+  isPlayerActivelyPlaying = true
+  lastWatchTickAt = Date.now()
+  if (watchTimer !== null) return
+  watchTimer = window.setInterval(() => flushWatchSlice(Date.now()), WATCH_TICK_MS)
+}
 
 function dismissCard(id: number) {
   const card = activeCards.value.find((c) => c.id === id)
@@ -105,10 +137,12 @@ async function initializePlayer() {
         onStateChange: (event) => {
           if (event.data === YT.PlayerState.PLAYING) {
             startPoll()
+            startWatchTracking()
             return
           }
 
           stopPoll()
+          stopWatchTracking()
 
           if (event.data === YT.PlayerState.ENDED) {
             emit('finished')
@@ -116,6 +150,7 @@ async function initializePlayer() {
         },
         onError: () => {
           stopPoll()
+          stopWatchTracking()
           playerError.value = 'Player failed.'
         },
       },
@@ -126,12 +161,19 @@ async function initializePlayer() {
   }
 }
 
+function handleVisibilityChange() {
+  flushWatchSlice(Date.now())
+}
+
 onMounted(() => {
+  document.addEventListener('visibilitychange', handleVisibilityChange)
   void initializePlayer()
 })
 
 onBeforeUnmount(() => {
+  document.removeEventListener('visibilitychange', handleVisibilityChange)
   stopPoll()
+  stopWatchTracking()
   activeCards.value.forEach((c) => window.clearTimeout(c.timeoutId))
   player?.destroy()
   player = null

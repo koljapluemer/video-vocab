@@ -375,7 +375,8 @@ watch(mode, (newMode) => {
     <LazyVideoPlayer
       :key="lazyState.video.videoId"
       :video="lazyState.video"
-      @finished="loadNextLazyVideo"
+      :language-code="lazyState.video.languageCode"
+      @finished="() => { emit('round-completed'); void loadNextLazyVideo() }"
     />
   </div>
 

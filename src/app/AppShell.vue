@@ -178,7 +178,7 @@ onMounted(async () => {
           >Kolja Sam</a>.
         </p>
         <p>
-          All data stays on your device.
+          This app is 
           <a
             class="link"
             href="https://github.com/koljapluemer/video-vocab"
@@ -187,7 +187,7 @@ onMounted(async () => {
           >Open source</a>.
         </p>
         <p>
-          Page views only via
+          I track nothing but pseudonymous learning data and page views via the privacy-friendly
           <a
             class="link"
             href="https://www.goatcounter.com/"
@@ -195,13 +195,13 @@ onMounted(async () => {
             target="_blank"
           >GoatCounter</a>.
         </p>
-        <p>
+        <p>If you want to enable me to keep building apps like this, support me on 
           <a
             class="link"
             href="https://ko-fi.com/S6S81CWUVD"
             rel="noopener"
             target="_blank"
-          >Ko-fi</a>
+          >Ko-fi</a>.
         </p>
       </div>
     </AppAuxModal>

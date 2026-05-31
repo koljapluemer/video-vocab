@@ -11,7 +11,6 @@ export interface ContextRoundRecord {
   videoId: string
   segmentIndex: number
   durationSeconds: number
-  notes: string
   completedAt: number
 }
 

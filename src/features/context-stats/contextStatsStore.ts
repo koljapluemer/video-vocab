@@ -31,7 +31,6 @@ interface CompletedContextRoundInput {
   completedAt: Date
   durationSeconds: number
   languageCode: string
-  notes: string
   segmentIndex: number
   videoId: string
 }
@@ -77,7 +76,6 @@ function buildContextRoundRecord(input: CompletedContextRoundInput): ContextRoun
     videoId: input.videoId,
     segmentIndex: input.segmentIndex,
     durationSeconds: input.durationSeconds,
-    notes: input.notes.trim(),
     completedAt,
   }
 }

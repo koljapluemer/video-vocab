@@ -3,19 +3,29 @@ import { shallowRef, watch } from 'vue'
 
 import { recordCompletedContextRound } from '@/features/context-stats/contextStatsStore'
 
+import ContextRepeatRecorder from './ContextRepeatRecorder.vue'
 import ContextSegmentPlayer from './ContextSegmentPlayer.vue'
+import {
+  pickContextExerciseTemplate,
+  type ContextExerciseTemplate,
+} from './contextExerciseTemplates'
 import {
   loadRandomContextRound,
   type ContextRound,
 } from './loadRandomContextRound'
 
+interface PracticeRoundState {
+  exercise: ContextExerciseTemplate
+  round: ContextRound
+}
+
 type PracticeState =
   | { kind: 'idle' }
   | { kind: 'loading' }
   | { kind: 'error'; message: string }
-  | { kind: 'prompt'; round: ContextRound }
-  | { kind: 'watch'; round: ContextRound }
-  | { kind: 'reflect'; isSaving: boolean; notes: string; round: ContextRound }
+  | ({ kind: 'prompt' } & PracticeRoundState)
+  | ({ kind: 'watch' } & PracticeRoundState)
+  | ({ kind: 'reflect'; isSaving: boolean; responseText: string } & PracticeRoundState)
 
 const props = defineProps<{
   languageCode: string | null
@@ -44,7 +54,11 @@ async function loadNextRound() {
     if (requestId !== loadRequestId) {
       return
     }
-    state.value = { kind: 'prompt', round }
+    state.value = {
+      kind: 'prompt',
+      round,
+      exercise: pickContextExerciseTemplate(round),
+    }
   } catch (error) {
     console.error('Failed to load context practice round:', error)
     if (requestId !== loadRequestId) {
@@ -65,6 +79,7 @@ function goToWatch() {
   state.value = {
     kind: 'watch',
     round: state.value.round,
+    exercise: state.value.exercise,
   }
 }
 
@@ -76,29 +91,30 @@ function goToReflect() {
   state.value = {
     kind: 'reflect',
     isSaving: false,
-    notes: '',
+    responseText: '',
     round: state.value.round,
+    exercise: state.value.exercise,
   }
 }
 
-function updateNotes(nextValue: string) {
+function updateResponseText(nextValue: string) {
   if (state.value.kind !== 'reflect') {
     return
   }
 
   state.value = {
     ...state.value,
-    notes: nextValue,
+    responseText: nextValue,
   }
 }
 
-function handleNotesInput(event: Event) {
+function handleResponseTextInput(event: Event) {
   const target = event.target
   if (!(target instanceof HTMLTextAreaElement)) {
     return
   }
 
-  updateNotes(target.value)
+  updateResponseText(target.value)
 }
 
 async function completeRound() {
@@ -117,7 +133,6 @@ async function completeRound() {
       completedAt: new Date(),
       durationSeconds: nextState.round.durationSeconds,
       languageCode: nextState.round.languageCode,
-      notes: nextState.notes,
       segmentIndex: nextState.round.segmentIndex,
       videoId: nextState.round.videoId,
     })
@@ -181,7 +196,14 @@ watch(
     v-else-if="state.kind === 'prompt'"
     class="mx-auto flex min-h-[calc(100vh-65px)] max-w-4xl flex-col items-center justify-center gap-8 px-4 py-10 text-center"
   >
-    <ul class="grid w-full max-w-3xl gap-3 md:grid-cols-3">
+    <p class="max-w-2xl text-lg leading-relaxed md:text-xl">
+      {{ state.exercise.preInstruction }}
+    </p>
+
+    <ul
+      v-if="state.exercise.kind === 'look-for-vocabulary'"
+      class="grid w-full max-w-3xl gap-3 md:grid-cols-3"
+    >
       <li
         v-for="entry in state.round.words"
         :key="entry.word"
@@ -215,14 +237,19 @@ watch(
     v-else
     class="mx-auto flex min-h-[calc(100vh-65px)] max-w-3xl flex-col justify-center gap-6 px-4 py-10"
   >
-    <label class="space-y-3">
-      <span class="block text-lg font-medium">Notes</span>
+    <label
+      v-if="state.exercise.responseMode === 'text'"
+      class="space-y-3"
+    >
+      <span class="block text-lg font-medium">{{ state.exercise.postQuestion }}</span>
       <textarea
         class="textarea textarea-bordered min-h-48 w-full"
-        :value="state.notes"
-        @input="handleNotesInput"
+        :value="state.responseText"
+        @input="handleResponseTextInput"
       ></textarea>
     </label>
+
+    <ContextRepeatRecorder v-else />
 
     <div class="flex justify-end">
       <button

@@ -5,6 +5,7 @@ import { recordCompletedContextRound } from '@/features/context-stats/contextSta
 
 import ContextRepeatRecorder from './ContextRepeatRecorder.vue'
 import ContextSegmentPlayer from './ContextSegmentPlayer.vue'
+import LazyVideoPlayer from './LazyVideoPlayer.vue'
 import {
   pickContextExerciseTemplate,
   type ContextExerciseTemplate,
@@ -13,6 +14,7 @@ import {
   loadRandomContextRound,
   type ContextRound,
 } from './loadRandomContextRound'
+import { loadRandomLazyVideo, type LazyVideo } from './loadRandomLazyVideo'
 
 interface PracticeRoundState {
   exercise: ContextExerciseTemplate
@@ -27,6 +29,14 @@ type PracticeState =
   | ({ kind: 'watch' } & PracticeRoundState)
   | ({ kind: 'reflect'; isSaving: boolean; responseText: string } & PracticeRoundState)
 
+type LazyState =
+  | { kind: 'idle' }
+  | { kind: 'loading' }
+  | { kind: 'error'; message: string }
+  | { kind: 'playing'; video: LazyVideo }
+
+type PracticeMode = 'mix' | 'lazy'
+
 const props = defineProps<{
   languageCode: string | null
   refreshToken: number
@@ -37,8 +47,11 @@ const emit = defineEmits<{
   (event: 'round-completed'): void
 }>()
 
+const mode = shallowRef<PracticeMode>('mix')
 const state = shallowRef<PracticeState>({ kind: 'idle' })
+const lazyState = shallowRef<LazyState>({ kind: 'idle' })
 let loadRequestId = 0
+let lazyLoadRequestId = 0
 
 async function loadNextRound() {
   if (!props.languageCode) {
@@ -147,16 +160,69 @@ async function completeRound() {
   }
 }
 
+async function loadNextLazyVideo() {
+  if (!props.languageCode) {
+    lazyState.value = { kind: 'idle' }
+    return
+  }
+
+  const requestId = ++lazyLoadRequestId
+  lazyState.value = { kind: 'loading' }
+
+  try {
+    const video = await loadRandomLazyVideo(props.languageCode)
+    if (requestId !== lazyLoadRequestId) return
+    lazyState.value = { kind: 'playing', video }
+  } catch (error) {
+    console.error('Failed to load lazy video:', error)
+    if (requestId !== lazyLoadRequestId) return
+    lazyState.value = { kind: 'error', message: 'Unable to load video.' }
+  }
+}
+
 watch(
   () => [props.languageCode, props.refreshToken] as const,
   () => {
-    void loadNextRound()
+    if (mode.value === 'mix') void loadNextRound()
+    else void loadNextLazyVideo()
   },
   { immediate: true },
 )
+
+watch(mode, (newMode) => {
+  if (newMode === 'mix') {
+    lazyState.value = { kind: 'idle' }
+    void loadNextRound()
+  } else {
+    loadRequestId++
+    state.value = { kind: 'idle' }
+    void loadNextLazyVideo()
+  }
+})
 </script>
 
 <template>
+  <div class="border-b border-base-300">
+    <div class="tabs tabs-border mx-auto max-w-4xl px-4">
+      <button
+        type="button"
+        role="tab"
+        class="tab"
+        :class="{ 'tab-active': mode === 'mix' }"
+        @click="mode = 'mix'"
+      >Mix</button>
+      <button
+        type="button"
+        role="tab"
+        class="tab"
+        :class="{ 'tab-active': mode === 'lazy' }"
+        @click="mode = 'lazy'"
+      >Lazy</button>
+    </div>
+  </div>
+
+  <template v-if="mode === 'mix'">
+
   <div
     v-if="state.kind === 'idle'"
     class="flex min-h-[calc(100vh-65px)] items-center justify-center px-4"
@@ -262,4 +328,56 @@ watch(
       </button>
     </div>
   </div>
+
+  </template>
+
+  <template v-else>
+
+  <div
+    v-if="lazyState.kind === 'idle'"
+    class="flex min-h-[calc(100vh-65px)] items-center justify-center px-4"
+  >
+    <button type="button" class="btn" @click="emit('open-language-picker')">
+      Pick language
+    </button>
+  </div>
+
+  <div
+    v-else-if="lazyState.kind === 'loading'"
+    class="flex min-h-[calc(100vh-65px)] items-center justify-center px-4"
+  >
+    <span class="loading loading-spinner loading-lg"></span>
+  </div>
+
+  <div
+    v-else-if="lazyState.kind === 'error'"
+    class="mx-auto flex min-h-[calc(100vh-65px)] max-w-xl items-center px-4"
+  >
+    <div class="w-full space-y-4">
+      <div class="alert alert-error">
+        <span>{{ lazyState.message }}</span>
+      </div>
+      <div class="flex gap-2">
+        <button type="button" class="btn" @click="loadNextLazyVideo">
+          Retry
+        </button>
+        <button type="button" class="btn btn-ghost" @click="emit('open-language-picker')">
+          Language
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    v-else-if="lazyState.kind === 'playing'"
+    class="mx-auto flex min-h-[calc(100vh-65px)] max-w-5xl flex-col justify-center px-4 py-10"
+  >
+    <LazyVideoPlayer
+      :key="lazyState.video.videoId"
+      :video="lazyState.video"
+      @finished="loadNextLazyVideo"
+    />
+  </div>
+
+  </template>
 </template>

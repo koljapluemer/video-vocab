@@ -33,6 +33,7 @@ Do not use `index.ts` file reexporting components, simply export directly.
 - always run `npm run build` and `npm run lint:fix` to ensure everything is well done. Fix problems by writing clean code, not by disabling the linter.
 - save inputs on blur, avoid using "Save" buttons
 - do not write tests unless asked for.
+- Do not use "!" or linter disable!!
 
 ## Persistence Safety
 

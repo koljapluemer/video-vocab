@@ -11,6 +11,7 @@ interface ExportVideoFile {
 }
 
 export interface ContextRound {
+  aspectRatio: number
   durationSeconds: number
   languageCode: string
   segmentIndex: number
@@ -25,6 +26,19 @@ export interface ContextRoundWord {
 }
 
 const RANDOM_WORD_COUNT = 3
+
+async function fetchAspectRatio(videoId: string): Promise<number> {
+  try {
+    const res = await fetch(
+      `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`,
+    )
+    if (!res.ok) return 16 / 9
+    const data = (await res.json()) as { width: number; height: number }
+    return data.width / data.height
+  } catch {
+    return 16 / 9
+  }
+}
 
 async function fetchJson<T>(path: string): Promise<T> {
   const response = await fetch(path)
@@ -117,8 +131,10 @@ export async function loadRandomContextRound(languageCode: string): Promise<Cont
       const segment = pickRandomItem(usableSegments)
       const startSeconds = parseTimestampToSeconds(segment.startTimestamp)
       const endSeconds = parseTimestampToSeconds(segment.endTimestamp)
+      const aspectRatio = await fetchAspectRatio(videoFile.videoId)
 
       return {
+        aspectRatio,
         durationSeconds: endSeconds - startSeconds,
         languageCode,
         segmentIndex: segment.index,

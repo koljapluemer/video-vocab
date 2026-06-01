@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { shallowRef, watch } from 'vue'
+import { computed, shallowRef, watch } from 'vue'
 
 import { recordCompletedContextRound } from '@/features/context-stats/contextStatsStore'
 
@@ -45,6 +45,7 @@ const props = defineProps<{
 const emit = defineEmits<{
   (event: 'open-language-picker'): void
   (event: 'round-completed'): void
+  (event: 'video-changed', videoId: string | null): void
 }>()
 
 const mode = shallowRef<PracticeMode>('mix')
@@ -180,6 +181,18 @@ async function loadNextLazyVideo() {
   }
 }
 
+const currentVideoId = computed<string | null>(() => {
+  if (mode.value === 'mix') {
+    const s = state.value
+    if (s.kind === 'prompt' || s.kind === 'watch' || s.kind === 'reflect') return s.round.videoId
+    return null
+  }
+  const s = lazyState.value
+  return s.kind === 'playing' ? s.video.videoId : null
+})
+
+watch(currentVideoId, (videoId) => emit('video-changed', videoId), { immediate: true })
+
 watch(
   () => [props.languageCode, props.refreshToken] as const,
   () => {
@@ -202,30 +215,11 @@ watch(mode, (newMode) => {
 </script>
 
 <template>
-  <div class="border-b border-base-300">
-    <div class="tabs tabs-border mx-auto max-w-4xl px-4">
-      <button
-        type="button"
-        role="tab"
-        class="tab"
-        :class="{ 'tab-active': mode === 'mix' }"
-        @click="mode = 'mix'"
-      >Mix</button>
-      <button
-        type="button"
-        role="tab"
-        class="tab"
-        :class="{ 'tab-active': mode === 'lazy' }"
-        @click="mode = 'lazy'"
-      >Lazy</button>
-    </div>
-  </div>
-
   <template v-if="mode === 'mix'">
 
   <div
     v-if="state.kind === 'idle'"
-    class="flex min-h-[calc(100vh-65px)] items-center justify-center px-4"
+    class="flex min-h-screen items-center justify-center px-4"
   >
     <button type="button" class="btn" @click="emit('open-language-picker')">
       Pick language
@@ -234,14 +228,14 @@ watch(mode, (newMode) => {
 
   <div
     v-else-if="state.kind === 'loading'"
-    class="flex min-h-[calc(100vh-65px)] items-center justify-center px-4"
+    class="flex min-h-screen items-center justify-center px-4"
   >
     <span class="loading loading-spinner loading-lg"></span>
   </div>
 
   <div
     v-else-if="state.kind === 'error'"
-    class="mx-auto flex min-h-[calc(100vh-65px)] max-w-xl items-center px-4"
+    class="mx-auto flex min-h-screen max-w-xl items-center px-4"
   >
     <div class="w-full space-y-4">
       <div class="alert alert-error">
@@ -260,7 +254,7 @@ watch(mode, (newMode) => {
 
   <div
     v-else-if="state.kind === 'prompt'"
-    class="mx-auto flex min-h-[calc(100vh-65px)] max-w-4xl flex-col items-center justify-center gap-8 px-4 py-10 text-center"
+    class="mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center gap-8 px-4 pb-20 pt-20 text-center"
   >
     <p class="max-w-2xl text-lg leading-relaxed md:text-xl">
       {{ state.exercise.preInstruction }}
@@ -287,10 +281,11 @@ watch(mode, (newMode) => {
 
   <div
     v-else-if="state.kind === 'watch'"
-    class="mx-auto flex min-h-[calc(100vh-65px)] max-w-5xl flex-col justify-center px-4 py-10"
+    class="fixed inset-0 flex items-center justify-center"
   >
     <ContextSegmentPlayer
       :key="`${state.round.videoId}-${state.round.segmentIndex}`"
+      :aspect-ratio="state.round.aspectRatio"
       :duration-seconds="state.round.durationSeconds"
       :language-code="state.round.languageCode"
       :start-seconds="state.round.startSeconds"
@@ -301,7 +296,7 @@ watch(mode, (newMode) => {
 
   <div
     v-else
-    class="mx-auto flex min-h-[calc(100vh-65px)] max-w-3xl flex-col justify-center gap-6 px-4 py-10"
+    class="mx-auto flex min-h-screen max-w-3xl flex-col justify-center gap-6 px-4 pb-20 pt-20"
   >
     <label
       v-if="state.exercise.responseMode === 'text'"
@@ -335,7 +330,7 @@ watch(mode, (newMode) => {
 
   <div
     v-if="lazyState.kind === 'idle'"
-    class="flex min-h-[calc(100vh-65px)] items-center justify-center px-4"
+    class="flex min-h-screen items-center justify-center px-4"
   >
     <button type="button" class="btn" @click="emit('open-language-picker')">
       Pick language
@@ -344,14 +339,14 @@ watch(mode, (newMode) => {
 
   <div
     v-else-if="lazyState.kind === 'loading'"
-    class="flex min-h-[calc(100vh-65px)] items-center justify-center px-4"
+    class="flex min-h-screen items-center justify-center px-4"
   >
     <span class="loading loading-spinner loading-lg"></span>
   </div>
 
   <div
     v-else-if="lazyState.kind === 'error'"
-    class="mx-auto flex min-h-[calc(100vh-65px)] max-w-xl items-center px-4"
+    class="mx-auto flex min-h-screen max-w-xl items-center px-4"
   >
     <div class="w-full space-y-4">
       <div class="alert alert-error">
@@ -370,15 +365,33 @@ watch(mode, (newMode) => {
 
   <div
     v-else-if="lazyState.kind === 'playing'"
-    class="mx-auto flex min-h-[calc(100vh-65px)] max-w-5xl flex-col justify-center px-4 py-10"
+    class="fixed inset-0 flex items-center justify-center"
   >
     <LazyVideoPlayer
       :key="lazyState.video.videoId"
       :video="lazyState.video"
       :language-code="lazyState.video.languageCode"
+      :aspect-ratio="lazyState.video.aspectRatio"
       @finished="() => { emit('round-completed'); void loadNextLazyVideo() }"
     />
   </div>
 
   </template>
+
+  <div class="fixed bottom-6 left-1/2 z-50 -translate-x-1/2">
+    <div class="join shadow-xl">
+      <button
+        type="button"
+        class="btn btn-sm join-item"
+        :class="mode === 'mix' ? 'btn-primary' : 'btn-ghost bg-base-100/70 backdrop-blur-sm'"
+        @click="mode = 'mix'"
+      >Mix</button>
+      <button
+        type="button"
+        class="btn btn-sm join-item"
+        :class="mode === 'lazy' ? 'btn-primary' : 'btn-ghost bg-base-100/70 backdrop-blur-sm'"
+        @click="mode = 'lazy'"
+      >Lazy</button>
+    </div>
+  </div>
 </template>

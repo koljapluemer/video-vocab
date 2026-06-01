@@ -10,6 +10,7 @@ import type { LazyVideo } from './loadRandomLazyVideo'
 const props = defineProps<{
   video: LazyVideo
   languageCode: string
+  aspectRatio: number
 }>()
 
 const emit = defineEmits<{
@@ -182,8 +183,14 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-box bg-black">
-    <div class="relative aspect-video">
+  <div class="w-full">
+    <div
+      class="relative mx-auto w-full"
+      :style="{
+        aspectRatio: String(props.aspectRatio),
+        maxWidth: `min(100vw, calc(100vh * ${props.aspectRatio}))`,
+      }"
+    >
       <div :id="playerHostId" class="h-full w-full"></div>
       <div class="pointer-events-none absolute left-3 top-3">
         <TransitionGroup tag="div" name="vocab-card" class="flex flex-col gap-2">
@@ -203,7 +210,7 @@ onBeforeUnmount(() => {
     <span>{{ playerError }}</span>
   </div>
 
-  <div class="mt-4 flex justify-end">
+  <div class="mt-4 flex justify-end pb-24 px-4">
     <button type="button" class="btn btn-ghost" @click="emit('finished')">
       Next video
     </button>

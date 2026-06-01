@@ -6,6 +6,7 @@ export interface LazySegment {
 }
 
 export interface LazyVideo {
+  aspectRatio: number
   videoId: string
   languageCode: string
   segments: LazySegment[]
@@ -21,6 +22,19 @@ interface ExportSegment {
 interface ExportVideoFile {
   segments: ExportSegment[]
   videoId: string
+}
+
+async function fetchAspectRatio(videoId: string): Promise<number> {
+  try {
+    const res = await fetch(
+      `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`,
+    )
+    if (!res.ok) return 16 / 9
+    const data = (await res.json()) as { width: number; height: number }
+    return data.width / data.height
+  } catch {
+    return 16 / 9
+  }
 }
 
 async function fetchJson<T>(path: string): Promise<T> {
@@ -98,7 +112,8 @@ export async function loadRandomLazyVideo(languageCode: string): Promise<LazyVid
         continue
       }
 
-      return { videoId: videoFile.videoId, languageCode, segments }
+      const aspectRatio = await fetchAspectRatio(videoFile.videoId)
+      return { aspectRatio, videoId: videoFile.videoId, languageCode, segments }
     } catch (error) {
       console.error(`Failed to load lazy video '${videoId}':`, error)
     }

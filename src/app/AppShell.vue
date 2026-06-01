@@ -22,6 +22,7 @@ const activeModal = ref<AuxModal | null>(null)
 const loadError = ref('')
 const isLoading = ref(true)
 const statsRefreshToken = ref(0)
+const currentVideoId = ref<string | null>(null)
 
 const languageLabel = computed(() => {
   if (!currentLanguageCode.value) {
@@ -69,6 +70,10 @@ function handleContextRoundCompleted() {
   statsRefreshToken.value += 1
 }
 
+function handleVideoChanged(videoId: string | null) {
+  currentVideoId.value = videoId
+}
+
 onMounted(async () => {
   try {
     await bootstrapLegacyTargetLanguage()
@@ -94,46 +99,36 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-base-100">
-    <header class="border-b border-base-300">
-      <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <div class="min-w-0">
-          <p class="truncate text-lg font-semibold">Video Vocab</p>
-          <p class="truncate text-sm text-base-content/70">{{ languageLabel }}</p>
-        </div>
+  <div class="min-h-screen">
+    <div class="fixed inset-0 -z-10 overflow-hidden bg-black">
+      <img v-if="currentVideoId" :key="currentVideoId"
+        :src="`https://img.youtube.com/vi/${currentVideoId}/maxresdefault.jpg`"
+        class="h-full w-full scale-110 object-cover blur-3xl brightness-50" alt="" aria-hidden="true" />
+    </div>
 
-        <div class="flex items-center gap-2">
-          <button type="button" class="btn btn-ghost gap-2" @click="openModal('language')">
-            <Languages class="size-5" />
-            <span class="hidden md:inline">Language</span>
-          </button>
-          <button type="button" class="btn btn-ghost gap-2" @click="openModal('stats')">
-            <ChartColumn class="size-5" />
-            <span class="hidden md:inline">Stats</span>
-          </button>
-          <button type="button" class="btn btn-ghost gap-2" @click="openModal('info')">
-            <Info class="size-5" />
-            <span class="hidden md:inline">Info</span>
-          </button>
-        </div>
-      </div>
+    <header class="fixed top-0 left-0 right-0 z-50 flex w-full items-center justify-center gap-4 px-4 py-3">
+      <button type="button" class="btn btn-ghost gap-2" @click="openModal('language')">
+        <Languages class="size-5" />
+        <span class="hidden md:inline">{{ languageLabel }}</span>
+      </button>
+      <button type="button" class="btn btn-ghost gap-2" @click="openModal('stats')">
+        <ChartColumn class="size-5" />
+        <span class="hidden md:inline">Stats</span>
+      </button>
+      <button type="button" class="btn btn-ghost gap-2" @click="openModal('info')">
+        <Info class="size-5" />
+        <span class="hidden md:inline">Info</span>
+      </button>
     </header>
 
     <main>
-      <div
-        v-if="isLoading"
-        class="flex min-h-[calc(100vh-65px)] items-center justify-center px-4"
-      >
+      <div v-if="isLoading" class="flex min-h-screen items-center justify-center px-4">
         <span class="loading loading-spinner loading-lg"></span>
       </div>
 
-      <ContextPracticePage
-        v-else
-        :language-code="currentLanguageCode"
-        :refresh-token="statsRefreshToken"
-        @open-language-picker="openModal('language')"
-        @round-completed="handleContextRoundCompleted"
-      />
+      <ContextPracticePage v-else :language-code="currentLanguageCode" :refresh-token="statsRefreshToken"
+        @open-language-picker="openModal('language')" @round-completed="handleContextRoundCompleted"
+        @video-changed="handleVideoChanged" />
     </main>
 
     <AppAuxModal :is-open="activeModal !== null" :title="modalTitle" @close="closeModal">
@@ -143,62 +138,34 @@ onMounted(async () => {
         </div>
 
         <div v-else class="grid gap-2">
-          <button
-            v-for="course in courses"
-            :key="course.languageCode"
-            type="button"
-            class="btn justify-between"
+          <button v-for="course in courses" :key="course.languageCode" type="button" class="btn justify-between"
             :class="course.languageCode === currentLanguageCode ? 'btn-primary' : 'btn-ghost border border-base-300'"
-            @click="selectLanguage(course.languageCode)"
-          >
+            @click="selectLanguage(course.languageCode)">
             <span>{{ course.label }}</span>
             <span class="text-xs opacity-70">{{ course.languageCode.toUpperCase() }}</span>
           </button>
         </div>
       </div>
 
-      <ContextStatsPanel
-        v-else-if="activeModal === 'stats'"
-        :language-code="currentLanguageCode"
-        :language-label="languageLabel"
-        :refresh-token="statsRefreshToken"
-      />
+      <ContextStatsPanel v-else-if="activeModal === 'stats'" :language-code="currentLanguageCode"
+        :language-label="languageLabel" :refresh-token="statsRefreshToken" />
 
       <div v-else-if="activeModal === 'info'" class="space-y-4 text-sm leading-6">
         <p>
           Made by
-          <a
-            class="link"
-            href="https://koljasam.com/"
-            rel="noopener"
-            target="_blank"
-          >Kolja Sam</a>.
+          <a class="link" href="https://koljasam.com/" rel="noopener" target="_blank">Kolja Sam</a>.
         </p>
         <p>
-          This app is 
-          <a
-            class="link"
-            href="https://github.com/koljapluemer/video-vocab"
-            rel="noopener"
-            target="_blank"
-          >Open source</a>.
+          This app is
+          <a class="link" href="https://github.com/koljapluemer/video-vocab" rel="noopener" target="_blank">Open
+            source</a>.
         </p>
         <p>
           I track nothing but pseudonymous learning data and page views via the privacy-friendly
-          <a
-            class="link"
-            href="https://www.goatcounter.com/"
-            rel="noopener"
-            target="_blank"
-          >GoatCounter</a>.
+          <a class="link" href="https://www.goatcounter.com/" rel="noopener" target="_blank">GoatCounter</a>.
         </p>
-        <p>If you want to enable me to keep building apps like this, support me on 
-          <a
-            class="link"
-            href="https://ko-fi.com/S6S81CWUVD"
-            rel="noopener"
-            target="_blank"
-          >Ko-fi</a>.
+        <p>If you want to enable me to keep building apps like this, support me on
+          <a class="link" href="https://ko-fi.com/S6S81CWUVD" rel="noopener" target="_blank">Ko-fi</a>.
         </p>
       </div>
     </AppAuxModal>

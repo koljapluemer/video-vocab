@@ -8,6 +8,7 @@ import { loadYoutubeIframeApi } from '@/features/video-embed/loadYoutubeIframeAp
 const WATCH_TICK_MS = 5_000
 
 const props = defineProps<{
+  aspectRatio: number
   durationSeconds: number
   languageCode: string
   startSeconds: number
@@ -193,8 +194,14 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-box bg-black">
-    <div class="relative aspect-video">
+  <div class="w-full">
+    <div
+      class="relative mx-auto w-full"
+      :style="{
+        aspectRatio: String(props.aspectRatio),
+        maxWidth: `min(100vw, calc(100vh * ${props.aspectRatio}))`,
+      }"
+    >
       <div :id="playerHostId" class="h-full w-full"></div>
     </div>
   </div>

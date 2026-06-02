@@ -239,14 +239,14 @@ onBeforeUnmount(() => {
       <div class="absolute bottom-3 right-3 z-10 flex flex-col items-end gap-2">
         <button
           type="button"
-          class="btn btn-sm bg-base-100/85 text-base-content shadow-lg backdrop-blur-sm hover:bg-base-100"
+          class="btn btn-sm xl:btn-xl bg-base-100/85 text-base-content shadow-lg backdrop-blur-sm hover:bg-base-100"
           @click="emit('finished')"
         >
           Next video
         </button>
         <button
           type="button"
-          class="btn btn-sm btn-ghost bg-base-100/70 text-base-content shadow-lg backdrop-blur-sm hover:bg-base-100"
+          class="btn btn-sm xl:btn-xl btn-ghost bg-base-100/70 text-base-content shadow-lg backdrop-blur-sm hover:bg-base-100"
           :disabled="!canSkipSegment"
           @click="skipToNextSegment"
         >

@@ -11,7 +11,7 @@ const emit = defineEmits<{
 
 <template>
   <div
-    class="pointer-events-auto cursor-pointer rounded-box bg-base-200/90 px-3 py-1.5 text-sm font-medium shadow-sm transition-opacity hover:opacity-70"
+    class="pointer-events-auto cursor-pointer rounded-box bg-base-200/90 px-3 py-1.5 text-sm font-medium shadow-sm transition-opacity hover:opacity-70 xl:px-4 xl:py-2 xl:text-2xl"
     @click="emit('dismiss')"
   >
     {{ word }} = {{ translation }}

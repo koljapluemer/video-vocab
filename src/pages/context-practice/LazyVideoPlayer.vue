@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 import { recordContextWatchSlice } from '@/features/context-stats/contextStatsStore'
 import { loadYoutubeIframeApi } from '@/features/video-embed/loadYoutubeIframeApi'
@@ -18,7 +18,9 @@ const emit = defineEmits<{
 }>()
 
 const playerError = ref('')
+const currentTimeSeconds = ref(0)
 const playerHostId = `lazy-player-${Math.random().toString(36).slice(2)}`
+const orderedSegments = [...props.video.segments].sort((a, b) => a.startSeconds - b.startSeconds)
 
 interface ActiveCard {
   id: number
@@ -34,9 +36,24 @@ let pollInterval: number | null = null
 let watchTimer: number | null = null
 let isPlayerActivelyPlaying = false
 let lastWatchTickAt = Date.now()
-let nextCardAt = 1 + Math.random() * 2
+let nextCardAt = getNextCardAt(0)
 const activeCards = ref<ActiveCard[]>([])
 let nextCardId = 0
+
+const canSkipSegment = computed(() => getNextSegmentStart(currentTimeSeconds.value) !== null)
+
+function getNextCardAt(baseSeconds: number) {
+  return baseSeconds + 1 + Math.random() * 2
+}
+
+function clearActiveCards() {
+  activeCards.value.forEach((card) => window.clearTimeout(card.timeoutId))
+  activeCards.value = []
+}
+
+function getNextSegmentStart(afterSeconds: number) {
+  return orderedSegments.find((segment) => segment.startSeconds > afterSeconds + 0.01) ?? null
+}
 
 function flushWatchSlice(now: number) {
   if (!isPlayerActivelyPlaying || document.hidden) {
@@ -71,11 +88,12 @@ function dismissCard(id: number) {
 
 function tickPoll() {
   const current = player?.getCurrentTime() ?? 0
+  currentTimeSeconds.value = current
   if (current < nextCardAt) return
 
-  nextCardAt = current + 1 + Math.random() * 2
+  nextCardAt = getNextCardAt(current)
 
-  const seg = props.video.segments.find(
+  const seg = orderedSegments.find(
     (s) => s.startSeconds <= current && current < s.endSeconds,
   )
   if (!seg) return
@@ -96,6 +114,23 @@ function tickPoll() {
   const id = nextCardId++
   const timeoutId = window.setTimeout(() => dismissCard(id), 4000)
   activeCards.value = [...activeCards.value, { id, word, translation, timeoutId }]
+}
+
+function skipToNextSegment() {
+  const activePlayer = player
+  if (!activePlayer) return
+
+  const current = activePlayer.getCurrentTime()
+  if (current == null) return
+
+  const nextSegment = getNextSegmentStart(current)
+  if (!nextSegment) return
+
+  clearActiveCards()
+  currentTimeSeconds.value = nextSegment.startSeconds
+  nextCardAt = getNextCardAt(nextSegment.startSeconds)
+  activePlayer.seekTo(nextSegment.startSeconds, true)
+  activePlayer.playVideo()
 }
 
 function startPoll() {
@@ -175,20 +210,18 @@ onBeforeUnmount(() => {
   document.removeEventListener('visibilitychange', handleVisibilityChange)
   stopPoll()
   stopWatchTracking()
-  activeCards.value.forEach((c) => window.clearTimeout(c.timeoutId))
+  clearActiveCards()
   player?.destroy()
   player = null
-  activeCards.value = []
 })
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="w-screen">
     <div
-      class="relative mx-auto w-full"
+      class="relative w-full overflow-hidden"
       :style="{
         aspectRatio: String(props.aspectRatio),
-        maxWidth: `min(100vw, calc(100vh * ${props.aspectRatio}))`,
       }"
     >
       <div :id="playerHostId" class="h-full w-full"></div>
@@ -203,16 +236,27 @@ onBeforeUnmount(() => {
           />
         </TransitionGroup>
       </div>
+      <div class="absolute bottom-3 right-3 z-10 flex flex-col items-end gap-2">
+        <button
+          type="button"
+          class="btn btn-sm bg-base-100/85 text-base-content shadow-lg backdrop-blur-sm hover:bg-base-100"
+          @click="emit('finished')"
+        >
+          Next video
+        </button>
+        <button
+          type="button"
+          class="btn btn-sm btn-ghost bg-base-100/70 text-base-content shadow-lg backdrop-blur-sm hover:bg-base-100"
+          :disabled="!canSkipSegment"
+          @click="skipToNextSegment"
+        >
+          Skip segment
+        </button>
+      </div>
     </div>
   </div>
 
-  <div v-if="playerError" class="alert alert-error mt-4">
+  <div v-if="playerError" class="alert alert-error mx-4 mt-4">
     <span>{{ playerError }}</span>
-  </div>
-
-  <div class="mt-4 flex justify-end pb-24 px-4">
-    <button type="button" class="btn btn-ghost" @click="emit('finished')">
-      Next video
-    </button>
   </div>
 </template>

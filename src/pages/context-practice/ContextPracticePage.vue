@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, shallowRef, watch } from 'vue'
+import { computed, onMounted, shallowRef, watch } from 'vue'
 
 import { recordCompletedContextRound } from '@/features/context-stats/contextStatsStore'
 
@@ -14,7 +14,7 @@ import {
   loadRandomContextRound,
   type ContextRound,
 } from './loadRandomContextRound'
-import { loadRandomLazyVideo, type LazyVideo } from './loadRandomLazyVideo'
+import { loadLazyVideoById, loadRandomLazyVideo, type LazyVideo } from './loadRandomLazyVideo'
 
 interface PracticeRoundState {
   exercise: ContextExerciseTemplate
@@ -40,6 +40,7 @@ type PracticeMode = 'mix' | 'lazy'
 const props = defineProps<{
   languageCode: string | null
   refreshToken: number
+  pendingLazyVideoId?: string | null
 }>()
 
 const emit = defineEmits<{
@@ -161,6 +162,23 @@ async function completeRound() {
   }
 }
 
+async function loadSpecificLazyVideo(videoId: string) {
+  if (!props.languageCode) return
+
+  const requestId = ++lazyLoadRequestId
+  lazyState.value = { kind: 'loading' }
+
+  try {
+    const video = await loadLazyVideoById(props.languageCode, videoId)
+    if (requestId !== lazyLoadRequestId) return
+    lazyState.value = { kind: 'playing', video }
+  } catch (error) {
+    console.error('Failed to load specific lazy video:', error)
+    if (requestId !== lazyLoadRequestId) return
+    lazyState.value = { kind: 'error', message: 'Unable to load video.' }
+  }
+}
+
 async function loadNextLazyVideo() {
   if (!props.languageCode) {
     lazyState.value = { kind: 'idle' }
@@ -202,11 +220,34 @@ watch(
   { immediate: true },
 )
 
+let skipNextLazyAutoLoad = false
+
+function activateLazyWithVideo(videoId: string) {
+  skipNextLazyAutoLoad = true
+  mode.value = 'lazy'
+  void loadSpecificLazyVideo(videoId)
+}
+
+onMounted(() => {
+  if (props.pendingLazyVideoId) activateLazyWithVideo(props.pendingLazyVideoId)
+})
+
+watch(
+  () => props.pendingLazyVideoId,
+  (videoId) => {
+    if (videoId) activateLazyWithVideo(videoId)
+  },
+)
+
 watch(mode, (newMode) => {
   if (newMode === 'mix') {
     lazyState.value = { kind: 'idle' }
     void loadNextRound()
   } else {
+    if (skipNextLazyAutoLoad) {
+      skipNextLazyAutoLoad = false
+      return
+    }
     loadRequestId++
     state.value = { kind: 'idle' }
     void loadNextLazyVideo()

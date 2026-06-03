@@ -91,6 +91,14 @@ function parseSegments(videoFile: ExportVideoFile): LazySegment[] {
     )
 }
 
+export async function loadLazyVideoById(languageCode: string, videoId: string): Promise<LazyVideo> {
+  const videoFile = await fetchJson<ExportVideoFile>(`/vv-data/2_export/${languageCode}/${videoId}.json`)
+  const segments = parseSegments(videoFile)
+  if (segments.length === 0) throw new Error(`No valid segments in video '${videoId}'.`)
+  const aspectRatio = await fetchAspectRatio(videoFile.videoId)
+  return { aspectRatio, videoId: videoFile.videoId, languageCode, segments }
+}
+
 export async function loadRandomLazyVideo(languageCode: string): Promise<LazyVideo> {
   const videoIds = (await fetchText(`/vv-data/2_export/${languageCode}/_index.txt`))
     .split('\n')

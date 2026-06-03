@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ChartColumn, Info, Languages } from 'lucide-vue-next'
-import { computed, onMounted, ref } from 'vue'
+import { ChartColumn, Info, Languages, Video } from 'lucide-vue-next'
+import { computed, nextTick, onMounted, ref } from 'vue'
 
 import type { Course } from '@/entities/course/course'
 import { getAllCourses } from '@/entities/course/course'
@@ -11,10 +11,13 @@ import {
 } from '@/features/target-language-select/targetLanguageStore'
 import ContextPracticePage from '@/pages/context-practice/ContextPracticePage.vue'
 import ContextStatsPanel from '@/pages/context-practice/ContextStatsPanel.vue'
+import VideosPage from '@/pages/videos/VideosPage.vue'
 
 import AppAuxModal from './AppAuxModal.vue'
 
 type AuxModal = 'info' | 'language' | 'stats'
+
+type ActivePage = 'practice' | 'videos'
 
 const courses = ref<Course[]>([])
 const currentLanguageCode = ref<string | null>(null)
@@ -23,6 +26,8 @@ const loadError = ref('')
 const isLoading = ref(true)
 const statsRefreshToken = ref(0)
 const currentVideoId = ref<string | null>(null)
+const activePage = ref<ActivePage>('practice')
+const pendingLazyVideoId = ref<string | null>(null)
 
 const languageLabel = computed(() => {
   if (!currentLanguageCode.value) {
@@ -74,6 +79,13 @@ function handleVideoChanged(videoId: string | null) {
   currentVideoId.value = videoId
 }
 
+async function handleLazyWatch(videoId: string) {
+  pendingLazyVideoId.value = videoId
+  activePage.value = 'practice'
+  await nextTick()
+  pendingLazyVideoId.value = null
+}
+
 onMounted(async () => {
   try {
     await bootstrapLegacyTargetLanguage()
@@ -115,6 +127,15 @@ onMounted(async () => {
         <ChartColumn class="size-5" />
         <span class="hidden md:inline">Stats</span>
       </button>
+      <button
+        type="button"
+        class="btn btn-ghost gap-2"
+        :class="activePage === 'videos' ? 'btn-active' : ''"
+        @click="activePage = activePage === 'videos' ? 'practice' : 'videos'"
+      >
+        <Video class="size-5" />
+        <span class="hidden md:inline">Videos</span>
+      </button>
       <button type="button" class="btn btn-ghost gap-2" @click="openModal('info')">
         <Info class="size-5" />
         <span class="hidden md:inline">Info</span>
@@ -126,9 +147,20 @@ onMounted(async () => {
         <span class="loading loading-spinner loading-lg"></span>
       </div>
 
-      <ContextPracticePage v-else :language-code="currentLanguageCode" :refresh-token="statsRefreshToken"
-        @open-language-picker="openModal('language')" @round-completed="handleContextRoundCompleted"
-        @video-changed="handleVideoChanged" />
+      <VideosPage
+        v-else-if="activePage === 'videos'"
+        :language-code="currentLanguageCode"
+        @lazy-watch="handleLazyWatch"
+      />
+      <ContextPracticePage
+        v-else
+        :language-code="currentLanguageCode"
+        :refresh-token="statsRefreshToken"
+        :pending-lazy-video-id="pendingLazyVideoId"
+        @open-language-picker="openModal('language')"
+        @round-completed="handleContextRoundCompleted"
+        @video-changed="handleVideoChanged"
+      />
     </main>
 
     <AppAuxModal :is-open="activeModal !== null" :title="modalTitle" @close="closeModal">
